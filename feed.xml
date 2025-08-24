@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>mookobuko</title>
+    <link href="https://rykerbukowski.github.io/mookobuko/feed.xml" rel="self" />
+    <link href="https://rykerbukowski.github.io/mookobuko" />
+    <updated>2025-08-23T21:44:46-07:00</updated>
+    <author>
+        <name>Meg and Ryker</name>
+    </author>
+    <id>https://rykerbukowski.github.io/mookobuko</id>
+
+    <entry>
+        <title>Hello World its MOOKOBUKO</title>
+        <author>
+            <name>Meg and Ryker</name>
+        </author>
+        <link href="https://rykerbukowski.github.io/mookobuko/hello-world-its-mookobuko.html"/>
+        <id>https://rykerbukowski.github.io/mookobuko/hello-world-its-mookobuko.html</id>
+
+        <updated>2025-08-23T21:44:46-07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+</feed>

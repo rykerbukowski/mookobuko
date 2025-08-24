@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://rykerbukowski.github.io/mookobuko/sitemap.xml
