@@ -3,12 +3,56 @@
     <title>mookobuko</title>
     <link href="https://rykerbukowski.github.io/mookobuko/feed.xml" rel="self" />
     <link href="https://rykerbukowski.github.io/mookobuko" />
-    <updated>2025-08-23T21:44:46-07:00</updated>
+    <updated>2025-08-28T09:22:56-07:00</updated>
     <author>
         <name>Meg and Ryker</name>
     </author>
     <id>https://rykerbukowski.github.io/mookobuko</id>
 
+    <entry>
+        <title>Welcome to Mookobuko</title>
+        <author>
+            <name>Meg and Ryker</name>
+        </author>
+        <link href="https://rykerbukowski.github.io/mookobuko/welcome-to-mookobuko.html"/>
+        <id>https://rykerbukowski.github.io/mookobuko/welcome-to-mookobuko.html</id>
+
+        <updated>2025-08-28T09:22:56-07:00</updated>
+            <summary>
+                <![CDATA[
+                    Our year-long trip around the world begins Hi there — we’re Meg and Ryker, and this is where we’re going to share our journey around the world. Starting in January 2026, we’ll be packing up our lives in Seattle and spending a year exploring Japan,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p data-start="275" data-end="344">Our year-long trip around the world begins</p>
+<p data-start="390" data-end="496">Hi there — we’re <strong data-start="407" data-end="424">Meg and Ryker</strong>, and this is where we’re going to share our journey around the world.</p>
+<p data-start="498" data-end="798">Starting in <strong data-start="510" data-end="526">January 2026</strong>, we’ll be packing up our lives in Seattle and spending a year exploring Japan, Southeast Asia, Europe, and beyond. Think cycling across islands, train rides through the countryside, street food markets, mountain hikes, and plenty of unexpected adventures along the way.</p>
+<p data-start="800" data-end="940">We built this site (with the help of Publii, GitHub, and Cloudflare) so that friends, family, and anyone curious can follow along. Expect:</p>
+<ul data-start="941" data-end="1249">
+<li data-start="941" data-end="1008">
+<p data-start="943" data-end="1008"><strong data-start="943" data-end="962">Travel journals</strong> — what it’s like on the ground, day to day.</p>
+</li>
+<li data-start="1009" data-end="1075">
+<p data-start="1011" data-end="1075"><strong data-start="1011" data-end="1028">Guides &amp; tips</strong> — things we wish we’d known before arriving.</p>
+</li>
+<li data-start="1076" data-end="1162">
+<p data-start="1078" data-end="1162"><strong data-start="1078" data-end="1098">Photos &amp; stories</strong> — the big moments, the quiet ones, and everything in between.</p>
+</li>
+<li data-start="1163" data-end="1249">
+<p data-start="1165" data-end="1249"><strong data-start="1165" data-end="1179">Gear notes</strong> — what we’re carrying and how it holds up after months on the road.</p>
+</li>
+</ul>
+<p data-start="1251" data-end="1368">Why “Mookobuko”? It’s a playful mash-up of our names that became a nickname between us — now it’s our travel brand.</p>
+<ul>
+<li data-start="1251" data-end="1368">Moo, short for Moogan. Play on Megan, but the Moo is because she is NOT a cow. </li>
+<li data-start="1251" data-end="1368">Buko, short for bukoboots2 which has been Ryker's gamertag since he was 10. </li>
+</ul>
+<p data-start="1370" data-end="1514">This site is simple right now, but it’ll grow with us as we travel. For now, thanks for stopping by. We can’t wait to share the road with you.</p>
+<p data-start="1516" data-end="1531">— Meg &amp; Ryker</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Hello World its MOOKOBUKO</title>
         <author>
