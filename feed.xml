@@ -1,32 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>mookobuko</title>
-    <link href="https://rykerbukowski.github.io/mookobuko/feed.xml" rel="self" />
-    <link href="https://rykerbukowski.github.io/mookobuko" />
-    <updated>2025-10-17T13:10:19-07:00</updated>
+    <link href="https://mookobuko.com/feed.xml" rel="self" />
+    <link href="https://mookobuko.com" />
+    <updated>2025-11-06T15:35:54-08:00</updated>
     <author>
         <name>Meg and Ryker</name>
     </author>
-    <id>https://rykerbukowski.github.io/mookobuko</id>
+    <id>https://mookobuko.com</id>
 
+    <entry>
+        <title>Three Tigers: One Mountain | Book Review and What I Learned about the Complicated Relationships Between Korea, China, Japan, and Taiwan</title>
+        <author>
+            <name>Meg and Ryker</name>
+        </author>
+        <link href="https://mookobuko.com/three-tigers-one-mountain-or-book-review-and-what-i-learned-about-the-complicated-relationships-between-korea-china-japan-and-taiwan.html"/>
+        <id>https://mookobuko.com/three-tigers-one-mountain-or-book-review-and-what-i-learned-about-the-complicated-relationships-between-korea-china-japan-and-taiwan.html</id>
+
+        <updated>2025-11-06T15:26:51-08:00</updated>
+            <summary>
+                <![CDATA[
+                    Korea hates Japan. Taiwan hates Korea. China dislikes Korea and Japan and claims Taiwan. and Japan is walking around with their hands up saying, "Can't we all just move on from WWII?" I had no idea the state of the relationships between these three major&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p><span style="font-weight: 400;">Korea hates Japan.  </span></p>
+<p><span style="font-weight: 400;">Taiwan hates Korea. </span></p>
+<p><span style="font-weight: 400;">China dislikes Korea and Japan and claims Taiwan. </span></p>
+<p><span style="font-weight: 400;">and Japan is walking around with their hands up saying, "Can't we all just move on from WWII?"</span></p>
+<p><span style="font-weight: 400;">I had no idea the state of the relationships between these three major Eastern powers before reading Michael Booth's </span><i><span style="font-weight: 400;">Three Tigers, One Mountain: A Journey Through the Bitter History and Current Conflicts of China, Korea, and Japan.</span></i><span style="font-weight: 400;"> In general I would not consider myself well versed on history or modern day politics, but as my year-long world trip looms, I figured that I needed to start somewhere. </span></p>
+<p><span style="font-weight: 400;">Our trip started in Tokyo and so learning a bit about Japan's history was a good place to start, the problem? Starting to dive into history with a very shaky foundation proved difficult. All the books, articles, movies and more seemed to be torn straight out of academia. Some PDH looking to publish, "for the public" forgetting the public is very different from their collection of pretentious colleagues. And I needed the basics, but I'm a picky reader. I also wanted to be entertained, to absorb and understand what I was reading, not another list of names and dates followed but a way too long explanation of one event, I needed the big picture - enter Michael Booth. </span></p>
+<p><span style="font-weight: 400;">From what I gather Michael Booth is a food writer. Previously publishing a couple books on the history of Japan, none of which I'd read. But when I found </span><i><span style="font-weight: 400;">Three Tigers </span></i><span style="font-weight: 400;">I knew it had the potential to satiate my curiosity. </span><i><span style="font-weight: 400;">Three Tigers </span></i><span style="font-weight: 400;">follows Booth as he explores around Japan, Korea, China, and finally Taiwan. Each chapter takes place in a new city, following a similar flow: a modern day expose, historical context, and interviews, with all sorts of folks, from students to scholars. </span></p>
+<p> </p>
+<h1 class="Text Text__title1" data-testid="bookTitle" aria-label="Book title: Three Tigers, One Mountain: A Journey Through the Bitter History and Current Conflicts of China, Korea, and Japan"></h1>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Our Minimoon: From Mt. Hood to the Coast</title>
         <author>
             <name>Meg and Ryker</name>
         </author>
-        <link href="https://rykerbukowski.github.io/mookobuko/mini-moon-washington-coast.html"/>
-        <id>https://rykerbukowski.github.io/mookobuko/mini-moon-washington-coast.html</id>
+        <link href="https://mookobuko.com/mini-moon-washington-coast.html"/>
+        <id>https://mookobuko.com/mini-moon-washington-coast.html</id>
 
         <updated>2025-10-17T12:13:28-07:00</updated>
             <summary>
                 <![CDATA[
                     <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="3">
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7990.jpeg" data-size="3088x2316"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7990-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8282.jpeg" data-size="3024x4032"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8282-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8132.jpeg" data-size="3024x4032"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8132-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7994.jpeg" data-size="3088x2316"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7994-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7909.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7909-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8150.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8150-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7990.jpeg" data-size="3088x2316"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7990-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8282.jpeg" data-size="3024x4032"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8282-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8132.jpeg" data-size="3024x4032"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8132-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7994.jpeg" data-size="3088x2316"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7994-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7909.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7909-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8150.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8150-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
 </div></div>
 <h2 class="align-center"><strong>Part 1 – The Drive North &amp; Beachwood</strong></h2>
 <p><span style="font-weight: 400;">We left Mt. Hood Meadows that morning, tired but still buzzing from the night before. After packing up the car, we drove toward Portland and stopped at Pho Le Nguyen — a comfort-food reward for surviving the wedding whirlwind.</span></p>
@@ -38,10 +68,10 @@
 <p><span style="font-weight: 400;">Our $10-per-game betting rivalry continued:</span></p>
 <p><span style="font-weight: 400;">Meg + $20 / Ryker – $20. (She’s still bragging.)</span></p>
 <h2 class="align-center"><strong>Part 1 – The Drive North &amp; Beachwood</strong></h2>
-<table style="border-collapse: collapse; width: 101.425%; height: 1330px; background-color: #ffffff; border-color: #ffffff; border-style: none;" border="1">
+<table style="border-collapse: collapse; width: 109.544%; height: 1359px; background-color: #ffffff; border-color: #ffffff; border-style: none;" border="1">
 <tbody>
 <tr>
-<td style="width: 45.7967%;">
+<td style="width: 50.5127%;">
 <p><span style="font-weight: 400;">We left Mt. Hood Meadows that morning, tired but still buzzing from the night before. After packing up the car, we drove toward Portland and stopped at Pho Le Nguyen — a comfort-food reward for surviving the wedding whirlwind.</span></p>
 <p><span style="font-weight: 400;">In perfect timing, we ran into G and Kierra there — a random, happy reunion before hitting the coast.</span></p>
 <p><span style="font-weight: 400;">That evening we reached Beachwood Resort in Washington, our home base for the next few nights. A tiny condo right on the beach — a little worn but with a pool, hot tub, and sauna.</span></p>
@@ -51,16 +81,16 @@
 <p><span style="font-weight: 400;">Our $10-per-game betting rivalry continued:</span></p>
 <p><span style="font-weight: 400;">Meg + $20 / Ryker – $20. (She’s still bragging.)</span></p>
 </td>
-<td style="width: 54.2033%;">
-<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="2">
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7826.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7826-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7828.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7828-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7830.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7830-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7845.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7845-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7905.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7905-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8019.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8019-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8034.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8034-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8058.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8058-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<td style="width: 49.4873%;">
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="1">
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7826.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7826-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7828.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7828-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7830.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7830-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7845.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7845-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7905.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7905-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8019.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8019-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8034.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8034-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8058.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8058-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
 </div></div>
 </td>
 </tr>
@@ -72,12 +102,12 @@
         <content type="html">
             <![CDATA[
                 <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="3">
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7990.jpeg" data-size="3088x2316"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7990-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8282.jpeg" data-size="3024x4032"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8282-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8132.jpeg" data-size="3024x4032"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8132-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7994.jpeg" data-size="3088x2316"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7994-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7909.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7909-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8150.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8150-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7990.jpeg" data-size="3088x2316"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7990-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8282.jpeg" data-size="3024x4032"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8282-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8132.jpeg" data-size="3024x4032"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8132-thumbnail.jpeg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7994.jpeg" data-size="3088x2316"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7994-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7909.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7909-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8150.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8150-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
 </div></div>
 <h2 class="align-center"><strong>Part 1 – The Drive North &amp; Beachwood</strong></h2>
 <p><span style="font-weight: 400;">We left Mt. Hood Meadows that morning, tired but still buzzing from the night before. After packing up the car, we drove toward Portland and stopped at Pho Le Nguyen — a comfort-food reward for surviving the wedding whirlwind.</span></p>
@@ -89,10 +119,10 @@
 <p><span style="font-weight: 400;">Our $10-per-game betting rivalry continued:</span></p>
 <p><span style="font-weight: 400;">Meg + $20 / Ryker – $20. (She’s still bragging.)</span></p>
 <h2 class="align-center"><strong>Part 1 – The Drive North &amp; Beachwood</strong></h2>
-<table style="border-collapse: collapse; width: 101.425%; height: 1330px; background-color: #ffffff; border-color: #ffffff; border-style: none;" border="1">
+<table style="border-collapse: collapse; width: 109.544%; height: 1359px; background-color: #ffffff; border-color: #ffffff; border-style: none;" border="1">
 <tbody>
 <tr>
-<td style="width: 45.7967%;">
+<td style="width: 50.5127%;">
 <p><span style="font-weight: 400;">We left Mt. Hood Meadows that morning, tired but still buzzing from the night before. After packing up the car, we drove toward Portland and stopped at Pho Le Nguyen — a comfort-food reward for surviving the wedding whirlwind.</span></p>
 <p><span style="font-weight: 400;">In perfect timing, we ran into G and Kierra there — a random, happy reunion before hitting the coast.</span></p>
 <p><span style="font-weight: 400;">That evening we reached Beachwood Resort in Washington, our home base for the next few nights. A tiny condo right on the beach — a little worn but with a pool, hot tub, and sauna.</span></p>
@@ -102,16 +132,16 @@
 <p><span style="font-weight: 400;">Our $10-per-game betting rivalry continued:</span></p>
 <p><span style="font-weight: 400;">Meg + $20 / Ryker – $20. (She’s still bragging.)</span></p>
 </td>
-<td style="width: 54.2033%;">
-<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="2">
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7826.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7826-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7828.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7828-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7830.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7830-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7845.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7845-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7905.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_7905-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8019.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8019-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8034.jpeg" data-size="5712x4284"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8034-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
-<figure class="gallery__item"><a href="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8058.jpeg" data-size="4032x3024"><img loading="lazy" src="https://rykerbukowski.github.io/mookobuko/media/posts/3/gallery/IMG_8058-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<td style="width: 49.4873%;">
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="1">
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7826.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7826-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7828.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7828-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7830.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7830-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7845.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7845-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_7905.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_7905-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8019.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8019-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8034.jpeg" data-size="5712x4284"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8034-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/3/gallery/IMG_8058.jpeg" data-size="4032x3024"><img loading="lazy" src="https://mookobuko.com/media/posts/3/gallery/IMG_8058-thumbnail.jpeg" alt="" width="720" height="540"></a></figure>
 </div></div>
 </td>
 </tr>
@@ -145,8 +175,8 @@
         <author>
             <name>Meg and Ryker</name>
         </author>
-        <link href="https://rykerbukowski.github.io/mookobuko/welcome-to-mookobuko.html"/>
-        <id>https://rykerbukowski.github.io/mookobuko/welcome-to-mookobuko.html</id>
+        <link href="https://mookobuko.com/welcome-to-mookobuko.html"/>
+        <id>https://mookobuko.com/welcome-to-mookobuko.html</id>
 
         <updated>2025-08-28T09:22:56-07:00</updated>
             <summary>
@@ -189,8 +219,8 @@
         <author>
             <name>Meg and Ryker</name>
         </author>
-        <link href="https://rykerbukowski.github.io/mookobuko/hello-world-its-mookobuko.html"/>
-        <id>https://rykerbukowski.github.io/mookobuko/hello-world-its-mookobuko.html</id>
+        <link href="https://mookobuko.com/hello-world-its-mookobuko.html"/>
+        <id>https://mookobuko.com/hello-world-its-mookobuko.html</id>
 
         <updated>2025-08-23T21:44:46-07:00</updated>
             <summary></summary>
