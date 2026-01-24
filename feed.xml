@@ -3,7 +3,7 @@
     <title>mookobuko</title>
     <link href="https://mookobuko.com/feed.xml" rel="self" />
     <link href="https://mookobuko.com" />
-    <updated>2026-01-24T16:22:06+08:00</updated>
+    <updated>2026-01-24T16:28:43+08:00</updated>
     <author>
         <name>Meg and Ryker</name>
     </author>
@@ -26,7 +26,12 @@
         <content type="html">
             <![CDATA[
                 <article class="blog-post"><!-- Hero Section --><header class="hero">
-<div class="hero-image"><figure class="post__image post__image--wide"><img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-downtown-snow-sapporo-star-building-2.jpg" alt="" width="458" height="611" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-downtown-snow-sapporo-star-building-2-2xl.jpg 1920w"></figure></div>
+<div class="hero-image">
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="2">
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-downtown-snow-sapporo-star-building.jpg" data-size="768x1024"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-downtown-snow-sapporo-star-building-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-japanese-temple-winter-snow.jpg" data-size="1500x2000"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-japanese-temple-winter-snow-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+</div></div>
+</div>
 <div> </div>
 <div class="hero-content">
 <h1>Sapporo Winter Adventure</h1>
@@ -113,20 +118,26 @@
 <!-- Beer Factory Section -->
 <section class="content-section beer-section">
 <h2>Sapporo Beer Factory</h2>
-<figure class="post__image">Fun Fact! Ryker and I like beer. This is a new thing for the both of us and we have found Japanese beers to be our favorites, specifically Sapporo. So how quaint that we were in Sapporo and could see the motherland where our favorite beer comes from.
-<img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-tv-tower-sign-winter-visit.jpg" alt="" width="768" height="1024" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-sign-winter-visit-2xl.jpg 1920w"></figure>
+<p class="section-intro">Fun Fact! Ryker and I like beer. This is a new thing for the both of us and we have found Japanese beers to be our favorites, specifically Sapporo. So how quaint that we were in Sapporo and could see the motherland where our favorite beer comes from.</p>
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="2">
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-tv-tower-sign-winter-visit.jpg" data-size="768x1024"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-tv-tower-sign-winter-visit-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-tv-tower-winter-landmark.jpg" data-size="1500x2000"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-tv-tower-winter-landmark-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+</div></div>
+<br>
 <p>My expectations of the Sapporo Beer Factory were low. All the Reddit reviews of the factory were negative and underwhelming, but still we trekked a mile and a half across Sapporo to the beer factory and we were pleasantly surprised. The building was huge with three floors, tours were self led and free, and the tastings were right next to the gift shop.</p>
 <p>The third floor held a massive copper thing for storing beer. Floor two told the story of how Sapporo Beer came to be. Essentially the government was like we should brew beer and they called the government entity in charge of this Kaitakushi! So they hired some guy named Seibe Nakagawa to train in Germany and hired another guy named Hisanari Murahashi to build the factory in Tokyo, but that second guy was like hold the phone, Tokyo isn't a great climate for brewing beer and the government was like "I don't know bro figure it out." So he went to Hokkaido and was like this is perfect (as cold and ice is important for the fermentation) AND the gods gave them a good sign, wild hops growing in the region. So the factory was built in Sapporo and called the Kaitakushi Beer Brewery in 1876.</p>
 <p>At this point the beer in Hokkaido went private. The beer industry in the late 1890s consisted of four major firms: Sapporo Beer, Nippon Beer, Japan Brewery Company (Kirin Beer), and Osaka Beer (Asahi Beer), which all eventually consolidated into one company called Dainippon Beer. That's right, a beer monopoly! At this time beer was still super new in Japan and really expensive, especially because Japan didn't yet have the technology to build and make their own glass bottles, so they were importing them. Beer was marketed as a health tonic and sold for what would be in today's dollars over $100 per bottle! That's right folks, some things do get less expensive over time.</p>
 <p>But then came World War Two and after the Japanese surrendered the Americans came in and were like "a beer monopoly!! This is outrageous, we do not stand for this!!!" And they split up the monopoly into different companies, which is where we get the names Sapporo, Kirin, and Asahi today. Sapporo still uses barley and hops grown in Hokkaido for their beer!</p>
-<div class="image-grid-2col"> <figure class="post__image"><img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-beer-factory-tasting-flight-varieties.jpg" alt="" width="1500" height="2000" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-varieties-2xl.jpg 1920w"></figure></div>
-<figure class="post__image"><img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-beer-factory-tasting-flight.jpg" alt="" width="768" height="1024" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-beer-factory-tasting-flight-2xl.jpg 1920w"></figure>
+<div class="image-grid-2col"> </div>
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="2">
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-beer-factory-tasting-flight-varieties-2.jpg" data-size="1500x2000"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-beer-factory-tasting-flight-varieties-2-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+<figure class="gallery__item"><a href="https://mookobuko.com/media/posts/8/gallery/sapporo-beer-factory-tasting-flight-2.jpg" data-size="768x1024"><img loading="lazy" src="https://mookobuko.com/media/posts/8/gallery/sapporo-beer-factory-tasting-flight-2-thumbnail.jpg" alt="" width="720" height="960"></a></figure>
+</div></div>
 <p>Armed with our new fun facts we got to the real reason we were there: the tasting. See Sapporo sells 3 kinds of beer (all very similar tbh). One, "the Classic," is only sold in Sapporo. We got to try all three and had a good old jolly time. Such a good time that we got little tiny Sapporo beer can keychains. Very Kawaii! (Ryker's new favorite word and Japanese for cute).</p>
 </section>
 <!-- Other Fun Things Section -->
 <section class="content-section misc-section">
 <h2>Other Fun Things That Happened</h2>
-<figure class="post__image"><img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-tv-tower-winter-landmark.jpg" alt="" width="1500" height="2000" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-tv-tower-winter-landmark-2xl.jpg 1920w"></figure>
 <ul class="highlights-list">
 <li>I started reviewing restaurants and places we go and I got a response from this place that served insane seafood bowls</li>
 <li>Some Japanese children came up to us and said "hero!" Very excited to practice their English. Was incredibly adorable.</li>
@@ -139,7 +150,7 @@
 </div>
 <!-- Footer --><footer class="post-footer">
 <p class="closing-note">Sapporo stole our hearts with its perfect blend of winter magic, incredible food, and authentic experiences. From the legendary powder to the cozy ramen shops to the fascinating beer history—this northern gem is a must-visit for any Japan traveler seeking adventure beyond Tokyo.</p>
-<figure class="post__image"><img loading="lazy"  src="https://mookobuko.com/media/posts/8/sapporo-japanese-temple-winter-snow.jpg" alt="" width="1500" height="2000" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-xs.jpg 640w ,https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-sm.jpg 768w ,https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-md.jpg 1024w ,https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-lg.jpg 1366w ,https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-xl.jpg 1600w ,https://mookobuko.com/media/posts/8/responsive/sapporo-japanese-temple-winter-snow-2xl.jpg 1920w"></figure>
+<p> </p>
 </footer></article>
             ]]>
         </content>
