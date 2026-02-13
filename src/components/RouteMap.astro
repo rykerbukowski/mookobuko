@@ -1,0 +1,153 @@
+---
+// Route data - edit this to update your travel route!
+const stops = [
+  { emoji: '🇺🇸', name: 'Seattle', dates: 'Home Base', status: 'done', gradient: '#FF6B6B, #FF3CAC' },
+  { emoji: '🇯🇵', name: 'Tokyo', dates: 'Jan 6 – 13', status: 'done', gradient: '#FFD93D, #FF6B6B' },
+  { emoji: '🇯🇵', name: 'Sapporo', dates: 'Jan 14 – 20', status: 'done', gradient: '#87CEEB, #00C9A7' },
+  { emoji: '🇹🇼', name: 'Taiwan', dates: 'Jan 21 – 31', status: 'done', gradient: '#00C9A7, #FFD93D' },
+  { emoji: '🇹🇭', name: 'Thailand', dates: 'Feb – Mar', status: 'current', gradient: '#FF3CAC, #FFD93D' },
+  { emoji: '🇸🇬', name: 'Singapore', dates: 'Upcoming', status: 'upcoming', gradient: '#7B2D8E, #FF6B6B' },
+  { emoji: '🇵🇭', name: 'Philippines', dates: 'Upcoming', status: 'upcoming', gradient: '#FFB88C, #FF6B6B' },
+  { emoji: '🇮🇩', name: 'Bali', dates: 'Upcoming', status: 'upcoming', gradient: '#00C9A7, #87CEEB' },
+  { emoji: '🌍', name: '& more...', dates: 'The adventure continues', status: 'upcoming', gradient: '#C6F135, #00C9A7' },
+];
+
+const statusMap: Record<string, { label: string; class: string }> = {
+  done: { label: '✓ Done', class: 'status-done' },
+  current: { label: '● Now', class: 'status-current' },
+  upcoming: { label: 'Soon', class: 'status-upcoming' },
+};
+---
+
+<section class="route-section" id="route">
+  <div class="route-container">
+    <span class="section-label reveal">The Route</span>
+    <h2 class="section-title reveal">Where we've been<br>& where we're going</h2>
+    <div class="route-map">
+      {stops.map((stop, i) => (
+        <div class="route-stop">
+          <div class="stop-dot" style={`background:linear-gradient(135deg,${stop.gradient});`}>
+            {stop.emoji}
+          </div>
+          {i < stops.length - 1 && <div class="stop-line" />}
+          <div class="stop-name">{stop.name}</div>
+          <div class="stop-dates">{stop.dates}</div>
+          <span class={`stop-status ${statusMap[stop.status].class}`}>
+            {statusMap[stop.status].label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .route-section {
+    padding: 6rem 2rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .route-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .route-container { max-width: 1200px; margin: 0 auto; }
+
+  .route-map {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    padding: 3rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .route-map::-webkit-scrollbar { display: none; }
+
+  .route-stop {
+    flex: 0 0 280px;
+    scroll-snap-align: center;
+    position: relative;
+    padding: 0 1rem;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .route-stop:hover { transform: translateY(-10px); }
+
+  .stop-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .route-stop:hover .stop-dot {
+    transform: scale(1.2);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+
+  .stop-line {
+    position: absolute;
+    top: 24px;
+    left: calc(50% + 24px);
+    width: calc(100% - 48px);
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--coral));
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .stop-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .stop-dates {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .stop-status {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  .status-done { background: var(--teal); color: white; }
+  .status-current { background: var(--coral); color: white; animation: pulse 2s infinite; }
+  .status-upcoming { background: rgba(0,0,0,0.08); color: rgba(0,0,0,0.4); }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(255,107,107,0); }
+  }
+
+  @media (max-width: 768px) {
+    .route-stop { flex: 0 0 200px; }
+  }
+</style>

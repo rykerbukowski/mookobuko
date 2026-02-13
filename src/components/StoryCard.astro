@@ -1,0 +1,179 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  location: string;
+  locationColor: string;
+  date: string;
+  excerpt: string;
+  heroImage: string;
+  heroColor: string;
+  tags: { label: string; color: string }[];
+  slug: string;
+  bgColor: string;
+}
+
+const { number, title, location, locationColor, date, excerpt, heroImage, heroColor, tags, slug, bgColor } = Astro.props;
+---
+
+<div class="story-card" style={`background:${bgColor};`}>
+  <div class="story-card-inner">
+    <div class="story-image" style={`background: linear-gradient(135deg, ${heroColor}33, ${locationColor}33), url('${heroImage}') center/cover;`}>
+    </div>
+    <div class="story-content">
+      <div class="story-number">{number}</div>
+      <div class="story-location">
+        <span class="location-dot" style={`background:${locationColor};`}></span>
+        {location}
+      </div>
+      <h3 class="story-title">{title}</h3>
+      <div class="story-date">{date}</div>
+      <p class="story-excerpt">{excerpt}</p>
+      <div class="story-tags">
+        {tags.map(tag => (
+          <span class="tag" style={`border-color:${tag.color};color:${tag.color};`}>{tag.label}</span>
+        ))}
+      </div>
+      <a href={`/posts/${slug}`} class="read-btn">
+        Read the full story <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .story-card {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .story-card:global(.visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .story-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+
+  :global(.story-card:nth-child(even)) .story-card-inner {
+    direction: rtl;
+  }
+
+  :global(.story-card:nth-child(even)) .story-card-inner > * {
+    direction: ltr;
+  }
+
+  .story-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .story-image::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+  }
+
+  .story-card:hover .story-image {
+    background-size: 105% !important;
+    transition: background-size 0.6s ease;
+  }
+
+  .story-content {
+    padding: clamp(2rem, 5vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .story-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    opacity: 0.06;
+    position: absolute;
+    top: -1rem; left: 1rem;
+    line-height: 1;
+  }
+
+  .story-location {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .location-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .story-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .story-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(0,0,0,0.35);
+    margin-bottom: 1.5rem;
+  }
+
+  .story-excerpt {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(0,0,0,0.65);
+    margin-bottom: 2rem;
+    max-width: 500px;
+  }
+
+  .read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 0.8rem 0;
+    border-bottom: 2px solid var(--ink);
+    transition: all 0.3s;
+    width: fit-content;
+  }
+
+  .read-btn:hover {
+    gap: 1.5rem;
+    border-color: var(--coral);
+    color: var(--coral);
+  }
+
+  @media (max-width: 768px) {
+    .story-card-inner {
+      grid-template-columns: 1fr !important;
+    }
+    :global(.story-card:nth-child(even)) .story-card-inner {
+      direction: ltr;
+    }
+    .story-image { min-height: 300px; }
+    .story-content { padding: 2rem; }
+  }
+</style>

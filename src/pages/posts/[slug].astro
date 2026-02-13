@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={`${post.data.title} — mookobuko`}
+  description={post.data.excerpt}
+  image={post.data.heroImage}
+>
+  <!-- Post Hero -->
+  <div class="post-hero">
+    <div class="post-hero-bg" style={`background-image: url('${post.data.heroImage}');`}></div>
+    <div class="post-hero-content">
+      <span class="section-label">{post.data.locationEmoji} {post.data.location}</span>
+      <h1>{post.data.title}</h1>
+      <div class="post-date">
+        {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </div>
+      <div class="post-tags" style="margin-top:1rem;">
+        {post.data.tags.map(tag => (
+          <span class="tag" style={`border-color:${tag.color};color:${tag.color};`}>{tag.label}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Body (rendered from Markdown) -->
+  <article class="post-body">
+    <Content />
+  </article>
+
+  <!-- Back to stories -->
+  <div style="text-align:center;padding:2rem 2rem 4rem;">
+    <a href="/#stories" class="back-link">← Back to all stories</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .back-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--coral);
+    border-bottom: 2px solid var(--coral);
+    padding-bottom: 0.3rem;
+    transition: opacity 0.3s;
+  }
+
+  .back-link:hover { opacity: 0.7; }
+</style>

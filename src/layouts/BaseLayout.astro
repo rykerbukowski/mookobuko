@@ -1,0 +1,188 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'mookobuko — Meg & Ryker\'s World Trip',
+  description = 'A year-long trip around the world. Follow Meg & Ryker as they explore Japan, Taiwan, Thailand, and beyond.',
+  image = '/og-image.jpg',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={image}>
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-text">mookobuko</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">mookobuko</a>
+    <ul class="nav-links">
+      <li><a href="/#route">Route</a></li>
+      <li><a href="/#stories">Stories</a></li>
+      <li><a href="/#stats">Stats</a></li>
+      <li><a href="/#about">About</a></li>
+    </ul>
+  </nav>
+
+  <slot />
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">mookobuko</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="mailto:hello@mookobuko.com">Contact</a>
+    </div>
+    <p>© 2026 mookobuko — brought to you by the Coreys</p>
+  </footer>
+
+  <script is:inline>
+    // Loading screen
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader')?.classList.add('hidden'), 600);
+    });
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav')?.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal, .story-card, .stat-item').forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a[href^="/#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const hash = link.getAttribute('href')?.split('#')[1];
+        const target = hash ? document.getElementById(hash) : null;
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+  @import '../styles/photos.css';
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s;
+  }
+
+  .nav.scrolled {
+    background: rgba(11, 36, 71, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--coral), var(--sunflower));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: white; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    padding: 3rem 2rem;
+    background: var(--ink);
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--coral), var(--sunflower));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--coral); }
+</style>

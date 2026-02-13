@@ -1,0 +1,58 @@
+---
+const facts = [
+  { emoji: '🍜', text: 'Kewpie Mayo celebrated its 101st birthday' },
+  { emoji: '🐛', text: 'We survived a mob-run bed bug hotel in Taichung' },
+  { emoji: '🧗', text: 'Watched Alex Honnold free solo Taipei 101' },
+  { emoji: '♨️', text: 'Black onsen water = soul cleansing' },
+  { emoji: '🍞', text: 'Japanese toast appreciation society (est. 2026)' },
+  { emoji: '🎿', text: 'Sapporo powder was absolutely unreal' },
+  { emoji: '🍺', text: 'Sapporo Beer Museum: we "researched" extensively' },
+  { emoji: '🥟', text: 'Din Tai Fung chocolate dumplings changed us' },
+];
+---
+
+<section class="ticker-section">
+  <div class="ticker">
+    {[...facts, ...facts].map((fact, i) => (
+      <div class="ticker-item">
+        <span class="emoji">{fact.emoji}</span>
+        {fact.text}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .ticker-section {
+    padding: 2rem 0;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .ticker {
+    display: flex;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-item {
+    flex-shrink: 0;
+    padding: 0 3rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .emoji { font-size: 1.3rem; }
+
+  .ticker-item:nth-child(odd) { color: var(--sunflower); }
+  .ticker-item:nth-child(even) { color: var(--teal); }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>

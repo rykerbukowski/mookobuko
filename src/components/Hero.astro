@@ -1,0 +1,215 @@
+---
+// Hero section - animated starfield with gradient logo
+---
+
+<section class="hero" id="hero">
+  <div class="hero-stars" id="stars"></div>
+  <div class="globe-container">
+    <div class="orbit-ring" style="width:400px;height:400px;">
+      <div class="orbit-dot" style="background:var(--coral);"></div>
+    </div>
+    <div class="orbit-ring" style="width:600px;height:600px;animation-duration:80s;animation-direction:reverse;">
+      <div class="orbit-dot" style="background:var(--sunflower);"></div>
+    </div>
+    <div class="orbit-ring" style="width:800px;height:800px;animation-duration:100s;">
+      <div class="orbit-dot" style="background:var(--teal);"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="logo-text">mookobuko</div>
+    <div class="hero-subtitle">a year-long trip around the world</div>
+    <div class="hero-tagline">brought to you by the Coreys</div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<script is:inline>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  if (starsContainer) {
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+      star.style.setProperty('--opacity', String(0.3 + Math.random() * 0.7));
+      star.style.animationDelay = Math.random() * 5 + 's';
+      starsContainer.appendChild(star);
+    }
+  }
+
+  // Parallax on hero
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-content') as HTMLElement;
+    const scrolled = window.scrollY;
+    if (hero && scrolled < window.innerHeight) {
+      hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+      hero.style.opacity = String(1 - (scrolled / window.innerHeight));
+    }
+  });
+</script>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--ocean) 0%, #16213e 40%, #1a1a2e 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(255, 107, 107, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(0, 201, 167, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(255, 217, 61, 0.1) 0%, transparent 50%);
+    animation: heroPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes heroPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .hero-stars {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+  }
+
+  :global(.star) {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--dur) ease-in-out infinite;
+    opacity: 0;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: var(--opacity); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .logo-text {
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 12vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--coral), var(--sunflower), var(--teal), var(--sky));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s ease infinite;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    margin-bottom: 2rem;
+    animation: fadeSlideUp 1s ease 0.3s both;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    animation: fadeSlideUp 1s ease 0.6s both;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bounce 2s ease infinite;
+    z-index: 2;
+  }
+
+  .scroll-indicator span {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid rgba(255,255,255,0.4);
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    transform: rotate(45deg);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  .globe-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    overflow: hidden;
+    opacity: 0.15;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 60s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .orbit-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    top: -3px;
+    left: 50%;
+  }
+</style>

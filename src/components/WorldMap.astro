@@ -1,0 +1,667 @@
+---
+// Travel stops with coordinates (lon/lat projected to simple Mercator)
+// Each stop can link to a blog post
+const stops = [
+  {
+    name: 'Seattle',
+    emoji: '🇺🇸',
+    lat: 47.6,
+    lon: -122.33,
+    dates: 'Home Base',
+    status: 'done',
+    color: '#FF6B6B',
+    description: 'Where it all started — home base before the big adventure.',
+  },
+  {
+    name: 'Tokyo',
+    emoji: '🇯🇵',
+    lat: 35.68,
+    lon: 139.69,
+    dates: 'Jan 6 – 13',
+    status: 'done',
+    color: '#FF6B6B',
+    slug: '/posts/tokyo',
+    heroImage: 'https://mookobuko.com/media/posts/6/IMG_9492.jpeg',
+    description: 'Onsens, ramen museums & one-hour Kewpie mayo indoctrination.',
+  },
+  {
+    name: 'Sapporo',
+    emoji: '🇯🇵',
+    lat: 43.06,
+    lon: 141.35,
+    dates: 'Jan 14 – 20',
+    status: 'done',
+    color: '#87CEEB',
+    slug: '/posts/sapporo',
+    heroImage: 'https://mookobuko.com/media/posts/8/gallery/sapporo-downtown-snow-sapporo-star-building.jpg',
+    description: 'Legendary J-pow skiing, Ramen Alley & the Sapporo Beer Factory.',
+  },
+  {
+    name: 'Taipei',
+    emoji: '🇹🇼',
+    lat: 25.03,
+    lon: 121.56,
+    dates: 'Jan 21 – 31',
+    status: 'done',
+    color: '#00C9A7',
+    slug: '/posts/taiwan',
+    heroImage: 'https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124606_00_343-2.jpg',
+    description: 'Bed bugs, bubble tea & watching Alex Honnold free solo Taipei 101.',
+  },
+  {
+    name: 'Bangkok',
+    emoji: '🇹🇭',
+    lat: 13.75,
+    lon: 100.52,
+    dates: 'Feb – Mar',
+    status: 'current',
+    color: '#FF3CAC',
+    description: 'Muay Thai training, street food & temple hopping.',
+  },
+  {
+    name: 'Koh Tao',
+    emoji: '🇹🇭',
+    lat: 10.1,
+    lon: 99.84,
+    dates: 'Feb – Mar',
+    status: 'current',
+    color: '#FFD93D',
+    description: 'Scuba diving certification & island life.',
+  },
+  {
+    name: 'Singapore',
+    emoji: '🇸🇬',
+    lat: 1.35,
+    lon: 103.82,
+    dates: 'Upcoming',
+    status: 'upcoming',
+    color: '#7B2D8E',
+    description: 'Coming soon...',
+  },
+  {
+    name: 'Bali',
+    emoji: '🇮🇩',
+    lat: -8.41,
+    lon: 115.19,
+    dates: 'Upcoming',
+    status: 'upcoming',
+    color: '#00C9A7',
+    description: 'Coming soon...',
+  },
+];
+---
+
+<section class="world-map-section" id="world-map">
+  <div class="world-map-container">
+    <span class="section-label reveal">The Journey</span>
+    <h2 class="section-title reveal">Follow our route<br>around the world</h2>
+
+    <div class="map-wrapper">
+      <canvas id="travelMapCanvas"></canvas>
+
+      <!-- Hover card -->
+      <div class="map-hover-card" id="mapHoverCard">
+        <div class="hover-card-image" id="hoverCardImage"></div>
+        <div class="hover-card-content">
+          <div class="hover-card-emoji" id="hoverCardEmoji"></div>
+          <h3 class="hover-card-title" id="hoverCardTitle"></h3>
+          <p class="hover-card-dates" id="hoverCardDates"></p>
+          <p class="hover-card-desc" id="hoverCardDesc"></p>
+          <span class="hover-card-status" id="hoverCardStatus"></span>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="map-legend">
+        <span class="legend-item"><span class="legend-dot done"></span> Visited</span>
+        <span class="legend-item"><span class="legend-dot current"></span> Currently here</span>
+        <span class="legend-item"><span class="legend-dot upcoming"></span> Upcoming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ stops }}>
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('travelMapCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const wrapper = canvas.parentElement;
+    const hoverCard = document.getElementById('mapHoverCard');
+
+    // --- Responsive sizing ---
+    let W, H, dpr;
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      const rect = wrapper.getBoundingClientRect();
+      W = rect.width;
+      H = Math.max(400, Math.min(600, W * 0.55));
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+
+    // --- Map projection (simple Mercator, focused on Pacific-centered view) ---
+    // Shift longitude so Pacific is centered
+    function shiftLon(lon) {
+      let shifted = lon + 60; // shift so ~-60 becomes 0 (centers on Pacific)
+      if (shifted < 0) shifted += 360;
+      if (shifted > 360) shifted -= 360;
+      return shifted;
+    }
+
+    function project(lat, lon) {
+      const padding = 60;
+      const shifted = shiftLon(lon);
+      const x = padding + (shifted / 360) * (W - padding * 2);
+      // Mercator-ish y
+      const latRad = (lat * Math.PI) / 180;
+      const mercN = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+      const maxMerc = Math.log(Math.tan(Math.PI / 4 + (70 * Math.PI / 180) / 2));
+      const minMerc = Math.log(Math.tan(Math.PI / 4 + (-50 * Math.PI / 180) / 2));
+      const y = padding + ((maxMerc - mercN) / (maxMerc - minMerc)) * (H - padding * 2);
+      return { x, y };
+    }
+
+    // Project all stops
+    const projected = stops.map(s => ({
+      ...s,
+      ...project(s.lat, s.lon),
+    }));
+
+    // --- Draw world outline dots (subtle background) ---
+    // Simple grid of dots to suggest land
+    function drawBackground() {
+      ctx.fillStyle = '#F5F0EB';
+      ctx.fillRect(0, 0, W, H);
+
+      // Subtle grid dots
+      const spacing = 20;
+      ctx.fillStyle = 'rgba(0,0,0,0.03)';
+      for (let x = 0; x < W; x += spacing) {
+        for (let y = 0; y < H; y += spacing) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // Equator line
+      const eq = project(0, 0);
+      ctx.strokeStyle = 'rgba(0,0,0,0.04)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 8]);
+      ctx.beginPath();
+      ctx.moveTo(0, eq.y);
+      ctx.lineTo(W, eq.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // --- Curved flight path between two points ---
+    function getControlPoint(p1, p2) {
+      const mx = (p1.x + p2.x) / 2;
+      const my = (p1.y + p2.y) / 2;
+      const dist = Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);
+      // Curve upward
+      return { x: mx, y: my - dist * 0.3 };
+    }
+
+    function drawCurvedPath(p1, p2, progress, color) {
+      const cp = getControlPoint(p1, p2);
+      ctx.strokeStyle = color || 'rgba(255,107,107,0.3)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6, 4]);
+
+      ctx.beginPath();
+      // Draw partial curve based on progress
+      const steps = Math.floor(100 * progress);
+      for (let i = 0; i <= steps; i++) {
+        const t = i / 100;
+        const x = (1 - t) ** 2 * p1.x + 2 * (1 - t) * t * cp.x + t ** 2 * p2.x;
+        const y = (1 - t) ** 2 * p1.y + 2 * (1 - t) * t * cp.y + t ** 2 * p2.y;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Airplane icon along the path if animating
+      if (progress > 0 && progress < 1) {
+        const t = progress;
+        const ax = (1 - t) ** 2 * p1.x + 2 * (1 - t) * t * cp.x + t ** 2 * p2.x;
+        const ay = (1 - t) ** 2 * p1.y + 2 * (1 - t) * t * cp.y + t ** 2 * p2.y;
+        // Direction
+        const dt = 0.01;
+        const t2 = Math.min(1, t + dt);
+        const bx = (1 - t2) ** 2 * p1.x + 2 * (1 - t2) * t2 * cp.x + t2 ** 2 * p2.x;
+        const by = (1 - t2) ** 2 * p1.y + 2 * (1 - t2) * t2 * cp.y + t2 ** 2 * p2.y;
+        const angle = Math.atan2(by - ay, bx - ax);
+
+        ctx.save();
+        ctx.translate(ax, ay);
+        ctx.rotate(angle);
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('✈️', 0, 0);
+        ctx.restore();
+      }
+    }
+
+    // --- Draw city dot ---
+    function drawDot(stop, time) {
+      const r = stop.status === 'current' ? 8 : stop.status === 'done' ? 6 : 5;
+
+      // Glow for current
+      if (stop.status === 'current') {
+        const pulseR = r + 6 + Math.sin(time * 3) * 4;
+        ctx.beginPath();
+        ctx.arc(stop.x, stop.y, pulseR, 0, Math.PI * 2);
+        ctx.fillStyle = stop.color + '30';
+        ctx.fill();
+      }
+
+      // Outer ring
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r + 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+
+      // Main dot
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = stop.status === 'upcoming' ? 'rgba(0,0,0,0.15)' : stop.color;
+      ctx.fill();
+
+      // Shadow
+      ctx.shadowColor = 'rgba(0,0,0,0.15)';
+      ctx.shadowBlur = 8;
+      ctx.shadowOffsetY = 2;
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetY = 0;
+
+      // Label
+      ctx.font = '600 11px "DM Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = stop.status === 'upcoming' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.7)';
+      ctx.fillText(stop.name, stop.x, stop.y + r + 6);
+
+      // Emoji above
+      ctx.font = '14px sans-serif';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText(stop.emoji, stop.x, stop.y - r - 4);
+    }
+
+    // --- Animation state ---
+    let animProgress = 0; // 0 to stops.length-1
+    let animStarted = false;
+    let animStartTime = 0;
+    const ANIM_DURATION_PER_SEGMENT = 1200; // ms per flight
+
+    // --- Hover detection ---
+    let hoveredStop = null;
+    let mouseX = 0, mouseY = 0;
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+
+      let found = null;
+      for (const stop of projected) {
+        const dist = Math.sqrt((mouseX - stop.x) ** 2 + (mouseY - stop.y) ** 2);
+        if (dist < 25) {
+          found = stop;
+          break;
+        }
+      }
+
+      if (found !== hoveredStop) {
+        hoveredStop = found;
+        if (found) {
+          canvas.style.cursor = found.slug ? 'pointer' : 'default';
+          showHoverCard(found, e.clientX, e.clientY);
+        } else {
+          canvas.style.cursor = 'default';
+          hoverCard.classList.remove('visible');
+        }
+      }
+
+      // Update card position
+      if (hoveredStop) {
+        positionHoverCard(e.clientX, e.clientY);
+      }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      hoveredStop = null;
+      hoverCard.classList.remove('visible');
+      canvas.style.cursor = 'default';
+    });
+
+    canvas.addEventListener('click', () => {
+      if (hoveredStop && hoveredStop.slug) {
+        window.location.href = hoveredStop.slug;
+      }
+    });
+
+    // Touch support
+    canvas.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const tx = touch.clientX - rect.left;
+      const ty = touch.clientY - rect.top;
+
+      for (const stop of projected) {
+        const dist = Math.sqrt((tx - stop.x) ** 2 + (ty - stop.y) ** 2);
+        if (dist < 30) {
+          if (stop.slug) window.location.href = stop.slug;
+          break;
+        }
+      }
+    });
+
+    function showHoverCard(stop) {
+      document.getElementById('hoverCardEmoji').textContent = stop.emoji;
+      document.getElementById('hoverCardTitle').textContent = stop.name;
+      document.getElementById('hoverCardDates').textContent = stop.dates;
+      document.getElementById('hoverCardDesc').textContent = stop.description;
+
+      const statusEl = document.getElementById('hoverCardStatus');
+      statusEl.textContent = stop.status === 'done' ? '✓ Visited' : stop.status === 'current' ? '● Currently here' : 'Upcoming';
+      statusEl.className = 'hover-card-status status-' + stop.status;
+
+      const imgEl = document.getElementById('hoverCardImage');
+      if (stop.heroImage) {
+        imgEl.style.backgroundImage = `url(${stop.heroImage})`;
+        imgEl.style.display = 'block';
+      } else {
+        imgEl.style.display = 'none';
+      }
+
+      if (stop.slug) {
+        hoverCard.classList.add('clickable');
+      } else {
+        hoverCard.classList.remove('clickable');
+      }
+
+      hoverCard.classList.add('visible');
+    }
+
+    function positionHoverCard(clientX, clientY) {
+      const wrapperRect = wrapper.getBoundingClientRect();
+      let left = clientX - wrapperRect.left + 15;
+      let top = clientY - wrapperRect.top - 20;
+
+      // Keep card within wrapper
+      const cardW = 260;
+      const cardH = 200;
+      if (left + cardW > wrapperRect.width) left = clientX - wrapperRect.left - cardW - 15;
+      if (top + cardH > wrapperRect.height) top = wrapperRect.height - cardH - 10;
+      if (top < 0) top = 10;
+
+      hoverCard.style.left = left + 'px';
+      hoverCard.style.top = top + 'px';
+    }
+
+    // --- Main draw loop ---
+    function draw(timestamp) {
+      if (!animStarted) return;
+
+      const elapsed = timestamp - animStartTime;
+      const totalSegments = projected.length - 1;
+      const totalDuration = totalSegments * ANIM_DURATION_PER_SEGMENT;
+      animProgress = Math.min(totalSegments, (elapsed / ANIM_DURATION_PER_SEGMENT));
+
+      ctx.clearRect(0, 0, W, H);
+      drawBackground();
+
+      // Draw completed flight paths
+      for (let i = 0; i < totalSegments; i++) {
+        const segProgress = Math.max(0, Math.min(1, animProgress - i));
+        if (segProgress > 0) {
+          const fromDone = projected[i].status === 'done' || projected[i].status === 'current';
+          const toDone = projected[i + 1].status === 'done' || projected[i + 1].status === 'current';
+          const pathColor = (fromDone && toDone) ? projected[i + 1].color + '50' : 'rgba(0,0,0,0.06)';
+          drawCurvedPath(projected[i], projected[i + 1], segProgress, pathColor);
+        }
+      }
+
+      // Draw all dots
+      const time = timestamp / 1000;
+      for (let i = 0; i < projected.length; i++) {
+        // Only draw dot once animation reaches it
+        if (i <= Math.ceil(animProgress)) {
+          drawDot(projected[i], time);
+        }
+      }
+
+      if (elapsed < totalDuration + 500) {
+        requestAnimationFrame(draw);
+      } else {
+        // Final static frame - redraw on resize
+        animProgress = totalSegments;
+        drawFinal(timestamp);
+      }
+    }
+
+    function drawFinal(timestamp) {
+      ctx.clearRect(0, 0, W, H);
+      drawBackground();
+
+      const totalSegments = projected.length - 1;
+      for (let i = 0; i < totalSegments; i++) {
+        const fromDone = projected[i].status === 'done' || projected[i].status === 'current';
+        const toDone = projected[i + 1].status === 'done' || projected[i + 1].status === 'current';
+        const pathColor = (fromDone && toDone) ? projected[i + 1].color + '50' : 'rgba(0,0,0,0.06)';
+        drawCurvedPath(projected[i], projected[i + 1], 1, pathColor);
+      }
+
+      const time = timestamp / 1000;
+      for (const stop of projected) {
+        drawDot(stop, time);
+      }
+
+      // Keep animating for the pulse effect on "current" stops
+      requestAnimationFrame(drawFinal);
+    }
+
+    // --- Start animation on scroll into view ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animStarted) {
+          animStarted = true;
+          animStartTime = performance.now();
+          requestAnimationFrame(draw);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(canvas);
+
+    // --- Handle resize ---
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize();
+        // Reproject
+        for (let i = 0; i < projected.length; i++) {
+          const p = project(stops[i].lat, stops[i].lon);
+          projected[i].x = p.x;
+          projected[i].y = p.y;
+        }
+        if (animStarted) {
+          requestAnimationFrame(drawFinal);
+        }
+      }, 150);
+    });
+  });
+</script>
+
+<style>
+  .world-map-section {
+    padding: 6rem 2rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .world-map-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .map-wrapper {
+    position: relative;
+    margin-top: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 60px rgba(0,0,0,0.08);
+  }
+
+  #travelMapCanvas {
+    display: block;
+    width: 100%;
+  }
+
+  /* --- Hover Card --- */
+  .map-hover-card {
+    position: absolute;
+    width: 240px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 100;
+  }
+
+  .map-hover-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .map-hover-card.clickable::after {
+    content: 'Click to read →';
+    display: block;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--coral);
+    padding: 0.4rem;
+    background: rgba(255,107,107,0.05);
+  }
+
+  .hover-card-image {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hover-card-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .hover-card-emoji {
+    font-size: 1.2rem;
+    float: right;
+  }
+
+  .hover-card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.15rem 0;
+  }
+
+  .hover-card-dates {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 0.05em;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .hover-card-desc {
+    font-size: 0.78rem;
+    color: rgba(0,0,0,0.6);
+    line-height: 1.4;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .hover-card-status {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+  }
+
+  .hover-card-status.status-done { background: var(--teal); color: white; }
+  .hover-card-status.status-current { background: var(--coral); color: white; }
+  .hover-card-status.status-upcoming { background: rgba(0,0,0,0.08); color: rgba(0,0,0,0.4); }
+
+  /* --- Legend --- */
+  .map-legend {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    color: rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .legend-dot.done { background: var(--teal); }
+  .legend-dot.current { background: var(--coral); }
+  .legend-dot.upcoming { background: rgba(0,0,0,0.15); }
+
+  @media (max-width: 768px) {
+    .world-map-section { padding: 4rem 1rem; }
+    .map-hover-card { display: none; } /* Too small for hover cards */
+    .map-legend {
+      bottom: 0.5rem;
+      right: 0.5rem;
+      font-size: 0.5rem;
+      padding: 0.3rem 0.6rem;
+      gap: 0.5rem;
+    }
+  }
+</style>
