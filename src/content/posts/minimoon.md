@@ -4,7 +4,7 @@ subtitle: "Our Minimoon — From Mt. Hood to the Coast"
 date: 2025-10-18
 location: "Washington Coast, USA"
 locationEmoji: "🇺🇸"
-heroImage: "https://mookobuko.com/media/posts/3/gallery/IMG_7990.jpeg"
+heroImage: "https://mookobuko.com/media/posts/3/gallery/meg-wedding-dress-beach-sunset.jpg"
 heroColor: "#7B2D8E"
 excerpt: "Post-wedding bliss on the Washington coast. We cooked pasta, watched Love Is Blind on the world's oldest TV, rented bikes in Seabrook, and continued our $10-per-game betting rivalry. Meg's still up $20."
 tags:
@@ -18,12 +18,12 @@ status: published
 ---
 
 <div class="photo-scroll">
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_7990.jpeg" alt="Minimoon adventures" />
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_8282.jpeg" alt="Coast views" />
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_8132.jpeg" alt="Beach life" />
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_7994.jpeg" alt="Road trip" />
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_7909.jpeg" alt="Washington coast" />
-  <img src="https://mookobuko.com/media/posts/3/gallery/IMG_8150.jpeg" alt="Minimoon moments" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/just-married-car-window-friends.jpg" alt="Just married car with friends" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/meg-peace-sign-road-trip-car.jpg" alt="Meg peace sign in car" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/meg-wedding-dress-beach-sunset.jpg" alt="Meg in wedding dress on beach at sunset" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/ryker-groom-tuxedo-sunset-portrait.jpg" alt="Ryker in tuxedo at sunset" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/meg-bride-bouquet-hurricane-ridge-mountains.jpg" alt="Meg with bouquet at Hurricane Ridge" />
+  <img src="https://mookobuko.com/media/posts/3/gallery/autumn-foliage-tree-lined-street.jpg" alt="Autumn foliage tree-lined street" />
 </div>
 
 ## Part 1 – The Drive North & Beachwood
@@ -31,6 +31,11 @@ status: published
 We left Mt. Hood Meadows that morning, tired but still buzzing from the night before. After packing up the car, we drove toward Portland and stopped at Pho Le Nguyen — a comfort-food reward for surviving the wedding whirlwind.
 
 In perfect timing, we ran into G and Kierra there — a random, happy reunion before hitting the coast.
+
+<div class="photo-duo">
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-diet-coke-road-trip-snack.jpg" alt="Road trip snack break" /></figure>
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-excited-seafood-picnic-table.jpg" alt="Seafood at the coast" /></figure>
+</div>
 
 That evening we reached Beachwood Resort in Washington, our home base for the next few nights. A tiny condo right on the beach — a little worn but with a pool, hot tub, and sauna.
 
@@ -46,11 +51,26 @@ Our $10-per-game betting rivalry continued: Meg + $20 / Ryker – $20. (She's st
 
 We packed up and headed north through Aberdeen, stopping at Lake Quinault Lodge to see the world's largest spruce tree — a towering, moss-covered giant.
 
+<figure class="photo-polaroid">
+  <img src="https://mookobuko.com/media/posts/3/gallery/meg-dress-giant-spruce-tree-quinault.jpg" alt="Meg at the world's largest spruce tree" />
+  <figcaption>The world's largest spruce tree at Lake Quinault</figcaption>
+</figure>
+
 Next came the Tree of Life near Kalaloch Beach, a tangled, gravity-defying wonder, and then Ruby Beach, where we spread out cheese and bread for what we proudly called our peasant picnic.
+
+<div class="photo-duo">
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/biking-autumn-trail-seabrook.jpg" alt="Biking through autumn trail" /></figure>
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-hiking-coastal-dunes-wildflowers.jpg" alt="Hiking coastal dunes" /></figure>
+</div>
 
 From there we biked the trails in the Hoh Rain Forest, wandered through ferns, and ended the day in Forks (yes, that Forks). We went thrifting, grabbed Subway, and laughed about how perfectly un-fancy our honeymoon had become.
 
 By evening we rolled into Port Angeles, checked into a glamping tent, and tried to start a fire to keep warm. We mostly filled the tent with smoke and ended up crawling into bed, wrapped in blankets, laughing as the temp dropped to 41°F.
+
+<figure class="photo-polaroid">
+  <img src="https://mookobuko.com/media/posts/3/gallery/glamping-tent-port-angeles-fall.jpg" alt="Glamping tent in Port Angeles" />
+  <figcaption>Our glamping tent — rustic but memorable</figcaption>
+</figure>
 
 Dinner that night: Sabai Thai — curry and comfort.
 
@@ -58,7 +78,18 @@ Dinner that night: Sabai Thai — curry and comfort.
 
 We found Fog Town Coffee Bar the next morning — life-changing breakfast burritos — before driving up to Hurricane Ridge, where Meg wore her second wedding dress for photos against the clouds.
 
+<div class="photo-trio">
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-bride-veil-golden-hour-grasslands.jpg" alt="Bride in golden hour" /></figure>
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-bride-bouquet-hurricane-ridge-mountains.jpg" alt="Bride with bouquet at Hurricane Ridge" /></figure>
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-bride-bouquet-mountains-bw.jpg" alt="Black and white bridal portrait" /></figure>
+</div>
+
 The sun came out, the air was crisp, and after photos we rode our bikes down the mountain from Hurricane Ridge. It was cold, and we hauled ass, taking turns driving and filming each other as we descended — one of those spontaneous moments that felt like pure freedom.
+
+<div class="photo-duo">
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/meg-bride-laughing-sunset-grasslands.jpg" alt="Meg laughing at sunset" /></figure>
+  <figure><img src="https://mookobuko.com/media/posts/3/gallery/ryker-suit-jacket-floral-lining-sunset.jpg" alt="Ryker's suit jacket at sunset" /></figure>
+</div>
 
 That night we celebrated with seafood at 929 Wood Fire Grill and toasted to the best week of our lives (so far).
 
@@ -69,6 +100,10 @@ That evening, we learned Canasta at a brewery tasting room — our new favorite 
 A quiet, perfect way to close out the minimoon.
 
 Evenings were for Pirates of the Caribbean marathons, coffee in bed each morning, and that rare feeling of time slowing down — just us, Ocha, and the salty air.
+
+<div class="photo-bleed">
+  <img src="https://mookobuko.com/media/posts/3/gallery/meg-closeup-golden-hour-beach.jpg" alt="Golden hour on the beach" />
+</div>
 
 ## Epilogue
 
