@@ -126,98 +126,99 @@ const stops = [
     const bgCanvas = document.getElementById('mapBgCanvas');
     if (!svg || !bgCanvas) return;
 
-    // --- Load map tiles from CartoDB (free, no token needed) ---
-    const bgCtx = bgCanvas.getContext('2d');
-    bgCanvas.width = 2400; // @2x
-    bgCanvas.height = 1200;
+    // =============================================
+    // UNIFIED WEB MERCATOR PROJECTION
+    // One coordinate system for both tiles AND dots
+    // =============================================
+    const ZOOM = 3;
+    const TILE_PX = 256;  // standard tile size
+    const SCALE = 2;      // @2x retina
+    const TILE_DRAW_PX = TILE_PX * SCALE; // 512px per tile on canvas
+    const N_TILES = Math.pow(2, ZOOM);    // 8 tiles per axis at zoom 3
+    const WORLD_PX = N_TILES * TILE_DRAW_PX; // 4096 total world pixels
 
-    // Tile settings: zoom 3, centered on lon=115, lat=20
-    // At zoom 3, the world is 8x8 tiles (256px each)
-    // We need tiles that cover our view area (roughly East/Southeast Asia)
-    const tileZoom = 3;
-    const tileSize = 256;
-    const tilesPerAxis = Math.pow(2, tileZoom); // 8
-
-    // Convert center lon/lat to tile coordinates
-    function lonLatToTile(lon, lat, z) {
-      const n = Math.pow(2, z);
-      const x = Math.floor((lon + 180) / 360 * n);
-      const latRad = lat * Math.PI / 180;
-      const y = Math.floor((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2 * n);
-      return { x, y };
-    }
-
-    // Center tile
-    const centerTile = lonLatToTile(115, 20, tileZoom);
-
-    // We need roughly 5x3 tiles to fill our 1200x600 view at 2x
-    const tilesToLoad = [];
-    for (let dy = -1; dy <= 1; dy++) {
-      for (let dx = -2; dx <= 2; dx++) {
-        let tx = (centerTile.x + dx) % tilesPerAxis;
-        if (tx < 0) tx += tilesPerAxis;
-        const ty = centerTile.y + dy;
-        if (ty >= 0 && ty < tilesPerAxis) {
-          tilesToLoad.push({ tx, ty, dx, dy });
-        }
-      }
-    }
-
-    // Fill with base color first
-    bgCtx.fillStyle = '#e8e4df';
-    bgCtx.fillRect(0, 0, 2400, 1200);
-
-    let loadedCount = 0;
-    tilesToLoad.forEach(({ tx, ty, dx, dy }) => {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      // CartoDB Positron (light, clean map style) - free, no token
-      img.src = `https://basemaps.cartocdn.com/light_nolabels/${tileZoom}/${tx}/${ty}@2x.png`;
-      img.onload = () => {
-        // Position: center of canvas + offset
-        const cx = 1200; // canvas center x
-        const cy = 600;  // canvas center y
-        // Pixel offset of center tile within its tile
-        const centerPixelX = ((115 + 180) / 360 * tilesPerAxis * tileSize * 2) % (tileSize * 2);
-        const centerPixelY = ((1 - Math.log(Math.tan(20 * Math.PI / 180) + 1 / Math.cos(20 * Math.PI / 180)) / Math.PI) / 2 * tilesPerAxis * tileSize * 2) % (tileSize * 2);
-
-        const drawX = cx - centerPixelX + dx * tileSize * 2;
-        const drawY = cy - centerPixelY + dy * tileSize * 2;
-
-        bgCtx.drawImage(img, drawX, drawY, tileSize * 2, tileSize * 2);
-        loadedCount++;
-      };
-      img.onerror = () => { loadedCount++; };
-    });
-
-    // Map dimensions (match SVG viewBox)
+    // SVG/display dimensions
     const W = 1200;
     const H = 600;
 
-    // Mapbox static map parameters for projection
-    // Center: lon=115, lat=20, zoom=3, size=1200x600
-    const centerLon = 115;
-    const centerLat = 20;
-    const zoom = 3;
+    // Canvas is @2x for retina
+    const CANVAS_W = W * SCALE;  // 2400
+    const CANVAS_H = H * SCALE;  // 1200
 
-    // Convert lon/lat to pixel position on the Mapbox static image
-    // Using Web Mercator tile math
-    function lngLatToPixel(lng, lat) {
-      const scale = Math.pow(2, zoom) * 512; // @2x tiles = 512px
-      const worldX = ((lng + 180) / 360) * scale;
+    // Map center
+    const CENTER_LON = 110;
+    const CENTER_LAT = 15;
+
+    // Core Web Mercator: lon/lat → world pixel at our zoom level
+    function lonLatToWorld(lon, lat) {
+      const wx = ((lon + 180) / 360) * WORLD_PX;
       const latRad = (lat * Math.PI) / 180;
-      const worldY = (scale / 2) * (1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI);
+      const wy = (WORLD_PX / 2) * (1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI);
+      return { wx, wy };
+    }
 
-      // Center pixel
-      const centerX = ((centerLon + 180) / 360) * scale;
-      const centerLatRad = (centerLat * Math.PI) / 180;
-      const centerY = (scale / 2) * (1 - Math.log(Math.tan(centerLatRad) + 1 / Math.cos(centerLatRad)) / Math.PI);
+    // World pixel of our center point
+    const centerWorld = lonLatToWorld(CENTER_LON, CENTER_LAT);
 
-      // Offset from center
-      const px = W / 2 + (worldX - centerX);
-      const py = H / 2 + (worldY - centerY);
+    // Convert lon/lat → pixel on our SVG (W x H coordinate space)
+    function lngLatToPixel(lon, lat) {
+      const w = lonLatToWorld(lon, lat);
+      return {
+        x: W / 2 + (w.wx - centerWorld.wx) / SCALE,
+        y: H / 2 + (w.wy - centerWorld.wy) / SCALE,
+      };
+    }
 
-      return { x: px, y: py };
+    // =============================================
+    // LOAD MAP TILES
+    // =============================================
+    const bgCtx = bgCanvas.getContext('2d');
+    bgCanvas.width = CANVAS_W;
+    bgCanvas.height = CANVAS_H;
+    bgCtx.fillStyle = '#e8e4df';
+    bgCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+    // Figure out which tiles we need
+    // The center of our canvas corresponds to centerWorld in world-pixel space
+    // Canvas pixel (CANVAS_W/2, CANVAS_H/2) = world pixel (centerWorld.wx, centerWorld.wy)
+    // So world pixel (wx, wy) maps to canvas pixel:
+    //   canvasX = CANVAS_W/2 + (wx - centerWorld.wx)
+    //   canvasY = CANVAS_H/2 + (wy - centerWorld.wy)
+
+    // Find tile range that covers our canvas
+    const worldLeft = centerWorld.wx - CANVAS_W / 2;
+    const worldTop = centerWorld.wy - CANVAS_H / 2;
+    const worldRight = centerWorld.wx + CANVAS_W / 2;
+    const worldBottom = centerWorld.wy + CANVAS_H / 2;
+
+    const tileLeft = Math.floor(worldLeft / TILE_DRAW_PX);
+    const tileRight = Math.floor(worldRight / TILE_DRAW_PX);
+    const tileTop = Math.max(0, Math.floor(worldTop / TILE_DRAW_PX));
+    const tileBottom = Math.min(N_TILES - 1, Math.floor(worldBottom / TILE_DRAW_PX));
+
+    for (let ty = tileTop; ty <= tileBottom; ty++) {
+      for (let txRaw = tileLeft; txRaw <= tileRight; txRaw++) {
+        let tx = ((txRaw % N_TILES) + N_TILES) % N_TILES; // wrap longitude
+
+        // Where does this tile's top-left sit in world pixels?
+        const tileWorldX = txRaw * TILE_DRAW_PX;
+        const tileWorldY = ty * TILE_DRAW_PX;
+
+        // Convert to canvas coordinates
+        const canvasX = (tileWorldX - worldLeft);
+        const canvasY = (tileWorldY - worldTop);
+
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = `https://basemaps.cartocdn.com/light_nolabels/${ZOOM}/${tx}/${ty}@2x.png`;
+
+        // Closure to capture canvasX/Y
+        ((cx, cy) => {
+          img.onload = () => {
+            bgCtx.drawImage(img, cx, cy, TILE_DRAW_PX, TILE_DRAW_PX);
+          };
+        })(canvasX, canvasY);
+      }
     }
 
     // Project all stops
