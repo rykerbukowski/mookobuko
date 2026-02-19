@@ -4,7 +4,7 @@ subtitle: "Street Food, Elephants & Muay Thai in Thailand's Capital"
 date: 2026-02-10
 location: "Bangkok, Thailand"
 locationEmoji: "🇹🇭"
-heroImage: "https://mookobuko.com/media/posts/10/gallery/bangkok-chinatown-neon-signs-dusk.jpg"
+heroImage: "https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg"
 heroColor: "#FF3CAC"
 excerpt: "Fresh off Taiwan, we dove headfirst into Bangkok — wrong condos, $14 feasts, baby elephants with zero personal space, and the shocking discovery of a secret pool on floor 10."
 tags:
@@ -52,7 +52,7 @@ Fresh off our 10 days in Taiwan, we were READY. Ready for warmth, Thai food, and
 We flew out of Taipei, about a five-hour flight and landed in Bangkok in the evening. We trained into the city and made our way to an apartment waiting for us. Peach (Ryker's grooms-lady for the wedding and BFF from college) lives in Bangkok and was kind enough to let us crash at her family's condo. 31st floor with an incredible view of the city. Made us feel very fancy and very far from our Taipei hostel.
 
 <figure class="photo-bleed">
-  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-31st-floor.jpg" alt="Bangkok skyline at night from 31st floor condo" />
+  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-wide.jpg" alt="Bangkok skyline at night from 31st floor condo" />
   <figcaption>The view from Peach's 31st floor condo. Not bad for free lodging.</figcaption>
 </figure>
 
@@ -95,8 +95,8 @@ We slept in until 11 AM. We finally dragged ourselves out of bed and made our wa
 </div>
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-selfie-im-chan-thai-food.jpg" alt="Ryker at Im Chan restaurant" /><figcaption>First Thai meal in Thailand</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/couple-khon-thai-restaurant-food-spread.jpg" alt="Couple with huge Thai food spread" /><figcaption>$14 for ALL of this</figcaption></figure>
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/couple-khon-thai-restaurant-food-spread.jpg" alt="Couple at Thai restaurant with food spread" /><figcaption>First Thai meal in Thailand</figcaption></figure>
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-selfie-im-chan-thai-food.jpg" alt="Ryker at Im Chan restaurant" /><figcaption>$14 for ALL of this</figcaption></figure>
 </div>
 
 From there, we went to a mall (because sometimes you just need some air conditioning) and found a Jim Thompson store. Jim Thompson is famous for Thai silk, and Meg found the most beautiful silk scarf. Similar to the Pashmina scarf she got when we were in India, the goal of getting these is mostly as memory pieces that we'll keep forever.
@@ -143,6 +143,13 @@ That evening, we met up with Peach after her work (because she has a job, unlike
 </div>
 
 <div class="photo-duo">
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-papaya-salad-sweating-face.jpg" alt="Ryker sweating after papaya salad" /><figcaption>Seven hundred chilies will do this to a man</figcaption></figure>
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-peach-pub-beatles-bar-beers.jpg" alt="Ryker and Peach at pub" /><figcaption>Cooling down with Peach after the spice attack</figcaption></figure>
+</div>
+
+That night we went out to an izakaya with Peach for some much-needed cooling down beverages.
+
+<div class="photo-duo">
   <figure><img src="https://mookobuko.com/media/posts/10/gallery/peach-giant-asahi-beers-izakaya.jpg" alt="Peach with giant beers" /><figcaption>Peach and the world's largest Asahi</figcaption></figure>
   <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-beer-izakaya-cherry-blossoms.jpg" alt="Ryker with beer at izakaya" /><figcaption>Ryker matching Peach's energy</figcaption></figure>
 </div>
@@ -182,6 +189,11 @@ So I think I skipped over this part, but Meg and I went to our very first Muay T
 
 Taking this class felt like the first time I ever went to the gym or the first time I ever tried rugby. My body felt weird, all of the movements were completely unfamiliar to me. I think dancing would be a bit of a better example. You don't know how to move your feet, your arms… we started off first shadow boxing, which was so strange. My shoulders got tired immediately because they have no stamina. But what also comes along with the feeling of doing something for the very first time is I remembered what it was like to be bad at something, which I think is a feeling we feel less and less as we get older. It was uncomfortable and embarrassing, but I also felt exactly how I felt when I was 15 in the Las Cruces Aquatic Center gym for the very first time by myself having no clue what to do, so I hit bicep curls and 15 minutes on the stationary bike and then left… LOL.
 
+<figure class="photo-polaroid">
+  <img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-training-kick-gym.jpg" alt="Ryker training Muay Thai — throwing a kick" />
+  <figcaption>First Muay Thai class ever — throwing kicks at 9am in an abandoned shopping center</figcaption>
+</figure>
+
 <div class="fight-card">
   <div class="fight-card-header">🥊 MUAY THAI NIGHT — BANGKOK 🥊</div>
   <div class="fight-card-body">
@@ -195,11 +207,16 @@ Taking this class felt like the first time I ever went to the gym or the first t
 
 ANYWAYS. Meg and I after this went that night with Peach to a professional Muay Thai fight at a newly constructed stadium in the north of Bangkok. This was also Peach's very first Muay Thai fight as well! So special. It was epic. Bloody. Your adrenaline gets pumping when you see 30+ people beat the crap out of each other for 2+ hours. It was awesome, would highly recommend it to anyone going to Bangkok.
 
+<div class="photo-duo">
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-stadium.jpg" alt="Professional Muay Thai fight in Bangkok stadium" /><figcaption>The real deal — pro Muay Thai in Bangkok</figcaption></figure>
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-action.jpg" alt="Muay Thai fighters in the ring" /><figcaption>30+ fighters, 2+ hours, maximum adrenaline</figcaption></figure>
+</div>
+
 But that night… Meg slowly lost her voice until she couldn't speak at all LOL. We had a mute MEG. CODE RED. Well… we went back to the condo and got that little one to sleep. She proceeded to sleep for about 14 hours and was mute the entirety of the next two days. But it worked out perfectly because we had nothing planned for those days. We were able to blob in Peach's condo with the AC on blast.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-fist-pose-chinatown-street-food.jpg" alt="Ryker fist pose at street food stall" /><figcaption>Post-Muay Thai energy at street food</figcaption></figure>
   <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-chinatown-neon-goku-tank-night.jpg" alt="Ryker in Chinatown at night" /><figcaption>Chinatown at night — the Goku tank stays on</figcaption></figure>
+  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-fist-pose-chinatown-street-food.jpg" alt="Ryker fist pose at street food stall" /><figcaption>Post-Muay Thai energy at Chinatown street food</figcaption></figure>
 </div>
 
 ## Days 7–10 — The Discovery 🏊
