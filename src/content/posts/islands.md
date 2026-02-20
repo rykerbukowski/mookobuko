@@ -1,12 +1,22 @@
 ---
 title: "The Islands: Southwest Thailand"
-date: 2026-02-20
-slug: islands
-postNumber: 11
-description: "Scuba certifications, whale sharks, a scam Airbnb, one surprisingly luxurious hotel, Muay Thai, Bottle Beach, and exactly zero full moon parties."
-author: Meg (and Ryker)
-coverImage: /media/posts/11/gallery/koh-tao-yacht-sunset-dramatic.jpg
-tags: [thailand, koh-tao, koh-phangan, scuba, muay-thai, islands]
+subtitle: "Scuba, Whale Sharks & Muay Thai on Koh Tao and Koh Pha Ngan"
+date: 2026-02-15
+location: "Koh Tao & Koh Pha Ngan, Thailand"
+locationEmoji: "🇹🇭"
+heroImage: "https://mookobuko.com/media/posts/11/gallery/koh-tao-yacht-sunset-dramatic.jpg"
+heroColor: "#0a3d5e"
+excerpt: "Scuba certifications, whale sharks, a scam Airbnb, one surprisingly luxurious hotel, Muay Thai training, and exactly zero full moon parties."
+tags:
+  - label: "🤿 Scuba"
+    color: "#0a3d5e"
+  - label: "🦈 Whale Shark"
+    color: "#1a6b8a"
+  - label: "🥊 Muay Thai"
+    color: "#FF3CAC"
+  - label: "🏝️ Islands"
+    color: "#00C9A7"
+status: published
 ---
 
 Well folks I feel I have been letting everyone down with my lack of blog posts — but fear not. We are back with a **double post** for you. See, my plan was to make one post per country. But what do you do when you end up in a country for longer than expected? A new challenge for the blog. Anywho — we should have one post right before this all about Bangkok. And if you haven't read it yet, what are you even doing with your life.
