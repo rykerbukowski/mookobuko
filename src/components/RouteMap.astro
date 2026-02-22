@@ -2,12 +2,13 @@
 // Route data - edit this to update your travel route!
 const stops = [
   { emoji: '🇺🇸', name: 'Seattle', dates: 'Home Base', status: 'done', gradient: '#FF6B6B, #FF3CAC' },
-  { emoji: '🇯🇵', name: 'Tokyo', dates: 'Jan 6 – 13', status: 'done', gradient: '#FFD93D, #FF6B6B' },
-  { emoji: '🇯🇵', name: 'Sapporo', dates: 'Jan 14 – 20', status: 'done', gradient: '#87CEEB, #00C9A7' },
-  { emoji: '🇹🇼', name: 'Taiwan', dates: 'Jan 21 – 31', status: 'done', gradient: '#00C9A7, #FFD93D' },
-  { emoji: '🇹🇭', name: 'Thailand', dates: 'Feb – Mar', status: 'current', gradient: '#FF3CAC, #FFD93D' },
-  { emoji: '🇸🇬', name: 'Singapore', dates: 'Upcoming', status: 'upcoming', gradient: '#7B2D8E, #FF6B6B' },
-  { emoji: '🇵🇭', name: 'Philippines', dates: 'Upcoming', status: 'upcoming', gradient: '#FFB88C, #FF6B6B' },
+  { emoji: '🇯🇵', name: 'Tokyo', dates: 'Jan 6 – 13', status: 'done', gradient: '#FFD93D, #FF6B6B', slug: '/posts/tokyo' },
+  { emoji: '🇯🇵', name: 'Sapporo', dates: 'Jan 14 – 20', status: 'done', gradient: '#87CEEB, #00C9A7', slug: '/posts/sapporo' },
+  { emoji: '🇹🇼', name: 'Taiwan', dates: 'Jan 21 – 31', status: 'done', gradient: '#00C9A7, #FFD93D', slug: '/posts/taiwan' },
+  { emoji: '🇹🇭', name: 'Bangkok', dates: 'Feb 1 – 7', status: 'done', gradient: '#FF3CAC, #FFD93D', slug: '/posts/bangkok' },
+  { emoji: '🇹🇭', name: 'The Islands', dates: 'Feb 7 – 20', status: 'done', gradient: '#FFD93D, #0a3d5e', slug: '/posts/islands' },
+  { emoji: '🇸🇬', name: 'Singapore', dates: 'Feb 21 – 22', status: 'done', gradient: '#7B2D8E, #FF6B6B' },
+  { emoji: '🇵🇭', name: 'Philippines', dates: 'Feb 23 – Mar', status: 'current', gradient: '#FFB88C, #FF6B6B' },
   { emoji: '🇮🇩', name: 'Bali', dates: 'Upcoming', status: 'upcoming', gradient: '#00C9A7, #87CEEB' },
   { emoji: '🌍', name: '& more...', dates: 'The adventure continues', status: 'upcoming', gradient: '#C6F135, #00C9A7' },
 ];
@@ -25,17 +26,31 @@ const statusMap: Record<string, { label: string; class: string }> = {
     <h2 class="section-title reveal">Where we've been<br>& where we're going</h2>
     <div class="route-map">
       {stops.map((stop, i) => (
-        <div class="route-stop">
-          <div class="stop-dot" style={`background:linear-gradient(135deg,${stop.gradient});`}>
-            {stop.emoji}
+        stop.slug ? (
+          <a href={stop.slug} class="route-stop has-link">
+            <div class="stop-dot" style={`background:linear-gradient(135deg,${stop.gradient});`}>
+              {stop.emoji}
+            </div>
+            {i < stops.length - 1 && <div class="stop-line" />}
+            <div class="stop-name">{stop.name}</div>
+            <div class="stop-dates">{stop.dates}</div>
+            <span class={`stop-status ${statusMap[stop.status].class}`}>
+              {statusMap[stop.status].label}
+            </span>
+          </a>
+        ) : (
+          <div class="route-stop">
+            <div class="stop-dot" style={`background:linear-gradient(135deg,${stop.gradient});`}>
+              {stop.emoji}
+            </div>
+            {i < stops.length - 1 && <div class="stop-line" />}
+            <div class="stop-name">{stop.name}</div>
+            <div class="stop-dates">{stop.dates}</div>
+            <span class={`stop-status ${statusMap[stop.status].class}`}>
+              {statusMap[stop.status].label}
+            </span>
           </div>
-          {i < stops.length - 1 && <div class="stop-line" />}
-          <div class="stop-name">{stop.name}</div>
-          <div class="stop-dates">{stop.dates}</div>
-          <span class={`stop-status ${statusMap[stop.status].class}`}>
-            {statusMap[stop.status].label}
-          </span>
-        </div>
+        )
       ))}
     </div>
   </div>
@@ -82,6 +97,20 @@ const statusMap: Record<string, { label: string; class: string }> = {
   }
 
   .route-stop:hover { transform: translateY(-10px); }
+
+  a.route-stop {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  a.route-stop .stop-name {
+    transition: color 0.2s;
+  }
+
+  a.route-stop:hover .stop-name {
+    color: var(--coral);
+  }
 
   .stop-dot {
     width: 48px; height: 48px;

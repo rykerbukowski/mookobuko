@@ -1,6 +1,17 @@
 ---
-// Travel stops with coordinates
+// Travel stops with coordinates (lon/lat projected to simple Mercator)
+// Each stop can link to a blog post
 const stops = [
+  {
+    name: 'Seattle',
+    emoji: '🇺🇸',
+    lat: 47.6,
+    lon: -122.33,
+    dates: 'Home Base',
+    status: 'done',
+    color: '#FF6B6B',
+    description: 'Where it all started — home base before the big adventure.',
+  },
   {
     name: 'Tokyo',
     emoji: '🇯🇵',
@@ -42,30 +53,44 @@ const stops = [
     emoji: '🇹🇭',
     lat: 13.75,
     lon: 100.52,
-    dates: 'Feb – Mar',
-    status: 'current',
+    dates: 'Feb 1 – 7',
+    status: 'done',
     color: '#FF3CAC',
-    description: 'Muay Thai training, street food & temple hopping.',
+    slug: '/posts/bangkok',
+    heroImage: 'https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg',
+    description: 'Street food, elephants, Muay Thai & a secret pool on floor 10.',
   },
   {
     name: 'Koh Tao',
     emoji: '🇹🇭',
     lat: 10.1,
     lon: 99.84,
-    dates: 'Feb – Mar',
-    status: 'current',
+    dates: 'Feb 7 – 20',
+    status: 'done',
     color: '#FFD93D',
-    description: 'Scuba diving certification & island life.',
+    slug: '/posts/islands',
+    heroImage: 'https://mookobuko.com/media/posts/11/gallery/koh-tao-yacht-sunset-dramatic.jpg',
+    description: 'Scuba diving, whale sharks & exactly zero full moon parties.',
   },
   {
     name: 'Singapore',
     emoji: '🇸🇬',
     lat: 1.35,
     lon: 103.82,
-    dates: 'Upcoming',
-    status: 'upcoming',
+    dates: 'Feb 21 – 22',
+    status: 'done',
     color: '#7B2D8E',
-    description: 'Coming soon...',
+    description: '48-hour layover — hawker centers & Marina Bay.',
+  },
+  {
+    name: 'Philippines',
+    emoji: '🇵🇭',
+    lat: 10.31,
+    lon: 123.89,
+    dates: 'Feb 23 – Mar',
+    status: 'current',
+    color: '#FFB88C',
+    description: 'Island hopping with Miles in Palawan & beyond.',
   },
   {
     name: 'Bali',
@@ -75,7 +100,7 @@ const stops = [
     dates: 'Upcoming',
     status: 'upcoming',
     color: '#00C9A7',
-    description: 'Coming soon...',
+    description: 'Surf camps & rice terraces — coming soon...',
   },
 ];
 ---
@@ -86,25 +111,17 @@ const stops = [
     <h2 class="section-title reveal">Follow our route<br>around the world</h2>
 
     <div class="map-wrapper">
-      <div class="map-inner" id="mapInner">
-        <!-- Map tile background rendered via canvas -->
-        <canvas class="map-bg" id="mapBgCanvas"></canvas>
+      <canvas id="travelMapCanvas"></canvas>
 
-        <!-- SVG overlay for dots and paths -->
-        <svg class="map-svg" id="mapSvg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
-          <!-- Paths and dots will be added via script -->
-        </svg>
-
-        <!-- Hover card -->
-        <div class="map-hover-card" id="mapHoverCard">
-          <div class="hover-card-image" id="hoverCardImage"></div>
-          <div class="hover-card-content">
-            <div class="hover-card-emoji" id="hoverCardEmoji"></div>
-            <h3 class="hover-card-title" id="hoverCardTitle"></h3>
-            <p class="hover-card-dates" id="hoverCardDates"></p>
-            <p class="hover-card-desc" id="hoverCardDesc"></p>
-            <span class="hover-card-status" id="hoverCardStatus"></span>
-          </div>
+      <!-- Hover card -->
+      <div class="map-hover-card" id="mapHoverCard">
+        <div class="hover-card-image" id="hoverCardImage"></div>
+        <div class="hover-card-content">
+          <div class="hover-card-emoji" id="hoverCardEmoji"></div>
+          <h3 class="hover-card-title" id="hoverCardTitle"></h3>
+          <p class="hover-card-dates" id="hoverCardDates"></p>
+          <p class="hover-card-desc" id="hoverCardDesc"></p>
+          <span class="hover-card-status" id="hoverCardStatus"></span>
         </div>
       </div>
 
@@ -119,230 +136,205 @@ const stops = [
 </section>
 
 <script define:vars={{ stops }}>
+  // Wait for DOM
   document.addEventListener('DOMContentLoaded', () => {
-    const mapInner = document.getElementById('mapInner');
-    const svg = document.getElementById('mapSvg');
+    const canvas = document.getElementById('travelMapCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const wrapper = canvas.parentElement;
     const hoverCard = document.getElementById('mapHoverCard');
-    const bgCanvas = document.getElementById('mapBgCanvas');
-    if (!svg || !bgCanvas) return;
 
-    // =============================================
-    // UNIFIED WEB MERCATOR PROJECTION
-    // One coordinate system for both tiles AND dots
-    // =============================================
-    const ZOOM = 3;
-    const TILE_PX = 256;  // standard tile size
-    const SCALE = 2;      // @2x retina
-    const TILE_DRAW_PX = TILE_PX * SCALE; // 512px per tile on canvas
-    const N_TILES = Math.pow(2, ZOOM);    // 8 tiles per axis at zoom 3
-    const WORLD_PX = N_TILES * TILE_DRAW_PX; // 4096 total world pixels
+    // --- Responsive sizing ---
+    let W, H, dpr;
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      const rect = wrapper.getBoundingClientRect();
+      W = rect.width;
+      H = Math.max(400, Math.min(600, W * 0.55));
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
 
-    // SVG/display dimensions
-    const W = 1200;
-    const H = 600;
+    // --- Map projection (simple Mercator, focused on Pacific-centered view) ---
+    // Shift longitude so Pacific is centered
+    function shiftLon(lon) {
+      let shifted = lon + 60; // shift so ~-60 becomes 0 (centers on Pacific)
+      if (shifted < 0) shifted += 360;
+      if (shifted > 360) shifted -= 360;
+      return shifted;
+    }
 
-    // Canvas is @2x for retina
-    const CANVAS_W = W * SCALE;  // 2400
-    const CANVAS_H = H * SCALE;  // 1200
-
-    // Map center
-    const CENTER_LON = 110;
-    const CENTER_LAT = 15;
-
-    // Core Web Mercator: lon/lat → world pixel at our zoom level
-    function lonLatToWorld(lon, lat) {
-      const wx = ((lon + 180) / 360) * WORLD_PX;
+    function project(lat, lon) {
+      const padding = 60;
+      const shifted = shiftLon(lon);
+      const x = padding + (shifted / 360) * (W - padding * 2);
+      // Mercator-ish y
       const latRad = (lat * Math.PI) / 180;
-      const wy = (WORLD_PX / 2) * (1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI);
-      return { wx, wy };
-    }
-
-    // World pixel of our center point
-    const centerWorld = lonLatToWorld(CENTER_LON, CENTER_LAT);
-
-    // Convert lon/lat → pixel on our SVG (W x H coordinate space)
-    function lngLatToPixel(lon, lat) {
-      const w = lonLatToWorld(lon, lat);
-      return {
-        x: W / 2 + (w.wx - centerWorld.wx) / SCALE,
-        y: H / 2 + (w.wy - centerWorld.wy) / SCALE,
-      };
-    }
-
-    // =============================================
-    // LOAD MAP TILES
-    // =============================================
-    const bgCtx = bgCanvas.getContext('2d');
-    bgCanvas.width = CANVAS_W;
-    bgCanvas.height = CANVAS_H;
-    bgCtx.fillStyle = '#e8e4df';
-    bgCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
-
-    // Figure out which tiles we need
-    // The center of our canvas corresponds to centerWorld in world-pixel space
-    // Canvas pixel (CANVAS_W/2, CANVAS_H/2) = world pixel (centerWorld.wx, centerWorld.wy)
-    // So world pixel (wx, wy) maps to canvas pixel:
-    //   canvasX = CANVAS_W/2 + (wx - centerWorld.wx)
-    //   canvasY = CANVAS_H/2 + (wy - centerWorld.wy)
-
-    // Find tile range that covers our canvas
-    const worldLeft = centerWorld.wx - CANVAS_W / 2;
-    const worldTop = centerWorld.wy - CANVAS_H / 2;
-    const worldRight = centerWorld.wx + CANVAS_W / 2;
-    const worldBottom = centerWorld.wy + CANVAS_H / 2;
-
-    const tileLeft = Math.floor(worldLeft / TILE_DRAW_PX);
-    const tileRight = Math.floor(worldRight / TILE_DRAW_PX);
-    const tileTop = Math.max(0, Math.floor(worldTop / TILE_DRAW_PX));
-    const tileBottom = Math.min(N_TILES - 1, Math.floor(worldBottom / TILE_DRAW_PX));
-
-    for (let ty = tileTop; ty <= tileBottom; ty++) {
-      for (let txRaw = tileLeft; txRaw <= tileRight; txRaw++) {
-        let tx = ((txRaw % N_TILES) + N_TILES) % N_TILES; // wrap longitude
-
-        // Where does this tile's top-left sit in world pixels?
-        const tileWorldX = txRaw * TILE_DRAW_PX;
-        const tileWorldY = ty * TILE_DRAW_PX;
-
-        // Convert to canvas coordinates
-        const canvasX = (tileWorldX - worldLeft);
-        const canvasY = (tileWorldY - worldTop);
-
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.src = `https://basemaps.cartocdn.com/light_nolabels/${ZOOM}/${tx}/${ty}@2x.png`;
-
-        // Closure to capture canvasX/Y
-        ((cx, cy) => {
-          img.onload = () => {
-            bgCtx.drawImage(img, cx, cy, TILE_DRAW_PX, TILE_DRAW_PX);
-          };
-        })(canvasX, canvasY);
-      }
+      const mercN = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+      const maxMerc = Math.log(Math.tan(Math.PI / 4 + (70 * Math.PI / 180) / 2));
+      const minMerc = Math.log(Math.tan(Math.PI / 4 + (-50 * Math.PI / 180) / 2));
+      const y = padding + ((maxMerc - mercN) / (maxMerc - minMerc)) * (H - padding * 2);
+      return { x, y };
     }
 
     // Project all stops
     const projected = stops.map(s => ({
       ...s,
-      ...lngLatToPixel(s.lon, s.lat),
+      ...project(s.lat, s.lon),
     }));
 
-    // --- Build SVG content ---
-    let svgContent = '';
+    // --- Draw world outline dots (subtle background) ---
+    // Simple grid of dots to suggest land
+    function drawBackground() {
+      ctx.fillStyle = '#F5F0EB';
+      ctx.fillRect(0, 0, W, H);
 
-    // Defs for glow filter
-    svgContent += `
-      <defs>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
-        </filter>
-      </defs>
-    `;
+      // Subtle grid dots
+      const spacing = 20;
+      ctx.fillStyle = 'rgba(0,0,0,0.03)';
+      for (let x = 0; x < W; x += spacing) {
+        for (let y = 0; y < H; y += spacing) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
 
-    // Draw curved paths between consecutive stops
-    for (let i = 0; i < projected.length - 1; i++) {
-      const p1 = projected[i];
-      const p2 = projected[i + 1];
+      // Equator line
+      const eq = project(0, 0);
+      ctx.strokeStyle = 'rgba(0,0,0,0.04)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 8]);
+      ctx.beginPath();
+      ctx.moveTo(0, eq.y);
+      ctx.lineTo(W, eq.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
 
-      // Control point for curve (arc upward)
+    // --- Curved flight path between two points ---
+    function getControlPoint(p1, p2) {
       const mx = (p1.x + p2.x) / 2;
       const my = (p1.y + p2.y) / 2;
       const dist = Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);
-      const cpx = mx;
-      const cpy = my - dist * 0.25;
-
-      const fromActive = p1.status === 'done' || p1.status === 'current';
-      const toActive = p2.status === 'done' || p2.status === 'current';
-      const pathColor = (fromActive && toActive) ? p2.color : 'rgba(0,0,0,0.12)';
-      const pathOpacity = (fromActive && toActive) ? 0.5 : 0.3;
-
-      svgContent += `
-        <path
-          d="M ${p1.x} ${p1.y} Q ${cpx} ${cpy} ${p2.x} ${p2.y}"
-          fill="none"
-          stroke="${pathColor}"
-          stroke-width="2.5"
-          stroke-dasharray="8 5"
-          stroke-opacity="${pathOpacity}"
-          class="flight-path"
-          style="--path-index: ${i}"
-        />
-      `;
+      // Curve upward
+      return { x: mx, y: my - dist * 0.3 };
     }
 
-    // Draw dots for each stop
-    projected.forEach((stop, i) => {
-      const r = stop.status === 'current' ? 10 : stop.status === 'done' ? 8 : 6;
+    function drawCurvedPath(p1, p2, progress, color) {
+      const cp = getControlPoint(p1, p2);
+      ctx.strokeStyle = color || 'rgba(255,107,107,0.3)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6, 4]);
 
-      // Pulse ring for current stops
+      ctx.beginPath();
+      // Draw partial curve based on progress
+      const steps = Math.floor(100 * progress);
+      for (let i = 0; i <= steps; i++) {
+        const t = i / 100;
+        const x = (1 - t) ** 2 * p1.x + 2 * (1 - t) * t * cp.x + t ** 2 * p2.x;
+        const y = (1 - t) ** 2 * p1.y + 2 * (1 - t) * t * cp.y + t ** 2 * p2.y;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Airplane icon along the path if animating
+      if (progress > 0 && progress < 1) {
+        const t = progress;
+        const ax = (1 - t) ** 2 * p1.x + 2 * (1 - t) * t * cp.x + t ** 2 * p2.x;
+        const ay = (1 - t) ** 2 * p1.y + 2 * (1 - t) * t * cp.y + t ** 2 * p2.y;
+        // Direction
+        const dt = 0.01;
+        const t2 = Math.min(1, t + dt);
+        const bx = (1 - t2) ** 2 * p1.x + 2 * (1 - t2) * t2 * cp.x + t2 ** 2 * p2.x;
+        const by = (1 - t2) ** 2 * p1.y + 2 * (1 - t2) * t2 * cp.y + t2 ** 2 * p2.y;
+        const angle = Math.atan2(by - ay, bx - ax);
+
+        ctx.save();
+        ctx.translate(ax, ay);
+        ctx.rotate(angle);
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('✈️', 0, 0);
+        ctx.restore();
+      }
+    }
+
+    // --- Draw city dot ---
+    function drawDot(stop, time) {
+      const r = stop.status === 'current' ? 8 : stop.status === 'done' ? 6 : 5;
+
+      // Glow for current
       if (stop.status === 'current') {
-        svgContent += `
-          <circle cx="${stop.x}" cy="${stop.y}" r="${r + 8}" fill="${stop.color}" opacity="0.15" class="pulse-ring"/>
-          <circle cx="${stop.x}" cy="${stop.y}" r="${r + 4}" fill="${stop.color}" opacity="0.1" class="pulse-ring-outer"/>
-        `;
+        const pulseR = r + 6 + Math.sin(time * 3) * 4;
+        ctx.beginPath();
+        ctx.arc(stop.x, stop.y, pulseR, 0, Math.PI * 2);
+        ctx.fillStyle = stop.color + '30';
+        ctx.fill();
       }
 
-      // White border
-      svgContent += `<circle cx="${stop.x}" cy="${stop.y}" r="${r + 3}" fill="white" filter="url(#shadow)"/>`;
+      // Outer ring
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r + 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'white';
+      ctx.fill();
 
       // Main dot
-      const dotColor = stop.status === 'upcoming' ? 'rgba(0,0,0,0.15)' : stop.color;
-      svgContent += `<circle cx="${stop.x}" cy="${stop.y}" r="${r}" fill="${dotColor}" class="stop-dot" data-index="${i}"/>`;
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = stop.status === 'upcoming' ? 'rgba(0,0,0,0.15)' : stop.color;
+      ctx.fill();
+
+      // Shadow
+      ctx.shadowColor = 'rgba(0,0,0,0.15)';
+      ctx.shadowBlur = 8;
+      ctx.shadowOffsetY = 2;
+      ctx.beginPath();
+      ctx.arc(stop.x, stop.y, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetY = 0;
 
       // Label
-      const labelColor = stop.status === 'upcoming' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.7)';
+      ctx.font = '600 11px "DM Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = stop.status === 'upcoming' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.7)';
+      ctx.fillText(stop.name, stop.x, stop.y + r + 6);
 
-      // Offset labels to avoid overlap
-      let labelX = stop.x;
-      let labelY = stop.y + r + 16;
-      let anchor = 'middle';
+      // Emoji above
+      ctx.font = '14px sans-serif';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText(stop.emoji, stop.x, stop.y - r - 4);
+    }
 
-      // Special positioning for overlapping stops
-      if (stop.name === 'Bangkok') {
-        labelX = stop.x - 20;
-        anchor = 'end';
-      }
-      if (stop.name === 'Koh Tao') {
-        labelX = stop.x + 20;
-        anchor = 'start';
-      }
+    // --- Animation state ---
+    let animProgress = 0; // 0 to stops.length-1
+    let animStarted = false;
+    let animStartTime = 0;
+    const ANIM_DURATION_PER_SEGMENT = 1200; // ms per flight
 
-      svgContent += `
-        <text x="${labelX}" y="${labelY}" text-anchor="${anchor}" fill="${labelColor}"
-              font-family="'DM Sans', sans-serif" font-size="13" font-weight="600"
-              class="stop-label">${stop.name}</text>
-      `;
-
-      // Emoji flag above
-      svgContent += `
-        <text x="${stop.x}" y="${stop.y - r - 8}" text-anchor="middle" font-size="16"
-              class="stop-emoji">${stop.emoji}</text>
-      `;
-    });
-
-    svg.innerHTML = svgContent;
-
-    // --- Hover interaction ---
+    // --- Hover detection ---
     let hoveredStop = null;
+    let mouseX = 0, mouseY = 0;
 
-    function onMove(clientX, clientY) {
-      const rect = mapInner.getBoundingClientRect();
-      const scaleX = W / rect.width;
-      const scaleY = H / rect.height;
-      const mx = (clientX - rect.left) * scaleX;
-      const my = (clientY - rect.top) * scaleY;
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
 
       let found = null;
       for (const stop of projected) {
-        const dist = Math.sqrt((mx - stop.x) ** 2 + (my - stop.y) ** 2);
-        if (dist < 30) {
+        const dist = Math.sqrt((mouseX - stop.x) ** 2 + (mouseY - stop.y) ** 2);
+        if (dist < 25) {
           found = stop;
           break;
         }
@@ -351,44 +343,42 @@ const stops = [
       if (found !== hoveredStop) {
         hoveredStop = found;
         if (found) {
-          mapInner.style.cursor = found.slug ? 'pointer' : 'default';
-          showHoverCard(found);
+          canvas.style.cursor = found.slug ? 'pointer' : 'default';
+          showHoverCard(found, e.clientX, e.clientY);
         } else {
-          mapInner.style.cursor = 'default';
+          canvas.style.cursor = 'default';
           hoverCard.classList.remove('visible');
         }
       }
 
+      // Update card position
       if (hoveredStop) {
-        positionHoverCard(clientX, clientY);
+        positionHoverCard(e.clientX, e.clientY);
       }
-    }
-
-    mapInner.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
-    mapInner.addEventListener('mouseleave', () => {
-      hoveredStop = null;
-      hoverCard.classList.remove('visible');
-      mapInner.style.cursor = 'default';
     });
 
-    mapInner.addEventListener('click', () => {
+    canvas.addEventListener('mouseleave', () => {
+      hoveredStop = null;
+      hoverCard.classList.remove('visible');
+      canvas.style.cursor = 'default';
+    });
+
+    canvas.addEventListener('click', () => {
       if (hoveredStop && hoveredStop.slug) {
         window.location.href = hoveredStop.slug;
       }
     });
 
     // Touch support
-    mapInner.addEventListener('touchstart', (e) => {
+    canvas.addEventListener('touchstart', (e) => {
       const touch = e.touches[0];
-      const rect = mapInner.getBoundingClientRect();
-      const scaleX = W / rect.width;
-      const scaleY = H / rect.height;
-      const tx = (touch.clientX - rect.left) * scaleX;
-      const ty = (touch.clientY - rect.top) * scaleY;
+      const rect = canvas.getBoundingClientRect();
+      const tx = touch.clientX - rect.left;
+      const ty = touch.clientY - rect.top;
 
       for (const stop of projected) {
         const dist = Math.sqrt((tx - stop.x) ** 2 + (ty - stop.y) ** 2);
-        if (dist < 40) {
+        if (dist < 30) {
           if (stop.slug) window.location.href = stop.slug;
           break;
         }
@@ -413,15 +403,21 @@ const stops = [
         imgEl.style.display = 'none';
       }
 
-      hoverCard.classList.toggle('clickable', !!stop.slug);
+      if (stop.slug) {
+        hoverCard.classList.add('clickable');
+      } else {
+        hoverCard.classList.remove('clickable');
+      }
+
       hoverCard.classList.add('visible');
     }
 
     function positionHoverCard(clientX, clientY) {
-      const wrapperRect = mapInner.getBoundingClientRect();
+      const wrapperRect = wrapper.getBoundingClientRect();
       let left = clientX - wrapperRect.left + 15;
       let top = clientY - wrapperRect.top - 20;
 
+      // Keep card within wrapper
       const cardW = 260;
       const cardH = 200;
       if (left + cardW > wrapperRect.width) left = clientX - wrapperRect.left - cardW - 15;
@@ -432,37 +428,97 @@ const stops = [
       hoverCard.style.top = top + 'px';
     }
 
-    // --- Animate paths on scroll ---
-    const paths = svg.querySelectorAll('.flight-path');
-    paths.forEach(path => {
-      const length = path.getTotalLength();
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;
-    });
+    // --- Main draw loop ---
+    function draw(timestamp) {
+      if (!animStarted) return;
 
+      const elapsed = timestamp - animStartTime;
+      const totalSegments = projected.length - 1;
+      const totalDuration = totalSegments * ANIM_DURATION_PER_SEGMENT;
+      animProgress = Math.min(totalSegments, (elapsed / ANIM_DURATION_PER_SEGMENT));
+
+      ctx.clearRect(0, 0, W, H);
+      drawBackground();
+
+      // Draw completed flight paths
+      for (let i = 0; i < totalSegments; i++) {
+        const segProgress = Math.max(0, Math.min(1, animProgress - i));
+        if (segProgress > 0) {
+          const fromDone = projected[i].status === 'done' || projected[i].status === 'current';
+          const toDone = projected[i + 1].status === 'done' || projected[i + 1].status === 'current';
+          const pathColor = (fromDone && toDone) ? projected[i + 1].color + '50' : 'rgba(0,0,0,0.06)';
+          drawCurvedPath(projected[i], projected[i + 1], segProgress, pathColor);
+        }
+      }
+
+      // Draw all dots
+      const time = timestamp / 1000;
+      for (let i = 0; i < projected.length; i++) {
+        // Only draw dot once animation reaches it
+        if (i <= Math.ceil(animProgress)) {
+          drawDot(projected[i], time);
+        }
+      }
+
+      if (elapsed < totalDuration + 500) {
+        requestAnimationFrame(draw);
+      } else {
+        // Final static frame - redraw on resize
+        animProgress = totalSegments;
+        drawFinal(timestamp);
+      }
+    }
+
+    function drawFinal(timestamp) {
+      ctx.clearRect(0, 0, W, H);
+      drawBackground();
+
+      const totalSegments = projected.length - 1;
+      for (let i = 0; i < totalSegments; i++) {
+        const fromDone = projected[i].status === 'done' || projected[i].status === 'current';
+        const toDone = projected[i + 1].status === 'done' || projected[i + 1].status === 'current';
+        const pathColor = (fromDone && toDone) ? projected[i + 1].color + '50' : 'rgba(0,0,0,0.06)';
+        drawCurvedPath(projected[i], projected[i + 1], 1, pathColor);
+      }
+
+      const time = timestamp / 1000;
+      for (const stop of projected) {
+        drawDot(stop, time);
+      }
+
+      // Keep animating for the pulse effect on "current" stops
+      requestAnimationFrame(drawFinal);
+    }
+
+    // --- Start animation on scroll into view ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animate paths sequentially
-          paths.forEach((path, i) => {
-            const length = path.getTotalLength();
-            path.style.transition = `stroke-dashoffset 1s ease ${i * 0.4}s`;
-            path.style.strokeDashoffset = '0';
-          });
-
-          // Fade in dots
-          const dots = svg.querySelectorAll('.stop-dot, .stop-label, .stop-emoji');
-          dots.forEach((el, i) => {
-            el.style.opacity = '0';
-            el.style.transition = `opacity 0.5s ease ${(Math.floor(i / 3)) * 0.4 + 0.3}s`;
-            setTimeout(() => { el.style.opacity = '1'; }, 50);
-          });
-
-          observer.disconnect();
+        if (entry.isIntersecting && !animStarted) {
+          animStarted = true;
+          animStartTime = performance.now();
+          requestAnimationFrame(draw);
         }
       });
     }, { threshold: 0.3 });
-    observer.observe(mapInner);
+    observer.observe(canvas);
+
+    // --- Handle resize ---
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize();
+        // Reproject
+        for (let i = 0; i < projected.length; i++) {
+          const p = project(stops[i].lat, stops[i].lon);
+          projected[i].x = p.x;
+          projected[i].y = p.y;
+        }
+        if (animStarted) {
+          requestAnimationFrame(drawFinal);
+        }
+      }, 150);
+    });
   });
 </script>
 
@@ -487,46 +543,9 @@ const stops = [
     box-shadow: 0 15px 60px rgba(0,0,0,0.08);
   }
 
-  .map-inner {
-    position: relative;
+  #travelMapCanvas {
+    display: block;
     width: 100%;
-    aspect-ratio: 2 / 1;
-    overflow: hidden;
-    background: #e8e4df;
-  }
-
-  .map-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
-    filter: saturate(0.3) brightness(1.05);
-  }
-
-  .map-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-  }
-
-  /* Pulse animation for current stops */
-  .pulse-ring {
-    animation: pulse 2s ease-in-out infinite;
-    transform-origin: center;
-  }
-  .pulse-ring-outer {
-    animation: pulse 2s ease-in-out infinite 0.5s;
-    transform-origin: center;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.15; r: inherit; }
-    50% { opacity: 0.05; }
   }
 
   /* --- Hover Card --- */
@@ -629,7 +648,6 @@ const stops = [
     letter-spacing: 0.05em;
     color: rgba(0,0,0,0.5);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 10;
   }
 
   .legend-item {
@@ -651,7 +669,7 @@ const stops = [
 
   @media (max-width: 768px) {
     .world-map-section { padding: 4rem 1rem; }
-    .map-hover-card { display: none; }
+    .map-hover-card { display: none; } /* Too small for hover cards */
     .map-legend {
       bottom: 0.5rem;
       right: 0.5rem;
