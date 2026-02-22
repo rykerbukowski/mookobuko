@@ -5,12 +5,15 @@
 <section class="about-section" id="about">
   <div class="about-container reveal">
     <span class="section-label">About Us</span>
-    <h2 class="section-title">Hey, we're Meg & Ryker 👋</h2>
+    <h2 class="section-title">Hi we're Meg & Ryker 👋</h2>
     <p class="about-text">
-      We packed up our lives in <em>Seattle</em>, quit our jobs, and set off to spend a year exploring the world.
-      From Muay Thai in Thailand to volcano hiking in Bali, we're chasing adventure, eating everything in sight,
-      and writing about the chaos along the way. Follow along — it only gets wilder from here.
+      We are newlyweds who packed up our lives in <em>Seattle</em>, quit our jobs, and set off to spend a year exploring the world. We are finding our way and learning what we want from this year! From Muay Thai in Thailand, volcano hiking in Indo, or a surf camp in Bali... we're finding that the best things are athletic, with interesting people, who also aren't afraid to have 1,000,000 beers... and writing about it along the way.
     </p>
+    <div class="about-contact">
+      <a href="https://instagram.com/rykurr" target="_blank" rel="noopener">📸 @rykurr</a>
+      <span class="contact-divider">·</span>
+      <a href="https://instagram.com/moogan__" target="_blank" rel="noopener">📸 @moogan__</a>
+    </div>
     <div class="about-names">the Coreys — est. 2025</div>
   </div>
 </section>
@@ -46,5 +49,31 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: rgba(0,0,0,0.3);
+  }
+
+  .about-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-contact a {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--coral);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+  }
+
+  .about-contact a:hover {
+    opacity: 0.7;
+  }
+
+  .contact-divider {
+    color: rgba(0,0,0,0.2);
+    font-size: 1.2rem;
   }
 </style>
