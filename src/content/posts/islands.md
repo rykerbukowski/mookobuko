@@ -59,7 +59,7 @@ We arrived in Koh Tao later that morning and Ryker rented a scooter. We proceede
 
 Stepping off the scooter, I felt like I had entered the world of White Lotus. A man rushed forward to grab our bags, and then rushed away, only to come back seconds later with an ice cold electrolyte drink that tasted like the nectar of the Gods. Booking late, meant we paid more for a room and the only rooms left were the best ones at the property. These "king suites" had the *best* view on the island, we were assured. We only had to venture up about a ½ mile from the lobby up a vertical face, taking narrow and curving paths. Anyone else in the name of safety would have sucked it up and trudged up, but not us - we had the superpower of Rykers 20+ years of motorcycle wisdom to back us up. Ryker, again, did the impossible and delivered us into the hands of one of the nicest hotel suites I've ever seen.
 
-<figure class="photo-bleed">
+<figure>
   <img src="https://mookobuko.com/media/posts/11/gallery/koh-tao-infinity-pool-ocean-view.jpg" alt="Infinity pool overlooking the ocean at Koh Tao" />
   <figcaption>The view from the "king suite." One night only. Worth every baht.</figcaption>
 </figure>
@@ -118,7 +118,7 @@ As part of the certification, I learn a bit about the science of what happens to
 
 On my final dive, mother nature herself looked down from the heavens and decided to grace me with her presence. I was swimming back to the boat, goggles off when my instructor started yelling to go back down. "Back down?" I thought, "we just came up," but he sounded so panicked I started to comply. "Why would we need to go back down?" my monkey brain immediately assumed a boat was about to run me over and the only way to survive was to dive under it. In fact, in this very popular scuba spot with highly trained boatmen, this was not the case. In my tizzied state, I lickiety-split had my respirator in, goggles on, and turned to dive down. The second my face went under I went still, I was face-to-face with a whale shark. Whale sharks are beautiful creatures, and big. They can grow up to 32ft in length. I didn't know that at the time, the 10ft one I was looking at maybe 12 inches from my face looked huge. I watched in awe as it swam directly under me, so close that if I reached a foot out we'd be touching fins (get it because I had flippers on). Given that I didn't know where whale sharks fell on the 'I like head scratched scale,' I kept my hands to myself. Jokes aside, seeing a whale shark is a rare experience, people come from all around the world and dive for years and never see one. I feel so lucky that I was able to see one on my 4th dive. Choosing to take on something that scared me (scuba diving) taught me that growth often waits on the other side of discomfort. (see the real photo that is NOT fake actually taken of me with the whale shark below)
 
-<figure class="photo-bleed whale-shark-reveal">
+<figure class="whale-shark-reveal">
   <img src="https://mookobuko.com/media/posts/11/gallery/whale-shark-anime-illustration.jpg" alt="Totally real photo of Meg with a whale shark" />
   <figcaption>This is a REAL photo. NOT fake. Actually taken of Meg with the whale shark. 100% legit. Do not question it.</figcaption>
 </figure>
@@ -127,9 +127,9 @@ Ryker also went diving with me on day two of my certification, he sadly was robb
 
 ### Ryker here!
 
-We pulled up to the restaurant on our scooter… looking all fly and shit. I put the kickstand down, looked up, and there were J (scuba instructor) and Roxy (J's girlfriend — also a scuba instructor) sitting at the table right in front of our parked scooter! Shortly thereafter Cerian (like Kiran) and his girlfriend (so sorry, can't remember HER NAME) joined us. Talk about a wonderful night. I think Meg and I are figuring out the types of people we want to spend our time with on this yearlong adventure: interesting people, from cool places (SCOTLAND and KOREA), who are down to do something new (scuba diving), who are also game to hang out with us (getting invited to the only Korean restaurant on the island), who are down to have a good time (drink one million beers), and have fun interesting conversations ranging from wind energy in Scotland, to the frequency of whale sharks around Koh Tao, to the correct way to say "haenyeo" — Meg nailed it on her very first attempt. Roxy is from Busan, Korea and complimented Meg on her excellent use of the word, which comes from the book Island of Sea Women on Jeju. If you are reading this, special thank you to the four of you.
+We pulled up to the restaurant on our scooter… looking all fly and shit. I put the kickstand down, looked up, and there were J (scuba instructor) and Roxy (J's girlfriend — also a scuba instructor) sitting at the table right in front of our parked scooter! Shortly thereafter Cerian (like Kiran) and his girlfriend Dory joined us. Talk about a wonderful night. I think Meg and I are figuring out the types of people we want to spend our time with on this yearlong adventure: interesting people, from cool places (SCOTLAND and KOREA), who are down to do something new (scuba diving), who are also game to hang out with us (getting invited to the only Korean restaurant on the island), who are down to have a good time (drink one million beers), and have fun interesting conversations ranging from wind energy in Scotland, to the frequency of whale sharks around Koh Tao, to the correct way to say "haenyeo" — Meg nailed it on her very first attempt. Roxy is from Busan, Korea and complimented Meg on her excellent use of the word, which comes from the book Island of Sea Women on Jeju. If you are reading this, special thank you to the four of you.
 
-<figure class="photo-bleed">
+<figure>
   <img src="https://mookobuko.com/media/posts/11/gallery/koh-tao-group-dinner-red-lanterns.jpg" alt="Group dinner with new friends under red lanterns" />
   <figcaption>The crew — Korean restaurant, red lanterns, one million beers, great conversations</figcaption>
 </figure>
@@ -146,7 +146,7 @@ Koh Pha Ngan is home to the famous "full moon party" where folks black out on a 
 
 The Full Moon Party, or any moon party was not on the Corey agenda. In fact we were staying on the opposite side of the island from all the partying, all the way north in a little fishing village called Chaloklum. We rented an apartment a 2 mins walk from the beach and a little scoot to the Muay Thai Gym. That's right folks, we were here to get swole, to become fighters, champions I dare say.
 
-<figure class="photo-bleed">
+<figure>
   <img src="https://mookobuko.com/media/posts/11/gallery/koh-phangan-fishing-boats-dawn.jpg" alt="Fishing boats at dawn in Koh Pha Ngan" />
   <figcaption>Chaloklum — our quiet fishing village on the opposite side of all the parties</figcaption>
 </figure>
@@ -211,10 +211,10 @@ Now ~12% of the way through our trip we are starting to get a hang of things. I 
   <div class="progress-track">
     <div class="progress-fill"></div>
   </div>
-  <div class="progress-label">~12% complete</div>
+  <div class="progress-label">~15% complete</div>
 </div>
 
-<figure class="photo-bleed">
+<figure>
   <img src="https://mookobuko.com/media/posts/11/gallery/koh-tao-jungle-sunset.jpg" alt="Jungle sunset on Koh Tao" />
   <figcaption>Until next time, Thailand</figcaption>
 </figure>
@@ -259,8 +259,8 @@ Meg and Ryker
 .progress-bar-card { max-width: 380px; margin: 2rem auto; padding: 1.5rem; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
 .progress-header { font-weight: 800; font-size: 1.1rem; margin-bottom: 1rem; }
 .progress-track { height: 16px; background: #eee; border-radius: 8px; overflow: hidden; }
-.progress-fill { height: 100%; width: 12%; background: linear-gradient(90deg, #0a3d5e, #1a6b8a, #00C9A7); border-radius: 8px; animation: progress-grow 2s ease-out; }
-@keyframes progress-grow { from { width: 0; } to { width: 12%; } }
+.progress-fill { height: 100%; width: 15%; background: linear-gradient(90deg, #0a3d5e, #1a6b8a, #00C9A7); border-radius: 8px; animation: progress-grow 2s ease-out; }
+@keyframes progress-grow { from { width: 0; } to { width: 15%; } }
 .progress-label { margin-top: 0.5rem; font-size: 0.85rem; color: #666; }
 
 /* Whale Shark Reveal */
