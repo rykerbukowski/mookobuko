@@ -111,7 +111,7 @@ const stops = [
     <h2 class="section-title reveal">Follow our route<br>around the world</h2>
 
     <div class="map-wrapper">
-      <canvas id="travelMapCanvas"></canvas>
+      <canvas id="travelMapCanvas" data-stops={JSON.stringify(stops)}></canvas>
 
       <!-- Hover card -->
       <div class="map-hover-card" id="mapHoverCard">
@@ -135,11 +135,12 @@ const stops = [
   </div>
 </section>
 
-<script define:vars={{ stops }}>
+<script is:inline>
   // Wait for DOM
   document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('travelMapCanvas');
     if (!canvas) return;
+    const stops = JSON.parse(canvas.dataset.stops);
     const ctx = canvas.getContext('2d');
     const wrapper = canvas.parentElement;
     const hoverCard = document.getElementById('mapHoverCard');
