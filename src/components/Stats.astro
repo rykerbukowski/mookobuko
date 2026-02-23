@@ -1,10 +1,9 @@
 ---
 const stats = [
-  { number: 4, label: 'Countries', color: 'var(--coral)' },
-  { number: 38, label: 'Days on the road', color: 'var(--teal)' },
-  { number: 47, label: 'Bowls of ramen', color: 'var(--sunflower)' },
-  { number: 1, label: 'Bed bug hotels', color: 'var(--hot-pink)' },
-  { number: 0, label: 'Regrets', color: 'var(--lime)' },
+  { number: 6, label: 'Flights', color: 'var(--coral)' },
+  { number: 5, label: 'Countries', color: 'var(--teal)' },
+  { number: 10947, label: 'Miles traveled', color: 'var(--sunflower)' },
+  { number: 16, label: 'Mangos eaten', color: 'var(--lime)' },
 ];
 ---
 
@@ -30,7 +29,7 @@ const stats = [
           function update(now) {
             const progress = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            counter.textContent = Math.round(target * eased);
+            counter.textContent = Math.round(target * eased).toLocaleString();
             if (progress < 1) requestAnimationFrame(update);
           }
           requestAnimationFrame(update);
@@ -66,7 +65,7 @@ const stats = [
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
     text-align: center;
   }
