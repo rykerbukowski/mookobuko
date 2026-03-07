@@ -24,8 +24,8 @@ Like with most well thought plans, this trip started with everything going wrong
 We arrived at SeaTac bright eyed and bushy tailed at 5:30am my loving mother seeing us off to the airport. We hadn't been able to check in online and had to go to the dreaded line of 'checked bag travelers' to get out tickets, we were saved by a nice man who directed us to a secret line and were able to get out tickets lickety-split. Next boom bags get pulled off the security line for extra examining, then boom again flight delayed by 2 hours. Then BOOM another delay.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/6/IMG_9309.jpeg" alt="At the airport" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/6/IMG_9315.jpeg" alt="Flight day" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/6/IMG_9309.jpeg" alt="At the airport" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/6/IMG_9315.jpeg" alt="Flight day" /></figure>
 </div>
 
 Now I don't know about you but I have never had a flight get delayed twice and still end up in my desired location. Our San Francisco layover had gone from 3 hours to just 27 mins. I was attempting to not stress but lucky Ryker had a better idea: to negate the issue. He called the airline and with a prince-like charm and somehow talked his way into us getting DIRECT flights. That's right folks no layovers for these high class folks.
@@ -33,7 +33,7 @@ Now I don't know about you but I have never had a flight get delayed twice and s
 With that lesson in mind: stay optimistic and be kind when asking for help—we took off toward the other side of the world.
 
 <figure class="photo-polaroid">
-  <img src="https://mookobuko.com/media/posts/6/IMG_9321.jpeg" alt="On the plane" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/IMG_9321.jpeg" alt="On the plane" />
   <figcaption>Direct flight, baby! ✈️</figcaption>
 </figure>
 
@@ -42,17 +42,17 @@ With that lesson in mind: stay optimistic and be kind when asking for help—we 
 Now on to the fun stuff! What have we been up to? Mainly eating and walking. Shocking to me we actually know a couple people in Tokyo so we've been getting our social time in too.
 
 <div class="photo-scroll">
-  <img src="https://mookobuko.com/media/posts/6/gallery/C714F6A4-6948-41BB-9ACC-A93E78E1725E.jpeg" alt="Tokyo adventures" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9573.jpeg" alt="Tokyo street" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9509.jpeg" alt="Tokyo scene" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9497.jpeg" alt="Tokyo food" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/cfd52f55-cc1d-447f-9cf9-2f6b06666f8d.jpeg" alt="Tokyo exploring" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9444.jpeg" alt="Tokyo sights" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6190.jpeg" alt="Tokyo life" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9417.jpeg" alt="Tokyo wandering" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9514.jpeg" alt="Tokyo moments" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9574.jpeg" alt="Tokyo vibes" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9551.jpeg" alt="Tokyo fun" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/C714F6A4-6948-41BB-9ACC-A93E78E1725E.jpeg" alt="Tokyo adventures" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9573.jpeg" alt="Tokyo street" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9509.jpeg" alt="Tokyo scene" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9497.jpeg" alt="Tokyo food" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/cfd52f55-cc1d-447f-9cf9-2f6b06666f8d.jpeg" alt="Tokyo exploring" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9444.jpeg" alt="Tokyo sights" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6190.jpeg" alt="Tokyo life" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9417.jpeg" alt="Tokyo wandering" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9514.jpeg" alt="Tokyo moments" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9574.jpeg" alt="Tokyo vibes" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9551.jpeg" alt="Tokyo fun" />
 </div>
 
 We stayed in two different areas of Tokyo. Shibuya (SE Tokyo) and Asakusa (NW Tokyo).
@@ -80,7 +80,7 @@ We stayed in two different areas of Tokyo. Shibuya (SE Tokyo) and Asakusa (NW To
 **Hinode yu Sento:** Here, the women were not free to wander in the great outdoors, but honestly, that felt totally fair. This sento was located right in the middle of Asakusa and kept things simple. A hot bath, a really hot bath, and a tiny sauna. I walked out of there feeling cleaner than I think I ever have in my life. And the best part? Right out front, sweet potatoes. A barrel of perfect, succulent Japanese sweet potatoes. I'm talking creamy, almost mashed on the inside, with caramelized sweetness dripping down the skin. Truly divine. After the bath, Miles informed us that it's customary to chug a nice glass of cold milk, so ding ding ding, the Meg Milk Fund has officially been cracked open.
 
 <div class="photo-bleed">
-  <img src="https://mookobuko.com/media/posts/6/IMG_9520.jpeg" alt="Tokyo vibes" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/IMG_9520.jpeg" alt="Tokyo vibes" />
 </div>
 
 ## Kewpie Mayo Tour
@@ -92,17 +92,17 @@ A few fun facts we learned during our re-education camp: Kewpie mayo is *very* h
 One final note: Kewpie mayo celebrated its 101st birthday this year!
 
 <figure class="photo-polaroid" style="transform: rotate(3deg);">
-  <img src="https://mookobuko.com/media/posts/6/IMG_9365.jpeg" alt="Kewpie Mayo Tour" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/IMG_9365.jpeg" alt="Kewpie Mayo Tour" />
   <figcaption>The Kewpie propaganda was effective 🥚</figcaption>
 </figure>
 
 ## Food!
 
 <div class="photo-masonry">
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9485.jpeg" alt="Tokyo food" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6242.jpeg" alt="Tokyo eats" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9433.jpeg" alt="Tokyo dishes" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9359.jpeg" alt="Tokyo meals" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9485.jpeg" alt="Tokyo food" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6242.jpeg" alt="Tokyo eats" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9433.jpeg" alt="Tokyo dishes" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9359.jpeg" alt="Tokyo meals" />
 </div>
 
 ## Places We'd Recommend
@@ -112,9 +112,9 @@ One final note: Kewpie mayo celebrated its 101st birthday this year!
 ## Toast Appreciation
 
 <div class="photo-scroll">
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6245.jpeg" alt="Toast appreciation 1" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6201.jpeg" alt="Toast appreciation 2" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_9355.jpeg" alt="Toast appreciation 3" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6202.jpeg" alt="Toast appreciation 4" />
-  <img src="https://mookobuko.com/media/posts/6/gallery/IMG_6041.jpeg" alt="Toast appreciation 5" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6245.jpeg" alt="Toast appreciation 1" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6201.jpeg" alt="Toast appreciation 2" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_9355.jpeg" alt="Toast appreciation 3" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6202.jpeg" alt="Toast appreciation 4" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/6/gallery/IMG_6041.jpeg" alt="Toast appreciation 5" />
 </div>

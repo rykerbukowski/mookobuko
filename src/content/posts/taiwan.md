@@ -18,9 +18,9 @@ status: published
 ---
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124606_00_343-2.jpg" alt="Taiwan" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9828.jpeg" alt="Taiwan scenery" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9818.jpeg" alt="Taiwan views" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124606_00_343-2.jpg" alt="Taiwan" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9828.jpeg" alt="Taiwan scenery" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9818.jpeg" alt="Taiwan views" /></figure>
 </div>
 
 Yes, we've been here before, and we had so much fun we just had to come back.
@@ -40,7 +40,7 @@ Our main accomplishments over the next day and a half in Taipei consisted of: ma
 📍 See my very nice hand-drawn map to see the route we planned!
 
 <figure class="photo-polaroid">
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_5526.jpeg" alt="Hand-drawn map of Taiwan route" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_5526.jpeg" alt="Hand-drawn map of Taiwan route" />
   <figcaption>Meg's very official hand-drawn route map 🗺️</figcaption>
 </figure>
 
@@ -57,9 +57,9 @@ I had booked a very cheap hotel room—it was only one night, right? WRONG. Our 
 Picture this (I will also add a picture): we enter the room. No windows. A weird, like, interview setup in the corner. Odd. We decided to give ourselves some blob time and just watch some YouTube in bed. I had already noticed some off signs—the floor was dirty, there was a toenail on the bedside table.
 
 <div class="photo-stack">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9857-2.jpeg" alt="Meg before she knew the danger" /><figcaption>Meg before she knew of the danger...</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_6630-2.jpeg" alt="The room in question" /><figcaption>The room in question 😱</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9869.jpeg" alt="The washing machine that saved us" /><figcaption>The washing machine that saved us 🙏</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9857-2.jpeg" alt="Meg before she knew the danger" /><figcaption>Meg before she knew of the danger...</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6630-2.jpeg" alt="The room in question" /><figcaption>The room in question 😱</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9869.jpeg" alt="The washing machine that saved us" /><figcaption>The washing machine that saved us 🙏</figcaption></figure>
 </div>
 
 We were in the bed for a total of only 30 mins or so, and I started to feel a bit itchy. I got out of the bed and looked down to make eye contact with the world's most uninvited guest. It was not a vampire but a teeny tiny red bed bug. Gross. A BED BUG. A FREAKING BED BUG. I leaped out of the bed and made Ryker look.
@@ -77,16 +77,16 @@ You know how I mentioned I was getting into writing Google reviews? Well, you be
 Also in Taichung, we went to a really cool night market designed for scooters, but we were walking, and I had the best fried chicken of my life. They even included bits of fried Thai basil and slices of garlic!
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9845.jpeg" alt="The high speed rail" /><figcaption>The high speed rail 🚄</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9851-2.jpeg" alt="Meg Geocaching" /><figcaption>Meg Geocaching</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9845.jpeg" alt="The high speed rail" /><figcaption>The high speed rail 🚄</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9851-2.jpeg" alt="Meg Geocaching" /><figcaption>Meg Geocaching</figcaption></figure>
 </div>
 
 ## Puli
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9933.jpeg" alt="Puli scenery" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_6670.jpeg" alt="Puli views" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_6649.jpeg" alt="Puli mountains" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9933.jpeg" alt="Puli scenery" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6670.jpeg" alt="Puli views" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6649.jpeg" alt="Puli mountains" /></figure>
 </div>
 
 We left Taichung midday and Ryker did something very exciting—a first for him. He rented a car! I had nothing to do with this and did not help at all. I also didn't drive the whole four days we had the car. Why? Because that is a blue job, and I did my pink job of navigating and finding fun places to stop and see along the way.
@@ -100,27 +100,27 @@ We visited the Puli Brewery and were the only ones there. I was hoping to be abl
 This is where I should've done more research. See, what I grabbed was not in fact drinking wine but a cooking wine. So when Ryker and I took a sip, we were greeted by a fermented soy-sauce flavor and a sesame/peanut aftertaste. Ryker promptly dumped the rest down the drain.
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9948.jpeg" alt="Puli brewery" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_6673.jpeg" alt="Puli wine" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_9937.jpeg" alt="Puli scenery" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9948.jpeg" alt="Puli brewery" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6673.jpeg" alt="Puli wine" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9937.jpeg" alt="Puli scenery" /></figure>
 </div>
 
 ## Sun Moon Lake
 
 <figure class="photo-feature">
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124622_00_344.jpg" alt="Sun Moon Lake panorama" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124622_00_344.jpg" alt="Sun Moon Lake panorama" />
   <figcaption>Sun Moon Lake — absolutely stunning</figcaption>
 </figure>
 
 Sun Moon Lake was beautiful. Meg and I spent two days here. The first day was walking and driving around the lake. We stopped there on the first morning—the sun was shining and we parked alongside the most epic temple either of us have ever seen (Wen Wu Temple). From here we made our way to a gondola that went several hundred feet above the ground near Sun Moon Lake. Also important to mention—this part of Taiwan is very mountainous. Many hills and windy roads. Such an amazing view from way up top!
 
 <div class="photo-scroll">
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_6747.jpeg" alt="Sun Moon Lake" />
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_9988.jpeg" alt="Temple views" />
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_9981.jpeg" alt="Gondola ride" />
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_6709.jpeg" alt="Lake views" />
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_9965.jpeg" alt="Mountain scenery" />
-  <img src="https://mookobuko.com/media/posts/9/gallery/IMG_6718.jpeg" alt="Sun Moon Lake area" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6747.jpeg" alt="Sun Moon Lake" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9988.jpeg" alt="Temple views" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9981.jpeg" alt="Gondola ride" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6709.jpeg" alt="Lake views" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_9965.jpeg" alt="Mountain scenery" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_6718.jpeg" alt="Sun Moon Lake area" />
 </div>
 
 From Sun Moon Lake, we drove nearby to Matt's parents' B&B. Meg's BFF is Sofia. Sofia's college best friend is Paul. Matt is Paul's husband. Matt is from Taiwan. Matt's parents are retired interior designers that own a B&B near Sun Moon Lake. We show up at the B&B and see an older man who looks awfully similar to Matt. We drop our backpacks and ask if he is Matt's dad... confused, we say it again... you know... your son??? Matt!???... Paul?? "OH! YOU KNOW MATT?" Apparently Matt was a little busy and forgot to tell his parents that we were coming. LOL.
@@ -132,9 +132,9 @@ The next morning, we got up and hopped into our Toyota Yaris. We drove 15 min do
 Coming back to the B&B, we had made plans to have dinner with Matt's family. They took us to a local traditional Taiwanese restaurant. The food was really well done but was not exactly what Meg and I are used to... one could say. Cold boiled chicken over rice? Pork belly... but only FAT... it was so soft, it just "melted" in your mouth... unfortunately I didn't want it in my mouth, but we smiled, laughed, and ATE ALL THAT WAS PUT IN FRONT OF US. Doing our best as guests.
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0015.jpeg" alt="B&B life" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0222.jpeg" alt="Sun Moon Lake biking" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0213.jpeg" alt="Taiwan countryside" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0015.jpeg" alt="B&B life" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0222.jpeg" alt="Sun Moon Lake biking" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0213.jpeg" alt="Taiwan countryside" /></figure>
 </div>
 
 That next morning, we were on our way...
@@ -152,8 +152,8 @@ This was also our first time hanging out with Matt without Paul or Sofia there, 
 Overall, an amazing dinner and so much fun to see Matt and meet his family.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0356.jpeg" alt="Hot pot with Matt" /><figcaption>Hot pot with Matt! 🍲</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0351.jpeg" alt="Taipei food" /><figcaption>Candied sweet potatoes 🍠</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0356.jpeg" alt="Hot pot with Matt" /><figcaption>Hot pot with Matt! 🍲</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0351.jpeg" alt="Taipei food" /><figcaption>Candied sweet potatoes 🍠</figcaption></figure>
 </div>
 
 **Alex Honnold!** Alex Honnold is a rock climber, most famous for free soloing (which means climbing without ropes) El Cap in Yosemite National Park in the documentary *Free Solo*. To put that in perspective, he climbed up over 4,000 ft of sheer granite in under four hours, without a rope. That was not enough for Alex—he needed more. It just so happens he was in Taipei the same time as us to free solo the Taipei 101.
@@ -163,8 +163,8 @@ It was epic to watch. The climb started just after 9 AM, and Ryker and I took a 
 After watching close-up for a little while, we decided to walk a couple blocks back. As we were walking back, we could still see him as a little tiny blip climbing up the building in his red shirt. We eventually settled at a café to watch the rest of the climb via livestream. It felt like the whole city had stopped and slowed down to watch him climb. Every single person in this coffee shop had their phones up, also watching the livestream. And when he finally completed it, there was applause throughout the city.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0304.jpeg" alt="Alex Honnold climbing Taipei 101" /><figcaption>Alex Honnold on Taipei 101 🧗</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0338.jpeg" alt="Watching the climb" /><figcaption>The whole city stopped to watch</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0304.jpeg" alt="Alex Honnold climbing Taipei 101" /><figcaption>Alex Honnold on Taipei 101 🧗</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0338.jpeg" alt="Watching the climb" /><figcaption>The whole city stopped to watch</figcaption></figure>
 </div>
 
 Well, at the start of our journey, we were not planning on spending 10 days in Taiwan, but we're so excited that we got to see Alex climb and spend time with some amazing people and see more of the country!
@@ -180,7 +180,7 @@ Well, at the start of our journey, we were not planning on spending 10 days in T
 Thanks for reading about our Taiwan adventure!
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124128_00_333.jpg" alt="Taiwan memories" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_20260124_132519_00_359.jpg" alt="Taiwan goodbye" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/9/gallery/IMG_0260-2.jpeg" alt="Taiwan farewell" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124128_00_333.jpg" alt="Taiwan memories" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_20260124_132519_00_359.jpg" alt="Taiwan goodbye" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/9/gallery/IMG_0260-2.jpeg" alt="Taiwan farewell" /></figure>
 </div>

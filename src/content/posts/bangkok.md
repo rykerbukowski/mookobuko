@@ -18,12 +18,12 @@ status: published
 ---
 
 <div class="photo-scroll">
-  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg" alt="Bangkok skyline at sunset" />
-  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-chinatown-neon-signs-dusk.jpg" alt="Bangkok Chinatown at dusk" />
-  <img src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-overview.jpg" alt="Floating market canal" />
-  <img src="https://mookobuko.com/media/posts/10/gallery/ryker-posing-with-elephant-sanctuary.jpg" alt="Ryker with elephant" />
-  <img src="https://mookobuko.com/media/posts/10/gallery/couple-tuk-tuk-selfie-bangkok.jpg" alt="Tuk tuk selfie" />
-  <img src="https://mookobuko.com/media/posts/10/gallery/ryker-pool-yellow-cap-condo.jpg" alt="Pool day at the condo" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg" alt="Bangkok skyline at sunset" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/bangkok-chinatown-neon-signs-dusk.jpg" alt="Bangkok Chinatown at dusk" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-overview.jpg" alt="Floating market canal" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-posing-with-elephant-sanctuary.jpg" alt="Ryker with elephant" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/couple-tuk-tuk-selfie-bangkok.jpg" alt="Tuk tuk selfie" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-pool-yellow-cap-condo.jpg" alt="Pool day at the condo" />
 </div>
 
 <!-- Temperature Journey -->
@@ -52,7 +52,7 @@ Fresh off our 10 days in Taiwan, we were READY. Ready for warmth, Thai food, and
 We flew out of Taipei, about a five-hour flight and landed in Bangkok in the evening. We trained into the city and made our way to an apartment waiting for us. Peach (Ryker's grooms-lady for the wedding and BFF from college) lives in Bangkok and was kind enough to let us crash at her family's condo. 31st floor with an incredible view of the city. Made us feel very fancy and very far from our Taipei hostel.
 
 <figure class="photo-bleed">
-  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-wide.jpg" alt="Bangkok skyline at night from 31st floor condo" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-wide.jpg" alt="Bangkok skyline at night from 31st floor condo" />
   <figcaption>The view from Peach's 31st floor condo. Not bad for free lodging.</figcaption>
 </figure>
 
@@ -71,8 +71,8 @@ Now… getting there was its own adventure. We got off the train (BTS), walked a
 </div>
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/peach-backpack-condo-marble-floors.jpg" alt="Peach with backpack in the condo" /><figcaption>Peach showing off the marble-floor condo life</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-wide.jpg" alt="Bangkok skyline wide view from condo" /><figcaption>31st floor views = instant upgrade from hostel</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/peach-backpack-condo-marble-floors.jpg" alt="Peach with backpack in the condo" /><figcaption>Peach showing off the marble-floor condo life</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/bangkok-condo-skyline-night-wide.jpg" alt="Bangkok skyline wide view from condo" /><figcaption>31st floor views = instant upgrade from hostel</figcaption></figure>
 </div>
 
 ## Day 1
@@ -95,16 +95,16 @@ We slept in until 11 AM. We finally dragged ourselves out of bed and made our wa
 </div>
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/couple-khon-thai-restaurant-food-spread.jpg" alt="Couple at Thai restaurant with food spread" /><figcaption>First Thai meal in Thailand</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-selfie-im-chan-thai-food.jpg" alt="Ryker at Im Chan restaurant" /><figcaption>$14 for ALL of this</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/couple-khon-thai-restaurant-food-spread.jpg" alt="Couple at Thai restaurant with food spread" /><figcaption>First Thai meal in Thailand</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-selfie-im-chan-thai-food.jpg" alt="Ryker at Im Chan restaurant" /><figcaption>$14 for ALL of this</figcaption></figure>
 </div>
 
 From there, we went to a mall (because sometimes you just need some air conditioning) and found a Jim Thompson store. Jim Thompson is famous for Thai silk, and Meg found the most beautiful silk scarf. Similar to the Pashmina scarf she got when we were in India, the goal of getting these is mostly as memory pieces that we'll keep forever.
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-jim-thompson-house-glass-walkway.jpg" alt="Ryker at Jim Thompson House" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/jim-thompson-silk-scarf-bangkok-old-town.jpg" alt="Bangkok Old Town silk scarf design" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/meg-wearing-silk-scarf-condo.jpg" alt="Meg wearing the silk scarf as a top" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-jim-thompson-house-glass-walkway.jpg" alt="Ryker at Jim Thompson House" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/jim-thompson-silk-scarf-bangkok-old-town.jpg" alt="Bangkok Old Town silk scarf design" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/meg-wearing-silk-scarf-condo.jpg" alt="Meg wearing the silk scarf as a top" /></figure>
 </div>
 
 ## Day 2 — The Train Market & Floating Market
@@ -114,16 +114,16 @@ Day two is when things really got moving. We had booked a tour that took us out 
 First up: the Maeklong Railway Market. The one where a train drives through the middle of a market and all the vendors have to scramble to pull their goods out of the way. We were on the train for this part. You're rolling through at a crawl while vendors are yanking back their tarps and then you see 1 million phones pointed up at you, and then the second the train passes, everything goes right back to normal like nothing happened.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-maeklong-train-window-orange-cap.jpg" alt="Ryker looking out Maeklong train window" /><figcaption>The famous Maeklong Railway Market train</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/couple-maeklong-railway-train-sunglasses.jpg" alt="Couple on the Maeklong railway train" /><figcaption>Rolling through the market at a crawl</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-maeklong-train-window-orange-cap.jpg" alt="Ryker looking out Maeklong train window" /><figcaption>The famous Maeklong Railway Market train</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/couple-maeklong-railway-train-sunglasses.jpg" alt="Couple on the Maeklong railway train" /><figcaption>Rolling through the market at a crawl</figcaption></figure>
 </div>
 
 From there, we headed to a floating river market. We hopped into a speedboat and cruised into this river market. Vendors on boats, food everywhere, the whole scene. We grabbed some street food bites, soaked it all in, and then headed back into Bangkok.
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-overview.jpg" alt="Floating market overview" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/meg-floating-market-walkway-boats.jpg" alt="Meg watching boats at floating market" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-second-angle.jpg" alt="Floating market canal" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-overview.jpg" alt="Floating market overview" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/meg-floating-market-walkway-boats.jpg" alt="Meg watching boats at floating market" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/floating-market-canal-boats-second-angle.jpg" alt="Floating market canal" /></figure>
 </div>
 
 That evening, we met up with Peach after her work (because she has a job, unlike us hehehehe) and went to one of her go-to Thai restaurants. We ordered a papaya salad that had approximately seven hundred Thai chilies in it. We were DYING. Eyes watering, noses running, the whole thing. But was it delicious? Absolutely. We had to tap into Meg's milk fund (but for Ryker this time).
@@ -143,15 +143,15 @@ That evening, we met up with Peach after her work (because she has a job, unlike
 </div>
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-papaya-salad-sweating-face.jpg" alt="Ryker sweating after papaya salad" /><figcaption>Seven hundred chilies will do this to a man</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-peach-pub-beatles-bar-beers.jpg" alt="Ryker and Peach at pub" /><figcaption>Cooling down with Peach after the spice attack</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-papaya-salad-sweating-face.jpg" alt="Ryker sweating after papaya salad" /><figcaption>Seven hundred chilies will do this to a man</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-peach-pub-beatles-bar-beers.jpg" alt="Ryker and Peach at pub" /><figcaption>Cooling down with Peach after the spice attack</figcaption></figure>
 </div>
 
 That night we went out to an izakaya with Peach for some much-needed cooling down beverages.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/peach-giant-asahi-beers-izakaya.jpg" alt="Peach with giant beers" /><figcaption>Peach and the world's largest Asahi</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-beer-izakaya-cherry-blossoms.jpg" alt="Ryker with beer at izakaya" /><figcaption>Ryker matching Peach's energy</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/peach-giant-asahi-beers-izakaya.jpg" alt="Peach with giant beers" /><figcaption>Peach and the world's largest Asahi</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-beer-izakaya-cherry-blossoms.jpg" alt="Ryker with beer at izakaya" /><figcaption>Ryker matching Peach's energy</figcaption></figure>
 </div>
 
 ## Day 3 — Elephant Sanctuary 🐘
@@ -172,12 +172,12 @@ We've all seen the pictures of elephant sanctuaries online, but being there in p
 </div>
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-posing-with-elephant-sanctuary.jpg" alt="Ryker with elephant" /><figcaption>Making friends at the sanctuary</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/meg-posing-with-elephant-sanctuary.jpg" alt="Meg with elephant" /><figcaption>Meg's new best friend</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-posing-with-elephant-sanctuary.jpg" alt="Ryker with elephant" /><figcaption>Making friends at the sanctuary</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/meg-posing-with-elephant-sanctuary.jpg" alt="Meg with elephant" /><figcaption>Meg's new best friend</figcaption></figure>
 </div>
 
 <figure class="photo-polaroid">
-  <img src="https://mookobuko.com/media/posts/10/gallery/elephant-sanctuary-mom-baby-palm-trees.jpg" alt="Elephant mom and baby at sanctuary" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/elephant-sanctuary-mom-baby-palm-trees.jpg" alt="Elephant mom and baby at sanctuary" />
   <figcaption>Mom and baby among the palm trees — all rescues, all wonderful</figcaption>
 </figure>
 
@@ -190,7 +190,7 @@ So I think I skipped over this part, but Meg and I went to our very first Muay T
 Taking this class felt like the first time I ever went to the gym or the first time I ever tried rugby. My body felt weird, all of the movements were completely unfamiliar to me. I think dancing would be a bit of a better example. You don't know how to move your feet, your arms… we started off first shadow boxing, which was so strange. My shoulders got tired immediately because they have no stamina. But what also comes along with the feeling of doing something for the very first time is I remembered what it was like to be bad at something, which I think is a feeling we feel less and less as we get older. It was uncomfortable and embarrassing, but I also felt exactly how I felt when I was 15 in the Las Cruces Aquatic Center gym for the very first time by myself having no clue what to do, so I hit bicep curls and 15 minutes on the stationary bike and then left… LOL.
 
 <figure class="photo-polaroid">
-  <img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-training-kick-gym.jpg" alt="Ryker training Muay Thai — throwing a kick" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/muay-thai-training-kick-gym.jpg" alt="Ryker training Muay Thai — throwing a kick" />
   <figcaption>First Muay Thai class ever — throwing kicks at 9am in an abandoned shopping center</figcaption>
 </figure>
 
@@ -208,15 +208,15 @@ Taking this class felt like the first time I ever went to the gym or the first t
 ANYWAYS. Meg and I after this went that night with Peach to a professional Muay Thai fight at a newly constructed stadium in the north of Bangkok. This was also Peach's very first Muay Thai fight as well! So special. It was epic. Bloody. Your adrenaline gets pumping when you see 30+ people beat the crap out of each other for 2+ hours. It was awesome, would highly recommend it to anyone going to Bangkok.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-stadium.jpg" alt="Professional Muay Thai fight in Bangkok stadium" /><figcaption>The real deal — pro Muay Thai in Bangkok</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-action.jpg" alt="Muay Thai fighters in the ring" /><figcaption>30+ fighters, 2+ hours, maximum adrenaline</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-stadium.jpg" alt="Professional Muay Thai fight in Bangkok stadium" /><figcaption>The real deal — pro Muay Thai in Bangkok</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/muay-thai-pro-fight-ring-action.jpg" alt="Muay Thai fighters in the ring" /><figcaption>30+ fighters, 2+ hours, maximum adrenaline</figcaption></figure>
 </div>
 
 But that night… Meg slowly lost her voice until she couldn't speak at all LOL. We had a mute MEG. CODE RED. Well… we went back to the condo and got that little one to sleep. She proceeded to sleep for about 14 hours and was mute the entirety of the next two days. But it worked out perfectly because we had nothing planned for those days. We were able to blob in Peach's condo with the AC on blast.
 
 <div class="photo-duo">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-chinatown-neon-goku-tank-night.jpg" alt="Ryker in Chinatown at night" /><figcaption>Chinatown at night — the Goku tank stays on</figcaption></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-fist-pose-chinatown-street-food.jpg" alt="Ryker fist pose at street food stall" /><figcaption>Post-Muay Thai energy at Chinatown street food</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-chinatown-neon-goku-tank-night.jpg" alt="Ryker in Chinatown at night" /><figcaption>Chinatown at night — the Goku tank stays on</figcaption></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-fist-pose-chinatown-street-food.jpg" alt="Ryker fist pose at street food stall" /><figcaption>Post-Muay Thai energy at Chinatown street food</figcaption></figure>
 </div>
 
 ## Days 7–10 — The Discovery 🏊
@@ -234,7 +234,7 @@ THERE WAS A POOL AND GYM THE ENTIRE TIME THAT PEACH FAILED TO MENTION TO US ON T
 </div>
 
 <figure class="photo-bleed">
-  <img src="https://mookobuko.com/media/posts/10/gallery/ryker-pool-yellow-cap-condo.jpg" alt="Ryker at the secret pool" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-pool-yellow-cap-condo.jpg" alt="Ryker at the secret pool" />
   <figcaption>The pool we didn't know existed for 7 DAYS</figcaption>
 </figure>
 
@@ -257,13 +257,13 @@ As soon as we learned about this incredible discovery, we spent the next 3 days 
 </div>
 
 <div class="photo-trio">
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-peach-pub-beatles-bar-beers.jpg" alt="Ryker and Peach at Beatles bar" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/meg-chang-beer-chinatown-street.jpg" alt="Meg with Chang beer" /></figure>
-  <figure><img src="https://mookobuko.com/media/posts/10/gallery/ryker-motorbike-helmet-bangkok-night.jpg" alt="Ryker on motorbike at night" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-peach-pub-beatles-bar-beers.jpg" alt="Ryker and Peach at Beatles bar" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/meg-chang-beer-chinatown-street.jpg" alt="Meg with Chang beer" /></figure>
+  <figure><img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/ryker-motorbike-helmet-bangkok-night.jpg" alt="Ryker on motorbike at night" /></figure>
 </div>
 
 <figure class="photo-bleed">
-  <img src="https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg" alt="Bangkok traffic at sunset with MahaNakhon tower" />
+  <img loading="lazy" src="https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg" alt="Bangkok traffic at sunset with MahaNakhon tower" />
   <figcaption>Bangkok's golden hour — the MahaNakhon tower standing tall over the chaos</figcaption>
 </figure>
 
