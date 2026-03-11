@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var stops = [
     { name: "Seattle", lat: 47.6, lon: -122.33, dates: "Home Base", status: "done", color: "#FF6B6B", slug: null, heroImage: null, description: "Where it all started." },
-    { name: "Tokyo", lat: 35.68, lon: 139.69, dates: "Jan 6 - 13", status: "done", color: "#FF6B6B", slug: "/posts/tokyo", heroImage: "https://mookobuko.com/media/posts/6/IMG_9492.jpeg", description: "Onsens, ramen museums and Kewpie mayo." },
-    { name: "Sapporo", lat: 43.06, lon: 141.35, dates: "Jan 14 - 20", status: "done", color: "#87CEEB", slug: "/posts/sapporo", heroImage: "https://mookobuko.com/media/posts/8/gallery/sapporo-downtown-snow-sapporo-star-building.jpg", description: "J-pow skiing, Ramen Alley and Sapporo Beer." },
-    { name: "Taipei", lat: 25.03, lon: 121.56, dates: "Jan 21 - 31", status: "done", color: "#00C9A7", slug: "/posts/taiwan", heroImage: "https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124606_00_343-2.jpg", description: "Bed bugs, bubble tea and Taipei 101." },
-    { name: "Bangkok", lat: 13.75, lon: 100.52, dates: "Feb 1 - 7", status: "done", color: "#FF3CAC", slug: "/posts/bangkok", heroImage: "https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg", description: "Street food, elephants and Muay Thai." },
-    { name: "Koh Tao", lat: 10.1, lon: 99.84, dates: "Feb 7 - 20", status: "done", color: "#FFD93D", slug: "/posts/islands", heroImage: "https://mookobuko.com/media/posts/11/gallery/koh-tao-yacht-sunset-dramatic.jpg", description: "Scuba diving and whale sharks." },
-    { name: "Singapore", lat: 1.35, lon: 103.82, dates: "Feb 21 - 22", status: "done", color: "#7B2D8E", slug: "/posts/singapore", heroImage: "/media/posts/12/gallery/meg-marina-bay-sands-full.jpg", description: "48 hours of hawker centers and Marina Bay." },
+    { name: "Tokyo", lat: 35.68, lon: 139.69, dates: "Jan 6 - 13", status: "done", color: "#FF6B6B", slug: "/posts/tokyo/", heroImage: "https://mookobuko.com/media/posts/6/IMG_9492.jpeg", description: "Onsens, ramen museums and Kewpie mayo." },
+    { name: "Sapporo", lat: 43.06, lon: 141.35, dates: "Jan 14 - 20", status: "done", color: "#87CEEB", slug: "/posts/sapporo/", heroImage: "https://mookobuko.com/media/posts/8/gallery/sapporo-downtown-snow-sapporo-star-building.jpg", description: "J-pow skiing, Ramen Alley and Sapporo Beer." },
+    { name: "Taipei", lat: 25.03, lon: 121.56, dates: "Jan 21 - 31", status: "done", color: "#00C9A7", slug: "/posts/taiwan/", heroImage: "https://mookobuko.com/media/posts/9/gallery/IMG_20260121_124606_00_343-2.jpg", description: "Bed bugs, bubble tea and Taipei 101." },
+    { name: "Bangkok", lat: 13.75, lon: 100.52, dates: "Feb 1 - 7", status: "done", color: "#FF3CAC", slug: "/posts/bangkok/", heroImage: "https://mookobuko.com/media/posts/10/gallery/bangkok-traffic-sunset-mahanakhon-tower.jpg", description: "Street food, elephants and Muay Thai." },
+    { name: "Koh Tao", lat: 10.1, lon: 99.84, dates: "Feb 7 - 20", status: "done", color: "#FFD93D", slug: "/posts/islands/", heroImage: "https://mookobuko.com/media/posts/11/gallery/koh-tao-yacht-sunset-dramatic.jpg", description: "Scuba diving and whale sharks." },
+    { name: "Singapore", lat: 1.35, lon: 103.82, dates: "Feb 21 - 22", status: "done", color: "#7B2D8E", slug: "/posts/singapore/", heroImage: "/media/posts/12/gallery/meg-marina-bay-sands-full.jpg", description: "48 hours of hawker centers and Marina Bay." },
     { name: "Philippines", lat: 10.31, lon: 123.89, dates: "Feb 23 - Mar", status: "current", color: "#FFB88C", slug: null, heroImage: null, description: "Island hopping with Miles." },
     { name: "Bali", lat: -8.41, lon: 115.19, dates: "Upcoming", status: "upcoming", color: "#00C9A7", slug: null, heroImage: null, description: "Surf camps coming soon." }
   ];
@@ -99,18 +99,22 @@ document.addEventListener("DOMContentLoaded", function() {
     var from = stops[i], to = stops[i + 1];
     var fromDone = from.status === "done" || from.status === "current";
     var toDone = to.status === "done" || to.status === "current";
-    var curvePoints = getCurvePoints([from.lat, from.lon], [to.lat, to.lon], 50);
-
     var pathColor = (fromDone && toDone) ? to.color : "rgba(0,0,0,0.15)";
     var pathOpacity = (fromDone && toDone) ? 0.6 : 0.3;
+    var pathStyle = { color: pathColor, weight: 2.5, opacity: pathOpacity, dashArray: "8, 6", smoothFactor: 1 };
 
-    L.polyline(curvePoints, {
-      color: pathColor,
-      weight: 2.5,
-      opacity: pathOpacity,
-      dashArray: "8, 6",
-      smoothFactor: 1
-    }).addTo(map);
+    // Special case: Seattle to Tokyo — go EAST across the Pacific
+    if (from.name === "Seattle" && to.name === "Tokyo") {
+      // Segment 1: Seattle east to the date line (lon 180)
+      var seg1 = getCurvePoints([from.lat, from.lon], [42, 180], 30);
+      L.polyline(seg1, pathStyle).addTo(map);
+      // Segment 2: Date line west side (-180) to Tokyo
+      var seg2 = getCurvePoints([42, -180], [to.lat, to.lon], 30);
+      L.polyline(seg2, pathStyle).addTo(map);
+    } else {
+      var curvePoints = getCurvePoints([from.lat, from.lon], [to.lat, to.lon], 50);
+      L.polyline(curvePoints, pathStyle).addTo(map);
+    }
   }
 
   // Custom marker icons
