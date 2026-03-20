@@ -45,16 +45,54 @@ I had two goals: get a Geocache and visit one specific brewery. The Geocache was
 
 My second goal was a stunning success. We went to the Palawan Brewery, which has the following awards:
 
-<div class="awards-list">
-
-# 1st Craft Beer Brewery in Palawan, The Last Frontier's First Craft Beers
-
-# 1st Female Craft Beer Brewers in the Philippines!
-
-# The 1st Microbrewery Tour in the Philippines
-
-# The First Offshore Philippine Craft Beer Brand
-
+<div class="awards-wrap" style="padding:1.5rem 0.5rem;display:flex;flex-direction:column;gap:14px;">
+<style>
+@keyframes pop-in{0%{transform:scale(0.5) translateY(20px);opacity:0}70%{transform:scale(1.08) translateY(-4px)}100%{transform:scale(1) translateY(0);opacity:1}}
+@keyframes spin-medal{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
+@keyframes star-twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+@keyframes ribbon-wave{0%,100%{transform:skewX(0deg)}25%{transform:skewX(2deg)}75%{transform:skewX(-2deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.award-card{display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #EF9F27;border-radius:12px;padding:14px 18px;opacity:0;animation:pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;cursor:default;transition:border-color 0.2s,background 0.2s;}
+.award-card:hover{background:#FAEEDA;border-color:#BA7517;}
+.award-card:nth-child(1){animation-delay:0.1s}.award-card:nth-child(2){animation-delay:0.25s}.award-card:nth-child(3){animation-delay:0.4s}.award-card:nth-child(4){animation-delay:0.55s}
+.medal-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;animation:float 3s ease-in-out infinite;}
+.award-card:nth-child(2) .medal-wrap{animation-delay:0.3s}.award-card:nth-child(3) .medal-wrap{animation-delay:0.6s}.award-card:nth-child(4) .medal-wrap{animation-delay:0.9s}
+.medal{width:48px;height:48px;border-radius:50%;background:#EF9F27;border:3px solid #BA7517;display:flex;align-items:center;justify-content:center;font-size:22px;animation:spin-medal 4s ease-in-out infinite;}
+.medal-ribbon{width:12px;height:10px;background:#D4537E;border-radius:1px;animation:ribbon-wave 2s ease-in-out infinite;}
+.medal-ribbon-2{background:#D85A30;}
+.award-stars{display:flex;gap:3px;margin-top:2px;}
+.award-star{width:10px;height:10px;background:#EF9F27;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);}
+.award-star:nth-child(1){animation:star-twinkle 1.4s ease-in-out infinite;animation-delay:0s}.award-star:nth-child(2){animation:star-twinkle 1.4s ease-in-out infinite;animation-delay:0.2s}.award-star:nth-child(3){animation:star-twinkle 1.4s ease-in-out infinite;animation-delay:0.4s}
+.award-text{flex:1;}
+.award-number{font-size:10px;font-weight:500;color:#BA7517;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;}
+.award-title{font-size:17px;font-weight:500;color:#1a1a1a;line-height:1.3;}
+.award-badge{flex-shrink:0;background:#FAEEDA;border:1px solid #EF9F27;border-radius:20px;padding:4px 10px;font-size:11px;font-weight:500;color:#854F0B;transition:background 0.2s,color 0.2s;}
+.award-card:hover .award-badge{background:#EF9F27;color:#412402;}
+.confetti-row{display:flex;justify-content:center;gap:6px;padding:6px 0 0;opacity:0;animation:pop-in 0.4s ease forwards;animation-delay:0.9s;}
+.conf{width:8px;height:8px;border-radius:2px;animation:star-twinkle 1s ease-in-out infinite;}
+.conf:nth-child(1){background:#D4537E;animation-delay:0.0s}.conf:nth-child(2){background:#EF9F27;animation-delay:0.1s}.conf:nth-child(3){background:#1D9E75;animation-delay:0.2s}.conf:nth-child(4){background:#378ADD;animation-delay:0.3s}.conf:nth-child(5){background:#EF9F27;animation-delay:0.4s}.conf:nth-child(6){background:#D85A30;animation-delay:0.5s}.conf:nth-child(7){background:#7F77DD;animation-delay:0.6s}
+</style>
+<div class="award-card">
+  <div class="medal-wrap"><div class="medal-ribbon"></div><div class="medal">🥇</div><div class="award-stars"><div class="award-star"></div><div class="award-star"></div><div class="award-star"></div></div></div>
+  <div class="award-text"><div class="award-number">Award 1</div><div class="award-title">1st Craft Beer Brewery in Palawan, The Last Frontier's First Craft Beers</div></div>
+  <div class="award-badge">Palawan</div>
+</div>
+<div class="award-card">
+  <div class="medal-wrap"><div class="medal-ribbon medal-ribbon-2"></div><div class="medal">🏆</div><div class="award-stars"><div class="award-star"></div><div class="award-star"></div><div class="award-star"></div></div></div>
+  <div class="award-text"><div class="award-number">Award 2</div><div class="award-title">1st Female Craft Beer Brewers in the Philippines!</div></div>
+  <div class="award-badge">Historic</div>
+</div>
+<div class="award-card">
+  <div class="medal-wrap"><div class="medal-ribbon"></div><div class="medal">🎖️</div><div class="award-stars"><div class="award-star"></div><div class="award-star"></div><div class="award-star"></div></div></div>
+  <div class="award-text"><div class="award-number">Award 3</div><div class="award-title">The 1st Microbrewery Tour in the Philippines</div></div>
+  <div class="award-badge">National</div>
+</div>
+<div class="award-card">
+  <div class="medal-wrap"><div class="medal-ribbon medal-ribbon-2"></div><div class="medal">⭐</div><div class="award-stars"><div class="award-star"></div><div class="award-star"></div><div class="award-star"></div></div></div>
+  <div class="award-text"><div class="award-number">Award 4</div><div class="award-title">The First Offshore Philippine Craft Beer Brand</div></div>
+  <div class="award-badge">Global</div>
+</div>
+<div class="confetti-row"><div class="conf"></div><div class="conf"></div><div class="conf"></div><div class="conf"></div><div class="conf"></div><div class="conf"></div><div class="conf"></div></div>
 </div>
 
 Given that stunning list of accolades I expected the place to be packed. It was empty, completely. Not a soul but the three of us. The beer and rum was amazing, the kind of place that makes you contemplate if sending back a six-pack or a fifth is worth the cost: deep dark purple ube cream ale, sweet coconut rum, and even an IPA! Naturally we had to try it all. Good thing we are on vacation, except poor Miles who had to work the next day.
