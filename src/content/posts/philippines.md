@@ -44,7 +44,18 @@ Did we want to go here? No, but it's where the airport is on Palawan, so to Puer
 I had two goals: get a Geocache and visit one specific brewery. The Geocache was a complete fail. I, as many of you know, love Geocaching, especially while traveling, as it brings me to cool places and gives my exploring a sense of purpose and direction. The Philippines in general have very few Geocaches and the whole island of Palawan has less than 10. The one in Puerto Princesa was a virtual cache (meaning I had to go to a specific place and provide answers to questions that could only be found there). It happened to be in the port where the cruise ships dock. I dragged Ryker all around trying to get in and was turned away by security guards at every entrance. It turned out this Geocache was only for the cruisers (which is against the rules, they're supposed to be in public places, but I digress).
 
 My second goal was a stunning success. We went to the Palawan Brewery, which has the following awards:
-1st Craft Beer Brewery in Palawan, The Last Frontier's First Craft Beers 1st Female Craft Beer Brewers in the Philippines! The 1st Microbrewery Tour in the Philippines The First Offshore Philippine Craft Beer Brand
+
+<div class="awards-list">
+
+# 1st Craft Beer Brewery in Palawan, The Last Frontier's First Craft Beers
+
+# 1st Female Craft Beer Brewers in the Philippines!
+
+# The 1st Microbrewery Tour in the Philippines
+
+# The First Offshore Philippine Craft Beer Brand
+
+</div>
 
 Given that stunning list of accolades I expected the place to be packed. It was empty, completely. Not a soul but the three of us. The beer and rum was amazing, the kind of place that makes you contemplate if sending back a six-pack or a fifth is worth the cost: deep dark purple ube cream ale, sweet coconut rum, and even an IPA! Naturally we had to try it all. Good thing we are on vacation, except poor Miles who had to work the next day.
 
@@ -138,6 +149,11 @@ We had our first truly Filipino meal at the aptly named Island Boy and got to tr
 Fun fact time! The Philippines was absolutely ravaged by World War Two. Manila (the capital) actually sustained the 2nd most damage right behind Warsaw, Poland. Planes went down, ships went down, a lot of things got wrecked, and many years later that same damage led to a very niche tourism industry: wreck diving. It's said that the Open Water Course is to Koh Tao as Wreck Certification is to Coron.
 
 I personally have no interest in getting wreck certified or going into these underwater sunken ships. I clearly remember Ariel doing that and then having to go head-to-head with a shark, no thank you. My more serious reasoning is silt. This very fine muck found on the sea floor absolutely dusts the inside of every surface of these wrecks. Silt is not at all harmful by itself, but all it takes is one idiot kicking in the wrong direction, then bam: silt fills the water fast, swarming your vision. All you can see is the glass on the inside of your goggles going gray. Now imagine that scenario but you're breathing through a tank that will run out of air, you can't swim up because you're inside a ship, you don't know which way is up or down, and you can't hear anything. That sounds like my worst nightmare, which is why I chose to swim my little self around the outside of the ships, oohing and aahing from a safe distance.
+
+<figure class="photo-polaroid">
+  <img loading="lazy" src="/media/posts/13/gallery/wreck-dive-illustration.jpg" alt="Illustrated scene of two divers giving peace signs in front of a coral-covered WWII shipwreck, with Miles waving from a porthole" />
+  <figcaption>An accurate depiction of events. Miles is the one in the porthole.</figcaption>
+</figure>
 
 Miles, being insane, went into all the ships, to each their own.
 
