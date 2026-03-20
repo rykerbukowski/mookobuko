@@ -15,6 +15,114 @@ tags:
 status: "published"
 ---
 
+<canvas id="ph-bg" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+<script>
+(function(){
+const canvas=document.getElementById('ph-bg');
+if(!canvas)return;
+const ctx=canvas.getContext('2d');
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resize();
+window.addEventListener('resize',resize);
+const FC=[['#F0997B','#D85A30'],['#5DCAA5','#0F6E56'],['#85B7EB','#185FA5'],['#FAC775','#BA7517'],['#ED93B1','#993556'],['#97C459','#3B6D11']];
+function mf(){const d=Math.random()>0.5?1:-1;const[body,fin]=FC[Math.floor(Math.random()*FC.length)];const s=10+Math.random()*16;return{x:d===1?-s*3:canvas.width+s*3,y:40+Math.random()*(canvas.height-80),dir:d,speed:0.3+Math.random()*0.5,size:s,body,fin,wobble:Math.random()*Math.PI*2,wobbleSpeed:0.03+Math.random()*0.02,opacity:0.13+Math.random()*0.13};}
+function mb(){return{x:20+Math.random()*(canvas.width-40),y:canvas.height+10,r:2+Math.random()*5,speed:0.4+Math.random()*0.6,drift:(Math.random()-0.5)*0.3,opacity:0.06+Math.random()*0.1};}
+const fish=Array.from({length:7},mf);
+const bubbles=Array.from({length:20},()=>{const b=mb();b.y=Math.random()*canvas.height;return b;});
+function df(f){ctx.save();ctx.globalAlpha=f.opacity;ctx.translate(f.x,f.y+Math.sin(f.wobble)*2);if(f.dir===-1)ctx.scale(-1,1);const s=f.size;ctx.beginPath();ctx.ellipse(0,0,s,s*0.55,0,0,Math.PI*2);ctx.fillStyle=f.body;ctx.fill();ctx.beginPath();ctx.moveTo(-s*0.8,0);ctx.lineTo(-s*1.5,-s*0.6);ctx.lineTo(-s*1.5,s*0.6);ctx.closePath();ctx.fillStyle=f.fin;ctx.fill();ctx.beginPath();ctx.arc(s*0.4,-s*0.1,s*0.12,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.7)';ctx.fill();ctx.restore();}
+function db(b){ctx.save();ctx.globalAlpha=b.opacity;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.strokeStyle='#378ADD';ctx.lineWidth=0.8;ctx.stroke();ctx.restore();}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);fish.forEach((f,i)=>{f.wobble+=f.wobbleSpeed;f.x+=f.speed*f.dir;if(f.dir===1&&f.x>canvas.width+f.size*3)fish[i]=mf();if(f.dir===-1&&f.x<-f.size*3)fish[i]=mf();df(f);});bubbles.forEach((b,i)=>{b.y-=b.speed;b.x+=b.drift;if(b.y<-b.r*2)bubbles[i]=mb();db(b);});requestAnimationFrame(animate);}
+animate();
+})();
+</script>
+
+<canvas id="ph-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+<script>
+(function(){
+const canvas = document.getElementById('ph-bg');
+if (!canvas) return;
+const ctx = canvas.getContext('2d');
+function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const COLORS = [
+  ['#F0997B','#D85A30'],['#5DCAA5','#0F6E56'],['#85B7EB','#185FA5'],
+  ['#FAC775','#BA7517'],['#ED93B1','#993556'],['#97C459','#3B6D11'],
+];
+
+function makeFish() {
+  const dir = Math.random() > 0.5 ? 1 : -1;
+  const [body, fin] = COLORS[Math.floor(Math.random() * COLORS.length)];
+  const size = 10 + Math.random() * 18;
+  return {
+    x: dir === 1 ? -size * 4 : canvas.width + size * 4,
+    y: 60 + Math.random() * (canvas.height - 120),
+    dir, speed: 0.25 + Math.random() * 0.5, size, body, fin,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.025 + Math.random() * 0.02,
+    opacity: 0.13 + Math.random() * 0.14,
+  };
+}
+
+function makeBubble() {
+  return {
+    x: 20 + Math.random() * (canvas.width - 40),
+    y: canvas.height + 10,
+    r: 2 + Math.random() * 5,
+    speed: 0.35 + Math.random() * 0.55,
+    drift: (Math.random() - 0.5) * 0.25,
+    opacity: 0.07 + Math.random() * 0.1,
+  };
+}
+
+const fish = Array.from({length: 8}, makeFish);
+const bubbles = Array.from({length: 22}, () => {
+  const b = makeBubble(); b.y = Math.random() * canvas.height; return b;
+});
+
+function drawFish(f) {
+  ctx.save();
+  ctx.globalAlpha = f.opacity;
+  ctx.translate(f.x, f.y + Math.sin(f.wobble) * 2);
+  if (f.dir === -1) ctx.scale(-1, 1);
+  const s = f.size;
+  ctx.beginPath(); ctx.ellipse(0, 0, s, s * 0.55, 0, 0, Math.PI * 2);
+  ctx.fillStyle = f.body; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-s * 0.8, 0); ctx.lineTo(-s * 1.5, -s * 0.6); ctx.lineTo(-s * 1.5, s * 0.6); ctx.closePath();
+  ctx.fillStyle = f.fin; ctx.fill();
+  ctx.beginPath(); ctx.arc(s * 0.4, -s * 0.1, s * 0.12, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.fill();
+  ctx.restore();
+}
+
+function drawBubble(b) {
+  ctx.save(); ctx.globalAlpha = b.opacity;
+  ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+  ctx.strokeStyle = '#378ADD'; ctx.lineWidth = 0.8; ctx.stroke();
+  ctx.restore();
+}
+
+let raf;
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  fish.forEach((f, i) => {
+    f.wobble += f.wobbleSpeed; f.x += f.speed * f.dir;
+    if (f.dir === 1 && f.x > canvas.width + f.size * 4) fish[i] = makeFish();
+    if (f.dir === -1 && f.x < -f.size * 4) fish[i] = makeFish();
+    drawFish(f);
+  });
+  bubbles.forEach((b, i) => {
+    b.y -= b.speed; b.x += b.drift;
+    if (b.y < -b.r * 2) bubbles[i] = makeBubble();
+    drawBubble(b);
+  });
+  raf = requestAnimationFrame(animate);
+}
+animate();
+})();
+</script>
+
 We arrived in the Philippines exhausted after a 15-hour travel day and a 5-hour airport layover with no lounges (I know, poor us, traveling the world with no lounges at the airport, life is hard). We took a taxi to our hotel.
 
 This should have been a 5-minute ride and our driver seemed normal at first, but as he crept along at a snail's pace it became clear something was very off about him. He spent the first couple of minutes trying to upsell us into hiring him as our driver for future days. He was babbling on, I was clinging to the seat in front of me, the car jerked forward and back as he constantly stalled. Ryker slyly passed me his phone. "I think this guy is on something" was written in his notes app. The taxi driver was either tweaking or incredibly drunk, neither a good scenario for someone driving you around. We attempted to appease his chattering, fingers crossed we would make it to our hotel. Which we did, 17 minutes later. An odd introduction to the Philippines that proved to be, thankfully, the worst interaction we would have with the locals.
