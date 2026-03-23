@@ -1,10 +1,10 @@
 ---
 title: "Bali"
 subtitle: "Surf camp, sewage, new friends, and a hard-won redemption wave"
-date: 2026-03-01
+date: 2026-03-09
 location: "Bali, Indonesia"
 locationEmoji: "🇮🇩"
-heroImage: "/media/posts/14/gallery/bali-sunset-beach-orange.jpg"
+heroImage: "/media/posts/14/gallery/ryker-sunset-beach-smiling.jpg"
 heroColor: "#F59E0B"
 excerpt: "We came for the surf. We got E. Coli, an IV drip, and some of our favorite people on earth. Bali delivered — eventually."
 tags:
@@ -25,56 +25,45 @@ function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeigh
 resize();
 window.addEventListener('resize',resize);
 function mkWave(y,amp,speed,phase,op){return{y,amp,speed,phase,op};}
-const waves=[
-  mkWave(0.82,18,0.006,0,0.04),
-  mkWave(0.87,14,0.009,1.2,0.05),
-  mkWave(0.92,10,0.013,2.5,0.06),
-  mkWave(0.96,7,0.018,0.7,0.07),
-];
-function mkBoard(){const side=Math.random()>0.5?1:-1;return{x:side===1?-120:canvas.width+120,y:canvas.height*0.6+Math.random()*canvas.height*0.3,side,speed:0.25+Math.random()*0.3,angle:-0.15+Math.random()*0.1,op:0.06+Math.random()*0.06};}
+const waves=[mkWave(0.82,18,0.006,0,0.04),mkWave(0.87,14,0.009,1.2,0.05),mkWave(0.92,10,0.013,2.5,0.06),mkWave(0.96,7,0.018,0.7,0.07)];
+function mkBoard(){const side=Math.random()>0.5?1:-1;return{x:side===1?-120:canvas.width+120,y:canvas.height*0.6+Math.random()*canvas.height*0.3,side,speed:0.25+Math.random()*0.3,angle:-0.15+Math.random()*0.1,op:0.07+Math.random()*0.06};}
+const TRASH_TYPES=['bottle','bag','flipflop'];
+function mkTrash(){const side=Math.random()>0.5?1:-1;return{x:side===1?-40:canvas.width+40,y:canvas.height*(0.78+Math.random()*0.18),side,speed:0.15+Math.random()*0.25,wobble:Math.random()*Math.PI*2,ws:0.02+Math.random()*0.02,type:TRASH_TYPES[Math.floor(Math.random()*TRASH_TYPES.length)],op:0.09+Math.random()*0.08,rot:Math.random()*Math.PI*2};}
 const boards=Array.from({length:3},mkBoard);
+const trash=Array.from({length:8},mkTrash);
 let t=0;
 function drawWave(w){
   const y=canvas.height*w.y;
   ctx.beginPath();
-  ctx.moveTo(0,canvas.height);
-  for(let x=0;x<=canvas.width;x+=6){
-    const wy=y+Math.sin(x*0.012+t*w.speed+w.phase)*w.amp+Math.sin(x*0.025+t*w.speed*1.4+w.phase)*w.amp*0.4;
-    x===0?ctx.moveTo(x,wy):ctx.lineTo(x,wy);
-  }
-  ctx.lineTo(canvas.width,canvas.height);
-  ctx.closePath();
-  ctx.fillStyle=`rgba(14,165,233,${w.op})`;
-  ctx.fill();
+  for(let x=0;x<=canvas.width;x+=6){const wy=y+Math.sin(x*0.012+t*w.speed+w.phase)*w.amp+Math.sin(x*0.025+t*w.speed*1.4+w.phase)*w.amp*0.4;x===0?ctx.moveTo(x,wy):ctx.lineTo(x,wy);}
+  ctx.lineTo(canvas.width,canvas.height);ctx.lineTo(0,canvas.height);ctx.closePath();
+  ctx.fillStyle=`rgba(14,165,233,${w.op})`;ctx.fill();
 }
 function drawBoard(b){
-  ctx.save();
-  ctx.globalAlpha=b.op;
-  ctx.translate(b.x,b.y);
-  ctx.rotate(b.angle*(b.side===-1?-1:1));
-  if(b.side===-1)ctx.scale(-1,1);
-  ctx.beginPath();
-  ctx.ellipse(0,0,32,9,0,0,Math.PI*2);
-  ctx.fillStyle='#f97316';
-  ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(-32,0);ctx.lineTo(-38,2);ctx.lineTo(-36,-1);ctx.closePath();
-  ctx.fillStyle='#ea580c';
-  ctx.fill();
+  ctx.save();ctx.globalAlpha=b.op;ctx.translate(b.x,b.y);ctx.rotate(b.angle*(b.side===-1?-1:1));if(b.side===-1)ctx.scale(-1,1);
+  ctx.beginPath();ctx.ellipse(0,0,32,9,0,0,Math.PI*2);ctx.fillStyle='#f97316';ctx.fill();
+  ctx.beginPath();ctx.moveTo(-32,0);ctx.lineTo(-38,2);ctx.lineTo(-36,-1);ctx.closePath();ctx.fillStyle='#ea580c';ctx.fill();
+  ctx.restore();
+}
+function drawTrash(tr){
+  ctx.save();ctx.globalAlpha=tr.op;ctx.translate(tr.x,tr.y+Math.sin(tr.wobble)*3);ctx.rotate(tr.rot);
+  if(tr.type==='bottle'){
+    ctx.beginPath();ctx.roundRect(-4,-10,8,20,3);ctx.fillStyle='rgba(200,230,255,0.7)';ctx.fill();
+    ctx.strokeStyle='rgba(150,190,220,0.5)';ctx.lineWidth=0.8;ctx.stroke();
+    ctx.beginPath();ctx.roundRect(-3,-13,6,5,1);ctx.fillStyle='rgba(180,210,240,0.6)';ctx.fill();
+  } else if(tr.type==='bag'){
+    ctx.beginPath();ctx.moveTo(0,-10);ctx.bezierCurveTo(10,-8,12,4,8,12);ctx.bezierCurveTo(4,16,-4,16,-8,12);ctx.bezierCurveTo(-12,4,-10,-8,0,-10);ctx.fillStyle='rgba(240,240,255,0.5)';ctx.fill();ctx.strokeStyle='rgba(180,180,220,0.4)';ctx.lineWidth=0.7;ctx.stroke();
+  } else {
+    ctx.beginPath();ctx.ellipse(0,0,12,5,0,0,Math.PI*2);ctx.fillStyle='rgba(60,100,200,0.35)';ctx.fill();
+    ctx.beginPath();ctx.ellipse(0,0,8,3,0,0,Math.PI);ctx.fillStyle='rgba(40,80,180,0.25)';ctx.fill();
+  }
   ctx.restore();
 }
 function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  t++;
+  ctx.clearRect(0,0,canvas.width,canvas.height);t++;
   waves.forEach(drawWave);
-  boards.forEach((b,i)=>{
-    b.x+=b.speed*b.side;
-    const waveY=canvas.height*(0.82+i*0.05)+Math.sin(b.x*0.012+t*waves[i%waves.length].speed)*waves[i%waves.length].amp;
-    b.y+=(waveY-b.y)*0.03;
-    if(b.side===1&&b.x>canvas.width+140)boards[i]=mkBoard();
-    if(b.side===-1&&b.x<-140)boards[i]=mkBoard();
-    drawBoard(b);
-  });
+  boards.forEach((b,i)=>{b.x+=b.speed*b.side;const wy=canvas.height*(0.82+i*0.05)+Math.sin(b.x*0.012+t*waves[i%4].speed)*waves[i%4].amp;b.y+=(wy-b.y)*0.03;if(b.side===1&&b.x>canvas.width+140)boards[i]=mkBoard();if(b.side===-1&&b.x<-140)boards[i]=mkBoard();drawBoard(b);});
+  trash.forEach((tr,i)=>{tr.x+=tr.speed*tr.side;tr.wobble+=tr.ws;tr.rot+=0.005*tr.side;const wy=canvas.height*(0.79+i*0.02)+Math.sin(tr.x*0.015+t*0.008)*12;tr.y+=(wy-tr.y)*0.02;if(tr.side===1&&tr.x>canvas.width+50)trash[i]=mkTrash();if(tr.side===-1&&tr.x<-50)trash[i]=mkTrash();drawTrash(tr);});
   requestAnimationFrame(animate);
 }
 animate();
@@ -108,6 +97,11 @@ Alarm blaring and bleary-eyed we stumbled downstairs and met our future friends,
 <figure class="photo-polaroid">
   <img loading="lazy" src="/media/posts/14/gallery/bali-dirty-brown-beach-waves.jpg" alt="Bali beach with dark brown frothing contaminated waves during wet season, chairs and umbrellas in foreground" />
   <figcaption>Not exactly what the brochure showed.</figcaption>
+</figure>
+
+<figure class="photo-polaroid">
+  <img loading="lazy" src="/media/posts/14/gallery/bali-surf-sewage-illustration.jpg" alt="Illustrated scene of Meg wiping out in brown trashy Bali surf while Ryker rides behind her — trash scattered on the beach" />
+  <figcaption>An accurate visual representation of events.</figcaption>
 </figure>
 
 Bringing up our worries to our surf guides, we got serious looks and were told to close our mouths when we fell into the water. I brought up that I was just finishing a round of antibiotics, my immune system was wiped out, was I safe? I was told to just make EXTRA SURE I keep my mouth closed. Turns out not getting water in your mouth, ears, eyes, nose while learning to surf is near impossible. Ryker sprinted into action and he was determined to solve this problem and still learn to surf. We went with our group and emptied out a pharmacy in the act of trying to be preventative.
