@@ -1,0 +1,388 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hong Kong — mookobuko"
+  description="A canceled flight turned into a 48-hour Hong Kong layover. Midnight hot pot, shoebox hotels, the Peak Tram, and the Seiko Alpinist that got away."
+  image="/media/posts/17/gallery/peak-view.jpeg"
+>
+
+  <style>
+    .hk {
+      --hk-red: #DC2626;
+      color: #f0ece4;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 120px;
+      position: relative;
+      overflow-x: clip;
+      font-family: var(--font-sans, 'DM Sans', sans-serif);
+      line-height: 1.75;
+    }
+    .hk * { box-sizing: border-box; }
+
+    .hk-progress {
+      position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+      background: linear-gradient(90deg, #DC2626, #ff7a59);
+      z-index: 9999; transition: width 0.05s linear;
+      box-shadow: 0 0 8px rgba(220,38,38,0.6);
+    }
+
+    .hk-hero {
+      position: relative; height: 78vh; min-height: 460px;
+      margin: 0 -20px 0; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .hk-hero img {
+      position: absolute; inset: 0; width: 100%; height: 120%;
+      object-fit: cover; will-change: transform; filter: saturate(1.05);
+    }
+    .hk-hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.05) 100%);
+    }
+    .hk-hero-text { position: relative; z-index: 2; padding: 0 24px 40px; color: #fff; }
+    .hk-hero-text .flag { font-size: 40px; line-height: 1; }
+    .hk-hero-text h1 {
+      font-size: clamp(38px, 8vw, 76px); margin: 6px 0 4px; font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: -0.02em; text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    }
+    .hk-hero-text .sub {
+      font-size: clamp(15px, 3vw, 20px); opacity: 0.92; font-weight: 400;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+    }
+    .hk-hero-text .date {
+      margin-top: 10px; font-size: 13px; letter-spacing: 0.08em;
+      text-transform: uppercase; opacity: 0.8; font-family: 'Space Mono', monospace;
+    }
+
+    .hk-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 10px; }
+    .hk-tag {
+      font-size: 13px; padding: 5px 12px; border-radius: 999px; color: #fff;
+      font-weight: 600; opacity: 0; transform: translateY(8px);
+      transition: opacity .5s ease, transform .5s ease;
+      font-family: 'Space Mono', monospace;
+    }
+    .hk.lit .hk-tag { opacity: 1; transform: none; }
+    .hk-tag:nth-child(2){ transition-delay: .08s }
+    .hk-tag:nth-child(3){ transition-delay: .16s }
+
+    .hk p { font-size: 18px; margin: 0 0 1.3em; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .hk-photo { margin: 2.2em -20px; position: relative; }
+    .hk-photo img {
+      width: 100%; display: block; border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+    }
+    .hk-photo figcaption {
+      text-align: center; font-size: 14px; color: rgba(255,255,255,0.45);
+      margin-top: 10px; font-style: italic; padding: 0 20px;
+    }
+    .hk-photo.tilt-l img { transform: rotate(-1.2deg); }
+    .hk-photo.tilt-r img { transform: rotate(1.2deg); }
+
+    .hk-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 2.2em -20px; }
+    .hk-duo img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); aspect-ratio: 3/4;
+    }
+    @media (max-width: 600px){
+      .hk-duo { grid-template-columns: 1fr; }
+      .hk-duo img { aspect-ratio: 4/3; }
+    }
+
+    .hk-hint {
+      text-align: center; font-size: 13px; color: rgba(255,255,255,0.35);
+      margin: 8px 0 0; font-style: italic;
+    }
+
+    .hk-shutter {
+      position: relative; overflow: hidden; border-radius: 14px;
+      background: #111; padding: 28px 24px; color: #fff; margin: 1.4em -20px;
+    }
+    .hk-shutter h3 { margin: 0 0 6px; font-size: 22px; color: #ff6b6b; font-family: 'Playfair Display', serif; }
+    .hk-shutter p { margin: 0; font-size: 17px; opacity: 0.9; }
+    .hk-shutter .bars { position: absolute; inset: 0; display: flex; pointer-events: none; }
+    .hk-shutter .bars span {
+      flex: 1; background: #DC2626; transform: scaleY(0); transform-origin: top;
+      transition: transform .5s ease;
+    }
+    .hk-shutter.slam .bars span { transform: scaleY(1); }
+    .hk-shutter.slam .bars span:nth-child(2){ transition-delay:.06s }
+    .hk-shutter.slam .bars span:nth-child(3){ transition-delay:.12s }
+    .hk-shutter.slam .bars span:nth-child(4){ transition-delay:.18s }
+    .hk-shutter.slam .bars span:nth-child(5){ transition-delay:.24s }
+    .hk-shutter .closed-msg {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 26px; font-weight: 800; letter-spacing: 0.15em;
+      opacity: 0; transition: opacity .3s ease .5s; z-index: 3; text-transform: uppercase;
+      font-family: 'Space Mono', monospace;
+    }
+    .hk-shutter.slam .closed-msg { opacity: 1; }
+
+    .hk-taxi {
+      position: fixed; left: 0; z-index: 200; width: 120px; height: auto;
+      pointer-events: auto; cursor: pointer; will-change: transform;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+    }
+    .hk-honk {
+      position: fixed; z-index: 300; font-weight: 800; color: #DC2626;
+      font-size: 22px; pointer-events: none; animation: honkpop .9s ease forwards;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5); font-family: 'Space Mono', monospace;
+    }
+    @keyframes honkpop {
+      0%   { opacity: 0; transform: translateY(0) scale(.6); }
+      20%  { opacity: 1; transform: translateY(-16px) scale(1.1); }
+      100% { opacity: 0; transform: translateY(-46px) scale(1); }
+    }
+
+    .back-link {
+      display: inline-block; margin-top: 3rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem; letter-spacing: 0.1em;
+      color: var(--coral, #DC2626);
+      border-bottom: 2px solid var(--coral, #DC2626);
+      padding-bottom: 0.3rem; transition: opacity 0.3s;
+    }
+    .back-link:hover { opacity: 0.7; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hk-taxi { display: none; }
+    }
+  </style>
+
+  <div class="hk-progress" id="hkProgress"></div>
+
+  <div class="hk" id="hkRoot">
+
+    <header class="hk-hero">
+      <img id="hkHero" src="/media/posts/17/gallery/peak-view.jpeg" alt="Hong Kong skyline from Victoria Peak" />
+      <div class="hk-hero-text">
+        <div class="flag">🇭🇰</div>
+        <h1>Hong Kong</h1>
+        <div class="sub">48 hours, a shoebox hotel &amp; a Seiko tragedy</div>
+        <div class="date">May 7, 2026 · Hong Kong</div>
+      </div>
+    </header>
+
+    <div class="hk-tags">
+      <span class="hk-tag" style="background:#DC2626">🇭🇰 Hong Kong</span>
+      <span class="hk-tag" style="background:#F59E0B">🍜 Food</span>
+      <span class="hk-tag" style="background:#7B2D8E">⌚ Seiko Tragedy</span>
+    </div>
+    <p class="hk-hint">tap a taxi as it drives by 🚕</p>
+
+    <section class="reveal">
+      <p>We were supposed to fly from Bangkok to Osaka on a simple, direct flight. One way. Period. But unfortunately, our airline decided to cancel the flight due to "ongoing geopolitical risks," which was ridiculous because every other flight on the schedule operated as normal. Just our flight, the one we had picked specifically because it was the only one at normal hours. Apparently every other flight from Bangkok to Osaka was a red eye arriving at four in the morning. So... we ended up rearranging our schedule and heading to Hong Kong!</p>
+    </section>
+
+    <figure class="hk-photo tilt-l reveal">
+      <img src="/media/posts/17/gallery/airport-walkway.jpeg" alt="Arriving into Hong Kong" loading="lazy" />
+      <figcaption>Arriving into Hong Kong.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>We landed on the evening of May 7th in Hong Kong and took the train into the city. We were in quite a bit of a rush because our hotel's check-in closed at 10pm, so we were panicking because we didn't know what was gonna happen if we didn't make it there in time.</p>
+      <p>And I use the word "hotel" very generously here. We were pretty much in a shoebox ten stories up that only one person could stand up in at a time while the other two had to lay in bed. Two twin beds. August in one, and Meg and I sharing the other. For a very affordable seventy dollars a night. Hong Kong is not cheap.</p>
+    </section>
+
+    <figure class="hk-photo tilt-r reveal">
+      <img src="/media/posts/17/gallery/hotel-room.jpeg" alt="The shoebox hotel room" loading="lazy" />
+      <figcaption>The shoebox, in all its glory.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>Later, after speaking with Ishaan, one of Meg's friends who grew up in Hong Kong, we found out that the area we were staying in was where he used to buy weed with his friends. So it was not the most pleasant area either, but we were on a budget.</p>
+      <p>We were hungry and wired, so at 11pm we found our way to a hot pot restaurant that was open 24/7 and, weirdly, still packed. We ordered a dual broth. Normal on one side and literally straight spicy oil on the other. It was definitely an experience.</p>
+      <p>After this, we ended up walking around Hong Kong until one in the morning. And everything in the city was still going. Fully operational. People were out everywhere. Shops were open. Very vertical, very dense, very neon. Super exciting to see this new city.</p>
+    </section>
+
+    <figure class="hk-photo tilt-l reveal">
+      <img src="/media/posts/17/gallery/taxi-night.jpeg" alt="Hong Kong red taxi at night" loading="lazy" />
+      <figcaption>The famous red taxis, out all night.</figcaption>
+    </figure>
+
+    <div class="hk-duo reveal">
+      <img src="/media/posts/17/gallery/pineapple-buns.jpeg" alt="Pineapple buns at night" loading="lazy" />
+      <img src="/media/posts/17/gallery/rain-poncho.jpeg" alt="Out in the rain with August" loading="lazy" />
+    </div>
+
+    <section class="reveal">
+      <p>The next morning, we got up after sleeping in to explore the city a little more properly. Hong Kong has a massive escalator system built into the hillside because the whole city is essentially on a slope. I mean, Hong Kong has filled up all usable land with skyscrapers, and the rest of it is just mountain. So this several mile long escalator system is very practical and very cool.</p>
+    </section>
+
+    <figure class="hk-photo tilt-r reveal">
+      <img src="/media/posts/17/gallery/escalator-pose.jpeg" alt="Posing on the escalators" loading="lazy" />
+      <figcaption>Making the most of the escalators.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>British influence is also everywhere. It was a colony up until 1997, and you can feel it in the architecture, the street signs, the names of places. It's a very cool collision of old Britain and hyper modern Chinese.</p>
+    </section>
+
+    <div class="hk-duo reveal">
+      <img src="/media/posts/17/gallery/taxi-fleet.jpeg" alt="A fleet of red taxis" loading="lazy" />
+      <img src="/media/posts/17/gallery/gibbon-mural.jpeg" alt="Gibbon mural" loading="lazy" />
+    </div>
+
+    <figure class="hk-photo tilt-l reveal">
+      <img src="/media/posts/17/gallery/butterfly.jpeg" alt="A butterfly on my shoulder" loading="lazy" />
+      <figcaption>A butterfly landed on my shoulder and stayed a while.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>We took the Peak Tram up to the top of one of the mountains for the famous skyline view, and it definitely delivered. It was a cool old wooden trolley that took us forty five degrees straight up. Very cool.</p>
+    </section>
+
+    <figure class="hk-photo tilt-r reveal">
+      <img src="/media/posts/17/gallery/peak-tram.jpeg" alt="Inside the Peak Tram" loading="lazy" />
+      <figcaption>Inside the Peak Tram.</figcaption>
+    </figure>
+
+    <figure class="hk-photo reveal">
+      <img src="/media/posts/17/gallery/peak-view.jpeg" alt="Victoria Peak view" loading="lazy" />
+      <figcaption>Victoria Peak — the view that delivers.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>After we made our way down, we hopped the Star Ferry across Victoria Harbour.</p>
+    </section>
+
+    <div class="hk-duo reveal">
+      <img src="/media/posts/17/gallery/star-ferry-meg.jpeg" alt="Meg on the Star Ferry" loading="lazy" />
+      <img src="/media/posts/17/gallery/victoria-harbour.jpeg" alt="Victoria Harbour from the water" loading="lazy" />
+    </div>
+
+    <section class="reveal">
+      <p>We bought a few souvenirs and went for dim sum, which obviously ruled. We stopped to get another pineapple bun, but to be honest, the pineapple buns in Taiwan's night markets were way better. Sorry, Hong Kong. Had to give it a fair shot.</p>
+    </section>
+
+    <figure class="hk-photo tilt-l reveal">
+      <img src="/media/posts/17/gallery/beer-flight.jpeg" alt="A craft beer flight" loading="lazy" />
+      <figcaption>A craft beer flight to cap off the afternoon.</figcaption>
+    </figure>
+
+    <section class="reveal">
+      <p>That afternoon we found a Seiko store right next to our hotel, and they had a brown Alpinist. Gorgeous, great price. August was going to match me with my Alpinist that I got back in January in Sapporo. I needed to go grab my passport from the hotel to get a tax free purchase, and when we walked back...</p>
+      <div class="hk-shutter" id="hkShutter">
+        <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+        <h3>⌚ The Seiko Tragedy</h3>
+        <p>The store was closed. We were leaving the next morning before they opened. The matching Alpinist dream was dead. Tragedy struck.</p>
+        <div class="closed-msg">Closed</div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <p>We woke up the next morning a little worse for wear after our tragic watch incident. We drank our sorrows away. We packed up our shoebox and made our way to the airport. Next stop, Japan. For real this time. 🇯🇵</p>
+    </section>
+
+    <div style="text-align:center; padding: 2rem 2rem 4rem;">
+      <a href="/#stories" class="back-link">← Back to all stories</a>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    (function(){
+      var root = document.getElementById('hkRoot');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      setTimeout(function(){ root.classList.add('lit'); }, 200);
+
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('in');
+            var sh = e.target.querySelector('#hkShutter') || (e.target.id === 'hkShutter' ? e.target : null);
+            if(!sh && e.target.contains(document.getElementById('hkShutter'))) sh = document.getElementById('hkShutter');
+            if(sh) setTimeout(function(){ sh.classList.add('slam'); }, 350);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.18 });
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+      var bar = document.getElementById('hkProgress');
+      var hero = document.getElementById('hkHero');
+      function onScroll(){
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+        if(bar) bar.style.width = pct + '%';
+        if(hero && !reduce) hero.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px)';
+        maybeSpawnTaxi(pct);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      if(reduce) return;
+
+      var TAXI_SVG = '<svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">' +
+        '<rect x="44" y="6" width="14" height="10" rx="2" fill="#7a0e0e"/>' +
+        '<rect x="46" y="7" width="10" height="7" rx="1" fill="#ffd54a"/>' +
+        '<path d="M18 64 L18 44 Q18 38 26 36 L60 28 Q70 18 92 18 L150 18 Q168 18 176 34 L184 46 Q188 50 188 58 L188 64 Z" fill="#DC2626"/>' +
+        '<path d="M70 24 L92 24 L92 38 L60 38 Z" fill="#bfe3ef"/>' +
+        '<path d="M98 24 L146 22 Q156 22 162 34 L150 38 L98 38 Z" fill="#bfe3ef"/>' +
+        '<rect x="93" y="22" width="5" height="17" fill="#9a1414"/>' +
+        '<rect x="20" y="50" width="170" height="14" rx="3" fill="#9a1414"/>' +
+        '<text x="118" y="61" font-family="Arial" font-weight="bold" font-size="13" fill="#fff" text-anchor="middle">TAXI</text>' +
+        '<circle cx="60" cy="66" r="15" fill="#1a1a1a"/><circle cx="60" cy="66" r="6" fill="#888"/>' +
+        '<circle cx="150" cy="66" r="15" fill="#1a1a1a"/><circle cx="150" cy="66" r="6" fill="#888"/>' +
+        '<rect x="180" y="40" width="9" height="7" rx="2" fill="#ffe08a"/>' +
+        '</svg>';
+
+      var lastTaxiPct = -100, taxisSpawned = 0, maxTaxis = 8;
+
+      function maybeSpawnTaxi(pct){
+        if(taxisSpawned >= maxTaxis) return;
+        if(pct - lastTaxiPct >= 12){ lastTaxiPct = pct; spawnTaxi(); taxisSpawned++; }
+      }
+
+      function spawnTaxi(opts){
+        opts = opts || {};
+        var el = document.createElement('div');
+        el.className = 'hk-taxi';
+        el.innerHTML = TAXI_SVG;
+        var fromRight = opts.fromRight !== undefined ? opts.fromRight : Math.random() > 0.5;
+        var topVH = opts.top !== undefined ? opts.top : (15 + Math.random() * 65);
+        var dur = opts.dur || (5500 + Math.random() * 3500);
+        el.style.top = topVH + 'vh';
+        if(fromRight) el.style.transform = 'scaleX(-1)';
+        document.body.appendChild(el);
+
+        var w = window.innerWidth;
+        var start = fromRight ? w + 140 : -140;
+        var end   = fromRight ? -160   : w + 160;
+        var startT = null;
+
+        function step(t){
+          if(startT === null) startT = t;
+          var p = Math.min((t - startT) / dur, 1);
+          var x = start + (end - start) * p;
+          var bob = Math.sin(p * Math.PI * 14) * 2.2;
+          el.style.transform = (fromRight ? 'scaleX(-1) ' : '') + 'translate(' + x + 'px,' + bob + 'px)';
+          if(p < 1){ requestAnimationFrame(step); } else { el.remove(); }
+        }
+        requestAnimationFrame(step);
+
+        el.addEventListener('click', function(ev){
+          var honk = document.createElement('div');
+          honk.className = 'hk-honk';
+          honk.textContent = ['BEEP!','HONK!','叮叮!','BEEP BEEP!'][Math.floor(Math.random()*4)];
+          honk.style.left = ev.clientX + 'px';
+          honk.style.top  = (ev.clientY - 10) + 'px';
+          document.body.appendChild(honk);
+          setTimeout(function(){ honk.remove(); }, 900);
+        });
+      }
+
+      setTimeout(function(){ spawnTaxi({ fromRight: false, top: 30, dur: 7000 }); }, 900);
+    })();
+  </script>
+
+</BaseLayout>
