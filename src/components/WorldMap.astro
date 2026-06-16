@@ -14,6 +14,9 @@
         <span class="legend-item"><span class="legend-dot done"></span> Visited</span>
         <span class="legend-item"><span class="legend-dot current"></span> Currently here</span>
         <span class="legend-item"><span class="legend-dot upcoming"></span> Upcoming</span>
+        <span class="legend-item"><span class="legend-line flight"></span> Flight</span>
+        <span class="legend-item"><span class="legend-line bike"></span> Bike</span>
+        <span class="legend-item"><span class="legend-line train"></span> Train</span>
       </div>
     </div>
   </div>
@@ -46,14 +49,20 @@ document.addEventListener("DOMContentLoaded", function() {
     { name: "Phuket", lat: 7.88, lon: 98.39, dates: "Apr 28 - May 7", status: "done", color: "#06B6D4", slug: null, heroImage: null, description: "Beaches, Muay Thai and island vibes." },
     { name: "Hong Kong", lat: 22.32, lon: 114.17, dates: "May 7 - 9", status: "done", color: "#DC2626", slug: null, heroImage: null, description: "Dim sum, skyline and the Star Ferry." },
     { name: "Tokyo II", lat: 35.78, lon: 139.75, dates: "May 9 -", status: "done", color: "#FF6B6B", slug: null, heroImage: null, description: "Back in Japan. Round two." },
-    { name: "Onomichi", lat: 34.41, lon: 133.20, dates: "Shimanami Kaido", status: "current", color: "#A855F7", slug: null, heroImage: null, description: "Biking Onomichi to Imabari." }
+    { name: "Onomichi", lat: 34.41, lon: 133.20, dates: "Shimanami Kaido", status: "done", color: "#A855F7", slug: null, heroImage: null, description: "Cycling the Shimanami Kaido island route." },
+    { name: "Imabari", lat: 34.07, lon: 132.99, dates: "100 km biked", status: "done", color: "#A855F7", slug: null, heroImage: null, travel: "bike", description: "End of the 100km Shimanami Kaido ride across 6 islands." },
+    { name: "Seoul", lat: 37.46, lon: 126.44, dates: "Four Rivers start", status: "done", color: "#3B82F6", slug: null, heroImage: null, travel: "flight", description: "Flew in via Matsuyama. Start of the Four Rivers cycle path." },
+    { name: "Busan", lat: 35.18, lon: 129.08, dates: "600 km biked", status: "done", color: "#06B6D4", slug: null, heroImage: null, travel: "bike", description: "Cycled 600km Seoul to Busan, then trained back to fly out." },
+    { name: "Istanbul", lat: 41.01, lon: 28.81, dates: "Where East meets West", status: "done", color: "#EF4444", slug: null, heroImage: null, travel: "flight", description: "Flew Seoul to Istanbul. Bazaars, mosques and ferries." },
+    { name: "Tbilisi", lat: 41.72, lon: 44.83, dates: "Now", status: "current", color: "#F59E0B", slug: null, heroImage: null, travel: "flight", description: "Wine, sulfur baths and the cobbled old town of Georgia." },
+    { name: "Yerevan", lat: 40.18, lon: 44.51, dates: "Up next", status: "upcoming", color: "#8B5CF6", slug: null, heroImage: null, travel: "flight", description: "Armenia is calling." }
   ];
 
-  // Init map centered on SE Asia
+  // Init map centered to span the full route (Japan to Caucasus)
   var map = L.map("travelMap", {
-    center: [15, 115],
-    zoom: 4,
-    minZoom: 3,
+    center: [30, 90],
+    zoom: 3,
+    minZoom: 2,
     maxZoom: 7,
     zoomControl: false,
     attributionControl: false,
@@ -77,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }).addTo(map);
 
   // Draw flight paths as curved lines
-  function getCurvePoints(latlng1, latlng2, numPoints) {
+  function getCurvePoints(latlng1, latlng2, numPoints, curveFactor) {
     var points = [];
     var lat1 = latlng1[0], lon1 = latlng1[1];
     var lat2 = latlng2[0], lon2 = latlng2[1];
@@ -90,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var len = Math.sqrt(nx * nx + ny * ny);
     if (len === 0) return [[lat1, lon1], [lat2, lon2]];
     nx /= len; ny /= len;
-    var offset = dist * 0.15;
+    var offset = dist * (curveFactor === undefined ? 0.15 : curveFactor);
     var ctrlLat = midLat + nx * offset;
     var ctrlLon = midLon + ny * offset;
     for (var i = 0; i <= numPoints; i++) {
@@ -102,23 +111,43 @@ document.addEventListener("DOMContentLoaded", function() {
     return points;
   }
 
+  // Style a path segment based on how the leg was travelled
+  function pathStyle(travel, color, active) {
+    var s = { color: active ? color : "rgba(0,0,0,0.15)", smoothFactor: 1 };
+    if (travel === "bike") {
+      s.weight = 4; s.opacity = active ? 0.8 : 0.3; // solid, bold
+    } else if (travel === "train") {
+      s.weight = 2; s.opacity = active ? 0.6 : 0.3; s.dashArray = "2, 7"; // dotted
+    } else {
+      s.weight = 2.5; s.opacity = active ? 0.6 : 0.3; s.dashArray = "8, 6"; // flight: dashed
+    }
+    return s;
+  }
+
   // Draw paths
   for (var i = 0; i < stops.length - 1; i++) {
     var from = stops[i], to = stops[i + 1];
     var fromDone = from.status === "done" || from.status === "current";
     var toDone = to.status === "done" || to.status === "current";
-    var pathColor = (fromDone && toDone) ? to.color : "rgba(0,0,0,0.15)";
-    var pathOpacity = (fromDone && toDone) ? 0.6 : 0.3;
-    var curvePoints = getCurvePoints([from.lat, from.lon], [to.lat, to.lon], 50);
-
-    L.polyline(curvePoints, {
-      color: pathColor,
-      weight: 2.5,
-      opacity: pathOpacity,
-      dashArray: "8, 6",
-      smoothFactor: 1
-    }).addTo(map);
+    var active = fromDone && toDone;
+    var travel = to.travel || "flight";
+    var curveFactor = (travel === "bike" || travel === "train") ? 0.04 : 0.15;
+    var curvePoints = getCurvePoints([from.lat, from.lon], [to.lat, to.lon], 50, curveFactor);
+    L.polyline(curvePoints, pathStyle(travel, to.color, active)).addTo(map);
   }
+
+  // Manual train backtrack: Busan -> Seoul (cycled down, trained back up to fly out)
+  (function() {
+    var busan = null, seoul = null;
+    for (var k = 0; k < stops.length; k++) {
+      if (stops[k].name === "Busan") busan = stops[k];
+      if (stops[k].name === "Seoul") seoul = stops[k];
+    }
+    if (busan && seoul) {
+      var trainPts = getCurvePoints([busan.lat, busan.lon], [seoul.lat, seoul.lon], 50, -0.08);
+      L.polyline(trainPts, pathStyle("train", "#06B6D4", true)).addTo(map);
+    }
+  })();
 
   // Custom marker icons
   function createMarkerIcon(stop) {
@@ -340,6 +369,18 @@ document.addEventListener("DOMContentLoaded", function() {
   .legend-dot.done { background: var(--teal); }
   .legend-dot.current { background: var(--coral); }
   .legend-dot.upcoming { background: rgba(0,0,0,0.15); }
+
+  .legend-line {
+    width: 16px;
+    height: 0;
+    display: inline-block;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-color: rgba(0,0,0,0.5);
+  }
+  .legend-line.flight { border-top-style: dashed; border-top-width: 2px; }
+  .legend-line.bike { border-top-style: solid; border-top-width: 3px; border-color: #06B6D4; }
+  .legend-line.train { border-top-style: dotted; border-top-width: 2px; }
 
   @media (max-width: 768px) {
     .world-map-section { padding: 4rem 1rem; }
