@@ -125,17 +125,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
     .hk-shutter.slam .closed-msg { opacity: 1; }
 
-    .hk-taxi {
+    :global(.hk-taxi) {
       position: fixed; left: 0; z-index: 200; width: 120px; height: auto;
       pointer-events: auto; cursor: pointer; will-change: transform;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
     }
-    .hk-honk {
+    :global(.hk-honk) {
       position: fixed; z-index: 300; font-weight: 800; color: #DC2626;
       font-size: 22px; pointer-events: none; animation: honkpop .9s ease forwards;
       text-shadow: 0 2px 6px rgba(0,0,0,0.5); font-family: 'Space Mono', monospace;
     }
-    @keyframes honkpop {
+    :global(@keyframes honkpop) {
       0%   { opacity: 0; transform: translateY(0) scale(.6); }
       20%  { opacity: 1; transform: translateY(-16px) scale(1.1); }
       100% { opacity: 0; transform: translateY(-46px) scale(1); }
@@ -153,7 +153,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      .hk-taxi { display: none; }
+      :global(.hk-taxi) { display: none; }
     }
   </style>
 
