@@ -39,7 +39,7 @@ const bgColors = ['#FFF0F0', '#F0FFF4', '#FFF8E6', '#F0F4FF', '#FFF0FB'];
         heroImage={post.data.heroImage}
         heroColor={post.data.heroColor}
         tags={post.data.tags}
-        slug={post.id}
+        slug={post.id.replace(/\.md$/,"")}
         bgColor={bgColors[i % bgColors.length]}
       />
     ))}
