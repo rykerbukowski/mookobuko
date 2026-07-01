@@ -1,7 +1,17 @@
 ---
 title: "Japan & Korea"
-date: 2026-03-15
-description: "Two countries, two bikes, 633 kilometers, one flat tire, and the best meal of the trip at a restaurant with a 2.1-star rating."
+subtitle: "Bikes, Onsens & Going the Distance"
+date: 2026-05-09
+location: "Tokyo, Japan"
+locationEmoji: "🇯🇵"
+heroImage: "/media/posts/18/gallery/cycling-shimanami-woodblock-poster.jpg"
+heroColor: "#FF6B6B"
+excerpt: "After Southeast Asia broke us repeatedly, Japan fixed us. Then we biked across Korea. 633 kilometers. Seven days. One flat tire. Zero regrets."
+tags:
+  - { label: "🇯🇵 Japan", color: "#FF6B6B" }
+  - { label: "🚲 Shimanami Kaido", color: "#00C9A7" }
+  - { label: "🇰🇷 Korea", color: "#0891B2" }
+status: "published"
 ---
 
 <!-- ============================================================
