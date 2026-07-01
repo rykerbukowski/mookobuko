@@ -325,6 +325,149 @@ One week and one flight later, we were standing in Seoul with rental bikes, look
 
 ## The Four Rivers Route: Seoul to Busan
 
+<!-- ============================================================
+  INTERACTIVE ROUTE MAP — Strava-style, Leaflet via CDN
+  Zero build step. Completed vs remaining split controlled by
+  data-progress (0–1). Set to 1 = whole route completed.
+  ============================================================ -->
+<div class="route-map-card" style="margin:2em 0;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.10);border:1px solid #ececec;position:relative;z-index:1;">
+  <!-- Header bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0f0f0;flex-wrap:wrap;gap:8px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#00C9A7,#0891B2);display:flex;align-items:center;justify-content:center;font-size:17px;">🚴</div>
+      <div>
+        <div style="font-family:'DM Sans',system-ui,sans-serif;font-weight:800;font-size:15px;color:#1a1a1a;line-height:1.1;">Cross-Country Route · 국토종주</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#999;letter-spacing:.08em;margin-top:2px;">Seoul → Busan · Four Rivers Path</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:18px;">
+      <div style="text-align:right;">
+        <div style="font-family:'DM Sans',sans-serif;font-weight:800;font-size:17px;color:#00C9A7;line-height:1;">633<span style="font-size:11px;color:#bbb;font-weight:600;"> km</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#aaa;letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">Distance</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'DM Sans',sans-serif;font-weight:800;font-size:17px;color:#1a1a1a;line-height:1;">7<span style="font-size:11px;color:#bbb;font-weight:600;"> days</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#aaa;letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">Duration</div>
+      </div>
+    </div>
+  </div>
+  <!-- Map viewport -->
+  <div id="fourrivers-map" data-progress="1" style="width:100%;height:460px;background:#eef2f4;"></div>
+  <!-- Footer legend -->
+  <div style="display:flex;align-items:center;gap:20px;padding:12px 20px;border-top:1px solid #f0f0f0;flex-wrap:wrap;font-family:'DM Sans',sans-serif;">
+    <div style="display:flex;align-items:center;gap:7px;"><span style="display:inline-block;width:22px;height:4px;border-radius:2px;background:#00C9A7;"></span><span style="font-size:12px;color:#555;">Completed</span></div>
+    <div style="display:flex;align-items:center;gap:7px;"><span style="display:inline-block;width:22px;height:0;border-top:3px dashed #bbb;"></span><span style="font-size:12px;color:#555;">Remaining</span></div>
+    <div style="display:flex;align-items:center;gap:7px;"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:#0891B2;border:2px solid #fff;box-shadow:0 0 0 1.5px #0891B2;"></span><span style="font-size:12px;color:#555;">Checkpoints</span></div>
+    <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:#ccc;">Han River · Saejae · Nakdong River</div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script is:inline>
+(function(){
+  function init(){
+    var el = document.getElementById('fourrivers-map');
+    if(!el || typeof L === 'undefined'){ return setTimeout(init, 120); }
+    if(el._built) return; el._built = true;
+
+    // --- Real Four Rivers route waypoints (Seoul -> Busan) ---
+    var route = [
+      [37.548,127.123], [37.523,127.312], [37.492,127.588], [37.298,127.637],
+      [36.999,127.999], [36.842,128.014], [36.755,128.098], [36.706,128.148],
+      [36.415,128.160], [36.348,128.242], [36.119,128.344], [35.990,128.401],
+      [35.842,128.463], [35.693,128.442], [35.520,128.443], [35.388,128.487],
+      [35.311,128.987], [35.104,128.965]
+    ];
+    // Labelled checkpoints (subset shown as markers)
+    var checkpoints = [
+      {ll:[37.548,127.123], name:'Seoul', sub:'Start · Gwangnaru'},
+      {ll:[37.298,127.637], name:'Yeoju', sub:'Han River'},
+      {ll:[36.999,127.999], name:'Chungju Dam', sub:'Day 3'},
+      {ll:[36.755,128.098], name:'Ihwaryeong Pass', sub:'642m · the climb'},
+      {ll:[36.348,128.242], name:'Nakdan Dam', sub:'Nakdong River'},
+      {ll:[35.842,128.463], name:'Daegu', sub:'Gangjeong Weir'},
+      {ll:[35.104,128.965], name:'Busan', sub:'Finish · Nakdong Estuary'}
+    ];
+
+    var progress = parseFloat(el.getAttribute('data-progress') || '1');
+    progress = Math.max(0, Math.min(1, progress));
+
+    var map = L.map(el, {
+      zoomControl:true, scrollWheelZoom:false, dragging:true,
+      attributionControl:true
+    });
+
+    // Clean minimalist basemap (CARTO Positron)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution:'&copy; OpenStreetMap &copy; CARTO',
+      subdomains:'abcd', maxZoom:19
+    }).addTo(map);
+
+    // Fit to route
+    var bounds = L.latLngBounds(route);
+    map.fitBounds(bounds, {padding:[36,36]});
+
+    // --- Split route into completed vs remaining by cumulative distance ---
+    function havDist(a,b){
+      var R=6371, dLat=(b[0]-a[0])*Math.PI/180, dLng=(b[1]-a[1])*Math.PI/180;
+      var la1=a[0]*Math.PI/180, la2=b[0]*Math.PI/180;
+      var x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)*Math.sin(dLng/2);
+      return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+    }
+    var segLen=[], total=0;
+    for(var i=0;i<route.length-1;i++){ var d=havDist(route[i],route[i+1]); segLen.push(d); total+=d; }
+    var targetDist = total*progress, acc=0, splitIdx=route.length-1, splitPt=route[route.length-1];
+    for(var j=0;j<segLen.length;j++){
+      if(acc+segLen[j] >= targetDist){
+        var frac=(targetDist-acc)/segLen[j];
+        splitPt=[ route[j][0]+(route[j+1][0]-route[j][0])*frac,
+                  route[j][1]+(route[j+1][1]-route[j][1])*frac ];
+        splitIdx=j; break;
+      }
+      acc+=segLen[j];
+    }
+    var completed = route.slice(0, splitIdx+1).concat([splitPt]);
+    var remaining = [splitPt].concat(route.slice(splitIdx+1));
+
+    // Casing under completed line for a crisp Strava look
+    L.polyline(completed, {color:'#ffffff', weight:8, opacity:1, lineJoin:'round', lineCap:'round'}).addTo(map);
+    L.polyline(completed, {color:'#00C9A7', weight:4.5, opacity:1, lineJoin:'round', lineCap:'round'}).addTo(map);
+    // Remaining dashed
+    if(remaining.length>1){
+      L.polyline(remaining, {color:'#b6bcc2', weight:3.5, opacity:.9, dashArray:'2 9', lineCap:'round'}).addTo(map);
+    }
+
+    // Checkpoint dots
+    checkpoints.forEach(function(c){
+      L.circleMarker(c.ll, {radius:5, color:'#0891B2', weight:2.5, fillColor:'#fff', fillOpacity:1})
+        .addTo(map)
+        .bindPopup('<div style="font-family:DM Sans,sans-serif;"><b style="font-size:13px;color:#1a1a1a;">'+c.name+'</b><br><span style="font-size:11px;color:#888;">'+c.sub+'</span></div>');
+    });
+
+    // Start pin (flag)
+    L.marker(route[0], {icon:L.divIcon({className:'', iconSize:[26,26], iconAnchor:[13,13],
+      html:'<div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:12px;">🏁</div>'})
+    }).addTo(map).bindPopup('<b>Seoul</b> — the start');
+
+    // Current-position marker (pulsing) at the split point; if 100% it sits on Busan
+    var here = progress>=1 ? route[route.length-1] : splitPt;
+    var pulseIcon = L.divIcon({className:'', iconSize:[30,30], iconAnchor:[15,15],
+      html:'<div class="rm-pulse-wrap"><span class="rm-pulse"></span><span class="rm-dot">'+(progress>=1?'🏆':'🚴')+'</span></div>'});
+    L.marker(here, {icon:pulseIcon, zIndexOffset:1000}).addTo(map)
+      .bindPopup(progress>=1?'<b>Busan</b> — 633 km complete 🎉':'<b>Current position</b>');
+
+    setTimeout(function(){ map.invalidateSize(); }, 200);
+  }
+
+  // Inject pulse styles once
+  var st = document.createElement('style');
+  st.textContent = '.rm-pulse-wrap{position:relative;width:30px;height:30px}.rm-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#0891B2;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font-size:12px;z-index:2}.rm-pulse{position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(8,145,178,.45);animation:rmPulse 1.8s ease-out infinite;z-index:1}@keyframes rmPulse{0%{width:24px;height:24px;opacity:.7}100%{width:60px;height:60px;opacity:0}}.route-map-card .leaflet-container{font-family:DM Sans,system-ui,sans-serif}';
+  document.head.appendChild(st);
+
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>
+
 A bit of background: South Korea has a massive network of bike paths all through the country, sponsored by K-Water. You can apply for a bike passport from the Ministry of the Interior and collect stamps posted at intervals along the various routes. The stamps are housed in bright red British-style telephone booths. The big four routes are the Four River Paths (following the four major rivers), the Jeju Fantasy Path (circling Jeju island), the Cross Country Route (633km between Seoul and Busan), and the Grand Slam (collecting every stamp in the entire country).
 
 I have a love for anything that even mildly resembles a scavenger hunt. The stamps scratched that itch. Collecting them all became a very important part of this bike ride, so upon starting our journey south, I made Ryker backtrack 12 miles to get the starting stamps I'd missed. Does biking 633km even count if the Ministry of the Interior doesn't give its stamp of approval? Our first day quickly ballooned into a 72-mile ride.
