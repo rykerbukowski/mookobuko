@@ -4,7 +4,7 @@ subtitle: "Tokyo, the Shimanami Kaido, and 633km Across Korea"
 date: 2026-05-09
 location: "Tokyo, Japan"
 locationEmoji: "🇯🇵"
-heroImage: "/media/posts/18/gallery/shimanami-cable-bridge-pov-sun.jpg"
+heroImage: "/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg"
 heroColor: "#FF6B6B"
 excerpt: "After Southeast Asia broke us repeatedly, Japan fixed us. Then we biked across Korea. 633 kilometers. Seven days. One flat tire. Zero regrets."
 tags:
@@ -90,6 +90,10 @@ status: "published"
 
 This is the part where I apologize for taking such a long time between posts. In my defense, there was a lot going on. Visitor after visitor after visitor meant the blog took a back seat. We've been busy since Vietnam, and gotten very distracted by bikes.
 
+<figure class="photo-polaroid">
+  <img loading="lazy" src="/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg" alt="Kiss at the Kurushima Kaikyo Bridge, Shimanami Kaido" />
+</figure>
+
 ## A Short Recap
 
 Before we get into it, here's what you missed since Vietnam:
@@ -98,9 +102,10 @@ We went back to Thailand with August, starting in Chiang Mai where we went to an
 
 <div class="photo-scroll">
   <img loading="lazy" src="/media/posts/18/gallery/grand-canyon-water-park-chiangmai.jpg" alt="Grand Canyon Water Park, Chiang Mai" />
+  <img loading="lazy" src="/media/posts/18/gallery/kirby-claw-machine-selfie.jpg" alt="Kirby claw machine, Thailand" />
+  <img loading="lazy" src="/media/posts/18/gallery/bingsu-four-seasons-bangkok.jpg" alt="Bingsu at Four Seasons Bangkok" />
   <img loading="lazy" src="/media/posts/18/gallery/meg-hospital-drip-bangkok.jpg" alt="Bumrungrad Hospital, Bangkok" />
   <img loading="lazy" src="/media/posts/18/gallery/bumrungrad-hospital-scrubs-selfie.jpg" alt="Bumrungrad scrubs" />
-  <img loading="lazy" src="/media/posts/18/gallery/bingsu-four-seasons-bangkok.jpg" alt="Bingsu at Four Seasons Bangkok" />
   <img loading="lazy" src="/media/posts/18/gallery/meg-horse-statue-chiangmai.jpg" alt="Chiang Mai" />
   <img loading="lazy" src="/media/posts/18/gallery/bangkok-grand-palace-night-selfie.jpg" alt="Grand Palace, Bangkok" />
 </div>
@@ -167,11 +172,6 @@ That night was redemption night for Meg. All you can drink lemon sours and Japan
 <div class="photo-duo">
   <figure><img loading="lazy" src="/media/posts/18/gallery/tokyo-yakiniku-group-dinner.jpg" alt="Yakiniku dinner, Tokyo" /></figure>
   <figure><img loading="lazy" src="/media/posts/18/gallery/omoide-yokocho-alley-night.jpg" alt="Omoide Yokocho alley" /></figure>
-</div>
-
-<div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/kirby-claw-machine-selfie.jpg" alt="Kirby claw machine" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/bingsu-four-seasons-bangkok.jpg" alt="Bangkok bingsu" /></figure>
 </div>
 
 ## Onomichi
@@ -346,8 +346,8 @@ A kind man took pity on us.
 <div class="manga-reaction" style="position:relative;margin:2.5em auto;max-width:380px;border:3px solid #1a1a1a;border-radius:8px;background:white;padding:26px;text-align:center;transform:rotate(-1.4deg);box-shadow:6px 6px 0 #1a1a1a;overflow:hidden;">
   <div style="position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg,transparent 5deg,rgba(0,0,0,.015) 5deg,rgba(0,0,0,.015) 6deg);pointer-events:none;"></div>
   <div style="font-size:42px;margin-bottom:6px;">😤💦</div>
-  <div style="font-size:36px;font-weight:900;font-family:'Playfair Display',serif;color:#DC2626;">「大変!」</div>
-  <div style="font-size:12px;color:#444;letter-spacing:.08em;margin-top:6px;font-style:italic;">Taihen! — "Oh no." / "This is bad."</div>
+  <div style="font-size:36px;font-weight:900;font-family:'Playfair Display',serif;color:#DC2626;">큰일 났다!</div>
+  <div style="font-size:12px;color:#444;letter-spacing:.08em;margin-top:6px;font-style:italic;">Keunil natda! — "Oh no." / "We're in trouble."</div>
   <div style="font-size:13px;color:#666;margin-top:10px;line-height:1.5;">We were quickly humbled.</div>
   <div style="position:absolute;top:7px;right:9px;font-size:9px;font-family:'JetBrains Mono',monospace;opacity:.22;text-transform:uppercase;letter-spacing:.1em;">Day 2 · Korea</div>
 </div>
@@ -550,8 +550,8 @@ Ryker jumped into action, biked a couple of extra miles to get me water, electro
       <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Flat Tire</div>
     </div>
     <div style="background:rgba(255,255,255,.06);border-radius:9px;padding:clamp(10px,2vw,16px);">
-      <div style="font-size:clamp(22px,4.5vw,30px);font-weight:900;color:#00C9A7;">20,341</div>
-      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Feet Gained</div>
+      <div style="font-size:clamp(22px,4.5vw,30px);font-weight:900;color:#00C9A7;">28L</div>
+      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Pocari Sweat</div>
     </div>
   </div>
   <div style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.2em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Adventurers: Meg & Ryker Corey</div>
