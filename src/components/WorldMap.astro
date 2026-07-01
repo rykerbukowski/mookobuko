@@ -54,13 +54,19 @@ document.addEventListener("DOMContentLoaded", function() {
     { name: "Seoul", lat: 37.46, lon: 126.44, dates: "Four Rivers start", status: "done", color: "#3B82F6", slug: null, heroImage: null, travel: "flight", description: "Flew in via Matsuyama. Start of the Four Rivers cycle path." },
     { name: "Busan", lat: 35.18, lon: 129.08, dates: "600 km biked", status: "done", color: "#06B6D4", slug: null, heroImage: null, travel: "bike", description: "Cycled 600km Seoul to Busan, then trained back to fly out." },
     { name: "Istanbul", lat: 41.01, lon: 28.81, dates: "Where East meets West", status: "done", color: "#EF4444", slug: null, heroImage: null, travel: "flight", description: "Flew Seoul to Istanbul. Bazaars, mosques and ferries." },
-    { name: "Tbilisi", lat: 41.72, lon: 44.83, dates: "Now", status: "current", color: "#F59E0B", slug: null, heroImage: null, travel: "flight", description: "Wine, sulfur baths and the cobbled old town of Georgia." },
-    { name: "Yerevan", lat: 40.18, lon: 44.51, dates: "Up next", status: "upcoming", color: "#8B5CF6", slug: null, heroImage: null, travel: "flight", description: "Armenia is calling." }
+    { name: "Tbilisi", lat: 41.72, lon: 44.83, dates: "Wine & sulfur baths", status: "done", color: "#F59E0B", slug: null, heroImage: null, travel: "flight", description: "Wine, sulfur baths and the cobbled old town of Georgia." },
+    { name: "Yerevan", lat: 40.18, lon: 44.51, dates: "Armenia", status: "done", color: "#8B5CF6", slug: null, heroImage: null, travel: "drive", description: "Monasteries, brandy and Mount Ararat views." },
+    { name: "Tbilisi II", lat: 41.82, lon: 44.93, dates: "Back to Georgia", status: "done", color: "#F59E0B", slug: null, heroImage: null, travel: "flight", description: "FlyOne back. Then drove west through the Georgian countryside." },
+    { name: "Kutaisi", lat: 42.18, lon: 42.48, dates: "Georgian coast", status: "done", color: "#15803D", slug: null, heroImage: null, travel: "drive", description: "Rental car road trip to the coast, flew out to Greece." },
+    { name: "Aegina", lat: 37.75, lon: 23.43, dates: "Now", status: "current", color: "#0EA5E9", slug: null, heroImage: null, travel: "flight", description: "Island life off the coast of Athens. One week in the sun." },
+    { name: "Bucharest", lat: 44.43, lon: 26.10, dates: "Up next", status: "upcoming", color: "#E11D48", slug: null, heroImage: null, description: "Eastern Europe leg begins. Mom joins!" },
+    { name: "Budapest", lat: 47.50, lon: 19.04, dates: "Soon", status: "upcoming", color: "#F97316", slug: null, heroImage: null, description: "Thermal baths and ruin bars." },
+    { name: "Krakow", lat: 50.06, lon: 19.94, dates: "Soon", status: "upcoming", color: "#7C3AED", slug: null, heroImage: null, description: "Old town, pierogis and salt mines." }
   ];
 
-  // Init map centered to span the full route (Japan to Caucasus)
+  // Init map centered to span the full route (Japan to Eastern Europe)
   var map = L.map("travelMap", {
-    center: [30, 90],
+    center: [35, 75],
     zoom: 3,
     minZoom: 2,
     maxZoom: 7,
@@ -118,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function() {
       s.weight = 4; s.opacity = active ? 0.8 : 0.3; // solid, bold
     } else if (travel === "train") {
       s.weight = 2; s.opacity = active ? 0.6 : 0.3; s.dashArray = "2, 7"; // dotted
+    } else if (travel === "drive") {
+      s.weight = 3; s.opacity = active ? 0.7 : 0.3; s.dashArray = "12, 4"; // long dash
     } else {
       s.weight = 2.5; s.opacity = active ? 0.6 : 0.3; s.dashArray = "8, 6"; // flight: dashed
     }
