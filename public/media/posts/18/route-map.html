@@ -8,34 +8,33 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',system-ui,sans-serif;background:#fff}
 .shell{display:flex;flex-direction:column;width:100%;height:100%}
-.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #f0f0f0;flex-shrink:0;flex-wrap:wrap;gap:6px;background:#fff}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.06);flex-shrink:0;flex-wrap:wrap;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px)}
 .hdr-l{display:flex;align-items:center;gap:10px}
 .icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#00C9A7,#0891B2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.title{font-weight:800;font-size:14px;color:#1a1a1a;line-height:1.2}
-.sub{font-size:10px;color:#aaa;letter-spacing:.05em;margin-top:1px;font-family:monospace}
+.title{font-weight:800;font-size:14px;color:#2a2018;line-height:1.2}
+.sub{font-size:10px;color:#a09070;letter-spacing:.05em;margin-top:1px;font-family:monospace}
 .stats{display:flex;gap:18px;flex-shrink:0}
 .stat{text-align:right}
 .sv{font-weight:800;font-size:17px;color:#00C9A7;line-height:1}
-.sv.dark{color:#1a1a1a}
-.sv span{font-size:10px;color:#ccc;font-weight:500}
-.sl{font-size:9px;color:#bbb;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;font-family:monospace}
-#cvs{flex:1;cursor:grab;display:block;min-height:0}
-#cvs:active{cursor:grabbing}
-.prog{flex-shrink:0;padding:10px 16px;border-top:1px solid #f0f0f0;background:#fafafa}
-.prog-track{height:5px;border-radius:3px;background:#eee;overflow:hidden}
+.sv.dark{color:#2a2018}
+.sv span{font-size:10px;color:#c0b090;font-weight:500}
+.sl{font-size:9px;color:#b0a080;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;font-family:monospace}
+.wrap{position:relative;flex:1;min-height:0}
+#cvs{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.tooltip{position:absolute;background:rgba(255,252,245,.97);border:1.5px solid #d4c8a8;border-radius:8px;padding:7px 11px;pointer-events:none;box-shadow:0 4px 18px rgba(60,40,10,.12);font-size:12px;color:#2a2018;white-space:nowrap;display:none;z-index:10}
+.tooltip b{display:block;font-size:13px;margin-bottom:2px;color:#1a1a1a}
+.tooltip small{color:#908060;font-size:11px}
+.prog{flex-shrink:0;padding:10px 16px;border-top:1px solid rgba(0,0,0,.06);background:rgba(255,252,245,.9)}
+.prog-track{height:5px;border-radius:3px;background:#e8e0cc;overflow:hidden}
 .prog-fill{height:100%;width:100%;border-radius:3px;background:linear-gradient(90deg,#00C9A7,#0891B2)}
 .prog-lbl{display:flex;justify-content:space-between;margin-top:5px}
-.prog-lbl span{font-size:10px;color:#bbb;font-family:monospace}
-.leg{flex-shrink:0;display:flex;align-items:center;gap:14px;padding:9px 16px;border-top:1px solid #f0f0f0;flex-wrap:wrap}
-.li{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
-.ll{width:20px;height:3px;border-radius:2px;background:#00C9A7;display:inline-block}
-.ld{width:20px;height:0;border-top:2.5px dashed #ccc;display:inline-block}
+.prog-lbl span{font-size:10px;color:#a09070;font-family:monospace}
+.leg{flex-shrink:0;display:flex;align-items:center;gap:14px;padding:9px 16px;border-top:1px solid rgba(0,0,0,.06);flex-wrap:wrap;background:rgba(255,252,245,.9)}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:#706050}
+.ll{width:20px;height:3px;border-radius:2px;background:linear-gradient(90deg,#00C9A7,#0891B2);display:inline-block}
+.ld{width:20px;height:0;border-top:2.5px dashed #b0a888;display:inline-block}
 .ldot{width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #0891B2;display:inline-block}
-.leg-r{margin-left:auto;font-size:9px;color:#ddd;font-family:monospace}
-.tooltip{position:absolute;background:rgba(255,255,255,.97);border:1px solid #e0e0e0;border-radius:8px;padding:7px 11px;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.1);font-size:12px;color:#1a1a1a;white-space:nowrap;display:none;z-index:10}
-.tooltip b{display:block;font-size:13px;margin-bottom:2px}
-.tooltip small{color:#888;font-size:11px}
-.wrap{position:relative;flex:1;display:flex;flex-direction:column;min-height:0}
+.leg-r{margin-left:auto;font-size:9px;color:#c0b090;font-family:monospace}
 </style>
 </head>
 <body>
@@ -59,7 +58,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',system-ui
   </div>
   <div class="prog">
     <div class="prog-track"><div class="prog-fill"></div></div>
-    <div class="prog-lbl"><span>Seoul · 서울</span><span>633 km · 100% complete</span><span>Busan · 부산</span></div>
+    <div class="prog-lbl"><span>Seoul · 서울</span><span>633 km · 100% complete 🏆</span><span>Busan · 부산</span></div>
   </div>
   <div class="leg">
     <div class="li"><span class="ll"></span>Completed</div>
@@ -70,7 +69,6 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',system-ui
 </div>
 
 <script>
-// ── Route: real Four Rivers waypoints (Seoul → Busan) ──────────
 var ROUTE = [
   [37.548,127.123],[37.523,127.312],[37.492,127.588],[37.298,127.637],
   [36.999,127.999],[36.842,128.014],[36.755,128.098],[36.706,128.148],
@@ -78,7 +76,6 @@ var ROUTE = [
   [35.842,128.463],[35.693,128.442],[35.520,128.443],[35.388,128.487],
   [35.311,128.987],[35.104,128.965]
 ];
-
 var CPS = [
   {ll:[37.548,127.123],name:'Seoul',sub:'Start · Gwangnaru Bicycle Park'},
   {ll:[37.298,127.637],name:'Yeoju',sub:'Han River · Day 2'},
@@ -88,9 +85,7 @@ var CPS = [
   {ll:[35.842,128.463],name:'Daegu',sub:'Gangjeong Weir · Day 6'},
   {ll:[35.104,128.965],name:'Busan',sub:'Finish · 633 km complete 🏆'}
 ];
-
-// ── Korea land outline (simplified polygon, lng/lat) ────────────
-// Traced from the Korean peninsula shape — enough for map context
+// Korea peninsula outline (lng,lat pairs → projected as lat,lng)
 var LAND = [
   [38.6,124.7],[38.3,124.6],[37.9,124.5],[37.7,124.7],[37.5,124.6],
   [37.2,126.1],[37.0,126.3],[36.7,126.1],[36.4,126.2],[36.1,126.5],
@@ -104,150 +99,291 @@ var PROGRESS = 1.0;
 var cvs = document.getElementById('cvs');
 var ctx = cvs.getContext('2d');
 var tip = document.getElementById('tip');
-var wrap = document.querySelector('.wrap');
-
-// ── Projection helpers ──────────────────────────────────────────
-var PAD = 40;
+var PAD = 48;
 var bounds = {
-  minLat: Math.min.apply(null, ROUTE.map(function(p){return p[0]})) - 0.3,
-  maxLat: Math.max.apply(null, ROUTE.map(function(p){return p[0]})) + 0.3,
-  minLng: Math.min.apply(null, ROUTE.map(function(p){return p[1]})) - 0.5,
-  maxLng: Math.max.apply(null, ROUTE.map(function(p){return p[1]})) + 0.5,
+  minLat:34.5, maxLat:38.95,
+  minLng:124.1, maxLng:130.1
 };
 
-function project(lat, lng, W, H) {
-  // Mercator-lite: linear is fine at this scale
-  var x = PAD + (lng - bounds.minLng) / (bounds.maxLng - bounds.minLng) * (W - PAD*2);
-  var y = PAD + (1 - (lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * (H - PAD*2);
-  return [x, y];
+// ── Off-screen watercolor canvas (painted once) ─────────────────
+var wcCvs = document.createElement('canvas');
+var wcCtx = wcCvs.getContext('2d');
+var wcReady = false;
+
+function project(lat,lng,W,H){
+  var x = PAD + (lng-bounds.minLng)/(bounds.maxLng-bounds.minLng)*(W-PAD*2);
+  var y = PAD + (1-(lat-bounds.minLat)/(bounds.maxLat-bounds.minLat))*(H-PAD*2);
+  return [x,y];
 }
 
-// ── Split route at progress ─────────────────────────────────────
+// ── Seeded pseudo-random for deterministic blobs ────────────────
+function mkRng(seed){
+  var s=seed;
+  return function(){s=(s*16807+0)%2147483647;return(s-1)/2147483646;};
+}
+
+// ── Paint one translucent watercolor blob ───────────────────────
+function paintBlob(ctx,cx,cy,r,color,alpha,rng,jitter){
+  var pts=18;
+  ctx.save();
+  ctx.globalAlpha=alpha;
+  ctx.beginPath();
+  for(var i=0;i<=pts;i++){
+    var a=i/pts*Math.PI*2;
+    var rad=r*(0.72+rng()*(jitter||0.55));
+    var x=cx+Math.cos(a)*rad;
+    var y=cy+Math.sin(a)*rad;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  }
+  ctx.closePath();
+  ctx.fillStyle=color;
+  ctx.filter='blur('+(r*0.28)+'px)';
+  ctx.fill();
+  ctx.filter='none';
+  ctx.restore();
+}
+
+function buildWatercolor(W,H){
+  wcCvs.width=W; wcCvs.height=H;
+  var wc=wcCtx;
+  wc.clearRect(0,0,W,H);
+
+  // ── 1. Ocean base — bright coastal teal/cerulean wash ──────────
+  var seaGrad=wc.createRadialGradient(W*0.3,H*0.5,0,W*0.5,H*0.5,W*0.8);
+  seaGrad.addColorStop(0,'#d0f0f8');
+  seaGrad.addColorStop(0.4,'#a8dff0');
+  seaGrad.addColorStop(0.75,'#7ecce8');
+  seaGrad.addColorStop(1,'#5ab8de');
+  wc.fillStyle=seaGrad;
+  wc.fillRect(0,0,W,H);
+
+  // Ocean texture blobs — teal/aqua/periwinkle
+  var rng=mkRng(42);
+  var seaColors=['#9ad8ee','#b8eaf5','#6cc4e0','#a0d4f0','#78c8ea','#c8eefa','#88ccec'];
+  for(var i=0;i<28;i++){
+    var cx=rng()*W, cy=rng()*H;
+    var r=(0.04+rng()*0.12)*Math.min(W,H);
+    paintBlob(wc,cx,cy,r,seaColors[i%seaColors.length],0.18+rng()*0.22,rng);
+  }
+
+  // ── 2. Land polygon — warm sand/cream/peach watercolor ─────────
+  // First clip to land shape and flood with warm washes
+  wc.save();
+  wc.beginPath();
+  LAND.forEach(function(p,i){
+    var xy=project(p[0],p[1],W,H);
+    i===0?wc.moveTo(xy[0],xy[1]):wc.lineTo(xy[0],xy[1]);
+  });
+  wc.closePath();
+  wc.clip();
+
+  // Land base — warm sandy cream
+  var landGrad=wc.createLinearGradient(W*0.3,0,W*0.7,H);
+  landGrad.addColorStop(0,'#f5e8c8');
+  landGrad.addColorStop(0.4,'#f0ddb0');
+  landGrad.addColorStop(0.7,'#ead4a0');
+  landGrad.addColorStop(1,'#e8cc98');
+  wc.fillStyle=landGrad;
+  wc.fillRect(0,0,W,H);
+
+  // Watercolor texture blobs on land — coral/peach/amber/sage
+  var rng2=mkRng(99);
+  var landColors=[
+    '#f4c89a','#f0b888','#f8d4b0',  // warm peach/amber
+    '#e8a878','#fcd8b8',             // coral/salmon
+    '#d4c8a0','#e0d4a8',             // sandy neutral
+    '#c8d8b0','#d4e0c0',             // hints of sage green
+    '#f0c0a0','#fce0c8',             // light coral
+  ];
+  for(var j=0;j<32;j++){
+    var cx2=rng2()*W, cy2=rng2()*H;
+    var r2=(0.03+rng2()*0.14)*Math.min(W,H);
+    paintBlob(wc,cx2,cy2,r2,landColors[j%landColors.length],0.22+rng2()*0.28,rng2);
+  }
+
+  // Mountain range suggestion near Saejae pass (darker earthy blobs)
+  var mxy=project(36.755,128.098,W,H);
+  var rng3=mkRng(17);
+  var earthColors=['#c8a878','#b89860','#d4b888','#c0a070'];
+  for(var k=0;k<8;k++){
+    var ox=(rng3()-0.5)*W*0.08, oy=(rng3()-0.5)*H*0.06;
+    var rm=(0.02+rng3()*0.05)*Math.min(W,H);
+    paintBlob(wc,mxy[0]+ox,mxy[1]+oy,rm,earthColors[k%4],0.25+rng3()*0.2,rng3,0.4);
+  }
+
+  wc.restore();
+
+  // ── 3. Land outline — ink-style, slightly wobbly ──────────────
+  // Draw the coastline 3× with varying opacity for a hand-drawn feel
+  function inkLine(alpha,lw,blur){
+    wc.save();
+    wc.beginPath();
+    LAND.forEach(function(p,i){
+      var xy=project(p[0],p[1],W,H);
+      // tiny jitter for hand-drawn feel
+      var rngL=mkRng(i*31+7);
+      var jx=(rngL()-0.5)*2.5, jy=(rngL()-0.5)*2.5;
+      i===0?wc.moveTo(xy[0]+jx,xy[1]+jy):wc.lineTo(xy[0]+jx,xy[1]+jy);
+    });
+    wc.closePath();
+    wc.strokeStyle='rgba(80,55,30,'+alpha+')';
+    wc.lineWidth=lw;
+    wc.lineJoin='round';
+    wc.lineCap='round';
+    if(blur){wc.filter='blur('+blur+'px)';}
+    wc.stroke();
+    wc.filter='none';
+    wc.restore();
+  }
+  inkLine(0.08, 6, 2);   // soft shadow
+  inkLine(0.20, 2.5, 0.5); // mid
+  inkLine(0.55, 1.2, 0);  // crisp ink
+
+  // ── 4. Sea texture: wave-hint dashes, very subtle ──────────────
+  var rng4=mkRng(55);
+  wc.save();
+  wc.globalAlpha=0.07;
+  wc.strokeStyle='#2060a0';
+  wc.lineWidth=1;
+  for(var w=0;w<60;w++){
+    // only draw waves in sea region (left side roughly)
+    var wx=rng4()*W*0.45, wy=rng4()*H;
+    var wl=6+rng4()*18;
+    wc.beginPath();
+    wc.moveTo(wx,wy);
+    wc.bezierCurveTo(wx+wl*0.3,wy-3,wx+wl*0.7,wy+3,wx+wl,wy);
+    wc.stroke();
+  }
+  wc.restore();
+
+  // ── 5. Compass rose (top-left corner) ─────────────────────────
+  var crx=PAD*0.8, cry=PAD*0.9, crr=Math.min(W,H)*0.03;
+  wc.save();
+  wc.globalAlpha=0.35;
+  // N arrow
+  wc.fillStyle='#8B4513';
+  wc.beginPath();
+  wc.moveTo(crx,cry-crr);
+  wc.lineTo(crx-crr*0.3,cry+crr*0.2);
+  wc.lineTo(crx+crr*0.3,cry+crr*0.2);
+  wc.closePath();
+  wc.fill();
+  wc.fillStyle='#c0a0708';
+  wc.beginPath();
+  wc.moveTo(crx,cry+crr);
+  wc.lineTo(crx-crr*0.3,cry-crr*0.2);
+  wc.lineTo(crx+crr*0.3,cry-crr*0.2);
+  wc.closePath();
+  wc.fill();
+  // N label
+  wc.globalAlpha=0.5;
+  wc.fillStyle='#5a3a18';
+  wc.font='bold '+Math.max(9,crr*0.9)+'px Georgia,serif';
+  wc.textAlign='center';
+  wc.fillText('N',crx,cry-crr-3);
+  wc.restore();
+
+  // ── 6. Sea text labels ─────────────────────────────────────────
+  wc.save();
+  wc.globalAlpha=0.45;
+  wc.fillStyle='#1a5a80';
+  wc.font='italic '+Math.max(9,W*0.018)+'px Georgia,serif';
+  wc.textAlign='center';
+  var yl=project(36.5,125.0,W,H);
+  wc.fillText('Yellow Sea',yl[0],yl[1]);
+  var sj=project(37.0,129.9,W,H);
+  wc.save();
+  wc.translate(sj[0],sj[1]);
+  wc.rotate(Math.PI/2);
+  wc.fillText('Sea of Japan',0,0);
+  wc.restore();
+  wc.restore();
+
+  wcReady=true;
+}
+
+// ── Split route ──────────────────────────────────────────────────
 function hav(a,b){
-  var R=6371,toR=Math.PI/180;
-  var dL=(b[0]-a[0])*toR, dN=(b[1]-a[1])*toR;
-  var s=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a[0]*toR)*Math.cos(b[0]*toR)*Math.sin(dN/2)*Math.sin(dN/2);
+  var R=6371,t=Math.PI/180;
+  var dL=(b[0]-a[0])*t,dN=(b[1]-a[1])*t;
+  var s=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(dN/2)*Math.sin(dN/2);
   return R*2*Math.atan2(Math.sqrt(s),Math.sqrt(1-s));
 }
 var segs=[],total=0;
 for(var i=0;i<ROUTE.length-1;i++){var d=hav(ROUTE[i],ROUTE[i+1]);segs.push(d);total+=d;}
-var target=total*PROGRESS,acc=0,si=ROUTE.length-1,sp=ROUTE[ROUTE.length-1];
+var tgt=total*PROGRESS,acc=0,si=ROUTE.length-1,sp=ROUTE[ROUTE.length-1];
 for(var j=0;j<segs.length;j++){
-  if(acc+segs[j]>=target){var f=(target-acc)/segs[j];sp=[ROUTE[j][0]+(ROUTE[j+1][0]-ROUTE[j][0])*f,ROUTE[j][1]+(ROUTE[j+1][1]-ROUTE[j][1])*f];si=j;break;}
+  if(acc+segs[j]>=tgt){var f=(tgt-acc)/segs[j];sp=[ROUTE[j][0]+(ROUTE[j+1][0]-ROUTE[j][0])*f,ROUTE[j][1]+(ROUTE[j+1][1]-ROUTE[j][1])*f];si=j;break;}
   acc+=segs[j];
 }
-var DONE = ROUTE.slice(0,si+1).concat([sp]);
-var LEFT = PROGRESS>=1 ? [] : [sp].concat(ROUTE.slice(si+1));
+var DONE=ROUTE.slice(0,si+1).concat([sp]);
+var LEFT=PROGRESS>=1?[]:[sp].concat(ROUTE.slice(si+1));
 
-// ── Draw ────────────────────────────────────────────────────────
+// ── Main draw ────────────────────────────────────────────────────
 function draw(){
-  var W = cvs.width, H = cvs.height;
+  var W=cvs.width/DPR, H=cvs.height/DPR;
+  ctx.save();
+  ctx.scale(DPR,DPR);
   ctx.clearRect(0,0,W,H);
 
-  // Background
-  ctx.fillStyle='#f7f5f0';
-  ctx.fillRect(0,0,W,H);
-
-  // Land polygon
-  ctx.beginPath();
-  LAND.forEach(function(p,i){
-    var xy=project(p[0],p[1],W,H);
-    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
-  });
-  ctx.closePath();
-  ctx.fillStyle='#e8e4db';
-  ctx.fill();
-  ctx.strokeStyle='#d4cfc5';
-  ctx.lineWidth=1;
-  ctx.stroke();
-
-  // Sea label
-  ctx.fillStyle='#b8d4e8';
-  ctx.fillRect(0,0,W,H); // re-bg as sea color
-  ctx.fillStyle='#e8e4db';
-  ctx.beginPath();
-  LAND.forEach(function(p,i){
-    var xy=project(p[0],p[1],W,H);
-    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
-  });
-  ctx.closePath();
-  ctx.fill();
-  ctx.strokeStyle='#c8cfd8';
-  ctx.lineWidth=1;
-  ctx.stroke();
-
-  // Sea text
-  ctx.fillStyle='#a8c0d8';
-  ctx.font='italic '+(Math.max(9,W*0.018))+'px Georgia,serif';
-  ctx.textAlign='center';
-  ctx.fillText('Yellow Sea',project(36.5,125.2,W,H)[0],project(36.5,125.2,W,H)[1]);
-  ctx.fillText('Sea of Japan',project(37.0,129.8,W,H)[0],project(37.0,129.8,W,H)[1]);
-
-  // Grid lines (subtle)
-  ctx.strokeStyle='rgba(0,0,0,.04)';
-  ctx.lineWidth=1;
-  for(var lat=35;lat<=38;lat++){
-    var y0=project(lat,bounds.minLng,W,H)[1];
-    ctx.beginPath();ctx.moveTo(PAD,y0);ctx.lineTo(W-PAD,y0);ctx.stroke();
-  }
-  for(var lng=126;lng<=129;lng++){
-    var x0=project(bounds.minLat,lng,W,H)[0];
-    ctx.beginPath();ctx.moveTo(x0,PAD);ctx.lineTo(x0,H-PAD);ctx.stroke();
+  // Watercolor background
+  if(wcReady){
+    ctx.drawImage(wcCvs,0,0,W,H);
+  } else {
+    ctx.fillStyle='#d0eef8'; ctx.fillRect(0,0,W,H);
   }
 
-  // Completed route — white casing first
-  function drawPolyline(pts, style){
-    if(pts.length<2)return;
+  // ── Route lines ──────────────────────────────────────────────
+  // Completed — drop shadow first
+  if(DONE.length>1){
+    ctx.save();
+    ctx.shadowColor='rgba(0,100,80,.18)';
+    ctx.shadowBlur=8;
+    ctx.shadowOffsetY=2;
     ctx.beginPath();
-    pts.forEach(function(p,i){
-      var xy=project(p[0],p[1],W,H);
-      i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
-    });
-    Object.assign(ctx,style);
+    DONE.forEach(function(p,i){var xy=project(p[0],p[1],W,H);i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);});
+    ctx.strokeStyle='#fff';
+    ctx.lineWidth=8;
+    ctx.lineCap='round';
+    ctx.lineJoin='round';
+    ctx.stroke();
+    ctx.restore();
+
+    // Colour gradient
+    var g=ctx.createLinearGradient(
+      project(DONE[0][0],DONE[0][1],W,H)[0],0,
+      project(DONE[DONE.length-1][0],DONE[DONE.length-1][1],W,H)[0],0
+    );
+    g.addColorStop(0,'#00C9A7');
+    g.addColorStop(1,'#0891B2');
+    ctx.beginPath();
+    DONE.forEach(function(p,i){var xy=project(p[0],p[1],W,H);i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);});
+    ctx.strokeStyle=g;
+    ctx.lineWidth=4;
+    ctx.lineCap='round';
+    ctx.lineJoin='round';
+    ctx.setLineDash([]);
     ctx.stroke();
   }
-
-  // Casing
-  drawPolyline(DONE,{strokeStyle:'#ffffff',lineWidth:8,lineCap:'round',lineJoin:'round',setLineDash:function(){}});
-  ctx.setLineDash([]);
-
-  // Colour
-  var grad = ctx.createLinearGradient(
-    project(DONE[0][0],DONE[0][1],W,H)[0], 0,
-    project(DONE[DONE.length-1][0],DONE[DONE.length-1][1],W,H)[0], 0
-  );
-  grad.addColorStop(0,'#00C9A7');
-  grad.addColorStop(1,'#0891B2');
-  ctx.beginPath();
-  DONE.forEach(function(p,i){
-    var xy=project(p[0],p[1],W,H);
-    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
-  });
-  ctx.strokeStyle=grad;
-  ctx.lineWidth=4;
-  ctx.lineCap='round';
-  ctx.lineJoin='round';
-  ctx.setLineDash([]);
-  ctx.stroke();
 
   // Remaining dashed
   if(LEFT.length>1){
     ctx.beginPath();
-    LEFT.forEach(function(p,i){
-      var xy=project(p[0],p[1],W,H);
-      i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
-    });
-    ctx.strokeStyle='#c2c8ce';
-    ctx.lineWidth=2.5;
-    ctx.setLineDash([4,8]);
+    LEFT.forEach(function(p,i){var xy=project(p[0],p[1],W,H);i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);});
+    ctx.strokeStyle='rgba(160,140,100,.7)';
+    ctx.lineWidth=2;
+    ctx.setLineDash([5,9]);
     ctx.lineCap='round';
     ctx.stroke();
     ctx.setLineDash([]);
   }
 
-  // Checkpoint dots
+  // ── Checkpoint dots ──────────────────────────────────────────
   CPS.forEach(function(c){
     var xy=project(c.ll[0],c.ll[1],W,H);
+    ctx.save();
+    ctx.shadowColor='rgba(0,0,0,.15)';
+    ctx.shadowBlur=4;
     ctx.beginPath();
     ctx.arc(xy[0],xy[1],5.5,0,Math.PI*2);
     ctx.fillStyle='#fff';
@@ -256,78 +392,96 @@ function draw(){
     ctx.lineWidth=2.5;
     ctx.setLineDash([]);
     ctx.stroke();
+    ctx.restore();
   });
 
-  // City labels
+  // ── City name labels — hand-lettered style ────────────────────
   var labels=[
-    {ll:[37.548,127.123],text:'Seoul',align:'left'},
-    {ll:[36.755,128.098],text:'Saejae\nPass',align:'right'},
-    {ll:[35.842,128.463],text:'Daegu',align:'right'},
-    {ll:[35.104,128.965],text:'Busan',align:'right'},
+    {ll:[37.548,127.123],text:'Seoul',align:'left',  dy:-12},
+    {ll:[36.755,128.098],text:'Saejae',align:'right', dy:-10},
+    {ll:[35.842,128.463],text:'Daegu', align:'right', dy:-10},
+    {ll:[35.104,128.965],text:'Busan', align:'right', dy:-12},
   ];
+  ctx.font='italic 600 '+Math.max(9,W*0.019)+'px Georgia,serif';
   labels.forEach(function(l){
     var xy=project(l.ll[0],l.ll[1],W,H);
-    ctx.font='600 '+(Math.max(9,W*0.02))+'px DM Sans,system-ui,sans-serif';
-    ctx.fillStyle='#555';
-    ctx.textAlign=l.align==='right'?'right':'left';
     var ox=l.align==='right'?-10:10;
-    var lines=l.text.split('\n');
-    lines.forEach(function(line,li){ctx.fillText(line,xy[0]+ox,xy[1]-6+li*13);});
+    ctx.textAlign=l.align==='right'?'right':'left';
+    // soft halo
+    ctx.save();
+    ctx.strokeStyle='rgba(255,252,245,.9)';
+    ctx.lineWidth=3;
+    ctx.strokeText(l.text,xy[0]+ox,xy[1]+l.dy);
+    ctx.fillStyle='#3a2810';
+    ctx.fillText(l.text,xy[0]+ox,xy[1]+l.dy);
+    ctx.restore();
   });
 
-  // Start flag
+  // ── Start flag ────────────────────────────────────────────────
   var s0=project(ROUTE[0][0],ROUTE[0][1],W,H);
-  ctx.font=(Math.max(14,W*0.028))+'px serif';
+  ctx.font=Math.max(14,W*0.028)+'px serif';
   ctx.textAlign='center';
-  ctx.fillText('🏁',s0[0],s0[1]-10);
+  ctx.fillText('🏁',s0[0],s0[1]-14);
 
-  // Finish / current marker with pulse ring
-  var endPt = PROGRESS>=1 ? ROUTE[ROUTE.length-1] : sp;
-  var ep = project(endPt[0],endPt[1],W,H);
-  var now = Date.now();
-  var pulse = (Math.sin(now/600)*0.5+0.5); // 0–1
+  // ── Finish — pulsing ring + trophy ───────────────────────────
+  var ep=project(ROUTE[ROUTE.length-1][0],ROUTE[ROUTE.length-1][1],W,H);
+  var pulse=(Math.sin(Date.now()/650)*0.5+0.5);
+  ctx.save();
   ctx.beginPath();
-  ctx.arc(ep[0],ep[1],10+pulse*14,0,Math.PI*2);
-  ctx.strokeStyle='rgba(8,145,178,'+(0.5-pulse*0.4)+')';
+  ctx.arc(ep[0],ep[1],11+pulse*16,0,Math.PI*2);
+  ctx.strokeStyle='rgba(8,145,178,'+(0.45-pulse*0.38)+')';
   ctx.lineWidth=2;
   ctx.setLineDash([]);
   ctx.stroke();
+  // outer ring 2
   ctx.beginPath();
-  ctx.arc(ep[0],ep[1],10,0,Math.PI*2);
+  ctx.arc(ep[0],ep[1],11+pulse*28,0,Math.PI*2);
+  ctx.strokeStyle='rgba(0,201,167,'+(0.2-pulse*0.18)+')';
+  ctx.lineWidth=1.5;
+  ctx.stroke();
+  ctx.restore();
+  // dot
+  ctx.save();
+  ctx.shadowColor='rgba(0,0,0,.2)';
+  ctx.shadowBlur=6;
+  ctx.beginPath();
+  ctx.arc(ep[0],ep[1],11,0,Math.PI*2);
   ctx.fillStyle='#0891B2';
   ctx.fill();
   ctx.strokeStyle='#fff';
   ctx.lineWidth=2.5;
+  ctx.setLineDash([]);
   ctx.stroke();
-  ctx.font=(Math.max(10,W*0.022))+'px serif';
+  ctx.restore();
+  ctx.font=Math.max(11,W*0.022)+'px serif';
   ctx.textAlign='center';
-  ctx.fillText(PROGRESS>=1?'🏆':'🚴',ep[0],ep[1]+5);
+  ctx.fillText('🏆',ep[0],ep[1]+5);
+
+  ctx.restore(); // scale
+  requestAnimationFrame(draw);
 }
 
-// ── Animate for pulse ───────────────────────────────────────────
-function loop(){draw();requestAnimationFrame(loop);}
-
-// ── Resize ──────────────────────────────────────────────────────
+// ── Resize ───────────────────────────────────────────────────────
+var DPR=window.devicePixelRatio||1;
 function resize(){
   var rect=cvs.getBoundingClientRect();
-  var dpr=window.devicePixelRatio||1;
-  cvs.width=rect.width*dpr;
-  cvs.height=rect.height*dpr;
-  ctx.scale(dpr,dpr);
+  DPR=window.devicePixelRatio||1;
+  cvs.width=rect.width*DPR;
+  cvs.height=rect.height*DPR;
   cvs.style.width=rect.width+'px';
   cvs.style.height=rect.height+'px';
+  buildWatercolor(rect.width,rect.height);
 }
 var ro=new ResizeObserver(function(){resize();});
 ro.observe(cvs);
 resize();
-loop();
+draw();
 
-// ── Hover tooltip ───────────────────────────────────────────────
+// ── Hover tooltip ────────────────────────────────────────────────
 cvs.addEventListener('mousemove',function(e){
   var rect=cvs.getBoundingClientRect();
   var mx=e.clientX-rect.left, my=e.clientY-rect.top;
-  var W=rect.width, H=rect.height;
-  var hit=null, best=22;
+  var W=rect.width,H=rect.height,hit=null,best=26;
   CPS.forEach(function(c){
     var xy=project(c.ll[0],c.ll[1],W,H);
     var d=Math.sqrt((mx-xy[0])*(mx-xy[0])+(my-xy[1])*(my-xy[1]));
@@ -336,8 +490,9 @@ cvs.addEventListener('mousemove',function(e){
   if(hit){
     tip.style.display='block';
     tip.innerHTML='<b>'+hit.name+'</b><small>'+hit.sub+'</small>';
-    var tx=mx+14, ty=my-10;
-    if(tx+160>W)tx=mx-170;
+    var tx=mx+14,ty=my-10;
+    if(tx+170>W)tx=mx-180;
+    if(ty+48>H)ty=my-52;
     tip.style.left=tx+'px';tip.style.top=ty+'px';
   } else {
     tip.style.display='none';
