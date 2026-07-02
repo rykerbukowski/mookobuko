@@ -4,292 +4,346 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Seoul → Busan · Four Rivers Route</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;height:100%;background:#f4f2ee;font-family:'DM Sans',system-ui,sans-serif}
-
-  /* ── Card shell ── */
-  .card{
-    display:flex;flex-direction:column;
-    width:100%;height:100%;
-    border-radius:0;overflow:hidden;
-    background:#fff;
-  }
-
-  /* ── Header ── */
-  .hdr{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 18px;border-bottom:1px solid #f0f0f0;
-    flex-shrink:0;flex-wrap:wrap;gap:8px;
-  }
-  .hdr-left{display:flex;align-items:center;gap:10px}
-  .hdr-icon{
-    width:36px;height:36px;border-radius:10px;flex-shrink:0;
-    background:linear-gradient(135deg,#00C9A7,#0891B2);
-    display:flex;align-items:center;justify-content:center;font-size:18px;
-  }
-  .hdr-title{font-weight:800;font-size:14px;color:#1a1a1a;line-height:1.15}
-  .hdr-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:#aaa;letter-spacing:.06em;margin-top:2px}
-  .hdr-stats{display:flex;gap:20px;flex-shrink:0}
-  .stat{text-align:right}
-  .stat-val{font-weight:800;font-size:18px;color:#00C9A7;line-height:1}
-  .stat-val span{font-size:11px;color:#ccc;font-weight:500}
-  .stat-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:#bbb;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-  .stat:last-child .stat-val{color:#1a1a1a}
-
-  /* ── Map ── */
-  #map{flex:1;min-height:0;z-index:0}
-
-  /* ── Progress bar ── */
-  .prog-bar{
-    flex-shrink:0;padding:10px 18px;
-    border-top:1px solid #f0f0f0;background:#fafafa;
-  }
-  .prog-track{
-    height:6px;border-radius:3px;background:#e8e8e8;position:relative;overflow:hidden;
-  }
-  .prog-fill{
-    height:100%;border-radius:3px;background:linear-gradient(90deg,#00C9A7,#0891B2);
-    transition:width .4s ease;
-  }
-  .prog-labels{display:flex;justify-content:space-between;margin-top:5px}
-  .prog-labels span{font-size:10px;color:#bbb;font-family:'JetBrains Mono',monospace}
-
-  /* ── Legend ── */
-  .legend{
-    flex-shrink:0;display:flex;align-items:center;gap:16px;
-    padding:10px 18px;border-top:1px solid #f0f0f0;flex-wrap:wrap;
-  }
-  .leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#666}
-  .leg-line{display:inline-block;width:20px;height:3px;border-radius:2px;background:#00C9A7}
-  .leg-dash{display:inline-block;width:20px;height:0;border-top:2.5px dashed #ccc}
-  .leg-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #0891B2}
-  .leg-end{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:#ddd}
-
-  /* ── Pulse marker ── */
-  .pulse-wrap{position:relative;width:28px;height:28px}
-  .pulse-ring{
-    position:absolute;top:50%;left:50%;
-    width:22px;height:22px;border-radius:50%;
-    background:rgba(8,145,178,.35);
-    transform:translate(-50%,-50%);
-    animation:ripple 1.8s ease-out infinite;
-  }
-  .pulse-dot{
-    position:absolute;top:50%;left:50%;
-    width:22px;height:22px;border-radius:50%;
-    background:#0891B2;border:3px solid #fff;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
-    transform:translate(-50%,-50%);
-    display:flex;align-items:center;justify-content:center;
-    font-size:12px;
-  }
-  @keyframes ripple{
-    0%{width:22px;height:22px;opacity:.7}
-    100%{width:58px;height:58px;opacity:0}
-  }
-
-  /* Leaflet popup tweak */
-  .leaflet-popup-content{font-family:'DM Sans',sans-serif;min-width:110px}
-  .leaflet-popup-content b{font-size:13px;color:#1a1a1a}
-  .leaflet-popup-content small{font-size:11px;color:#888;display:block;margin-top:2px}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',system-ui,sans-serif;background:#fff}
+.shell{display:flex;flex-direction:column;width:100%;height:100%}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #f0f0f0;flex-shrink:0;flex-wrap:wrap;gap:6px;background:#fff}
+.hdr-l{display:flex;align-items:center;gap:10px}
+.icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#00C9A7,#0891B2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.title{font-weight:800;font-size:14px;color:#1a1a1a;line-height:1.2}
+.sub{font-size:10px;color:#aaa;letter-spacing:.05em;margin-top:1px;font-family:monospace}
+.stats{display:flex;gap:18px;flex-shrink:0}
+.stat{text-align:right}
+.sv{font-weight:800;font-size:17px;color:#00C9A7;line-height:1}
+.sv.dark{color:#1a1a1a}
+.sv span{font-size:10px;color:#ccc;font-weight:500}
+.sl{font-size:9px;color:#bbb;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;font-family:monospace}
+#cvs{flex:1;cursor:grab;display:block;min-height:0}
+#cvs:active{cursor:grabbing}
+.prog{flex-shrink:0;padding:10px 16px;border-top:1px solid #f0f0f0;background:#fafafa}
+.prog-track{height:5px;border-radius:3px;background:#eee;overflow:hidden}
+.prog-fill{height:100%;width:100%;border-radius:3px;background:linear-gradient(90deg,#00C9A7,#0891B2)}
+.prog-lbl{display:flex;justify-content:space-between;margin-top:5px}
+.prog-lbl span{font-size:10px;color:#bbb;font-family:monospace}
+.leg{flex-shrink:0;display:flex;align-items:center;gap:14px;padding:9px 16px;border-top:1px solid #f0f0f0;flex-wrap:wrap}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
+.ll{width:20px;height:3px;border-radius:2px;background:#00C9A7;display:inline-block}
+.ld{width:20px;height:0;border-top:2.5px dashed #ccc;display:inline-block}
+.ldot{width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #0891B2;display:inline-block}
+.leg-r{margin-left:auto;font-size:9px;color:#ddd;font-family:monospace}
+.tooltip{position:absolute;background:rgba(255,255,255,.97);border:1px solid #e0e0e0;border-radius:8px;padding:7px 11px;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.1);font-size:12px;color:#1a1a1a;white-space:nowrap;display:none;z-index:10}
+.tooltip b{display:block;font-size:13px;margin-bottom:2px}
+.tooltip small{color:#888;font-size:11px}
+.wrap{position:relative;flex:1;display:flex;flex-direction:column;min-height:0}
 </style>
 </head>
 <body>
-<div class="card">
-
-  <!-- Header -->
+<div class="shell">
   <div class="hdr">
-    <div class="hdr-left">
-      <div class="hdr-icon">🚴</div>
+    <div class="hdr-l">
+      <div class="icon">🚴</div>
       <div>
-        <div class="hdr-title">Cross-Country Route · 국토종주</div>
-        <div class="hdr-sub">Seoul → Busan · Four Rivers Path</div>
+        <div class="title">Cross-Country Route · 국토종주</div>
+        <div class="sub">Seoul → Busan · Four Rivers Path</div>
       </div>
     </div>
-    <div class="hdr-stats">
-      <div class="stat">
-        <div class="stat-val">633<span> km</span></div>
-        <div class="stat-lbl">Distance</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val" style="color:#1a1a1a">7<span> days</span></div>
-        <div class="stat-lbl">Duration</div>
-      </div>
+    <div class="stats">
+      <div class="stat"><div class="sv">633<span> km</span></div><div class="sl">Distance</div></div>
+      <div class="stat"><div class="sv dark">7<span> days</span></div><div class="sl">Duration</div></div>
     </div>
   </div>
-
-  <!-- Map -->
-  <div id="map"></div>
-
-  <!-- Progress bar -->
-  <div class="prog-bar">
-    <div class="prog-track">
-      <div class="prog-fill" id="prog-fill" style="width:100%"></div>
-    </div>
-    <div class="prog-labels">
-      <span>Seoul · 서울</span>
-      <span id="prog-pct">633 km · 100% complete</span>
-      <span>Busan · 부산</span>
-    </div>
+  <div class="wrap">
+    <canvas id="cvs"></canvas>
+    <div class="tooltip" id="tip"></div>
   </div>
-
-  <!-- Legend -->
-  <div class="legend">
-    <div class="leg-item"><span class="leg-line"></span>Completed</div>
-    <div class="leg-item"><span class="leg-dash"></span>Remaining</div>
-    <div class="leg-item"><span class="leg-dot"></span>Checkpoints</div>
-    <div class="leg-end">Han River · Saejae · Nakdong River</div>
+  <div class="prog">
+    <div class="prog-track"><div class="prog-fill"></div></div>
+    <div class="prog-lbl"><span>Seoul · 서울</span><span>633 km · 100% complete</span><span>Busan · 부산</span></div>
   </div>
-
+  <div class="leg">
+    <div class="li"><span class="ll"></span>Completed</div>
+    <div class="li"><span class="ld"></span>Remaining</div>
+    <div class="li"><span class="ldot"></span>Checkpoints</div>
+    <div class="leg-r">Han River · Saejae Pass · Nakdong River</div>
+  </div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// ─── Route data ───────────────────────────────────────────────
-// 18 real waypoints tracing the Four Rivers Cross-Country Path
-// Han River eastward → Saejae/Ihwaryeong mountain pass → Nakdong River south to Busan
+// ── Route: real Four Rivers waypoints (Seoul → Busan) ──────────
 var ROUTE = [
-  [37.548, 127.123],  // Seoul – Gwangnaru start
-  [37.523, 127.312],  // Paldang
-  [37.492, 127.588],  // Yangpyeong
-  [37.298, 127.637],  // Yeoju
-  [36.999, 127.999],  // Chungju Dam
-  [36.842, 128.014],  // Suanbo
-  [36.755, 128.098],  // Ihwaryeong Pass (642m – the big climb)
-  [36.706, 128.148],  // Mungyeong
-  [36.415, 128.160],  // Sangju
-  [36.348, 128.242],  // Nakdan Dam
-  [36.119, 128.344],  // Gumi
-  [35.990, 128.401],  // Chilgok / Waegwan
-  [35.842, 128.463],  // Daegu – Gangjeong Weir
-  [35.693, 128.442],  // Hyeonpung
-  [35.520, 128.443],  // Changnyeong
-  [35.388, 128.487],  // Namji
-  [35.311, 128.987],  // Yangsan – Mulgeum
-  [35.104, 128.965],  // Busan – Nakdong Estuary finish
+  [37.548,127.123],[37.523,127.312],[37.492,127.588],[37.298,127.637],
+  [36.999,127.999],[36.842,128.014],[36.755,128.098],[36.706,128.148],
+  [36.415,128.160],[36.348,128.242],[36.119,128.344],[35.990,128.401],
+  [35.842,128.463],[35.693,128.442],[35.520,128.443],[35.388,128.487],
+  [35.311,128.987],[35.104,128.965]
 ];
 
-var CHECKPOINTS = [
-  { ll:[37.548,127.123], name:'Seoul',          sub:'Start · Gwangnaru Bicycle Park' },
-  { ll:[37.298,127.637], name:'Yeoju',           sub:'Han River · Day 2' },
-  { ll:[36.999,127.999], name:'Chungju Dam',     sub:'Day 3' },
-  { ll:[36.755,128.098], name:'Ihwaryeong Pass', sub:'642m · The Big Climb · Day 4' },
-  { ll:[36.348,128.242], name:'Nakdan Dam',      sub:'Nakdong River begins · Day 5' },
-  { ll:[35.842,128.463], name:'Daegu',           sub:'Gangjeong Weir · Day 6' },
-  { ll:[35.104,128.965], name:'Busan',           sub:'Finish · 633km complete 🏆' },
+var CPS = [
+  {ll:[37.548,127.123],name:'Seoul',sub:'Start · Gwangnaru Bicycle Park'},
+  {ll:[37.298,127.637],name:'Yeoju',sub:'Han River · Day 2'},
+  {ll:[36.999,127.999],name:'Chungju Dam',sub:'Day 3'},
+  {ll:[36.755,128.098],name:'Ihwaryeong Pass',sub:'642m · The Big Climb · Day 4'},
+  {ll:[36.348,128.242],name:'Nakdan Dam',sub:'Nakdong River · Day 5'},
+  {ll:[35.842,128.463],name:'Daegu',sub:'Gangjeong Weir · Day 6'},
+  {ll:[35.104,128.965],name:'Busan',sub:'Finish · 633 km complete 🏆'}
 ];
 
-// Progress 0–1 (1 = full route completed)
-var PROGRESS = 1;
+// ── Korea land outline (simplified polygon, lng/lat) ────────────
+// Traced from the Korean peninsula shape — enough for map context
+var LAND = [
+  [38.6,124.7],[38.3,124.6],[37.9,124.5],[37.7,124.7],[37.5,124.6],
+  [37.2,126.1],[37.0,126.3],[36.7,126.1],[36.4,126.2],[36.1,126.5],
+  [35.9,126.6],[35.5,126.5],[35.1,126.5],[34.9,127.0],[34.7,127.5],
+  [34.6,128.0],[34.9,128.7],[35.1,129.1],[35.5,129.4],[36.0,129.5],
+  [36.5,129.5],[37.0,129.4],[37.6,129.3],[38.3,128.7],[38.6,128.4],
+  [38.9,127.5],[38.6,126.7],[38.3,125.8],[38.6,124.7]
+];
 
-// ─── Map init ─────────────────────────────────────────────────
-var map = L.map('map', {
-  zoomControl: true,
-  scrollWheelZoom: false,
-  dragging: true,
-  attributionControl: true,
-  tap: true,
-});
+var PROGRESS = 1.0;
+var cvs = document.getElementById('cvs');
+var ctx = cvs.getContext('2d');
+var tip = document.getElementById('tip');
+var wrap = document.querySelector('.wrap');
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '© <a href="https://openstreetmap.org">OSM</a> © <a href="https://carto.com">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 19,
-}).addTo(map);
+// ── Projection helpers ──────────────────────────────────────────
+var PAD = 40;
+var bounds = {
+  minLat: Math.min.apply(null, ROUTE.map(function(p){return p[0]})) - 0.3,
+  maxLat: Math.max.apply(null, ROUTE.map(function(p){return p[0]})) + 0.3,
+  minLng: Math.min.apply(null, ROUTE.map(function(p){return p[1]})) - 0.5,
+  maxLng: Math.max.apply(null, ROUTE.map(function(p){return p[1]})) + 0.5,
+};
 
-map.fitBounds(L.latLngBounds(ROUTE), { padding: [32, 32] });
-
-// ─── Haversine distance (km) ──────────────────────────────────
-function hav(a, b) {
-  var R = 6371, toR = Math.PI / 180;
-  var dLat = (b[0]-a[0])*toR, dLng = (b[1]-a[1])*toR;
-  var s = Math.sin(dLat/2)*Math.sin(dLat/2)
-        + Math.cos(a[0]*toR)*Math.cos(b[0]*toR)
-        * Math.sin(dLng/2)*Math.sin(dLng/2);
-  return R * 2 * Math.atan2(Math.sqrt(s), Math.sqrt(1-s));
+function project(lat, lng, W, H) {
+  // Mercator-lite: linear is fine at this scale
+  var x = PAD + (lng - bounds.minLng) / (bounds.maxLng - bounds.minLng) * (W - PAD*2);
+  var y = PAD + (1 - (lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * (H - PAD*2);
+  return [x, y];
 }
 
-// ─── Split route at progress point ───────────────────────────
-var segs = [], total = 0;
-for (var i = 0; i < ROUTE.length-1; i++) {
-  var d = hav(ROUTE[i], ROUTE[i+1]);
-  segs.push(d); total += d;
+// ── Split route at progress ─────────────────────────────────────
+function hav(a,b){
+  var R=6371,toR=Math.PI/180;
+  var dL=(b[0]-a[0])*toR, dN=(b[1]-a[1])*toR;
+  var s=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a[0]*toR)*Math.cos(b[0]*toR)*Math.sin(dN/2)*Math.sin(dN/2);
+  return R*2*Math.atan2(Math.sqrt(s),Math.sqrt(1-s));
 }
+var segs=[],total=0;
+for(var i=0;i<ROUTE.length-1;i++){var d=hav(ROUTE[i],ROUTE[i+1]);segs.push(d);total+=d;}
+var target=total*PROGRESS,acc=0,si=ROUTE.length-1,sp=ROUTE[ROUTE.length-1];
+for(var j=0;j<segs.length;j++){
+  if(acc+segs[j]>=target){var f=(target-acc)/segs[j];sp=[ROUTE[j][0]+(ROUTE[j+1][0]-ROUTE[j][0])*f,ROUTE[j][1]+(ROUTE[j+1][1]-ROUTE[j][1])*f];si=j;break;}
+  acc+=segs[j];
+}
+var DONE = ROUTE.slice(0,si+1).concat([sp]);
+var LEFT = PROGRESS>=1 ? [] : [sp].concat(ROUTE.slice(si+1));
 
-var target = total * PROGRESS, acc = 0;
-var splitIdx = ROUTE.length - 1;
-var splitPt  = ROUTE[ROUTE.length-1];
+// ── Draw ────────────────────────────────────────────────────────
+function draw(){
+  var W = cvs.width, H = cvs.height;
+  ctx.clearRect(0,0,W,H);
 
-for (var j = 0; j < segs.length; j++) {
-  if (acc + segs[j] >= target) {
-    var f = (target - acc) / segs[j];
-    splitPt = [
-      ROUTE[j][0] + (ROUTE[j+1][0] - ROUTE[j][0]) * f,
-      ROUTE[j][1] + (ROUTE[j+1][1] - ROUTE[j][1]) * f,
-    ];
-    splitIdx = j;
-    break;
+  // Background
+  ctx.fillStyle='#f7f5f0';
+  ctx.fillRect(0,0,W,H);
+
+  // Land polygon
+  ctx.beginPath();
+  LAND.forEach(function(p,i){
+    var xy=project(p[0],p[1],W,H);
+    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
+  });
+  ctx.closePath();
+  ctx.fillStyle='#e8e4db';
+  ctx.fill();
+  ctx.strokeStyle='#d4cfc5';
+  ctx.lineWidth=1;
+  ctx.stroke();
+
+  // Sea label
+  ctx.fillStyle='#b8d4e8';
+  ctx.fillRect(0,0,W,H); // re-bg as sea color
+  ctx.fillStyle='#e8e4db';
+  ctx.beginPath();
+  LAND.forEach(function(p,i){
+    var xy=project(p[0],p[1],W,H);
+    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
+  });
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle='#c8cfd8';
+  ctx.lineWidth=1;
+  ctx.stroke();
+
+  // Sea text
+  ctx.fillStyle='#a8c0d8';
+  ctx.font='italic '+(Math.max(9,W*0.018))+'px Georgia,serif';
+  ctx.textAlign='center';
+  ctx.fillText('Yellow Sea',project(36.5,125.2,W,H)[0],project(36.5,125.2,W,H)[1]);
+  ctx.fillText('Sea of Japan',project(37.0,129.8,W,H)[0],project(37.0,129.8,W,H)[1]);
+
+  // Grid lines (subtle)
+  ctx.strokeStyle='rgba(0,0,0,.04)';
+  ctx.lineWidth=1;
+  for(var lat=35;lat<=38;lat++){
+    var y0=project(lat,bounds.minLng,W,H)[1];
+    ctx.beginPath();ctx.moveTo(PAD,y0);ctx.lineTo(W-PAD,y0);ctx.stroke();
   }
-  acc += segs[j];
+  for(var lng=126;lng<=129;lng++){
+    var x0=project(bounds.minLat,lng,W,H)[0];
+    ctx.beginPath();ctx.moveTo(x0,PAD);ctx.lineTo(x0,H-PAD);ctx.stroke();
+  }
+
+  // Completed route — white casing first
+  function drawPolyline(pts, style){
+    if(pts.length<2)return;
+    ctx.beginPath();
+    pts.forEach(function(p,i){
+      var xy=project(p[0],p[1],W,H);
+      i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
+    });
+    Object.assign(ctx,style);
+    ctx.stroke();
+  }
+
+  // Casing
+  drawPolyline(DONE,{strokeStyle:'#ffffff',lineWidth:8,lineCap:'round',lineJoin:'round',setLineDash:function(){}});
+  ctx.setLineDash([]);
+
+  // Colour
+  var grad = ctx.createLinearGradient(
+    project(DONE[0][0],DONE[0][1],W,H)[0], 0,
+    project(DONE[DONE.length-1][0],DONE[DONE.length-1][1],W,H)[0], 0
+  );
+  grad.addColorStop(0,'#00C9A7');
+  grad.addColorStop(1,'#0891B2');
+  ctx.beginPath();
+  DONE.forEach(function(p,i){
+    var xy=project(p[0],p[1],W,H);
+    i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
+  });
+  ctx.strokeStyle=grad;
+  ctx.lineWidth=4;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  ctx.setLineDash([]);
+  ctx.stroke();
+
+  // Remaining dashed
+  if(LEFT.length>1){
+    ctx.beginPath();
+    LEFT.forEach(function(p,i){
+      var xy=project(p[0],p[1],W,H);
+      i===0?ctx.moveTo(xy[0],xy[1]):ctx.lineTo(xy[0],xy[1]);
+    });
+    ctx.strokeStyle='#c2c8ce';
+    ctx.lineWidth=2.5;
+    ctx.setLineDash([4,8]);
+    ctx.lineCap='round';
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Checkpoint dots
+  CPS.forEach(function(c){
+    var xy=project(c.ll[0],c.ll[1],W,H);
+    ctx.beginPath();
+    ctx.arc(xy[0],xy[1],5.5,0,Math.PI*2);
+    ctx.fillStyle='#fff';
+    ctx.fill();
+    ctx.strokeStyle='#0891B2';
+    ctx.lineWidth=2.5;
+    ctx.setLineDash([]);
+    ctx.stroke();
+  });
+
+  // City labels
+  var labels=[
+    {ll:[37.548,127.123],text:'Seoul',align:'left'},
+    {ll:[36.755,128.098],text:'Saejae\nPass',align:'right'},
+    {ll:[35.842,128.463],text:'Daegu',align:'right'},
+    {ll:[35.104,128.965],text:'Busan',align:'right'},
+  ];
+  labels.forEach(function(l){
+    var xy=project(l.ll[0],l.ll[1],W,H);
+    ctx.font='600 '+(Math.max(9,W*0.02))+'px DM Sans,system-ui,sans-serif';
+    ctx.fillStyle='#555';
+    ctx.textAlign=l.align==='right'?'right':'left';
+    var ox=l.align==='right'?-10:10;
+    var lines=l.text.split('\n');
+    lines.forEach(function(line,li){ctx.fillText(line,xy[0]+ox,xy[1]-6+li*13);});
+  });
+
+  // Start flag
+  var s0=project(ROUTE[0][0],ROUTE[0][1],W,H);
+  ctx.font=(Math.max(14,W*0.028))+'px serif';
+  ctx.textAlign='center';
+  ctx.fillText('🏁',s0[0],s0[1]-10);
+
+  // Finish / current marker with pulse ring
+  var endPt = PROGRESS>=1 ? ROUTE[ROUTE.length-1] : sp;
+  var ep = project(endPt[0],endPt[1],W,H);
+  var now = Date.now();
+  var pulse = (Math.sin(now/600)*0.5+0.5); // 0–1
+  ctx.beginPath();
+  ctx.arc(ep[0],ep[1],10+pulse*14,0,Math.PI*2);
+  ctx.strokeStyle='rgba(8,145,178,'+(0.5-pulse*0.4)+')';
+  ctx.lineWidth=2;
+  ctx.setLineDash([]);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(ep[0],ep[1],10,0,Math.PI*2);
+  ctx.fillStyle='#0891B2';
+  ctx.fill();
+  ctx.strokeStyle='#fff';
+  ctx.lineWidth=2.5;
+  ctx.stroke();
+  ctx.font=(Math.max(10,W*0.022))+'px serif';
+  ctx.textAlign='center';
+  ctx.fillText(PROGRESS>=1?'🏆':'🚴',ep[0],ep[1]+5);
 }
 
-var completed = ROUTE.slice(0, splitIdx + 1).concat([splitPt]);
-var remaining  = [splitPt].concat(ROUTE.slice(splitIdx + 1));
+// ── Animate for pulse ───────────────────────────────────────────
+function loop(){draw();requestAnimationFrame(loop);}
 
-// ─── Draw route ───────────────────────────────────────────────
-// White casing → coloured line (Strava style)
-L.polyline(completed, { color:'#ffffff', weight:8,   opacity:1,   lineCap:'round', lineJoin:'round' }).addTo(map);
-L.polyline(completed, { color:'#00C9A7', weight:4.5, opacity:1,   lineCap:'round', lineJoin:'round' }).addTo(map);
-if (remaining.length > 1) {
-  L.polyline(remaining, { color:'#c2c8cc', weight:3.5, opacity:.85, dashArray:'3 10', lineCap:'round' }).addTo(map);
+// ── Resize ──────────────────────────────────────────────────────
+function resize(){
+  var rect=cvs.getBoundingClientRect();
+  var dpr=window.devicePixelRatio||1;
+  cvs.width=rect.width*dpr;
+  cvs.height=rect.height*dpr;
+  ctx.scale(dpr,dpr);
+  cvs.style.width=rect.width+'px';
+  cvs.style.height=rect.height+'px';
 }
+var ro=new ResizeObserver(function(){resize();});
+ro.observe(cvs);
+resize();
+loop();
 
-// ─── Checkpoint markers ───────────────────────────────────────
-CHECKPOINTS.forEach(function(c) {
-  L.circleMarker(c.ll, {
-    radius: 5.5, color: '#0891B2', weight: 2.5,
-    fillColor: '#fff', fillOpacity: 1,
-  })
-  .addTo(map)
-  .bindPopup('<b>' + c.name + '</b><small>' + c.sub + '</small>');
+// ── Hover tooltip ───────────────────────────────────────────────
+cvs.addEventListener('mousemove',function(e){
+  var rect=cvs.getBoundingClientRect();
+  var mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  var W=rect.width, H=rect.height;
+  var hit=null, best=22;
+  CPS.forEach(function(c){
+    var xy=project(c.ll[0],c.ll[1],W,H);
+    var d=Math.sqrt((mx-xy[0])*(mx-xy[0])+(my-xy[1])*(my-xy[1]));
+    if(d<best){best=d;hit=c;}
+  });
+  if(hit){
+    tip.style.display='block';
+    tip.innerHTML='<b>'+hit.name+'</b><small>'+hit.sub+'</small>';
+    var tx=mx+14, ty=my-10;
+    if(tx+160>W)tx=mx-170;
+    tip.style.left=tx+'px';tip.style.top=ty+'px';
+  } else {
+    tip.style.display='none';
+  }
 });
-
-// ─── Start flag ───────────────────────────────────────────────
-L.marker(ROUTE[0], {
-  icon: L.divIcon({
-    className: '',
-    iconSize: [28, 28], iconAnchor: [14, 14],
-    html: '<div style="width:28px;height:28px;border-radius:50%;background:#1a1a1a;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:14px;">🏁</div>',
-  })
-}).addTo(map).bindPopup('<b>Seoul</b><small>Start · Gwangnaru Bicycle Park</small>');
-
-// ─── Current position / finish marker (pulsing) ───────────────
-var HERE = PROGRESS >= 1 ? ROUTE[ROUTE.length-1] : splitPt;
-var emoji = PROGRESS >= 1 ? '🏆' : '🚴';
-L.marker(HERE, {
-  icon: L.divIcon({
-    className: '',
-    iconSize: [28, 28], iconAnchor: [14, 14],
-    html: '<div class="pulse-wrap"><div class="pulse-ring"></div><div class="pulse-dot">' + emoji + '</div></div>',
-  }),
-  zIndexOffset: 1000,
-})
-.addTo(map)
-.bindPopup(PROGRESS >= 1
-  ? '<b>Busan 🎉</b><small>633 km — Mission complete!</small>'
-  : '<b>Current position</b><small>' + Math.round(total*PROGRESS) + ' km from Seoul</small>'
-);
-
-// ─── Progress bar update ──────────────────────────────────────
-document.getElementById('prog-fill').style.width = (PROGRESS * 100) + '%';
-document.getElementById('prog-pct').textContent =
-  Math.round(total * PROGRESS) + ' km · ' + Math.round(PROGRESS*100) + '% complete';
-
-// Resize fix for iframe
-setTimeout(function(){ map.invalidateSize(); }, 300);
-window.addEventListener('resize', function(){ map.invalidateSize(); });
+cvs.addEventListener('mouseleave',function(){tip.style.display='none';});
 </script>
 </body>
 </html>
