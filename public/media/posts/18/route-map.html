@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Seoul → Busan · Four Rivers Route</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%;background:#f4f2ee;font-family:'DM Sans',system-ui,sans-serif}
+
+  /* ── Card shell ── */
+  .card{
+    display:flex;flex-direction:column;
+    width:100%;height:100%;
+    border-radius:0;overflow:hidden;
+    background:#fff;
+  }
+
+  /* ── Header ── */
+  .hdr{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-bottom:1px solid #f0f0f0;
+    flex-shrink:0;flex-wrap:wrap;gap:8px;
+  }
+  .hdr-left{display:flex;align-items:center;gap:10px}
+  .hdr-icon{
+    width:36px;height:36px;border-radius:10px;flex-shrink:0;
+    background:linear-gradient(135deg,#00C9A7,#0891B2);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .hdr-title{font-weight:800;font-size:14px;color:#1a1a1a;line-height:1.15}
+  .hdr-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:#aaa;letter-spacing:.06em;margin-top:2px}
+  .hdr-stats{display:flex;gap:20px;flex-shrink:0}
+  .stat{text-align:right}
+  .stat-val{font-weight:800;font-size:18px;color:#00C9A7;line-height:1}
+  .stat-val span{font-size:11px;color:#ccc;font-weight:500}
+  .stat-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:#bbb;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .stat:last-child .stat-val{color:#1a1a1a}
+
+  /* ── Map ── */
+  #map{flex:1;min-height:0;z-index:0}
+
+  /* ── Progress bar ── */
+  .prog-bar{
+    flex-shrink:0;padding:10px 18px;
+    border-top:1px solid #f0f0f0;background:#fafafa;
+  }
+  .prog-track{
+    height:6px;border-radius:3px;background:#e8e8e8;position:relative;overflow:hidden;
+  }
+  .prog-fill{
+    height:100%;border-radius:3px;background:linear-gradient(90deg,#00C9A7,#0891B2);
+    transition:width .4s ease;
+  }
+  .prog-labels{display:flex;justify-content:space-between;margin-top:5px}
+  .prog-labels span{font-size:10px;color:#bbb;font-family:'JetBrains Mono',monospace}
+
+  /* ── Legend ── */
+  .legend{
+    flex-shrink:0;display:flex;align-items:center;gap:16px;
+    padding:10px 18px;border-top:1px solid #f0f0f0;flex-wrap:wrap;
+  }
+  .leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#666}
+  .leg-line{display:inline-block;width:20px;height:3px;border-radius:2px;background:#00C9A7}
+  .leg-dash{display:inline-block;width:20px;height:0;border-top:2.5px dashed #ccc}
+  .leg-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #0891B2}
+  .leg-end{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:#ddd}
+
+  /* ── Pulse marker ── */
+  .pulse-wrap{position:relative;width:28px;height:28px}
+  .pulse-ring{
+    position:absolute;top:50%;left:50%;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(8,145,178,.35);
+    transform:translate(-50%,-50%);
+    animation:ripple 1.8s ease-out infinite;
+  }
+  .pulse-dot{
+    position:absolute;top:50%;left:50%;
+    width:22px;height:22px;border-radius:50%;
+    background:#0891B2;border:3px solid #fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    transform:translate(-50%,-50%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;
+  }
+  @keyframes ripple{
+    0%{width:22px;height:22px;opacity:.7}
+    100%{width:58px;height:58px;opacity:0}
+  }
+
+  /* Leaflet popup tweak */
+  .leaflet-popup-content{font-family:'DM Sans',sans-serif;min-width:110px}
+  .leaflet-popup-content b{font-size:13px;color:#1a1a1a}
+  .leaflet-popup-content small{font-size:11px;color:#888;display:block;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-icon">🚴</div>
+      <div>
+        <div class="hdr-title">Cross-Country Route · 국토종주</div>
+        <div class="hdr-sub">Seoul → Busan · Four Rivers Path</div>
+      </div>
+    </div>
+    <div class="hdr-stats">
+      <div class="stat">
+        <div class="stat-val">633<span> km</span></div>
+        <div class="stat-lbl">Distance</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val" style="color:#1a1a1a">7<span> days</span></div>
+        <div class="stat-lbl">Duration</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Progress bar -->
+  <div class="prog-bar">
+    <div class="prog-track">
+      <div class="prog-fill" id="prog-fill" style="width:100%"></div>
+    </div>
+    <div class="prog-labels">
+      <span>Seoul · 서울</span>
+      <span id="prog-pct">633 km · 100% complete</span>
+      <span>Busan · 부산</span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="leg-item"><span class="leg-line"></span>Completed</div>
+    <div class="leg-item"><span class="leg-dash"></span>Remaining</div>
+    <div class="leg-item"><span class="leg-dot"></span>Checkpoints</div>
+    <div class="leg-end">Han River · Saejae · Nakdong River</div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ─── Route data ───────────────────────────────────────────────
+// 18 real waypoints tracing the Four Rivers Cross-Country Path
+// Han River eastward → Saejae/Ihwaryeong mountain pass → Nakdong River south to Busan
+var ROUTE = [
+  [37.548, 127.123],  // Seoul – Gwangnaru start
+  [37.523, 127.312],  // Paldang
+  [37.492, 127.588],  // Yangpyeong
+  [37.298, 127.637],  // Yeoju
+  [36.999, 127.999],  // Chungju Dam
+  [36.842, 128.014],  // Suanbo
+  [36.755, 128.098],  // Ihwaryeong Pass (642m – the big climb)
+  [36.706, 128.148],  // Mungyeong
+  [36.415, 128.160],  // Sangju
+  [36.348, 128.242],  // Nakdan Dam
+  [36.119, 128.344],  // Gumi
+  [35.990, 128.401],  // Chilgok / Waegwan
+  [35.842, 128.463],  // Daegu – Gangjeong Weir
+  [35.693, 128.442],  // Hyeonpung
+  [35.520, 128.443],  // Changnyeong
+  [35.388, 128.487],  // Namji
+  [35.311, 128.987],  // Yangsan – Mulgeum
+  [35.104, 128.965],  // Busan – Nakdong Estuary finish
+];
+
+var CHECKPOINTS = [
+  { ll:[37.548,127.123], name:'Seoul',          sub:'Start · Gwangnaru Bicycle Park' },
+  { ll:[37.298,127.637], name:'Yeoju',           sub:'Han River · Day 2' },
+  { ll:[36.999,127.999], name:'Chungju Dam',     sub:'Day 3' },
+  { ll:[36.755,128.098], name:'Ihwaryeong Pass', sub:'642m · The Big Climb · Day 4' },
+  { ll:[36.348,128.242], name:'Nakdan Dam',      sub:'Nakdong River begins · Day 5' },
+  { ll:[35.842,128.463], name:'Daegu',           sub:'Gangjeong Weir · Day 6' },
+  { ll:[35.104,128.965], name:'Busan',           sub:'Finish · 633km complete 🏆' },
+];
+
+// Progress 0–1 (1 = full route completed)
+var PROGRESS = 1;
+
+// ─── Map init ─────────────────────────────────────────────────
+var map = L.map('map', {
+  zoomControl: true,
+  scrollWheelZoom: false,
+  dragging: true,
+  attributionControl: true,
+  tap: true,
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© <a href="https://openstreetmap.org">OSM</a> © <a href="https://carto.com">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19,
+}).addTo(map);
+
+map.fitBounds(L.latLngBounds(ROUTE), { padding: [32, 32] });
+
+// ─── Haversine distance (km) ──────────────────────────────────
+function hav(a, b) {
+  var R = 6371, toR = Math.PI / 180;
+  var dLat = (b[0]-a[0])*toR, dLng = (b[1]-a[1])*toR;
+  var s = Math.sin(dLat/2)*Math.sin(dLat/2)
+        + Math.cos(a[0]*toR)*Math.cos(b[0]*toR)
+        * Math.sin(dLng/2)*Math.sin(dLng/2);
+  return R * 2 * Math.atan2(Math.sqrt(s), Math.sqrt(1-s));
+}
+
+// ─── Split route at progress point ───────────────────────────
+var segs = [], total = 0;
+for (var i = 0; i < ROUTE.length-1; i++) {
+  var d = hav(ROUTE[i], ROUTE[i+1]);
+  segs.push(d); total += d;
+}
+
+var target = total * PROGRESS, acc = 0;
+var splitIdx = ROUTE.length - 1;
+var splitPt  = ROUTE[ROUTE.length-1];
+
+for (var j = 0; j < segs.length; j++) {
+  if (acc + segs[j] >= target) {
+    var f = (target - acc) / segs[j];
+    splitPt = [
+      ROUTE[j][0] + (ROUTE[j+1][0] - ROUTE[j][0]) * f,
+      ROUTE[j][1] + (ROUTE[j+1][1] - ROUTE[j][1]) * f,
+    ];
+    splitIdx = j;
+    break;
+  }
+  acc += segs[j];
+}
+
+var completed = ROUTE.slice(0, splitIdx + 1).concat([splitPt]);
+var remaining  = [splitPt].concat(ROUTE.slice(splitIdx + 1));
+
+// ─── Draw route ───────────────────────────────────────────────
+// White casing → coloured line (Strava style)
+L.polyline(completed, { color:'#ffffff', weight:8,   opacity:1,   lineCap:'round', lineJoin:'round' }).addTo(map);
+L.polyline(completed, { color:'#00C9A7', weight:4.5, opacity:1,   lineCap:'round', lineJoin:'round' }).addTo(map);
+if (remaining.length > 1) {
+  L.polyline(remaining, { color:'#c2c8cc', weight:3.5, opacity:.85, dashArray:'3 10', lineCap:'round' }).addTo(map);
+}
+
+// ─── Checkpoint markers ───────────────────────────────────────
+CHECKPOINTS.forEach(function(c) {
+  L.circleMarker(c.ll, {
+    radius: 5.5, color: '#0891B2', weight: 2.5,
+    fillColor: '#fff', fillOpacity: 1,
+  })
+  .addTo(map)
+  .bindPopup('<b>' + c.name + '</b><small>' + c.sub + '</small>');
+});
+
+// ─── Start flag ───────────────────────────────────────────────
+L.marker(ROUTE[0], {
+  icon: L.divIcon({
+    className: '',
+    iconSize: [28, 28], iconAnchor: [14, 14],
+    html: '<div style="width:28px;height:28px;border-radius:50%;background:#1a1a1a;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:14px;">🏁</div>',
+  })
+}).addTo(map).bindPopup('<b>Seoul</b><small>Start · Gwangnaru Bicycle Park</small>');
+
+// ─── Current position / finish marker (pulsing) ───────────────
+var HERE = PROGRESS >= 1 ? ROUTE[ROUTE.length-1] : splitPt;
+var emoji = PROGRESS >= 1 ? '🏆' : '🚴';
+L.marker(HERE, {
+  icon: L.divIcon({
+    className: '',
+    iconSize: [28, 28], iconAnchor: [14, 14],
+    html: '<div class="pulse-wrap"><div class="pulse-ring"></div><div class="pulse-dot">' + emoji + '</div></div>',
+  }),
+  zIndexOffset: 1000,
+})
+.addTo(map)
+.bindPopup(PROGRESS >= 1
+  ? '<b>Busan 🎉</b><small>633 km — Mission complete!</small>'
+  : '<b>Current position</b><small>' + Math.round(total*PROGRESS) + ' km from Seoul</small>'
+);
+
+// ─── Progress bar update ──────────────────────────────────────
+document.getElementById('prog-fill').style.width = (PROGRESS * 100) + '%';
+document.getElementById('prog-pct').textContent =
+  Math.round(total * PROGRESS) + ' km · ' + Math.round(PROGRESS*100) + '% complete';
+
+// Resize fix for iframe
+setTimeout(function(){ map.invalidateSize(); }, 300);
+window.addEventListener('resize', function(){ map.invalidateSize(); });
+</script>
+</body>
+</html>
