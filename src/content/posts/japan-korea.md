@@ -15,77 +15,262 @@ tags:
 status: "published"
 ---
 
-<!-- SPINNING BIKE WHEELS BACKGROUND -->
-<div class="wheels-bg" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:0.045;">
-<script is:inline>
-(function(){
-  var bg = document.querySelector('.wheels-bg');
-  if(!bg) return;
-  var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.setAttribute('width','100%');
-  svg.setAttribute('height','100%');
-  svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
-  var style = document.createElementNS('http://www.w3.org/2000/svg','style');
-  style.textContent = `
-    @keyframes spinWheel { from{transform-origin:center center;transform:rotate(0deg)} to{transform-origin:center center;transform:rotate(360deg)} }
-    .wheel-g { animation: spinWheel linear infinite; }
-  `;
-  svg.appendChild(style);
-  var defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
-  // Wheel symbol: outer rim, hub, 8 spokes
-  var sym = document.createElementNS('http://www.w3.org/2000/svg','symbol');
-  sym.setAttribute('id','whl');
-  sym.setAttribute('viewBox','-50 -50 100 100');
-  var c1 = document.createElementNS('http://www.w3.org/2000/svg','circle');
-  c1.setAttribute('cx','0');c1.setAttribute('cy','0');c1.setAttribute('r','46');
-  c1.setAttribute('fill','none');c1.setAttribute('stroke','#1a1a1a');c1.setAttribute('stroke-width','5');
-  sym.appendChild(c1);
-  var c2 = document.createElementNS('http://www.w3.org/2000/svg','circle');
-  c2.setAttribute('cx','0');c2.setAttribute('cy','0');c2.setAttribute('r','8');
-  c2.setAttribute('fill','none');c2.setAttribute('stroke','#1a1a1a');c2.setAttribute('stroke-width','4');
-  sym.appendChild(c2);
-  for(var i=0;i<8;i++){
-    var angle = i * 45;
-    var rad = angle * Math.PI / 180;
-    var x2 = Math.cos(rad)*44; var y2 = Math.sin(rad)*44;
-    var x1 = Math.cos(rad)*9;  var y1 = Math.sin(rad)*9;
-    var spoke = document.createElementNS('http://www.w3.org/2000/svg','line');
-    spoke.setAttribute('x1',x1.toFixed(1)); spoke.setAttribute('y1',y1.toFixed(1));
-    spoke.setAttribute('x2',x2.toFixed(1)); spoke.setAttribute('y2',y2.toFixed(1));
-    spoke.setAttribute('stroke','#1a1a1a'); spoke.setAttribute('stroke-width','2.5');
-    spoke.setAttribute('stroke-linecap','round');
-    sym.appendChild(spoke);
-  }
-  // tread marks on rim
-  var c3 = document.createElementNS('http://www.w3.org/2000/svg','circle');
-  c3.setAttribute('cx','0');c3.setAttribute('cy','0');c3.setAttribute('r','46');
-  c3.setAttribute('fill','none');c3.setAttribute('stroke','#1a1a1a');
-  c3.setAttribute('stroke-width','2');c3.setAttribute('stroke-dasharray','4 8');
-  sym.appendChild(c3);
-  defs.appendChild(sym);
-  svg.appendChild(defs);
-  var positions = [
-    {x:8,y:12,r:90,s:18},{x:55,y:70,r:70,s:12},{x:85,y:20,r:110,s:22},
-    {x:25,y:55,r:60,s:10},{x:70,y:85,r:80,s:15},{x:92,y:50,r:95,s:19},
-    {x:40,y:90,r:75,s:13},{x:15,y:35,r:85,s:16},{x:62,y:40,r:65,s:11},
-    {x:78,y:62,r:100,s:20},{x:48,y:18,r:72,s:14},{x:5,y:80,r:88,s:17},
-  ];
-  positions.forEach(function(p){
-    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
-    g.setAttribute('class','wheel-g');
-    g.style.animationDuration = p.r + 's';
-    var use = document.createElementNS('http://www.w3.org/2000/svg','use');
-    use.setAttribute('href','#whl');
-    use.setAttribute('x', (p.x - p.s/2) + '%');
-    use.setAttribute('y', (p.y - p.s/2) + '%');
-    use.setAttribute('width', p.s + 'vw');
-    use.setAttribute('height', p.s + 'vw');
-    g.appendChild(use);
-    svg.appendChild(g);
-  });
-  bg.appendChild(svg);
-})();
-</script>
+<!-- WATERCOLOR ILLUSTRATION BACKGROUND — Shimanami Kaido / Seto Inland Sea -->
+<div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;opacity:0.32;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;">
+  <defs>
+    <!-- Sky gradient — bright coastal morning -->
+    <linearGradient id="bg-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ab8e8"/>
+      <stop offset="45%" stop-color="#7dd4f4"/>
+      <stop offset="100%" stop-color="#b8eaf8"/>
+    </linearGradient>
+    <!-- Sea gradient — Seto Inland Sea teal -->
+    <linearGradient id="bg-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ab8d0"/>
+      <stop offset="50%" stop-color="#38a8c4"/>
+      <stop offset="100%" stop-color="#2890a8"/>
+    </linearGradient>
+    <!-- Island green gradient -->
+    <linearGradient id="bg-isle1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5aaa60"/>
+      <stop offset="100%" stop-color="#3a8840"/>
+    </linearGradient>
+    <linearGradient id="bg-isle2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#68b86a"/>
+      <stop offset="100%" stop-color="#4a9850"/>
+    </linearGradient>
+    <linearGradient id="bg-isle3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#78c070"/>
+      <stop offset="100%" stop-color="#559855"/>
+    </linearGradient>
+    <!-- Watercolor paper texture base -->
+    <filter id="wc-paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
+      <feBlend in="SourceGraphic" in2="grey" mode="multiply" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- Soft watercolor bleed on edges -->
+    <filter id="wc-bleed">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="turb"/>
+      <feDisplacementMap in="blur" in2="turb" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="wc-soft"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="wc-cloud"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="wc-isle"><feGaussianBlur stdDeviation="1.5"/></filter>
+  </defs>
+
+  <!-- ── SKY ── -->
+  <rect width="1440" height="560" fill="url(#bg-sky)"/>
+
+  <!-- Sun — warm glow top right -->
+  <circle cx="1260" cy="90" r="55" fill="#fff8d0" opacity="0.7"/>
+  <circle cx="1260" cy="90" r="38" fill="#ffe878" opacity="0.85"/>
+  <circle cx="1260" cy="90" r="22" fill="#fff0a0" opacity="0.9"/>
+  <!-- Sun halo bleed -->
+  <circle cx="1260" cy="90" r="100" fill="#ffe878" opacity="0.12" filter="url(#wc-cloud)"/>
+
+  <!-- ── CLOUDS — soft watercolor puffs ── -->
+  <!-- Cloud 1 — large, left-center -->
+  <g filter="url(#wc-cloud)" opacity="0.88">
+    <ellipse cx="280" cy="110" rx="130" ry="52" fill="#ffffff"/>
+    <ellipse cx="220" cy="120" rx="80" ry="40" fill="#f0f8ff"/>
+    <ellipse cx="340" cy="125" rx="90" ry="38" fill="#ffffff"/>
+    <ellipse cx="280" cy="140" rx="110" ry="32" fill="#e8f4ff"/>
+  </g>
+  <!-- Cloud 2 — mid right -->
+  <g filter="url(#wc-cloud)" opacity="0.80">
+    <ellipse cx="900" cy="80" rx="110" ry="44" fill="#ffffff"/>
+    <ellipse cx="840" cy="90" rx="70" ry="35" fill="#f4faff"/>
+    <ellipse cx="960" cy="88" rx="80" ry="36" fill="#ffffff"/>
+  </g>
+  <!-- Cloud 3 — small, upper left -->
+  <g filter="url(#wc-cloud)" opacity="0.70">
+    <ellipse cx="560" cy="55" rx="80" ry="30" fill="#ffffff"/>
+    <ellipse cx="520" cy="62" rx="50" ry="24" fill="#f8fcff"/>
+    <ellipse cx="600" cy="60" rx="55" ry="26" fill="#ffffff"/>
+  </g>
+  <!-- Cloud 4 — far right wisp -->
+  <g filter="url(#wc-cloud)" opacity="0.60">
+    <ellipse cx="1380" cy="140" rx="90" ry="32" fill="#ffffff"/>
+    <ellipse cx="1340" cy="148" rx="60" ry="25" fill="#f0f8ff"/>
+  </g>
+
+  <!-- ── DISTANT MOUNTAINS / HILLS (horizon haze) ── -->
+  <path d="M0,420 Q120,360 250,390 Q380,360 480,380 Q580,350 680,370 Q800,345 920,365 Q1040,348 1150,360 Q1280,340 1440,355 L1440,470 L0,470 Z"
+    fill="#a8c8d8" opacity="0.35" filter="url(#wc-soft)"/>
+  <path d="M0,440 Q150,400 300,420 Q450,395 600,415 Q750,390 900,408 Q1050,385 1200,402 Q1320,388 1440,400 L1440,480 L0,480 Z"
+    fill="#88b0c8" opacity="0.30" filter="url(#wc-soft)"/>
+
+  <!-- ── SEA ── -->
+  <rect x="0" y="460" width="1440" height="440" fill="url(#bg-sea)"/>
+
+  <!-- Sea shimmer — light sparkle streaks -->
+  <g opacity="0.18">
+    <ellipse cx="200" cy="530" rx="80" ry="6" fill="#ffffff" filter="url(#wc-soft)"/>
+    <ellipse cx="500" cy="580" rx="60" ry="5" fill="#ffffff" filter="url(#wc-soft)"/>
+    <ellipse cx="780" cy="510" rx="90" ry="7" fill="#ffffff" filter="url(#wc-soft)"/>
+    <ellipse cx="1050" cy="560" rx="70" ry="6" fill="#ffffff" filter="url(#wc-soft)"/>
+    <ellipse cx="1300" cy="540" rx="85" ry="5" fill="#ffffff" filter="url(#wc-soft)"/>
+    <ellipse cx="350" cy="650" rx="50" ry="4" fill="#c8eef8" filter="url(#wc-soft)"/>
+    <ellipse cx="900" cy="680" rx="65" ry="5" fill="#c8eef8" filter="url(#wc-soft)"/>
+    <ellipse cx="1200" cy="700" rx="55" ry="4" fill="#c8eef8" filter="url(#wc-soft)"/>
+  </g>
+
+  <!-- Sea watercolor texture variation -->
+  <ellipse cx="400" cy="600" rx="300" ry="80" fill="#3298b8" opacity="0.15" filter="url(#wc-cloud)"/>
+  <ellipse cx="1100" cy="750" rx="280" ry="90" fill="#1878a0" opacity="0.14" filter="url(#wc-cloud)"/>
+  <ellipse cx="700" cy="820" rx="350" ry="70" fill="#50b0c8" opacity="0.12" filter="url(#wc-cloud)"/>
+
+  <!-- ── ISLANDS ── -->
+  <!-- Island 1 — far left, large -->
+  <g filter="url(#wc-bleed)">
+    <ellipse cx="80" cy="468" rx="140" ry="55" fill="#3a8840" opacity="0.9"/>
+    <ellipse cx="80" cy="462" rx="120" ry="42" fill="url(#bg-isle1)"/>
+    <ellipse cx="50" cy="458" rx="70" ry="35" fill="#5aaa60"/>
+    <ellipse cx="110" cy="456" rx="75" ry="32" fill="#4a9850"/>
+  </g>
+  <!-- Island 2 — left of center -->
+  <g filter="url(#wc-bleed)">
+    <ellipse cx="420" cy="475" rx="110" ry="44" fill="#3a8840" opacity="0.85"/>
+    <ellipse cx="420" cy="468" rx="95" ry="34" fill="url(#bg-isle2)"/>
+    <ellipse cx="390" cy="464" rx="55" ry="28" fill="#68b868"/>
+    <ellipse cx="455" cy="466" rx="60" ry="26" fill="#559855"/>
+  </g>
+  <!-- Island 3 — center, tallest -->
+  <g filter="url(#wc-bleed)">
+    <ellipse cx="720" cy="472" rx="130" ry="50" fill="#3a8840" opacity="0.9"/>
+    <ellipse cx="720" cy="462" rx="112" ry="38" fill="url(#bg-isle1)"/>
+    <ellipse cx="685" cy="456" rx="68" ry="32" fill="#5aaa60"/>
+    <ellipse cx="755" cy="458" rx="72" ry="30" fill="#4a9850"/>
+    <!-- Hill peak -->
+    <ellipse cx="720" cy="445" rx="45" ry="22" fill="#6ab870"/>
+  </g>
+  <!-- Island 4 — right -->
+  <g filter="url(#wc-bleed)">
+    <ellipse cx="1100" cy="470" rx="120" ry="46" fill="#3a8840" opacity="0.85"/>
+    <ellipse cx="1100" cy="463" rx="100" ry="36" fill="url(#bg-isle3)"/>
+    <ellipse cx="1068" cy="458" rx="60" ry="28" fill="#78c070"/>
+    <ellipse cx="1135" cy="460" rx="65" ry="26" fill="#559855"/>
+  </g>
+  <!-- Island 5 — far right, partial -->
+  <g filter="url(#wc-bleed)">
+    <ellipse cx="1400" cy="478" rx="100" ry="42" fill="#3a8840" opacity="0.80"/>
+    <ellipse cx="1400" cy="471" rx="85" ry="32" fill="url(#bg-isle2)"/>
+  </g>
+  <!-- Small rocky outcrops -->
+  <ellipse cx="260" cy="490" rx="40" ry="18" fill="#4a9848" opacity="0.7" filter="url(#wc-isle)"/>
+  <ellipse cx="580" cy="486" rx="35" ry="15" fill="#559850" opacity="0.65" filter="url(#wc-isle)"/>
+  <ellipse cx="880" cy="488" rx="45" ry="17" fill="#4a9848" opacity="0.70" filter="url(#wc-isle)"/>
+  <ellipse cx="1240" cy="484" rx="38" ry="16" fill="#559855" opacity="0.65" filter="url(#wc-isle)"/>
+
+  <!-- ── SUSPENSION BRIDGES — Shimanami Kaido style ── -->
+  <!-- Bridge 1: left span — connects island 1 to island 2 -->
+  <g opacity="0.72">
+    <!-- Road deck -->
+    <rect x="185" y="458" width="255" height="7" rx="2" fill="#c8b898"/>
+    <!-- Left tower -->
+    <rect x="215" y="398" width="10" height="68" fill="#b0a080"/>
+    <rect x="210" y="395" width="20" height="6" rx="1" fill="#a09070"/>
+    <rect x="210" y="415" width="20" height="4" rx="1" fill="#a09070"/>
+    <!-- Right tower -->
+    <rect x="415" y="398" width="10" height="68" fill="#b0a080"/>
+    <rect x="410" y="395" width="20" height="6" rx="1" fill="#a09070"/>
+    <rect x="410" y="415" width="20" height="4" rx="1" fill="#a09070"/>
+    <!-- Main cables — catenary curves -->
+    <path d="M220,400 Q312,440 420,400" fill="none" stroke="#908060" stroke-width="2.5" opacity="0.9"/>
+    <path d="M220,400 Q312,442 420,400" fill="none" stroke="#a09070" stroke-width="1.5" opacity="0.6"/>
+    <!-- Vertical hangers -->
+    <line x1="255" y1="418" x2="255" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="285" y1="428" x2="285" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="312" y1="434" x2="312" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="340" y1="430" x2="340" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="368" y1="422" x2="368" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="395" y1="410" x2="395" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Bridge 2: center span — longer, more prominent -->
+  <g opacity="0.75">
+    <!-- Road deck -->
+    <rect x="505" y="455" width="245" height="8" rx="2" fill="#c0b090"/>
+    <!-- Left tower -->
+    <rect x="530" y="388" width="12" height="75" fill="#a89868"/>
+    <rect x="524" y="385" width="24" height="7" rx="1" fill="#988858"/>
+    <rect x="524" y="408" width="24" height="5" rx="1" fill="#988858"/>
+    <!-- Right tower -->
+    <rect x="720" y="388" width="12" height="75" fill="#a89868"/>
+    <rect x="714" y="385" width="24" height="7" rx="1" fill="#988858"/>
+    <rect x="714" y="408" width="24" height="5" rx="1" fill="#988858"/>
+    <!-- Main cables -->
+    <path d="M536,392 Q628,438 726,392" fill="none" stroke="#887848" stroke-width="3" opacity="0.85"/>
+    <path d="M536,392 Q628,440 726,392" fill="none" stroke="#a09060" stroke-width="1.5" opacity="0.5"/>
+    <!-- Hangers -->
+    <line x1="568" y1="412" x2="568" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+    <line x1="598" y1="426" x2="598" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+    <line x1="628" y1="432" x2="628" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+    <line x1="658" y1="428" x2="658" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+    <line x1="688" y1="416" x2="688" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Bridge 3: right span -->
+  <g opacity="0.68">
+    <!-- Road deck -->
+    <rect x="795" y="457" width="255" height="7" rx="2" fill="#c8b898"/>
+    <!-- Left tower -->
+    <rect x="820" y="395" width="10" height="70" fill="#b0a080"/>
+    <rect x="814" y="392" width="22" height="6" rx="1" fill="#a09070"/>
+    <rect x="814" y="412" width="22" height="4" rx="1" fill="#a09070"/>
+    <!-- Right tower -->
+    <rect x="1020" y="395" width="10" height="70" fill="#b0a080"/>
+    <rect x="1014" y="392" width="22" height="6" rx="1" fill="#a09070"/>
+    <rect x="1014" y="412" width="22" height="4" rx="1" fill="#a09070"/>
+    <!-- Main cables -->
+    <path d="M825,398 Q925,440 1025,398" fill="none" stroke="#907850" stroke-width="2.5" opacity="0.85"/>
+    <path d="M825,398 Q925,442 1025,398" fill="none" stroke="#a09068" stroke-width="1.5" opacity="0.5"/>
+    <!-- Hangers -->
+    <line x1="858" y1="416" x2="858" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="888" y1="428" x2="888" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="925" y1="434" x2="925" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="962" y1="430" x2="962" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+    <line x1="995" y1="418" x2="995" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Bridge 4: far right partial span -->
+  <g opacity="0.55">
+    <rect x="1170" y="460" width="200" height="6" rx="2" fill="#c0b090"/>
+    <rect x="1192" y="400" width="10" height="66" fill="#a89868"/>
+    <rect x="1186" y="397" width="22" height="6" rx="1" fill="#988858"/>
+    <rect x="1360" y="400" width="10" height="66" fill="#a89868"/>
+    <rect x="1354" y="397" width="22" height="6" rx="1" fill="#988858"/>
+    <path d="M1197,403 Q1282,442 1365,403" fill="none" stroke="#887848" stroke-width="2" opacity="0.8"/>
+    <line x1="1228" y1="420" x2="1228" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
+    <line x1="1260" y1="430" x2="1260" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
+    <line x1="1295" y1="434" x2="1295" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
+    <line x1="1330" y1="425" x2="1330" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
+  </g>
+
+  <!-- ── WATERCOLOR WASH OVERLAYS — give it the paint feel ── -->
+  <!-- Sky wash — slightly uneven colour pooling -->
+  <rect x="0" y="0" width="1440" height="460" fill="#78c8f0" opacity="0.06"/>
+  <ellipse cx="350" cy="200" rx="400" ry="180" fill="#a0d8f4" opacity="0.08" filter="url(#wc-cloud)"/>
+  <ellipse cx="1100" cy="180" rx="360" ry="160" fill="#60b8e8" opacity="0.07" filter="url(#wc-cloud)"/>
+
+  <!-- Sea wash — pools of deeper colour -->
+  <ellipse cx="300" cy="620" rx="350" ry="120" fill="#1888a8" opacity="0.12" filter="url(#wc-cloud)"/>
+  <ellipse cx="900" cy="700" rx="400" ry="140" fill="#1070a0" opacity="0.10" filter="url(#wc-cloud)"/>
+  <ellipse cx="1300" cy="580" rx="280" ry="100" fill="#40a8c8" opacity="0.10" filter="url(#wc-cloud)"/>
+
+  <!-- Horizon watercolor bleed line -->
+  <rect x="0" y="455" width="1440" height="18" fill="#2898b8" opacity="0.18" filter="url(#wc-soft)"/>
+
+  <!-- Vignette edges — paint darkens at edges of paper -->
+  <rect x="0" y="0" width="80" height="900" fill="#0a2030" opacity="0.07"/>
+  <rect x="1360" y="0" width="80" height="900" fill="#0a2030" opacity="0.07"/>
+  <rect x="0" y="0" width="1440" height="60" fill="#1840688" opacity="0.05"/>
+  <rect x="0" y="840" width="1440" height="60" fill="#102030" opacity="0.08"/>
+</svg>
 </div>
 
 This is the part where I apologize for taking such a long time between posts. In my defense, there was a lot going on. Visitor after visitor after visitor meant the blog took a back seat. We've been busy since Vietnam, and gotten very distracted by bikes.
