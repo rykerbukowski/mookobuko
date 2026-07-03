@@ -275,7 +275,7 @@ One week and one flight later, we were standing in Seoul with rental bikes, look
 
 <iframe
   class="jk-frame"
-  src="/media/posts/18/route-map.html"
+  src="/media/posts/18/route-map.html?v=3"
   title="Seoul to Busan — Four Rivers Cycling Route"
   style="height:560px;"
   loading="lazy"
