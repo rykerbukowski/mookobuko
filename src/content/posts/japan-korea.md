@@ -17,109 +17,174 @@ status: "published"
 
 <div class="jk-post">
 
-<!-- ═══ WATERCOLOR PANORAMA — Seto Inland Sea, summer morning ═══ -->
+<!-- ═══ ILLUSTRATED PANORAMA — Seto Inland Sea, golden summer morning ═══ -->
 <div class="jk-bg" aria-hidden="true">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5FCBF0"/>
-      <stop offset="55%" stop-color="#93DEF6"/>
-      <stop offset="100%" stop-color="#C8F0FB"/>
+      <stop offset="0%" stop-color="#3FB4E6"/>
+      <stop offset="42%" stop-color="#7ED2F2"/>
+      <stop offset="78%" stop-color="#C4EDFA"/>
+      <stop offset="100%" stop-color="#FDF3DC"/>
     </linearGradient>
     <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#54C4DC"/>
-      <stop offset="60%" stop-color="#38AECB"/>
-      <stop offset="100%" stop-color="#2694B2"/>
+      <stop offset="0%" stop-color="#6FD0E4"/>
+      <stop offset="35%" stop-color="#3FB2CE"/>
+      <stop offset="100%" stop-color="#1E8FB4"/>
     </linearGradient>
-    <linearGradient id="isle" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#6EC276"/>
-      <stop offset="100%" stop-color="#4AA455"/>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9FC6D8"/>
+      <stop offset="100%" stop-color="#B9D9E6"/>
     </linearGradient>
-    <filter id="soft"><feGaussianBlur stdDeviation="2.5"/></filter>
-    <filter id="cloudy"><feGaussianBlur stdDeviation="7"/></filter>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7EBB8C"/>
+      <stop offset="100%" stop-color="#5FA873"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#63B06E"/>
+      <stop offset="100%" stop-color="#3E8F4E"/>
+    </linearGradient>
+    <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.40"/>
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.64"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF3B8" stop-opacity=".9"/>
+      <stop offset="55%" stop-color="#FFE882" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#FFE882" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <!-- Sky -->
-  <rect width="1440" height="500" fill="url(#sky)"/>
+  <!-- SKY -->
+  <rect width="1440" height="580" fill="url(#sky)"/>
 
-  <!-- Sun -->
-  <g class="jk-sun">
-    <circle cx="1230" cy="105" r="95" fill="#FFE99A" opacity=".25" filter="url(#cloudy)"/>
-    <circle cx="1230" cy="105" r="52" fill="#FFE482" opacity=".8"/>
-    <circle cx="1230" cy="105" r="34" fill="#FFD24A"/>
-  </g>
-
-  <!-- Clouds (two drift groups) -->
-  <g class="jk-cloud-a" filter="url(#cloudy)" opacity=".92">
-    <ellipse cx="260" cy="115" rx="135" ry="50" fill="#fff"/>
-    <ellipse cx="195" cy="128" rx="82" ry="38" fill="#F2FAFF"/>
-    <ellipse cx="330" cy="130" rx="92" ry="36" fill="#fff"/>
-    <ellipse cx="880" cy="70" rx="105" ry="40" fill="#fff" opacity=".85"/>
-    <ellipse cx="945" cy="80" rx="72" ry="32" fill="#F6FCFF" opacity=".85"/>
-  </g>
-  <g class="jk-cloud-b" filter="url(#cloudy)" opacity=".75">
-    <ellipse cx="580" cy="170" rx="95" ry="32" fill="#fff"/>
-    <ellipse cx="640" cy="178" rx="60" ry="26" fill="#F2FAFF"/>
-    <ellipse cx="1360" cy="200" rx="88" ry="30" fill="#fff" opacity=".8"/>
-  </g>
-
-  <!-- Distant haze hills -->
-  <path d="M0,415 Q140,362 300,392 Q460,358 620,382 Q800,352 960,374 Q1120,350 1280,368 Q1370,358 1440,364 L1440,470 L0,470 Z" fill="#9FCBDD" opacity=".45" filter="url(#soft)"/>
-
-  <!-- Sea -->
-  <rect y="455" width="1440" height="445" fill="url(#sea)"/>
-  <g class="jk-shimmer">
-    <ellipse cx="220" cy="530" rx="85" ry="6" fill="#fff" filter="url(#soft)"/>
-    <ellipse cx="640" cy="585" rx="70" ry="5" fill="#fff" filter="url(#soft)"/>
-    <ellipse cx="1060" cy="545" rx="90" ry="6" fill="#fff" filter="url(#soft)"/>
-    <ellipse cx="420" cy="680" rx="60" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
-    <ellipse cx="920" cy="720" rx="75" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
-    <ellipse cx="1320" cy="640" rx="65" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
-  </g>
-
-  <!-- Islands -->
-  <g filter="url(#soft)">
-    <ellipse cx="70"   cy="466" rx="150" ry="52" fill="url(#isle)"/>
-    <ellipse cx="35"   cy="452" rx="80"  ry="36" fill="#7FCC84"/>
-    <ellipse cx="430"  cy="472" rx="115" ry="42" fill="url(#isle)"/>
-    <ellipse cx="400"  cy="460" rx="62"  ry="30" fill="#8AD48E"/>
-    <ellipse cx="730"  cy="468" rx="135" ry="48" fill="url(#isle)"/>
-    <ellipse cx="705"  cy="450" rx="70"  ry="34" fill="#7FCC84"/>
-    <ellipse cx="1110" cy="470" rx="120" ry="44" fill="url(#isle)"/>
-    <ellipse cx="1085" cy="456" rx="65"  ry="30" fill="#8AD48E"/>
-    <ellipse cx="1420" cy="476" rx="105" ry="40" fill="url(#isle)"/>
-  </g>
-
-  <!-- Suspension bridges (three spans) -->
-  <g stroke-linecap="round">
-    <!-- span 1 -->
-    <g opacity=".8">
-      <rect x="180" y="455" width="270" height="7" rx="2" fill="#F2F6F8"/>
-      <rect x="212" y="390" width="9" height="70" fill="#E4EDF1"/>
-      <rect x="424" y="390" width="9" height="70" fill="#E4EDF1"/>
-      <path d="M216,394 Q316,442 428,394" fill="none" stroke="#DCE8EE" stroke-width="3"/>
-      <path d="M248,414 V455 M282,428 V455 M316,436 V455 M350,430 V455 M386,416 V455" stroke="#DCE8EE" stroke-width="1.2" opacity=".8"/>
+  <!-- SUN with slow-rotating rays -->
+  <circle cx="1150" cy="150" r="190" fill="url(#sunGlow)"/>
+  <g class="jk-rays">
+    <g fill="#FFE882" opacity=".5">
+      <path d="M1150,38 l7,52 -14,0 z"/><path d="M1150,262 l7,-52 -14,0 z"/>
+      <path d="M1038,150 l52,7 0,-14 z"/><path d="M1262,150 l-52,7 0,-14 z"/>
+      <path d="M1071,71 l42,33 -10,10 z"/><path d="M1229,229 l-42,-33 10,-10 z"/>
+      <path d="M1229,71 l-33,42 -10,-10 z"/><path d="M1071,229 l33,-42 10,10 z"/>
     </g>
-    <!-- span 2 (center, prominent) -->
-    <g opacity=".9">
-      <rect x="505" y="452" width="260" height="8" rx="2" fill="#F6FAFB"/>
-      <rect x="536" y="378" width="11" height="78" fill="#EAF2F5"/>
-      <rect x="722" y="378" width="11" height="78" fill="#EAF2F5"/>
-      <path d="M541,382 Q634,438 728,382" fill="none" stroke="#E0ECF1" stroke-width="3.4"/>
-      <path d="M575,408 V452 M606,426 V452 M634,434 V452 M664,428 V452 M696,410 V452" stroke="#E0ECF1" stroke-width="1.3" opacity=".85"/>
+  </g>
+  <circle class="jk-sun" cx="1150" cy="150" r="46" fill="#FFD84E"/>
+  <circle cx="1150" cy="150" r="46" fill="none" stroke="#FFF0A8" stroke-width="5" opacity=".6"/>
+
+  <!-- BIRDS drifting with far clouds -->
+  <g class="jk-cloud-b" stroke="#3A6B84" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".55">
+    <path d="M330,150 q9,-9 18,0 q9,-9 18,0"/>
+    <path d="M395,120 q7,-7 14,0 q7,-7 14,0"/>
+    <path d="M290,105 q6,-6 12,0 q6,-6 12,0"/>
+  </g>
+
+  <!-- CLOUDS — anime cumulus with flat bases, three depths -->
+  <g class="jk-cloud-a" opacity=".95">
+    <path fill="#FFFFFF" d="M150,190 a38,38 0 0 1 42,-30 a46,46 0 0 1 84,-14 a52,52 0 0 1 92,16 a34,34 0 0 1 40,28 q2,14 -14,14 l-230,0 q-16,0 -14,-14 z"/>
+    <path fill="#EAF7FF" d="M196,190 a30,30 0 0 1 52,-16 a40,40 0 0 1 70,6 a26,26 0 0 1 30,14 l-152,0 q0,-2 0,-4 z" opacity=".8"/>
+  </g>
+  <g class="jk-cloud-b" opacity=".9">
+    <path fill="#FFFFFF" d="M760,110 a30,30 0 0 1 34,-24 a38,38 0 0 1 68,-10 a40,40 0 0 1 72,14 a26,26 0 0 1 30,20 q2,12 -12,12 l-180,0 q-14,0 -12,-12 z"/>
+  </g>
+  <g class="jk-cloud-a" opacity=".75">
+    <path fill="#F4FBFF" d="M470,260 a24,24 0 0 1 28,-19 a32,32 0 0 1 56,-8 a30,30 0 0 1 52,12 a20,20 0 0 1 22,15 q1,10 -10,10 l-140,0 q-11,0 -8,-10 z"/>
+    <path fill="#FFFFFF" d="M1240,300 a22,22 0 0 1 26,-17 a30,30 0 0 1 52,-6 a24,24 0 0 1 34,13 a18,18 0 0 1 18,10 q2,10 -10,10 l-112,0 q-10,0 -8,-10 z" opacity=".85"/>
+  </g>
+
+  <!-- FAR MISTY RANGE -->
+  <path fill="url(#hillFar)" opacity=".8" d="M0,520 Q60,478 130,492 Q200,466 280,486 Q330,452 420,478 Q480,460 560,476 L560,580 L0,580 Z"/>
+  <path fill="url(#hillFar)" opacity=".65" d="M520,530 Q600,480 690,502 Q760,470 850,494 Q930,462 1010,488 Q1090,470 1160,490 Q1250,464 1340,486 Q1400,476 1440,482 L1440,580 L520,580 Z"/>
+
+  <!-- SUSPENSION BRIDGE — Kurushima-style triple tower, behind near islands -->
+  <g>
+    <!-- deck: gentle arc across the strait -->
+    <path d="M210,472 Q720,452 1230,472" fill="none" stroke="#DDE9EF" stroke-width="9" stroke-linecap="round"/>
+    <path d="M210,472 Q720,452 1230,472" fill="none" stroke="#B9CDD8" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+    <!-- towers: tapered, cross-braced -->
+    <g fill="#EDF4F8" stroke="#B9CDD8" stroke-width="1.5">
+      <path d="M436,462 L442,336 L452,336 L458,462 Z"/>
+      <path d="M714,456 L720,318 L730,318 L736,456 Z"/>
+      <path d="M994,462 L1000,336 L1010,336 L1016,462 Z"/>
     </g>
-    <!-- span 3 -->
-    <g opacity=".72">
-      <rect x="800" y="456" width="265" height="7" rx="2" fill="#F2F6F8"/>
-      <rect x="830" y="394" width="9" height="66" fill="#E4EDF1"/>
-      <rect x="1030" y="394" width="9" height="66" fill="#E4EDF1"/>
-      <path d="M834,398 Q932,440 1034,398" fill="none" stroke="#DCE8EE" stroke-width="2.8"/>
-      <path d="M868,416 V456 M900,428 V456 M932,434 V456 M966,428 V456 M1000,414 V456" stroke="#DCE8EE" stroke-width="1.2" opacity=".8"/>
+    <g stroke="#C7D8E1" stroke-width="2.4">
+      <line x1="440" y1="360" x2="454" y2="360"/><line x1="439" y1="396" x2="456" y2="396"/><line x1="438" y1="430" x2="457" y2="430"/>
+      <line x1="718" y1="344" x2="732" y2="344"/><line x1="717" y1="382" x2="734" y2="382"/><line x1="716" y1="420" x2="735" y2="420"/>
+      <line x1="998" y1="360" x2="1012" y2="360"/><line x1="997" y1="396" x2="1014" y2="396"/><line x1="996" y1="430" x2="1015" y2="430"/>
+    </g>
+    <!-- main cables: catenaries anchored into islands -->
+    <g fill="none" stroke="#9FB8C6" stroke-width="3">
+      <path d="M210,470 Q330,466 447,340"/>
+      <path d="M447,340 Q580,452 725,322"/>
+      <path d="M725,322 Q868,452 1005,340"/>
+      <path d="M1005,340 Q1120,466 1230,470"/>
+    </g>
+    <!-- hangers -->
+    <g stroke="#B9CDD8" stroke-width="1.1" opacity=".85">
+      <line x1="500" y1="392" x2="500" y2="463"/><line x1="548" y1="416" x2="548" y2="461"/><line x1="586" y1="430" x2="586" y2="459"/><line x1="630" y1="418" x2="630" y2="458"/><line x1="676" y1="380" x2="676" y2="457"/>
+      <line x1="774" y1="380" x2="774" y2="457"/><line x1="820" y1="418" x2="820" y2="458"/><line x1="866" y1="430" x2="866" y2="459"/><line x1="912" y1="418" x2="912" y2="461"/><line x1="958" y1="392" x2="958" y2="463"/>
     </g>
   </g>
 
-  <!-- Overall wash: keep it airy behind content -->
-  <rect width="1440" height="900" fill="#FFFFFF" opacity=".62"/>
+  <!-- SEA -->
+  <rect y="560" width="1440" height="340" fill="url(#sea)"/>
+  <!-- sun path glitter on water -->
+  <g class="jk-shimmer" fill="#FFF0B0">
+    <ellipse cx="1120" cy="596" rx="60" ry="4"/>
+    <ellipse cx="1150" cy="622" rx="42" ry="3"/>
+    <ellipse cx="1100" cy="652" rx="70" ry="3.4"/>
+    <ellipse cx="1140" cy="690" rx="48" ry="3"/>
+  </g>
+  <!-- animated wave bands: two counter-drifting layers -->
+  <g class="jk-wave-a" fill="none" stroke="#BFEFF8" stroke-width="3" stroke-linecap="round" opacity=".5">
+    <path d="M-240,612 q30,-9 60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0"/>
+    <path d="M-240,724 q30,-8 60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0"/>
+  </g>
+  <g class="jk-wave-b" fill="none" stroke="#8FDCEE" stroke-width="2.6" stroke-linecap="round" opacity=".45">
+    <path d="M-240,662 q30,-8 60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0"/>
+    <path d="M-240,800 q30,-7 60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0 t60,0"/>
+  </g>
+
+  <!-- SAILBOAT bobbing -->
+  <g class="jk-boat">
+    <path d="M285,652 q25,10 50,0 l-6,10 q-19,7 -38,0 z" fill="#E8593C"/>
+    <line x1="310" y1="652" x2="310" y2="606" stroke="#5A4632" stroke-width="2.6"/>
+    <path d="M312,608 q26,16 24,40 l-24,0 z" fill="#FFF6E8"/>
+    <path d="M308,612 q-20,14 -18,36 l18,0 z" fill="#FFEFD2"/>
+  </g>
+
+  <!-- MID ISLANDS — smooth ridgelines with texture -->
+  <g>
+    <path fill="url(#hillMid)" d="M-40,580 Q40,506 130,528 Q200,496 290,524 Q350,508 400,536 Q440,552 460,580 Z"/>
+    <path fill="#6FB37E" opacity=".55" d="M30,580 Q90,532 160,548 Q230,524 300,548 Q360,536 410,560 Q440,570 450,580 Z"/>
+    <path fill="url(#hillMid)" d="M980,580 Q1050,502 1140,526 Q1210,494 1300,522 Q1370,508 1440,532 L1440,580 Z"/>
+    <path fill="#6FB37E" opacity=".55" d="M1040,580 Q1110,534 1180,550 Q1250,526 1320,548 Q1390,538 1440,556 L1440,580 Z"/>
+    <!-- tiny red torii perched on the right island -->
+    <g stroke="#D8402A" stroke-width="4" stroke-linecap="round">
+      <line x1="1236" y1="502" x2="1236" y2="524"/>
+      <line x1="1254" y1="502" x2="1254" y2="524"/>
+      <line x1="1228" y1="504" x2="1262" y2="504"/>
+      <line x1="1231" y1="512" x2="1259" y2="512"/>
+    </g>
+  </g>
+
+  <!-- NEAR ISLANDS flanking the frame, deepest green -->
+  <g>
+    <path fill="url(#hillNear)" d="M-60,900 L-60,600 Q20,548 110,572 Q190,540 270,576 Q330,596 360,640 Q390,700 380,900 Z"/>
+    <g fill="#2F7A3E" opacity=".7">
+      <path d="M70,584 q8,-22 16,0 q10,-18 18,2 q-10,10 -34,-2 z"/>
+      <path d="M150,570 q8,-20 16,0 q10,-16 18,2 q-12,10 -34,-2 z"/>
+      <path d="M230,590 q8,-20 16,0 q8,-14 16,2 q-10,10 -32,-2 z"/>
+    </g>
+    <path fill="url(#hillNear)" d="M1500,900 L1500,620 Q1420,560 1330,586 Q1250,556 1180,592 Q1120,614 1100,660 Q1080,720 1090,900 Z"/>
+    <g fill="#2F7A3E" opacity=".7">
+      <path d="M1330,598 q8,-22 16,0 q10,-18 18,2 q-10,10 -34,-2 z"/>
+      <path d="M1250,608 q8,-20 16,0 q10,-16 18,2 q-12,10 -34,-2 z"/>
+    </g>
+  </g>
+
+  <!-- READABILITY WASH -->
+  <rect width="1440" height="900" fill="url(#wash)"/>
 </svg>
 </div>
 

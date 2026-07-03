@@ -38,12 +38,24 @@
 @keyframes jk-drift-mid  { from { transform: translateX(0); } to { transform: translateX(-70px); } }
 .jk-cloud-a { animation: jk-drift-slow 70s ease-in-out infinite alternate; }
 .jk-cloud-b { animation: jk-drift-mid  55s ease-in-out infinite alternate; }
-/* Sun shimmer */
+/* Sun shimmer + rotating rays */
 @keyframes jk-sun-breathe { 0%,100% { opacity:.85 } 50% { opacity:1 } }
 .jk-sun { animation: jk-sun-breathe 6s ease-in-out infinite; }
+@keyframes jk-rays-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.jk-rays { animation: jk-rays-spin 140s linear infinite; transform-origin: 1150px 150px; }
 /* Gentle sea sparkle */
-@keyframes jk-sparkle { 0%,100% { opacity:.12 } 50% { opacity:.28 } }
+@keyframes jk-sparkle { 0%,100% { opacity:.25 } 50% { opacity:.55 } }
 .jk-shimmer { animation: jk-sparkle 5s ease-in-out infinite; }
+/* Counter-drifting wave bands (seamless 240px loop) */
+@keyframes jk-wave-x { from { transform: translateX(0); } to { transform: translateX(240px); } }
+.jk-wave-a { animation: jk-wave-x 16s linear infinite; }
+.jk-wave-b { animation: jk-wave-x 26s linear infinite reverse; }
+/* Sailboat bob */
+@keyframes jk-bob {
+  0%,100% { transform: translateY(0) rotate(-1.2deg); }
+  50%     { transform: translateY(-6px) rotate(1.4deg); }
+}
+.jk-boat { animation: jk-bob 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
 /* ── Typography ──────────────────────────────────────────── */
 .jk-post h2 {
@@ -256,7 +268,7 @@
 
 /* ── Motion & focus hygiene ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .jk-cloud-a, .jk-cloud-b, .jk-sun, .jk-shimmer,
+  .jk-cloud-a, .jk-cloud-b, .jk-sun, .jk-shimmer, .jk-rays, .jk-wave-a, .jk-wave-b, .jk-boat,
   .quest-card::before, .quest-kanji { animation: none !important; }
   .photo-duo, .photo-trio, .photo-polaroid, .polaroid-grid, .quest-card, .jk-frame {
     animation: none !important; opacity: 1 !important; transform: none !important;
