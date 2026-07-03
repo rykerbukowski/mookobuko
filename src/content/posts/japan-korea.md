@@ -5,271 +5,121 @@ date: 2026-05-09
 location: "Tokyo, Japan"
 locationEmoji: "🇯🇵"
 heroImage: "/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg"
-heroColor: "#FF6B6B"
+heroColor: "#FF7E5F"
 excerpt: "After Southeast Asia broke us repeatedly, Japan fixed us. Then we biked across Korea. 633 kilometers. Seven days. One flat tire. Zero regrets."
 tags:
-  - { label: "🇯🇵 Japan", color: "#FF6B6B" }
-  - { label: "🚲 Shimanami Kaido", color: "#00C9A7" }
-  - { label: "🇰🇷 Korea", color: "#0891B2" }
-  - { label: "🏅 633km", color: "#F59E0B" }
+  - { label: "🇯🇵 Japan", color: "#FF7E5F" }
+  - { label: "🚲 Shimanami Kaido", color: "#2FA8C4" }
+  - { label: "🇰🇷 Korea", color: "#4FC3E8" }
+  - { label: "🏅 633km", color: "#FFD24A" }
 status: "published"
 ---
 
-<!-- WATERCOLOR ILLUSTRATION BACKGROUND — Shimanami Kaido / Seto Inland Sea -->
-<div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;opacity:0.32;">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;">
+<div class="jk-post">
+
+<!-- ═══ WATERCOLOR PANORAMA — Seto Inland Sea, summer morning ═══ -->
+<div class="jk-bg" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Sky gradient — bright coastal morning -->
-    <linearGradient id="bg-sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4ab8e8"/>
-      <stop offset="45%" stop-color="#7dd4f4"/>
-      <stop offset="100%" stop-color="#b8eaf8"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5FCBF0"/>
+      <stop offset="55%" stop-color="#93DEF6"/>
+      <stop offset="100%" stop-color="#C8F0FB"/>
     </linearGradient>
-    <!-- Sea gradient — Seto Inland Sea teal -->
-    <linearGradient id="bg-sea" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4ab8d0"/>
-      <stop offset="50%" stop-color="#38a8c4"/>
-      <stop offset="100%" stop-color="#2890a8"/>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#54C4DC"/>
+      <stop offset="60%" stop-color="#38AECB"/>
+      <stop offset="100%" stop-color="#2694B2"/>
     </linearGradient>
-    <!-- Island green gradient -->
-    <linearGradient id="bg-isle1" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5aaa60"/>
-      <stop offset="100%" stop-color="#3a8840"/>
+    <linearGradient id="isle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6EC276"/>
+      <stop offset="100%" stop-color="#4AA455"/>
     </linearGradient>
-    <linearGradient id="bg-isle2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#68b86a"/>
-      <stop offset="100%" stop-color="#4a9850"/>
-    </linearGradient>
-    <linearGradient id="bg-isle3" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#78c070"/>
-      <stop offset="100%" stop-color="#559855"/>
-    </linearGradient>
-    <!-- Watercolor paper texture base -->
-    <filter id="wc-paper">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
-      <feBlend in="SourceGraphic" in2="grey" mode="multiply" result="blend"/>
-      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <!-- Soft watercolor bleed on edges -->
-    <filter id="wc-bleed">
-      <feGaussianBlur stdDeviation="3.5" result="blur"/>
-      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="turb"/>
-      <feDisplacementMap in="blur" in2="turb" scale="14" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <filter id="wc-soft"><feGaussianBlur stdDeviation="2"/></filter>
-    <filter id="wc-cloud"><feGaussianBlur stdDeviation="6"/></filter>
-    <filter id="wc-isle"><feGaussianBlur stdDeviation="1.5"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="2.5"/></filter>
+    <filter id="cloudy"><feGaussianBlur stdDeviation="7"/></filter>
   </defs>
 
-  <!-- ── SKY ── -->
-  <rect width="1440" height="560" fill="url(#bg-sky)"/>
+  <!-- Sky -->
+  <rect width="1440" height="500" fill="url(#sky)"/>
 
-  <!-- Sun — warm glow top right -->
-  <circle cx="1260" cy="90" r="55" fill="#fff8d0" opacity="0.7"/>
-  <circle cx="1260" cy="90" r="38" fill="#ffe878" opacity="0.85"/>
-  <circle cx="1260" cy="90" r="22" fill="#fff0a0" opacity="0.9"/>
-  <!-- Sun halo bleed -->
-  <circle cx="1260" cy="90" r="100" fill="#ffe878" opacity="0.12" filter="url(#wc-cloud)"/>
-
-  <!-- ── CLOUDS — soft watercolor puffs ── -->
-  <!-- Cloud 1 — large, left-center -->
-  <g filter="url(#wc-cloud)" opacity="0.88">
-    <ellipse cx="280" cy="110" rx="130" ry="52" fill="#ffffff"/>
-    <ellipse cx="220" cy="120" rx="80" ry="40" fill="#f0f8ff"/>
-    <ellipse cx="340" cy="125" rx="90" ry="38" fill="#ffffff"/>
-    <ellipse cx="280" cy="140" rx="110" ry="32" fill="#e8f4ff"/>
-  </g>
-  <!-- Cloud 2 — mid right -->
-  <g filter="url(#wc-cloud)" opacity="0.80">
-    <ellipse cx="900" cy="80" rx="110" ry="44" fill="#ffffff"/>
-    <ellipse cx="840" cy="90" rx="70" ry="35" fill="#f4faff"/>
-    <ellipse cx="960" cy="88" rx="80" ry="36" fill="#ffffff"/>
-  </g>
-  <!-- Cloud 3 — small, upper left -->
-  <g filter="url(#wc-cloud)" opacity="0.70">
-    <ellipse cx="560" cy="55" rx="80" ry="30" fill="#ffffff"/>
-    <ellipse cx="520" cy="62" rx="50" ry="24" fill="#f8fcff"/>
-    <ellipse cx="600" cy="60" rx="55" ry="26" fill="#ffffff"/>
-  </g>
-  <!-- Cloud 4 — far right wisp -->
-  <g filter="url(#wc-cloud)" opacity="0.60">
-    <ellipse cx="1380" cy="140" rx="90" ry="32" fill="#ffffff"/>
-    <ellipse cx="1340" cy="148" rx="60" ry="25" fill="#f0f8ff"/>
+  <!-- Sun -->
+  <g class="jk-sun">
+    <circle cx="1230" cy="105" r="95" fill="#FFE99A" opacity=".25" filter="url(#cloudy)"/>
+    <circle cx="1230" cy="105" r="52" fill="#FFE482" opacity=".8"/>
+    <circle cx="1230" cy="105" r="34" fill="#FFD24A"/>
   </g>
 
-  <!-- ── DISTANT MOUNTAINS / HILLS (horizon haze) ── -->
-  <path d="M0,420 Q120,360 250,390 Q380,360 480,380 Q580,350 680,370 Q800,345 920,365 Q1040,348 1150,360 Q1280,340 1440,355 L1440,470 L0,470 Z"
-    fill="#a8c8d8" opacity="0.35" filter="url(#wc-soft)"/>
-  <path d="M0,440 Q150,400 300,420 Q450,395 600,415 Q750,390 900,408 Q1050,385 1200,402 Q1320,388 1440,400 L1440,480 L0,480 Z"
-    fill="#88b0c8" opacity="0.30" filter="url(#wc-soft)"/>
-
-  <!-- ── SEA ── -->
-  <rect x="0" y="460" width="1440" height="440" fill="url(#bg-sea)"/>
-
-  <!-- Sea shimmer — light sparkle streaks -->
-  <g opacity="0.18">
-    <ellipse cx="200" cy="530" rx="80" ry="6" fill="#ffffff" filter="url(#wc-soft)"/>
-    <ellipse cx="500" cy="580" rx="60" ry="5" fill="#ffffff" filter="url(#wc-soft)"/>
-    <ellipse cx="780" cy="510" rx="90" ry="7" fill="#ffffff" filter="url(#wc-soft)"/>
-    <ellipse cx="1050" cy="560" rx="70" ry="6" fill="#ffffff" filter="url(#wc-soft)"/>
-    <ellipse cx="1300" cy="540" rx="85" ry="5" fill="#ffffff" filter="url(#wc-soft)"/>
-    <ellipse cx="350" cy="650" rx="50" ry="4" fill="#c8eef8" filter="url(#wc-soft)"/>
-    <ellipse cx="900" cy="680" rx="65" ry="5" fill="#c8eef8" filter="url(#wc-soft)"/>
-    <ellipse cx="1200" cy="700" rx="55" ry="4" fill="#c8eef8" filter="url(#wc-soft)"/>
+  <!-- Clouds (two drift groups) -->
+  <g class="jk-cloud-a" filter="url(#cloudy)" opacity=".92">
+    <ellipse cx="260" cy="115" rx="135" ry="50" fill="#fff"/>
+    <ellipse cx="195" cy="128" rx="82" ry="38" fill="#F2FAFF"/>
+    <ellipse cx="330" cy="130" rx="92" ry="36" fill="#fff"/>
+    <ellipse cx="880" cy="70" rx="105" ry="40" fill="#fff" opacity=".85"/>
+    <ellipse cx="945" cy="80" rx="72" ry="32" fill="#F6FCFF" opacity=".85"/>
+  </g>
+  <g class="jk-cloud-b" filter="url(#cloudy)" opacity=".75">
+    <ellipse cx="580" cy="170" rx="95" ry="32" fill="#fff"/>
+    <ellipse cx="640" cy="178" rx="60" ry="26" fill="#F2FAFF"/>
+    <ellipse cx="1360" cy="200" rx="88" ry="30" fill="#fff" opacity=".8"/>
   </g>
 
-  <!-- Sea watercolor texture variation -->
-  <ellipse cx="400" cy="600" rx="300" ry="80" fill="#3298b8" opacity="0.15" filter="url(#wc-cloud)"/>
-  <ellipse cx="1100" cy="750" rx="280" ry="90" fill="#1878a0" opacity="0.14" filter="url(#wc-cloud)"/>
-  <ellipse cx="700" cy="820" rx="350" ry="70" fill="#50b0c8" opacity="0.12" filter="url(#wc-cloud)"/>
+  <!-- Distant haze hills -->
+  <path d="M0,415 Q140,362 300,392 Q460,358 620,382 Q800,352 960,374 Q1120,350 1280,368 Q1370,358 1440,364 L1440,470 L0,470 Z" fill="#9FCBDD" opacity=".45" filter="url(#soft)"/>
 
-  <!-- ── ISLANDS ── -->
-  <!-- Island 1 — far left, large -->
-  <g filter="url(#wc-bleed)">
-    <ellipse cx="80" cy="468" rx="140" ry="55" fill="#3a8840" opacity="0.9"/>
-    <ellipse cx="80" cy="462" rx="120" ry="42" fill="url(#bg-isle1)"/>
-    <ellipse cx="50" cy="458" rx="70" ry="35" fill="#5aaa60"/>
-    <ellipse cx="110" cy="456" rx="75" ry="32" fill="#4a9850"/>
-  </g>
-  <!-- Island 2 — left of center -->
-  <g filter="url(#wc-bleed)">
-    <ellipse cx="420" cy="475" rx="110" ry="44" fill="#3a8840" opacity="0.85"/>
-    <ellipse cx="420" cy="468" rx="95" ry="34" fill="url(#bg-isle2)"/>
-    <ellipse cx="390" cy="464" rx="55" ry="28" fill="#68b868"/>
-    <ellipse cx="455" cy="466" rx="60" ry="26" fill="#559855"/>
-  </g>
-  <!-- Island 3 — center, tallest -->
-  <g filter="url(#wc-bleed)">
-    <ellipse cx="720" cy="472" rx="130" ry="50" fill="#3a8840" opacity="0.9"/>
-    <ellipse cx="720" cy="462" rx="112" ry="38" fill="url(#bg-isle1)"/>
-    <ellipse cx="685" cy="456" rx="68" ry="32" fill="#5aaa60"/>
-    <ellipse cx="755" cy="458" rx="72" ry="30" fill="#4a9850"/>
-    <!-- Hill peak -->
-    <ellipse cx="720" cy="445" rx="45" ry="22" fill="#6ab870"/>
-  </g>
-  <!-- Island 4 — right -->
-  <g filter="url(#wc-bleed)">
-    <ellipse cx="1100" cy="470" rx="120" ry="46" fill="#3a8840" opacity="0.85"/>
-    <ellipse cx="1100" cy="463" rx="100" ry="36" fill="url(#bg-isle3)"/>
-    <ellipse cx="1068" cy="458" rx="60" ry="28" fill="#78c070"/>
-    <ellipse cx="1135" cy="460" rx="65" ry="26" fill="#559855"/>
-  </g>
-  <!-- Island 5 — far right, partial -->
-  <g filter="url(#wc-bleed)">
-    <ellipse cx="1400" cy="478" rx="100" ry="42" fill="#3a8840" opacity="0.80"/>
-    <ellipse cx="1400" cy="471" rx="85" ry="32" fill="url(#bg-isle2)"/>
-  </g>
-  <!-- Small rocky outcrops -->
-  <ellipse cx="260" cy="490" rx="40" ry="18" fill="#4a9848" opacity="0.7" filter="url(#wc-isle)"/>
-  <ellipse cx="580" cy="486" rx="35" ry="15" fill="#559850" opacity="0.65" filter="url(#wc-isle)"/>
-  <ellipse cx="880" cy="488" rx="45" ry="17" fill="#4a9848" opacity="0.70" filter="url(#wc-isle)"/>
-  <ellipse cx="1240" cy="484" rx="38" ry="16" fill="#559855" opacity="0.65" filter="url(#wc-isle)"/>
-
-  <!-- ── SUSPENSION BRIDGES — Shimanami Kaido style ── -->
-  <!-- Bridge 1: left span — connects island 1 to island 2 -->
-  <g opacity="0.72">
-    <!-- Road deck -->
-    <rect x="185" y="458" width="255" height="7" rx="2" fill="#c8b898"/>
-    <!-- Left tower -->
-    <rect x="215" y="398" width="10" height="68" fill="#b0a080"/>
-    <rect x="210" y="395" width="20" height="6" rx="1" fill="#a09070"/>
-    <rect x="210" y="415" width="20" height="4" rx="1" fill="#a09070"/>
-    <!-- Right tower -->
-    <rect x="415" y="398" width="10" height="68" fill="#b0a080"/>
-    <rect x="410" y="395" width="20" height="6" rx="1" fill="#a09070"/>
-    <rect x="410" y="415" width="20" height="4" rx="1" fill="#a09070"/>
-    <!-- Main cables — catenary curves -->
-    <path d="M220,400 Q312,440 420,400" fill="none" stroke="#908060" stroke-width="2.5" opacity="0.9"/>
-    <path d="M220,400 Q312,442 420,400" fill="none" stroke="#a09070" stroke-width="1.5" opacity="0.6"/>
-    <!-- Vertical hangers -->
-    <line x1="255" y1="418" x2="255" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="285" y1="428" x2="285" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="312" y1="434" x2="312" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="340" y1="430" x2="340" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="368" y1="422" x2="368" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="395" y1="410" x2="395" y2="458" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+  <!-- Sea -->
+  <rect y="455" width="1440" height="445" fill="url(#sea)"/>
+  <g class="jk-shimmer">
+    <ellipse cx="220" cy="530" rx="85" ry="6" fill="#fff" filter="url(#soft)"/>
+    <ellipse cx="640" cy="585" rx="70" ry="5" fill="#fff" filter="url(#soft)"/>
+    <ellipse cx="1060" cy="545" rx="90" ry="6" fill="#fff" filter="url(#soft)"/>
+    <ellipse cx="420" cy="680" rx="60" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
+    <ellipse cx="920" cy="720" rx="75" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
+    <ellipse cx="1320" cy="640" rx="65" ry="5" fill="#CFF2FA" filter="url(#soft)"/>
   </g>
 
-  <!-- Bridge 2: center span — longer, more prominent -->
-  <g opacity="0.75">
-    <!-- Road deck -->
-    <rect x="505" y="455" width="245" height="8" rx="2" fill="#c0b090"/>
-    <!-- Left tower -->
-    <rect x="530" y="388" width="12" height="75" fill="#a89868"/>
-    <rect x="524" y="385" width="24" height="7" rx="1" fill="#988858"/>
-    <rect x="524" y="408" width="24" height="5" rx="1" fill="#988858"/>
-    <!-- Right tower -->
-    <rect x="720" y="388" width="12" height="75" fill="#a89868"/>
-    <rect x="714" y="385" width="24" height="7" rx="1" fill="#988858"/>
-    <rect x="714" y="408" width="24" height="5" rx="1" fill="#988858"/>
-    <!-- Main cables -->
-    <path d="M536,392 Q628,438 726,392" fill="none" stroke="#887848" stroke-width="3" opacity="0.85"/>
-    <path d="M536,392 Q628,440 726,392" fill="none" stroke="#a09060" stroke-width="1.5" opacity="0.5"/>
-    <!-- Hangers -->
-    <line x1="568" y1="412" x2="568" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
-    <line x1="598" y1="426" x2="598" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
-    <line x1="628" y1="432" x2="628" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
-    <line x1="658" y1="428" x2="658" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
-    <line x1="688" y1="416" x2="688" y2="455" stroke="#988858" stroke-width="1" opacity="0.5"/>
+  <!-- Islands -->
+  <g filter="url(#soft)">
+    <ellipse cx="70"   cy="466" rx="150" ry="52" fill="url(#isle)"/>
+    <ellipse cx="35"   cy="452" rx="80"  ry="36" fill="#7FCC84"/>
+    <ellipse cx="430"  cy="472" rx="115" ry="42" fill="url(#isle)"/>
+    <ellipse cx="400"  cy="460" rx="62"  ry="30" fill="#8AD48E"/>
+    <ellipse cx="730"  cy="468" rx="135" ry="48" fill="url(#isle)"/>
+    <ellipse cx="705"  cy="450" rx="70"  ry="34" fill="#7FCC84"/>
+    <ellipse cx="1110" cy="470" rx="120" ry="44" fill="url(#isle)"/>
+    <ellipse cx="1085" cy="456" rx="65"  ry="30" fill="#8AD48E"/>
+    <ellipse cx="1420" cy="476" rx="105" ry="40" fill="url(#isle)"/>
   </g>
 
-  <!-- Bridge 3: right span -->
-  <g opacity="0.68">
-    <!-- Road deck -->
-    <rect x="795" y="457" width="255" height="7" rx="2" fill="#c8b898"/>
-    <!-- Left tower -->
-    <rect x="820" y="395" width="10" height="70" fill="#b0a080"/>
-    <rect x="814" y="392" width="22" height="6" rx="1" fill="#a09070"/>
-    <rect x="814" y="412" width="22" height="4" rx="1" fill="#a09070"/>
-    <!-- Right tower -->
-    <rect x="1020" y="395" width="10" height="70" fill="#b0a080"/>
-    <rect x="1014" y="392" width="22" height="6" rx="1" fill="#a09070"/>
-    <rect x="1014" y="412" width="22" height="4" rx="1" fill="#a09070"/>
-    <!-- Main cables -->
-    <path d="M825,398 Q925,440 1025,398" fill="none" stroke="#907850" stroke-width="2.5" opacity="0.85"/>
-    <path d="M825,398 Q925,442 1025,398" fill="none" stroke="#a09068" stroke-width="1.5" opacity="0.5"/>
-    <!-- Hangers -->
-    <line x1="858" y1="416" x2="858" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="888" y1="428" x2="888" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="925" y1="434" x2="925" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="962" y1="430" x2="962" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
-    <line x1="995" y1="418" x2="995" y2="457" stroke="#a09070" stroke-width="1" opacity="0.5"/>
+  <!-- Suspension bridges (three spans) -->
+  <g stroke-linecap="round">
+    <!-- span 1 -->
+    <g opacity=".8">
+      <rect x="180" y="455" width="270" height="7" rx="2" fill="#F2F6F8"/>
+      <rect x="212" y="390" width="9" height="70" fill="#E4EDF1"/>
+      <rect x="424" y="390" width="9" height="70" fill="#E4EDF1"/>
+      <path d="M216,394 Q316,442 428,394" fill="none" stroke="#DCE8EE" stroke-width="3"/>
+      <path d="M248,414 V455 M282,428 V455 M316,436 V455 M350,430 V455 M386,416 V455" stroke="#DCE8EE" stroke-width="1.2" opacity=".8"/>
+    </g>
+    <!-- span 2 (center, prominent) -->
+    <g opacity=".9">
+      <rect x="505" y="452" width="260" height="8" rx="2" fill="#F6FAFB"/>
+      <rect x="536" y="378" width="11" height="78" fill="#EAF2F5"/>
+      <rect x="722" y="378" width="11" height="78" fill="#EAF2F5"/>
+      <path d="M541,382 Q634,438 728,382" fill="none" stroke="#E0ECF1" stroke-width="3.4"/>
+      <path d="M575,408 V452 M606,426 V452 M634,434 V452 M664,428 V452 M696,410 V452" stroke="#E0ECF1" stroke-width="1.3" opacity=".85"/>
+    </g>
+    <!-- span 3 -->
+    <g opacity=".72">
+      <rect x="800" y="456" width="265" height="7" rx="2" fill="#F2F6F8"/>
+      <rect x="830" y="394" width="9" height="66" fill="#E4EDF1"/>
+      <rect x="1030" y="394" width="9" height="66" fill="#E4EDF1"/>
+      <path d="M834,398 Q932,440 1034,398" fill="none" stroke="#DCE8EE" stroke-width="2.8"/>
+      <path d="M868,416 V456 M900,428 V456 M932,434 V456 M966,428 V456 M1000,414 V456" stroke="#DCE8EE" stroke-width="1.2" opacity=".8"/>
+    </g>
   </g>
 
-  <!-- Bridge 4: far right partial span -->
-  <g opacity="0.55">
-    <rect x="1170" y="460" width="200" height="6" rx="2" fill="#c0b090"/>
-    <rect x="1192" y="400" width="10" height="66" fill="#a89868"/>
-    <rect x="1186" y="397" width="22" height="6" rx="1" fill="#988858"/>
-    <rect x="1360" y="400" width="10" height="66" fill="#a89868"/>
-    <rect x="1354" y="397" width="22" height="6" rx="1" fill="#988858"/>
-    <path d="M1197,403 Q1282,442 1365,403" fill="none" stroke="#887848" stroke-width="2" opacity="0.8"/>
-    <line x1="1228" y1="420" x2="1228" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
-    <line x1="1260" y1="430" x2="1260" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
-    <line x1="1295" y1="434" x2="1295" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
-    <line x1="1330" y1="425" x2="1330" y2="460" stroke="#988858" stroke-width="1" opacity="0.45"/>
-  </g>
-
-  <!-- ── WATERCOLOR WASH OVERLAYS — give it the paint feel ── -->
-  <!-- Sky wash — slightly uneven colour pooling -->
-  <rect x="0" y="0" width="1440" height="460" fill="#78c8f0" opacity="0.06"/>
-  <ellipse cx="350" cy="200" rx="400" ry="180" fill="#a0d8f4" opacity="0.08" filter="url(#wc-cloud)"/>
-  <ellipse cx="1100" cy="180" rx="360" ry="160" fill="#60b8e8" opacity="0.07" filter="url(#wc-cloud)"/>
-
-  <!-- Sea wash — pools of deeper colour -->
-  <ellipse cx="300" cy="620" rx="350" ry="120" fill="#1888a8" opacity="0.12" filter="url(#wc-cloud)"/>
-  <ellipse cx="900" cy="700" rx="400" ry="140" fill="#1070a0" opacity="0.10" filter="url(#wc-cloud)"/>
-  <ellipse cx="1300" cy="580" rx="280" ry="100" fill="#40a8c8" opacity="0.10" filter="url(#wc-cloud)"/>
-
-  <!-- Horizon watercolor bleed line -->
-  <rect x="0" y="455" width="1440" height="18" fill="#2898b8" opacity="0.18" filter="url(#wc-soft)"/>
-
-  <!-- Vignette edges — paint darkens at edges of paper -->
-  <rect x="0" y="0" width="80" height="900" fill="#0a2030" opacity="0.07"/>
-  <rect x="1360" y="0" width="80" height="900" fill="#0a2030" opacity="0.07"/>
-  <rect x="0" y="0" width="1440" height="60" fill="#1840688" opacity="0.05"/>
-  <rect x="0" y="840" width="1440" height="60" fill="#102030" opacity="0.08"/>
+  <!-- Overall wash: keep it airy behind content -->
+  <rect width="1440" height="900" fill="#FFFFFF" opacity=".62"/>
 </svg>
 </div>
 
@@ -279,7 +129,7 @@ This is the part where I apologize for taking such a long time between posts. In
   <img loading="lazy" src="/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg" alt="Kiss at the Kurushima Kaikyo Bridge, Shimanami Kaido" />
 </figure>
 
-## A Short Recap
+## <span class="jk-kanji">回想</span>A Short Recap
 
 Before we get into it, here's what you missed since Vietnam:
 
@@ -303,31 +153,7 @@ Ryker forgot our international driver's license in Bangkok, so we had to do incr
 
 After Southeast Asia's wonderful cleanliness standards got us sick for the third time, we decided to go to a civilized country. Actually, the most civilized country: Japan. (But first a 36-hour trip to Hong Kong. Please see previous post.)
 
-## Tokyo
-
-<!-- CHERRY BLOSSOM DIVIDER -->
-<div class="anime-divider cherry-divider" style="position:relative;width:100%;height:90px;margin:2.5em 0;overflow:hidden;" aria-hidden="true">
-  <svg viewBox="0 0 800 20" style="position:absolute;top:50%;transform:translateY(-50%);width:100%;" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 10 Q200 2 400 10 Q600 18 800 10" stroke="#1a1a1a" stroke-width="1.5" fill="none" stroke-dasharray="800" stroke-dashoffset="800" class="cherry-line"/>
-  </svg>
-  <div style="position:absolute;top:10%;left:-30px;font-size:20px;animation:petalDrift 7s linear infinite;">🌸</div>
-  <div style="position:absolute;top:30%;left:-30px;font-size:15px;animation:petalDrift 9s linear 1.5s infinite;">🌸</div>
-  <div style="position:absolute;top:55%;left:-30px;font-size:18px;animation:petalDrift 8s linear 3s infinite;">🌸</div>
-  <div style="position:absolute;top:15%;left:-30px;font-size:12px;animation:petalDrift 6.5s linear 0.8s infinite;">🌸</div>
-  <div style="position:absolute;top:65%;left:-30px;font-size:16px;animation:petalDrift 7.5s linear 2s infinite;">🌸</div>
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:clamp(16px,3vw,26px);font-weight:900;letter-spacing:0.25em;color:#1a1a1a;white-space:nowrap;">東京 · TOKYO</div>
-</div>
-<script is:inline>
-(function(){
-  var s=document.createElement('style');
-  s.textContent=`
-    @keyframes petalDrift{0%{left:-30px;transform:rotate(0deg);opacity:0}5%{opacity:1}95%{opacity:.8}100%{left:110%;transform:rotate(400deg);opacity:0}}
-    @keyframes drawCherry{to{stroke-dashoffset:0}}
-    .cherry-line{animation:drawCherry 1.5s ease .2s forwards}
-  `;
-  document.head.appendChild(s);
-})();
-</script>
+## <span class="jk-kanji">東京</span>Tokyo
 
 We arrived in Tokyo after Hong Kong with very little sleep. Oh, did I forget to mention Sofia arrived? She made it from the airport to the hotel entirely on her own using public transit. Please hold for applause.
 
@@ -359,7 +185,7 @@ That night was redemption night for Meg. All you can drink lemon sours and Japan
   <figure><img loading="lazy" src="/media/posts/18/gallery/omoide-yokocho-alley-night.jpg" alt="Omoide Yokocho alley" /></figure>
 </div>
 
-## Onomichi
+## <span class="jk-kanji">尾道</span>Onomichi
 
 We said goodbye to August and sent him back to real life in Seattle. He moved in with his best buds with a backyard and everything, so he's not doing too bad. Meanwhile Ryker, Sofia, and I headed to Onomichi to start an epic bike trip. This is also after I had a two-day hormonal meltdown about being social for too long, so shout out to Ryker and Sofia for not leaving me in an onsen somewhere.
 
@@ -376,82 +202,35 @@ Onomichi might be tied with Sapporo for our favorite place in Japan. It's a smal
   <figure><img loading="lazy" src="/media/posts/18/gallery/meg-backpack-japan-station.jpg" alt="Japan station" /></figure>
 </div>
 
-## The Shimanami Kaido
-
-<!-- TORII DIVIDER -->
-<div class="anime-divider" style="position:relative;width:100%;height:110px;margin:2.5em 0;overflow:hidden;" aria-hidden="true">
-  <svg viewBox="0 0 800 110" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="sg1" cx="50%" cy="100%" r="55%">
-        <stop offset="0%" stop-color="#FFD93D" stop-opacity=".7"/>
-        <stop offset="50%" stop-color="#FF6B6B" stop-opacity=".3"/>
-        <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <ellipse cx="400" cy="110" rx="280" ry="90" fill="url(#sg1)"/>
-    <g fill="#1a1a1a" opacity=".75">
-      <rect x="345" y="22" width="10" height="82"/>
-      <rect x="445" y="22" width="10" height="82"/>
-      <rect x="330" y="20" width="140" height="12" rx="2"/>
-      <rect x="338" y="35" width="124" height="9" rx="2"/>
-    </g>
-    <text x="400" y="104" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#1a1a1a" letter-spacing="5" opacity=".5">しまなみ海道 · SHIMANAMI KAIDO</text>
-  </svg>
-</div>
+## <span class="jk-kanji">しまなみ海道</span>The Shimanami Kaido
 
 This stunner of a bike path is, in typical Japanese fashion, perfect. Paved trails mostly separate from cars and expertly marked, snaking across the Seto Inland Sea. If you've ever taken the time to picture paradise, this is it. Sofia, Ryker, and I took a leisurely week to explore the route. Our days were locked in for maximum joy. Wake up, find a cute coffee shop, bike under the golden glow of sun overhead with a sea breeze keeping us at exactly the right temperature. Stops at our leisure, exploring whatever caught our eye, a quaint lookout, a hundred-year-old shrine, a perfectly placed park bench.
 
-<!-- GHIBLI SCRAPBOOK -->
-<div class="ghibli-journal" style="background:linear-gradient(135deg,#f5f0e8 0%,#ede8d8 50%,#f0ebe0 100%);border-radius:8px;padding:clamp(18px,4vw,44px);margin:2.5em 0;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.12),inset 0 0 0 1px rgba(139,100,60,.15);overflow:hidden;">
-  <div style="position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 27px,rgba(139,100,60,.06) 27px,rgba(139,100,60,.06) 28px);pointer-events:none;border-radius:8px;"></div>
-  <div style="position:absolute;left:clamp(36px,7%,72px);top:0;bottom:0;width:1.5px;background:rgba(220,80,80,.22);pointer-events:none;"></div>
-  <div style="text-align:center;margin-bottom:28px;position:relative;z-index:1;">
-    <div style="display:inline-block;border:2px solid #8B4513;border-radius:4px;padding:5px 18px;font-family:'Playfair Display',serif;font-size:11px;letter-spacing:.28em;color:#8B4513;text-transform:uppercase;transform:rotate(-1deg);background:rgba(255,255,255,.6);">しまなみ海道 · Seto Inland Sea · 瀬戸内海</div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:18px;margin-bottom:20px;position:relative;z-index:1;">
-    <div style="transform:rotate(-2deg);background:white;padding:7px 7px 26px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/cycling-shimanami-woodblock-poster.jpg" alt="Cycling Shimanami 2016 woodblock poster" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:46px;height:14px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);"></div>
-      <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-family:'DM Sans',sans-serif;font-size:9px;color:#666;font-style:italic;">Found in our guesthouse, Onomichi</div>
-    </div>
-    <div style="transform:rotate(.8deg);background:white;padding:7px 7px 26px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-meg-riding-forest-road.jpg" alt="Meg riding the Shimanami Kaido forest road" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-7px;right:16px;width:38px;height:14px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);transform:rotate(4deg);"></div>
-      <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-family:'DM Sans',sans-serif;font-size:9px;color:#666;font-style:italic;">Day 1 — Innoshima</div>
-    </div>
-  </div>
-  <div style="text-align:center;margin:10px 0;font-size:12px;color:#8B4513;opacity:.45;letter-spacing:4px;position:relative;z-index:1;">～～～✦～～～</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;position:relative;z-index:1;">
-    <div style="transform:rotate(1.8deg);background:white;padding:5px 5px 20px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-torii-gate-helmet.jpg" alt="Torii gate stop on the Shimanami islands" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:34px;height:11px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);"></div>
-      <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:8px;color:#666;font-style:italic;">torii gate detour</div>
-    </div>
-    <div style="transform:rotate(-1.2deg);background:white;padding:5px 5px 20px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-bridge-through-forest.jpg" alt="Suspension bridge through forest canopy" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-5px;right:10px;width:34px;height:11px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);transform:rotate(3deg);"></div>
-      <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:8px;color:#666;font-style:italic;">Ōshima bridge</div>
-    </div>
-    <div style="transform:rotate(1.5deg);background:white;padding:5px 5px 20px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-cable-bridge-pov-sun.jpg" alt="Cycling path on the Tatara cable-stayed bridge" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-5px;left:12px;width:34px;height:11px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);transform:rotate(-3deg);"></div>
-      <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:8px;color:#666;font-style:italic;">Tatara Bridge, 11am</div>
-    </div>
-  </div>
-  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;position:relative;z-index:1;">
-    <div style="transform:rotate(-.8deg);background:white;padding:7px 7px 26px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg" alt="Kurushima Kaikyo Bridge viewpoint" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-7px;left:50%;width:44px;height:13px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);transform:translateX(-50%) rotate(-2deg);"></div>
-      <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-size:9px;color:#666;font-style:italic;">Kurushima — almost there</div>
-    </div>
-    <div style="transform:rotate(2.2deg);background:white;padding:7px 7px 26px;box-shadow:3px 3px 0 #1a1a1a;position:relative;">
-      <img loading="lazy" src="/media/posts/18/gallery/shimanami-girls-suspension-bridge.jpg" alt="Shimanami bridge overlook" style="width:100%;display:block;" />
-      <div style="position:absolute;top:-7px;right:14px;width:38px;height:13px;background:rgba(255,240,180,.7);border:1px solid rgba(200,180,100,.4);transform:rotate(3deg);"></div>
-      <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-size:9px;color:#666;font-style:italic;">made it to Ōshima</div>
-    </div>
-  </div>
-  <div style="position:absolute;bottom:14px;right:18px;font-size:26px;opacity:.1;transform:rotate(14deg);pointer-events:none;">🚴</div>
-  <div style="position:absolute;top:10px;right:14px;font-size:18px;opacity:.08;transform:rotate(-9deg);pointer-events:none;">⛩️</div>
+<div class="polaroid-grid">
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/cycling-shimanami-woodblock-poster.jpg" alt="Cycling Shimanami woodblock poster" />
+    <figcaption>found in our guesthouse</figcaption>
+  </figure>
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/shimanami-girls-suspension-bridge.jpg" alt="Riding the forest road" />
+    <figcaption>day 1 · Innoshima</figcaption>
+  </figure>
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/shimanami-torii-gate-helmet.jpg" alt="Torii gate stop" />
+    <figcaption>torii gate detour</figcaption>
+  </figure>
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/shimanami-bridge-through-forest.jpg" alt="Bridge through the forest" />
+    <figcaption>Ōshima bridge</figcaption>
+  </figure>
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/shimanami-cable-bridge-pov-sun.jpg" alt="Tatara Bridge cycling path" />
+    <figcaption>Tatara Bridge · 11am</figcaption>
+  </figure>
+  <figure>
+    <img loading="lazy" src="/media/posts/18/gallery/shimanami-meg-riding-forest-road.jpg" alt="Bridge lookout" />
+    <figcaption>Kurushima viewpoint</figcaption>
+  </figure>
 </div>
 
 Meg and I had one of the best meals of the entire trip.
@@ -484,23 +263,7 @@ After Sofia left, Meg and I decided to rent bikes for one more day and try to do
 
 Naturally, this gave us wildly inflated confidence going into Korea.
 
-## How Korea Happened
-
-<!-- BIKE DIVIDER -->
-<div class="anime-divider" style="position:relative;width:100%;height:78px;margin:3em 0;overflow:hidden;" aria-hidden="true">
-  <svg viewBox="0 0 800 20" style="position:absolute;top:50%;transform:translateY(-50%);width:100%;" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 10 Q200 2 400 10 Q600 18 800 10" stroke="#1a1a1a" stroke-width="1.5" fill="none" stroke-dasharray="800" stroke-dashoffset="800" class="bike-road-line"/>
-  </svg>
-  <div style="position:absolute;top:20%;left:-32px;font-size:26px;animation:bikeRide 3.5s linear .4s forwards;">🚴</div>
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:clamp(16px,3vw,26px);font-weight:900;letter-spacing:.22em;color:#1a1a1a;white-space:nowrap;">한국 · KOREA</div>
-</div>
-<script is:inline>
-(function(){
-  var s2=document.createElement('style');
-  s2.textContent=`@keyframes bikeRide{0%{left:-32px}100%{left:110%}}@keyframes drawRoad{to{stroke-dashoffset:0}}.bike-road-line{animation:drawRoad 2s ease .2s forwards}`;
-  document.head.appendChild(s2);
-})();
-</script>
+## <span class="jk-kanji">きっかけ</span>How Korea Happened
 
 While biking along the Shimanami Kaido, we met a man named Stephan. He was recognizable as an American by his t-shirt, which proudly proclaimed Albuquerque as his former home. He now lives on Oshima island with his wife from Yokohama, and has strategically retired right on the bike trail, where he volunteers his time helping passing cyclists with water and a toilet in exchange for some conversation, something hard to come by in the remote but beautiful southern islands of Japan.
 
@@ -508,15 +271,14 @@ We sat on the porch of his modern, recently renovated house on the ocean and tol
 
 One week and one flight later, we were standing in Seoul with rental bikes, looking south.
 
-## The Four Rivers Route: Seoul to Busan
+## <span class="jk-kanji">국토종주</span>The Four Rivers Route: Seoul to Busan
 
-<!-- Route map: delivered as a standalone HTML file so Astro doesn't strip the scripts -->
 <iframe
+  class="jk-frame"
   src="/media/posts/18/route-map.html"
   title="Seoul to Busan — Four Rivers Cycling Route"
-  style="width:100%;height:560px;border:none;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.10);display:block;margin:2em 0;"
+  style="height:560px;"
   loading="lazy"
-  allowfullscreen
 ></iframe>
 
 A bit of background: South Korea has a massive network of bike paths all through the country, sponsored by K-Water. You can apply for a bike passport from the Ministry of the Interior and collect stamps posted at intervals along the various routes. The stamps are housed in bright red British-style telephone booths. The big four routes are the Four River Paths (following the four major rivers), the Jeju Fantasy Path (circling Jeju island), the Cross Country Route (633km between Seoul and Busan), and the Grand Slam (collecting every stamp in the entire country).
@@ -536,16 +298,6 @@ Then it clicked. This had happened to me once before. The brake pads were too ti
 
 A kind man took pity on us.
 
-<!-- MANGA REACTION CARD -->
-<div class="manga-reaction" style="position:relative;margin:2.5em auto;max-width:380px;border:3px solid #1a1a1a;border-radius:8px;background:white;padding:26px;text-align:center;transform:rotate(-1.4deg);box-shadow:6px 6px 0 #1a1a1a;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg,transparent 5deg,rgba(0,0,0,.015) 5deg,rgba(0,0,0,.015) 6deg);pointer-events:none;"></div>
-  <div style="font-size:42px;margin-bottom:6px;">😤💦</div>
-  <div style="font-size:36px;font-weight:900;font-family:'Playfair Display',serif;color:#DC2626;">큰일 났다!</div>
-  <div style="font-size:12px;color:#444;letter-spacing:.08em;margin-top:6px;font-style:italic;">Keunil natda! — "Oh no." / "We're in trouble."</div>
-  <div style="font-size:13px;color:#666;margin-top:10px;line-height:1.5;">We were quickly humbled.</div>
-  <div style="position:absolute;top:7px;right:9px;font-size:9px;font-family:'JetBrains Mono',monospace;opacity:.22;text-transform:uppercase;letter-spacing:.1em;">Day 2 · Korea</div>
-</div>
-
 By 6:30pm we were 52 miles in, staring down a sunset, with a two-to-three hour ride ahead of us in the dark. We made the completely reasonable decision to abandon our hotel, book another one in town, and go have a beer.
 
 One important logistical note: many cyclists book their accommodation the day of, around lunch, based on where they think they'll end up. The constraint isn't the number of hotels, it's the geography. There are 10 to 20 mile stretches with nothing but farmland or mountains. A detailed plan isn't required, but completely winging it is also not the move.
@@ -560,8 +312,8 @@ We passed the time staring at scenery, chatting, calling loved ones, and listeni
 
 <div class="photo-scroll">
   <img loading="lazy" src="/media/posts/18/gallery/korea-day1-wildflower-road-ryker.jpg" alt="Yellow wildflower road, Korea" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-meg-arms-up-jungle-path.jpg" alt="Meg arms up on the jungle path" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-ryker-riding-flower-path.jpg" alt="Ryker riding through flowers" />
+  <img loading="lazy" src="/media/posts/18/gallery/korea-meg-arms-up-jungle-path.jpg" alt="Arms up on the jungle path" />
+  <img loading="lazy" src="/media/posts/18/gallery/korea-ryker-riding-flower-path.jpg" alt="Riding through flowers" />
   <img loading="lazy" src="/media/posts/18/gallery/korea-ryker-tree-tunnel-riding.jpg" alt="Tree tunnel riding" />
   <img loading="lazy" src="/media/posts/18/gallery/korea-valley-reservoir-selfie.jpg" alt="Valley reservoir selfie" />
   <img loading="lazy" src="/media/posts/18/gallery/korea-mountain-valley-vista.jpg" alt="Mountain valley vista" />
@@ -572,140 +324,13 @@ The big challenge everyone warned us about was the mountain on day four. At 2,80
 
 What we were not prepared for was day six, when we had to climb not one, not two, but three hills with grades so steep we couldn't fathom biking and ended up pushing our bikes and all our gear up every single one. The only upside was that the slower pace meant we made new friends: a Korean and an Australian, both 60-plus and retired, which is basically the entire demographic of long-distance cycling.
 
-<!-- REAL ELEVATION PROFILE -->
-<div style="margin:2.5em 0;padding:24px 16px 16px;background:linear-gradient(135deg,#f8f8f8,#f0f0f0);border-radius:12px;border:1px solid #e0e0e0;" id="elev-wrap">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#666;margin-bottom:14px;text-align:center;">Four Rivers Route · Elevation Profile · Seoul → Busan</div>
-  <svg id="elev-svg" viewBox="0 0 720 180" style="width:100%;display:block;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="elevFill" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#00C9A7" stop-opacity=".45"/>
-        <stop offset="100%" stop-color="#00C9A7" stop-opacity=".04"/>
-      </linearGradient>
-      <filter id="glow2"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
-    <!-- Y axis labels -->
-    <text x="34" y="25" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">642m</text>
-    <text x="34" y="78" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">321m</text>
-    <text x="34" y="133" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">0m</text>
-    <!-- Grid -->
-    <line x1="38" y1="22" x2="710" y2="22" stroke="#e0e0e0" stroke-width=".8" stroke-dasharray="3 4"/>
-    <line x1="38" y1="75" x2="710" y2="75" stroke="#e0e0e0" stroke-width=".8" stroke-dasharray="3 4"/>
-    <line x1="38" y1="130" x2="710" y2="130" stroke="#ddd" stroke-width="1"/>
-    <!-- Day dividers -->
-    <line x1="131" y1="22" x2="131" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <line x1="225" y1="22" x2="225" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <line x1="308" y1="22" x2="308" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <line x1="411" y1="22" x2="411" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <line x1="489" y1="22" x2="489" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <line x1="574" y1="22" x2="574" y2="130" stroke="#ddd" stroke-width=".7" stroke-dasharray="2 3"/>
-    <!-- Day labels -->
-    <text x="85" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 1</text>
-    <text x="178" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 2</text>
-    <text x="267" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 3</text>
-    <text x="360" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 4</text>
-    <text x="450" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 5</text>
-    <text x="532" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 6</text>
-    <text x="642" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#aaa">Day 7</text>
-    <!-- Fill path (will be filled by JS) -->
-    <path id="elev-area" fill="url(#elevFill)" opacity="0"/>
-    <!-- Line path (animated) -->
-    <path id="elev-path" fill="none" stroke="#00C9A7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow2)" stroke-dasharray="2000" stroke-dashoffset="2000"/>
-    <!-- Annotations -->
-    <g id="ann-brakes" opacity="0">
-      <circle cx="267" cy="89" r="4" fill="#FFD93D"/>
-      <text x="267" y="82" text-anchor="middle" font-size="11">🔧</text>
-      <text x="267" y="72" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#888">brake pads</text>
-    </g>
-    <g id="ann-peak" opacity="0">
-      <circle cx="360" cy="22" r="5" fill="#FF6B6B"/>
-      <text x="360" y="14" text-anchor="middle" font-size="12">⛰️</text>
-      <text x="360" y="6" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#FF6B6B" font-weight="bold">642m</text>
-    </g>
-    <g id="ann-hills" opacity="0">
-      <text x="532" y="58" text-anchor="middle" font-size="11">😱😱😱</text>
-      <text x="532" y="50" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#888">3 hills</text>
-    </g>
-    <g id="ann-busan" opacity="0">
-      <circle cx="710" cy="128" r="5" fill="#FFD93D"/>
-      <text x="710" y="119" text-anchor="middle" font-size="12">🏆</text>
-    </g>
-    <!-- Animated bike -->
-    <text id="elev-bike" x="34" y="130" font-size="13">🚴</text>
-  </svg>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#aaa;text-align:center;margin-top:6px;letter-spacing:.1em;">Seoul (0km) ────────────────────────────────── Busan (633km)</div>
-</div>
-<script is:inline>
-(function(){
-  // Real Four Rivers Route elevation data (km -> meters elevation)
-  var pts=[
-    [0,25],[10,22],[20,28],[30,35],[40,42],[52,38],[62,45],[72,55],
-    [82,60],[92,75],[102,85],[112,90],[120,95],[130,110],[140,105],[150,120],
-    [160,115],[170,130],[180,145],[190,155],[200,160],[210,175],[218,185],
-    [228,200],[238,280],[248,420],[255,550],[262,642],[268,480],[275,320],
-    [282,200],[292,150],[300,130],[310,120],[320,115],[330,110],[340,105],
-    [355,95],[365,90],[375,85],[385,90],[395,160],[405,95],[415,185],
-    [425,100],[435,170],[445,90],[455,85],[465,80],
-    [475,85],[490,90],[505,95],[520,80],[535,70],[550,60],[565,50],
-    [580,45],[595,40],[610,35],[620,30],[633,15]
-  ];
-  var SVG_X0=38,SVG_X1=710,SVG_Y0=22,SVG_Y1=130;
-  var KM_MAX=633,ELEV_MAX=642;
-  function toSvg(km,elev){
-    var x=SVG_X0+(km/KM_MAX)*(SVG_X1-SVG_X0);
-    var y=SVG_Y1-((elev/ELEV_MAX)*(SVG_Y1-SVG_Y0));
-    return [x,y];
-  }
-  // Build path strings
-  var lineD='', areaD='';
-  pts.forEach(function(p,i){
-    var xy=toSvg(p[0],p[1]);
-    if(i===0){lineD='M'+xy[0].toFixed(1)+','+xy[1].toFixed(1); areaD='M'+xy[0].toFixed(1)+','+SVG_Y1+' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1);}
-    else{lineD+=' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1); areaD+=' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1);}
-  });
-  var lastXY=toSvg(633,15);
-  areaD+=' L'+lastXY[0].toFixed(1)+','+SVG_Y1+' Z';
-  document.getElementById('elev-path').setAttribute('d',lineD);
-  document.getElementById('elev-area').setAttribute('d',areaD);
-  var animated=false;
-  var obs=new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting&&!animated){
-      animated=true;
-      var path=document.getElementById('elev-path');
-      var area=document.getElementById('elev-area');
-      var bike=document.getElementById('elev-bike');
-      path.style.transition='stroke-dashoffset 4s ease-out';
-      path.style.strokeDashoffset='0';
-      area.style.transition='opacity 4s ease .5s';
-      area.style.opacity='1';
-      var start=null,dur=4000;
-      function lerp(a,b,t){return a+(b-a)*t;}
-      function getPt(prog){
-        var idx=prog*(pts.length-1);
-        var i=Math.floor(idx),t=idx-i;
-        if(i>=pts.length-1)return toSvg(pts[pts.length-1][0],pts[pts.length-1][1]);
-        var xy0=toSvg(pts[i][0],pts[i][1]);
-        var xy1=toSvg(pts[i+1][0],pts[i+1][1]);
-        return [lerp(xy0[0],xy1[0],t),lerp(xy0[1],xy1[1],t)];
-      }
-      function anim(ts){
-        if(!start)start=ts;
-        var p=Math.min((ts-start)/dur,1);
-        var xy=getPt(p);
-        bike.setAttribute('x',(xy[0]-8).toFixed(1));
-        bike.setAttribute('y',(xy[1]+4).toFixed(1));
-        if(p>.35){var el=document.getElementById('ann-brakes');if(el)el.setAttribute('opacity','1');}
-        if(p>.55){var el2=document.getElementById('ann-peak');if(el2)el2.setAttribute('opacity','1');}
-        if(p>.75){var el3=document.getElementById('ann-hills');if(el3)el3.setAttribute('opacity','1');}
-        if(p>=.99){var el4=document.getElementById('ann-busan');if(el4)el4.setAttribute('opacity','1');}
-        if(p<1)requestAnimationFrame(anim);
-      }
-      requestAnimationFrame(anim);
-    }
-  },{threshold:.3});
-  var wrap=document.getElementById('elev-wrap');
-  if(wrap)obs.observe(wrap);
-})();
-</script>
+<iframe
+  class="jk-frame"
+  src="/media/posts/18/elevation.html"
+  title="Four Rivers Route elevation profile"
+  style="height:280px;"
+  loading="lazy"
+></iframe>
 
 Day seven, the final day, was by far the hardest mentally. We had about 50 miles left to Busan. Getting on that bike that morning, I wanted nothing more than a big bed and a long sleep. But I am not a whiney little bitch, so I mounted up and we took off.
 
@@ -719,44 +344,23 @@ Ryker jumped into action, biked a couple of extra miles to get me water, electro
 
 633 kilometers. 393 miles. Seven days.
 
-<!-- QUEST COMPLETE -->
 <div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-completion-certificate-ryker.jpg" alt="Ryker with the 국토종주 completion certificate" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-meg-biting-gold-medal.jpg" alt="Meg biting the gold completion medal" /></figure>
+  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-completion-certificate-ryker.jpg" alt="The completion certificate" /></figure>
+  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-meg-biting-gold-medal.jpg" alt="Biting the gold medal" /></figure>
 </div>
 
-<div id="quest-card" style="background:linear-gradient(135deg,#0a0a1a,#1a1a2e);border:2px solid #FFD93D;border-radius:16px;padding:clamp(26px,5vw,46px) clamp(18px,4vw,38px);text-align:center;margin:2em auto;max-width:500px;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(255,217,61,.18),inset 0 0 60px rgba(255,217,61,.03);">
-  <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,217,61,.12) 50%,transparent 100%);animation:shimmer 2.8s linear infinite;pointer-events:none;"></div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#FFD93D;opacity:.6;text-transform:uppercase;margin-bottom:12px;">Mission Complete · 국토종주</div>
-  <div style="font-size:clamp(30px,7vw,50px);font-weight:900;color:#FFD93D;font-family:'Playfair Display',serif;text-shadow:0 0 22px rgba(255,217,61,.5);margin-bottom:10px;animation:qpulse 2.2s ease-in-out infinite;">完了</div>
-  <div style="font-size:clamp(15px,3.5vw,24px);font-weight:800;color:white;letter-spacing:.08em;margin-bottom:26px;">Seoul → Busan</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px;">
-    <div style="background:rgba(255,255,255,.06);border-radius:9px;padding:clamp(10px,2vw,16px);">
-      <div style="font-size:clamp(24px,5vw,34px);font-weight:900;color:#FFD93D;">633</div>
-      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Kilometers</div>
-    </div>
-    <div style="background:rgba(255,255,255,.06);border-radius:9px;padding:clamp(10px,2vw,16px);">
-      <div style="font-size:clamp(24px,5vw,34px);font-weight:900;color:#FFD93D;">7</div>
-      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Days</div>
-    </div>
-    <div style="background:rgba(255,255,255,.06);border-radius:9px;padding:clamp(10px,2vw,16px);">
-      <div style="font-size:clamp(24px,5vw,34px);font-weight:900;color:#FF6B6B;">1</div>
-      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Flat Tire</div>
-    </div>
-    <div style="background:rgba(255,255,255,.06);border-radius:9px;padding:clamp(10px,2vw,16px);">
-      <div style="font-size:clamp(22px,4.5vw,30px);font-weight:900;color:#00C9A7;">28L</div>
-      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;">Pocari Sweat</div>
-    </div>
+<div class="quest-card">
+  <div class="quest-eyebrow">Mission Complete · 국토종주</div>
+  <div class="quest-kanji">完了</div>
+  <div class="quest-route">Seoul → Busan</div>
+  <div class="quest-stats">
+    <div class="quest-stat"><b>633</b><span>Kilometers</span></div>
+    <div class="quest-stat"><b>7</b><span>Days</span></div>
+    <div class="quest-stat coral"><b>1</b><span>Flat Tire</span></div>
+    <div class="quest-stat teal"><b>28L</b><span>Pocari Sweat</span></div>
   </div>
-  <div style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.2em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Adventurers: Meg & Ryker Corey</div>
+  <div class="quest-sig">Adventurers: Meg &amp; Ryker Corey</div>
 </div>
-<script is:inline>
-(function(){
-  var s3=document.createElement('style');
-  s3.textContent=`@keyframes shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}@keyframes qpulse{0%,100%{text-shadow:0 0 22px rgba(255,217,61,.5)}50%{text-shadow:0 0 40px rgba(255,217,61,.9),0 0 70px rgba(255,217,61,.3)}}`;
-  document.head.appendChild(s3);
-})();
-</script>
 
 I hope to one day go back to Korea and complete the Grand Slam. Maybe after some training. Biking across Korea has been one of my favorite things Ryker and I have done on this entire trip. I love a challenge, an athletic goal, seeing somewhere new from ground level. The nighttime dinners where we waddled exhausted into the nearest restaurant and Google Translated our way through a menu where we didn't recognize a single thing will go down as some of my favorite meals. Everyone we met treated us with kindness and genuine appreciation that we were there. People thanked us for visiting Korea. That has never happened to me anywhere else.
 
@@ -769,7 +373,7 @@ Then it was time to let our muscles recover, in style, at the JW Marriott.
   <figcaption>Gamcheon Culture Village, Busan.</figcaption>
 </figure>
 
-## Seoul
+## <span class="jk-kanji">서울</span>Seoul
 
 Fun fact: Ryker loves credit card points and bank bonuses, and now that he isn't working he has ample time to pursue his favorite hobby. I, in exchange for giving him access to my social security number and being his wife, get to reap the benefits. In this case he scored us a five-night stay at the JW Marriott Seoul for $95 total, for a room that normally runs $400 a night. Since he booked under his name with his points, I couldn't be the primary on the reservation, which meant we'd lose all my Platinum Marriott status perks. But Ryker sweet-talked the front desk and walked away with a room upgrade, lounge access including nightly cocktails and small bites, free breakfast, spa and sauna passes, and gym access. I am very well cared for. Choose your partner wisely.
 
@@ -831,29 +435,7 @@ The third and best: a restaurant specializing in makgeolli, a slightly sweet Kor
   <img loading="lazy" src="/media/posts/18/gallery/seoul-coffee-shop-flatlay.jpg" alt="Seoul coffee shop" />
 </div>
 
-## The End of Asia
-
-<!-- TORII SUNSET CLOSER -->
-<div style="position:relative;width:100%;height:110px;margin:3em 0;overflow:hidden;" aria-hidden="true">
-  <svg viewBox="0 0 800 110" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="sg2" x1="0" y1="1" x2="0" y2="0">
-        <stop offset="0%" stop-color="#FF6B6B" stop-opacity=".3"/>
-        <stop offset="50%" stop-color="#FFD93D" stop-opacity=".45"/>
-        <stop offset="100%" stop-color="#1a1a2e" stop-opacity=".08"/>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="800" height="110" fill="url(#sg2)"/>
-    <g fill="#1a1a1a" opacity=".68">
-      <rect x="338" y="20" width="9" height="84"/>
-      <rect x="453" y="20" width="9" height="84"/>
-      <rect x="324" y="18" width="142" height="11" rx="2"/>
-      <rect x="331" y="32" width="128" height="8" rx="2"/>
-    </g>
-    <circle cx="400" cy="68" r="20" fill="#FFD93D" opacity=".65"/>
-    <text x="400" y="106" text-anchor="middle" font-family="'Playfair Display',serif" font-size="10" font-weight="700" fill="#1a1a1a" letter-spacing="5" opacity=".45">さよなら · Asia</text>
-  </svg>
-</div>
+## <span class="jk-kanji">さよなら</span>The End of Asia
 
 Ryker and I are starting a new chapter: European Summer. Where will we go? We genuinely don't know yet. What we do know is the Schengen Zone is the enemy, so expect to see us in countries you probably haven't thought about in a while, like Kosovo.
 
@@ -863,3 +445,5 @@ Ryker and I are starting a new chapter: European Summer. Where will we go? We ge
 </figure>
 
 More soon.
+
+</div>
