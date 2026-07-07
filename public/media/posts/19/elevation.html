@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Four Rivers · Elevation</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;font-family:'DM Sans',system-ui,sans-serif;background:transparent;overflow:hidden}
+.card{width:100%;height:100%;display:flex;flex-direction:column;background:linear-gradient(150deg,#F8FDFF,#EDF8FB);border-radius:0}
+.hd{font-family:monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#5b8ca0;text-align:center;padding:16px 12px 6px;flex-shrink:0}
+svg{flex:1;width:100%;min-height:0;overflow:visible;display:block;padding:0 8px 4px}
+.ft{font-family:monospace;font-size:9px;color:#9dbecb;text-align:center;padding:0 12px 12px;letter-spacing:.08em;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hd">Four Rivers Route · Elevation · Seoul → Busan</div>
+  <svg id="sv" viewBox="0 0 720 190" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <linearGradient id="fillG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2FA8C4" stop-opacity=".42"/>
+        <stop offset="100%" stop-color="#4FC3E8" stop-opacity=".05"/>
+      </linearGradient>
+      <linearGradient id="lineG" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#58B368"/>
+        <stop offset="55%" stop-color="#2FA8C4"/>
+        <stop offset="100%" stop-color="#FF7E5F"/>
+      </linearGradient>
+      <filter id="gl"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <text x="34" y="26" text-anchor="end" font-family="monospace" font-size="8" fill="#9dbecb">642m</text>
+    <text x="34" y="80" text-anchor="end" font-family="monospace" font-size="8" fill="#9dbecb">321m</text>
+    <text x="34" y="134" text-anchor="end" font-family="monospace" font-size="8" fill="#9dbecb">0m</text>
+    <line x1="38" y1="22" x2="710" y2="22" stroke="#d7ecf2" stroke-width=".8" stroke-dasharray="3 4"/>
+    <line x1="38" y1="76" x2="710" y2="76" stroke="#d7ecf2" stroke-width=".8" stroke-dasharray="3 4"/>
+    <line x1="38" y1="130" x2="710" y2="130" stroke="#c8e4ec" stroke-width="1"/>
+    <g font-family="monospace" font-size="8" fill="#9dbecb" text-anchor="middle">
+      <text x="85"  y="147">Day 1</text><text x="178" y="147">Day 2</text>
+      <text x="267" y="147">Day 3</text><text x="360" y="147">Day 4</text>
+      <text x="450" y="147">Day 5</text><text x="532" y="147">Day 6</text>
+      <text x="642" y="147">Day 7</text>
+    </g>
+    <path id="area" fill="url(#fillG)" opacity="0"/>
+    <path id="line" fill="none" stroke="url(#lineG)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#gl)" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+    <g id="a-brakes" opacity="0">
+      <circle cx="267" cy="89" r="4" fill="#FFD24A"/>
+      <text x="267" y="82" text-anchor="middle" font-size="11">🔧</text>
+      <text x="267" y="71" text-anchor="middle" font-family="monospace" font-size="7" fill="#7a9aa8">brake pads</text>
+    </g>
+    <g id="a-peak" opacity="0">
+      <circle cx="360" cy="22" r="5" fill="#FF7E5F"/>
+      <text x="360" y="14" text-anchor="middle" font-size="12">⛰️</text>
+      <text x="360" y="5" text-anchor="middle" font-family="monospace" font-size="7" fill="#FF7E5F" font-weight="bold">642m · Ihwaryeong</text>
+    </g>
+    <g id="a-hills" opacity="0">
+      <text x="532" y="58" text-anchor="middle" font-size="11">😱😱😱</text>
+      <text x="532" y="48" text-anchor="middle" font-family="monospace" font-size="7" fill="#7a9aa8">3 hills · walked every one</text>
+    </g>
+    <g id="a-busan" opacity="0">
+      <circle cx="710" cy="128" r="5" fill="#FFD24A"/>
+      <text x="710" y="118" text-anchor="middle" font-size="12">🏆</text>
+    </g>
+    <text id="bike" x="30" y="130" font-size="13">🚴</text>
+  </svg>
+  <div class="ft">Seoul (0km) ─────────────────────────── Busan (633km)</div>
+</div>
+<script>
+var pts=[
+  [0,25],[10,22],[20,28],[30,35],[40,42],[52,38],[62,45],[72,55],
+  [82,60],[92,75],[102,85],[112,90],[120,95],[130,110],[140,105],[150,120],
+  [160,115],[170,130],[180,145],[190,155],[200,160],[210,175],[218,185],
+  [228,200],[238,280],[248,420],[255,550],[262,642],[268,480],[275,320],
+  [282,200],[292,150],[300,130],[310,120],[320,115],[330,110],[340,105],
+  [355,95],[365,90],[375,85],[385,90],[395,160],[405,95],[415,185],
+  [425,100],[435,170],[445,90],[455,85],[465,80],
+  [475,85],[490,90],[505,95],[520,80],[535,70],[550,60],[565,50],
+  [580,45],[595,40],[610,35],[620,30],[633,15]
+];
+var X0=38,X1=710,Y0=22,Y1=130,KM=633,EM=642;
+function P(km,e){return[X0+(km/KM)*(X1-X0),Y1-((e/EM)*(Y1-Y0))];}
+var lineD='',areaD='';
+pts.forEach(function(p,i){
+  var xy=P(p[0],p[1]);
+  if(i===0){lineD='M'+xy[0].toFixed(1)+','+xy[1].toFixed(1);areaD='M'+xy[0].toFixed(1)+','+Y1+' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1);}
+  else{lineD+=' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1);areaD+=' L'+xy[0].toFixed(1)+','+xy[1].toFixed(1);}
+});
+areaD+=' L'+P(633,15)[0].toFixed(1)+','+Y1+' Z';
+document.getElementById('line').setAttribute('d',lineD);
+document.getElementById('area').setAttribute('d',areaD);
+
+var done=false;
+function run(){
+  if(done)return;done=true;
+  var l=document.getElementById('line'),a=document.getElementById('area'),b=document.getElementById('bike');
+  l.style.transition='stroke-dashoffset 4s ease-out';
+  l.style.strokeDashoffset='0';
+  a.style.transition='opacity 4s ease .4s';
+  a.style.opacity='1';
+  var t0=null,D=4000;
+  function lerp(x,y,t){return x+(y-x)*t;}
+  function pt(pr){
+    var idx=pr*(pts.length-1),i=Math.floor(idx),t=idx-i;
+    if(i>=pts.length-1)return P(pts[pts.length-1][0],pts[pts.length-1][1]);
+    var A=P(pts[i][0],pts[i][1]),B=P(pts[i+1][0],pts[i+1][1]);
+    return[lerp(A[0],B[0],t),lerp(A[1],B[1],t)];
+  }
+  function fr(ts){
+    if(!t0)t0=ts;
+    var p=Math.min((ts-t0)/D,1),xy=pt(p);
+    b.setAttribute('x',(xy[0]-8).toFixed(1));
+    b.setAttribute('y',(xy[1]+4).toFixed(1));
+    if(p>.35)document.getElementById('a-brakes').setAttribute('opacity','1');
+    if(p>.55)document.getElementById('a-peak').setAttribute('opacity','1');
+    if(p>.75)document.getElementById('a-hills').setAttribute('opacity','1');
+    if(p>=.99)document.getElementById('a-busan').setAttribute('opacity','1');
+    if(p<1)requestAnimationFrame(fr);
+  }
+  requestAnimationFrame(fr);
+}
+// Animate when the iframe scrolls into view (IntersectionObserver on own body)
+new IntersectionObserver(function(e){if(e[0].isIntersecting)run();},{threshold:.1}).observe(document.body);
+setTimeout(run, 2500); // fallback
+</script>
+</body>
+</html>

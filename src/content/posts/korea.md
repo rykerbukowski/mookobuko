@@ -1,23 +1,22 @@
 ---
-title: "Japan & Korea: Bikes, Onsens & Going the Distance"
-subtitle: "Tokyo, the Shimanami Kaido, and 633km Across Korea"
-date: 2026-05-09
-location: "Tokyo, Japan"
-locationEmoji: "🇯🇵"
-heroImage: "/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg"
-heroColor: "#FF7E5F"
-excerpt: "After Southeast Asia broke us repeatedly, Japan fixed us. Then we biked across Korea. 633 kilometers. Seven days. One flat tire. Zero regrets."
+title: "Korea: 633 Kilometers, Seven Days, One Flat Tire"
+subtitle: "Riding the Four Rivers Route from Seoul to Busan"
+date: 2026-05-23
+location: "Seoul → Busan, South Korea"
+locationEmoji: "🇰🇷"
+heroImage: "/media/posts/19/gallery/korea-day1-wildflower-road-ryker.jpg"
+heroColor: "#2FA8C4"
+excerpt: "A stranger on a Japanese island told us about a bike path across Korea. One week later we were in Seoul with rental bikes, looking south. Zero regrets."
 tags:
-  - { label: "🇯🇵 Japan", color: "#FF7E5F" }
-  - { label: "🚲 Shimanami Kaido", color: "#2FA8C4" }
   - { label: "🇰🇷 Korea", color: "#4FC3E8" }
+  - { label: "🚲 국토종주", color: "#2FA8C4" }
   - { label: "🏅 633km", color: "#FFD24A" }
 status: "published"
 ---
 
 <div class="jk-post">
 
-<!-- ═══ ILLUSTRATED PANORAMA — Seto Inland Sea, golden summer morning ═══ -->
+<!-- ═══ ILLUSTRATED PANORAMA — river country, golden summer morning ═══ -->
 <div class="jk-bg" aria-hidden="true">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
   <defs>
@@ -159,12 +158,12 @@ status: "published"
     <path fill="#6FB37E" opacity=".55" d="M30,580 Q90,532 160,548 Q230,524 300,548 Q360,536 410,560 Q440,570 450,580 Z"/>
     <path fill="url(#hillMid)" d="M980,580 Q1050,502 1140,526 Q1210,494 1300,522 Q1370,508 1440,532 L1440,580 Z"/>
     <path fill="#6FB37E" opacity=".55" d="M1040,580 Q1110,534 1180,550 Q1250,526 1320,548 Q1390,538 1440,556 L1440,580 Z"/>
-    <!-- tiny red torii perched on the right island -->
-    <g stroke="#D8402A" stroke-width="4" stroke-linecap="round">
-      <line x1="1236" y1="502" x2="1236" y2="524"/>
-      <line x1="1254" y1="502" x2="1254" y2="524"/>
-      <line x1="1228" y1="504" x2="1262" y2="504"/>
-      <line x1="1231" y1="512" x2="1259" y2="512"/>
+    <!-- tiny red stamp booth on the right island — 국토종주 checkpoint -->
+    <g>
+      <rect x="1230" y="496" width="26" height="30" rx="2" fill="#D8402A"/>
+      <rect x="1228" y="492" width="30" height="6" rx="2" fill="#B02F1E"/>
+      <rect x="1236" y="504" width="14" height="18" rx="1.5" fill="#FFE9E2" opacity=".85"/>
+      <line x1="1243" y1="504" x2="1243" y2="522" stroke="#D8402A" stroke-width="1.4"/>
     </g>
   </g>
 
@@ -188,159 +187,13 @@ status: "published"
 </svg>
 </div>
 
-This is the part where I apologize for taking such a long time between posts. In my defense, there was a lot going on. Visitor after visitor after visitor meant the blog took a back seat. We've been busy since Vietnam, and gotten very distracted by bikes.
-
-<figure class="photo-polaroid">
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-couple-suspension-bridge.jpg" alt="Kiss at the Kurushima Kaikyo Bridge, Shimanami Kaido" />
-</figure>
-
-## <span class="jk-kanji">回想</span>A Short Recap
-
-Before we get into it, here's what you missed since Vietnam:
-
-We went back to Thailand with August, starting in Chiang Mai where we went to an adult-only water park that was essentially a full-scale replica of Wipeout. Giant balls you run across, inclined rock climbing, a giant trampoline two stories up where you could launch yourself into the water, and Ryker's personal favorite: the inflatable pillow. Picture a pillow the size of a swimming pool, where one person lays on one side and another person jumps fifteen feet off a platform onto the other side, launching the first person into the air. In this scenario, Ryker launched me. I had whiplash so bad I couldn't turn my head for three days.
-
-<div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/grand-canyon-water-park-chiangmai.jpg" alt="Grand Canyon Water Park, Chiang Mai" />
-  <img loading="lazy" src="/media/posts/18/gallery/kirby-claw-machine-selfie.jpg" alt="Kirby claw machine, Thailand" />
-  <img loading="lazy" src="/media/posts/18/gallery/bingsu-four-seasons-bangkok.jpg" alt="Bingsu at Four Seasons Bangkok" />
-  <img loading="lazy" src="/media/posts/18/gallery/meg-hospital-drip-bangkok.jpg" alt="Bumrungrad Hospital, Bangkok" />
-  <img loading="lazy" src="/media/posts/18/gallery/bumrungrad-hospital-scrubs-selfie.jpg" alt="Bumrungrad scrubs" />
-  <img loading="lazy" src="/media/posts/18/gallery/meg-horse-statue-chiangmai.jpg" alt="Chiang Mai" />
-  <img loading="lazy" src="/media/posts/18/gallery/bangkok-grand-palace-night-selfie.jpg" alt="Grand Palace, Bangkok" />
-</div>
-
-We caught a flight to Bangkok to see Peach, and also to get intensive medical tests done. The US medical system can absolutely go f*** itself. Your doctor just wants to come in once a year, hit your knee with a hammer, say "u good?" and charge out the ass. If you dare bring up an actual problem, the whole appointment doesn't get coded as a checkup anymore, so they charge you even more. It's almost like they want you to be sick, stay sick, and shut up about it. But not in Thailand. In Thailand, money can solve problems. I learned a lot of new things about my body and got a ton of data, which I will be feeding to Claude to solve all my problems. I plan on redirecting all possible medical conversations to AI. The only time I ever want to talk to a human doctor is for them to read out test results. They clearly don't have the time or wherewithal to care. Not saying all doctors are bad, just that I personally have never met a good one, and the whole insurance system they work within is bad. #AI democratizes healthcare.
-
-We got stupidly sick again in Phuket.
-
-Ryker forgot our international driver's license in Bangkok, so we had to do increasingly insane things to avoid police checkpoints in Phuket, including driving scooters on a hiking trail in the dark. We only scared one monk, and Ryker only had one moment of profound personal crisis.
-
-After Southeast Asia's wonderful cleanliness standards got us sick for the third time, we decided to go to a civilized country. Actually, the most civilized country: Japan. (But first a 36-hour trip to Hong Kong. Please see previous post.)
-
-## <span class="jk-kanji">東京</span>Tokyo
-
-We arrived in Tokyo after Hong Kong with very little sleep. Oh, did I forget to mention Sofia arrived? She made it from the airport to the hotel entirely on her own using public transit. Please hold for applause.
-
-A few highlights from Tokyo:
-
-**Big purchase:** Ryker went to the Anker store and dropped a pretty penny. Two new battery banks, a Japan-exclusive Pikachu charging set, a full yellow carrying case, a 67-watt Pikachu wall plug, and yellow charging cables. He shipped it all home with August as a gift to himself for when we get back.
-
-**Also huge news:** Meg finally got glasses. She's blind and refuses to admit it. (She insists this is not true. It is not true that it is not true.) Every time she puts them on she goes "oh wow, that's crispy." She looks very cute, for the record.
-
-<div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/anker-store-pikachu-haul.jpg" alt="Pikachu haul, Anker Tokyo" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/meg-trying-glasses-tokyo.jpg" alt="Meg trying glasses in Tokyo" /></figure>
-</div>
-
-We hit Tokyo Castle, which somehow we'd never visited despite this being our fourth trip to the city. We went to teamLab Borderless, the other teamLab location, wandered the art installations, and took way too many photos.
-
-<div class="photo-trio">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/imperial-palace-moat-bridge.jpg" alt="Imperial Palace moat" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/teamlab-crystal-corridor.jpg" alt="teamLab crystal corridor" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/teamlab-flowers-kiss.jpg" alt="teamLab flowers" /></figure>
-</div>
-
-Sofia discovered she loves onsens immediately and informed us we would be going every single day for the rest of her visit. Fair. There's something genuinely great about getting naked with your friends and soaking in a hot tub surrounded by strangers.
-
-That night was redemption night for Meg. All you can drink lemon sours and Japanese yakiniku. (Kento, if you are reading this: yes, it is in fact possible for Meg to control herself at an all you can drink. We have proof now.)
-
-<div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/tokyo-yakiniku-group-dinner.jpg" alt="Yakiniku dinner, Tokyo" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/omoide-yokocho-alley-night.jpg" alt="Omoide Yokocho alley" /></figure>
-</div>
-
-## <span class="jk-kanji">尾道</span>Onomichi
-
-We said goodbye to August and sent him back to real life in Seattle. He moved in with his best buds with a backyard and everything, so he's not doing too bad. Meanwhile Ryker, Sofia, and I headed to Onomichi to start an epic bike trip. This is also after I had a two-day hormonal meltdown about being social for too long, so shout out to Ryker and Sofia for not leaving me in an onsen somewhere.
-
-Onomichi might be tied with Sapporo for our favorite place in Japan. It's a small coastal town of 100,000 people where everyone rides bikes. School kids, commuters, everyone. We had a day and a half to explore before starting the Shimanami Kaido, the famous multi-day bike route across a chain of islands in southern Japan via a series of bridges.
-
-<figure class="photo-polaroid">
-  <img loading="lazy" src="/media/posts/18/gallery/onomichi-city-panorama-hilltop.jpg" alt="Onomichi from the hilltop" />
-  <figcaption>Onomichi from Senkoji Park — the whole city and the Seto Inland Sea laid out below.</figcaption>
-</figure>
-
-<div class="photo-trio">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/matsuyama-yukata-onsen-fans.jpg" alt="Yukata at Dogo Onsen" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/matsuyama-castle-night-reflection.jpg" alt="Matsuyama Castle at night" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/meg-backpack-japan-station.jpg" alt="Japan station" /></figure>
-</div>
-
-## <span class="jk-kanji">しまなみ海道</span>The Shimanami Kaido
-
-This stunner of a bike path is, in typical Japanese fashion, perfect. Paved trails mostly separate from cars and expertly marked, snaking across the Seto Inland Sea. If you've ever taken the time to picture paradise, this is it. Sofia, Ryker, and I took a leisurely week to explore the route. Our days were locked in for maximum joy. Wake up, find a cute coffee shop, bike under the golden glow of sun overhead with a sea breeze keeping us at exactly the right temperature. Stops at our leisure, exploring whatever caught our eye, a quaint lookout, a hundred-year-old shrine, a perfectly placed park bench.
-
-<div class="polaroid-grid">
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/cycling-shimanami-woodblock-poster.jpg" alt="Cycling Shimanami woodblock poster" />
-    <figcaption>found in our guesthouse</figcaption>
-  </figure>
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/shimanami-girls-suspension-bridge.jpg" alt="Riding the forest road" />
-    <figcaption>day 1 · Innoshima</figcaption>
-  </figure>
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/shimanami-torii-gate-helmet.jpg" alt="Torii gate stop" />
-    <figcaption>torii gate detour</figcaption>
-  </figure>
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/shimanami-bridge-through-forest.jpg" alt="Bridge through the forest" />
-    <figcaption>Ōshima bridge</figcaption>
-  </figure>
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/shimanami-cable-bridge-pov-sun.jpg" alt="Tatara Bridge cycling path" />
-    <figcaption>Tatara Bridge · 11am</figcaption>
-  </figure>
-  <figure>
-    <img loading="lazy" src="/media/posts/18/gallery/shimanami-meg-riding-forest-road.jpg" alt="Bridge lookout" />
-    <figcaption>Kurushima viewpoint</figcaption>
-  </figure>
-</div>
-
-Meg and I had one of the best meals of the entire trip.
-
-It was a tiny yakitori spot with genuinely bad Google reviews. We almost skipped it. The reviews all said the owners were rude, controlling, mean. We sat down nervous.
-
-Turns out the entire reputation was built on one rule: no phones, no laptops while you're eating. That's it. They just wanted you present for the food they were making you.
-
-We ended up chatting with the table next to us, mentioned it was our honeymoon year, and they translated that to the chef. He started sending out extra dishes we hadn't ordered. We were stuffed. At one point my hair was down while I was eating, and the chef came over and mimed putting it up, clearly worried I'd get hair in the food. I tied it back, and a minute later his wife appeared behind me with hair ties so I wouldn't be inconvenienced for the rest of the meal. They walked us through exactly how to eat each skewer, which ones needed sauce, which didn't, when to take a sip of beer in between.
-
-It was one of the most attentive meals either of us has ever had. It felt like eating at someone's grandparents' house, where every detail mattered because they genuinely wanted you to have a good time. And it's proof you can't always trust Google reviews. This was a restaurant built for savoring food, not consuming it. Completely lost in translation if you weren't there for it.
-
-<div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/yakitori-counter-meg-chef.jpg" alt="Yakitori counter" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/yakitori-counter-wide-atmosphere.jpg" alt="Yakitori restaurant atmosphere" /></figure>
-</div>
-
-<div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-badminton-waterfront.jpg" alt="Badminton by the water" />
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-island-stop-bikes.jpg" alt="Island stop with bikes" />
-  <img loading="lazy" src="/media/posts/18/gallery/onomichi-temple-lane-couple.jpg" alt="Temple lane, Onomichi" />
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-helmets-red-bridge-beach.jpg" alt="Red bridge and beach" />
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-vending-machine-stop.jpg" alt="Vending machine stop" />
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-stretching-grass.jpg" alt="Stretching on the grass" />
-  <img loading="lazy" src="/media/posts/18/gallery/onomichi-festival-dancing.jpg" alt="Festival dancing" />
-  <img loading="lazy" src="/media/posts/18/gallery/shimanami-riding-selfie-blue-lane.jpg" alt="Riding selfie on the blue lane" />
-</div>
-
-After Sofia left, Meg and I decided to rent bikes for one more day and try to do almost the entire Shimanami Kaido round trip in a single day. We made it about halfway back toward Onomichi before turning around, totaling around 110 kilometers. We were extremely pleased with ourselves.
-
-Naturally, this gave us wildly inflated confidence going into Korea.
-
-## <span class="jk-kanji">きっかけ</span>How Korea Happened
-
-While biking along the Shimanami Kaido, we met a man named Stephan. He was recognizable as an American by his t-shirt, which proudly proclaimed Albuquerque as his former home. He now lives on Oshima island with his wife from Yokohama, and has strategically retired right on the bike trail, where he volunteers his time helping passing cyclists with water and a toilet in exchange for some conversation, something hard to come by in the remote but beautiful southern islands of Japan.
-
-We sat on the porch of his modern, recently renovated house on the ocean and told him about our honeymoon year. He told us about a bike path in Korea called the Four Rivers Route, a cross-country ride spanning the whole country. Our appetites were thoroughly whetted. We biked on.
-
-One week and one flight later, we were standing in Seoul with rental bikes, looking south.
+*If you missed it: on the [Shimanami Kaido](/posts/japan) we met Stephan, a retired American living on Oshima island, who told us about a bike route spanning the entire length of South Korea. This is what happened next.*
 
 ## <span class="jk-kanji">국토종주</span>The Four Rivers Route: Seoul to Busan
 
 <iframe
   class="jk-frame"
-  src="/media/posts/18/route-map.html?v=3"
+  src="/media/posts/19/route-map.html"
   title="Seoul to Busan — Four Rivers Cycling Route"
   style="height:560px;"
   loading="lazy"
@@ -351,8 +204,8 @@ A bit of background: South Korea has a massive network of bike paths all through
 I have a love for anything that even mildly resembles a scavenger hunt. The stamps scratched that itch. Collecting them all became a very important part of this bike ride, so upon starting our journey south, I made Ryker backtrack 12 miles to get the starting stamps I'd missed. Does biking 633km even count if the Ministry of the Interior doesn't give its stamp of approval? Our first day quickly ballooned into a 72-mile ride.
 
 <div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-bike-shop-seoul-start.jpg" alt="Seoul bike shop" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-day1-gwangnaru-park-selfie.jpg" alt="Gwangnaru Bicycle Park, Day 1" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/korea-bike-shop-seoul-start.jpg" alt="Seoul bike shop" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/korea-day1-gwangnaru-park-selfie.jpg" alt="Gwangnaru Bicycle Park, Day 1" /></figure>
 </div>
 
 We were quickly humbled.
@@ -376,13 +229,13 @@ Our days started to blur together. Hard beds, ten hours of biking, a new food we
 We passed the time staring at scenery, chatting, calling loved ones, and listening to audiobooks. I finished the entire 21-hour mammoth that is Dune. Ryker kept working through the Dungeon Crawler Carl series. The most recent edition just came out and I'm hoping we can read it in tandem.
 
 <div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/korea-day1-wildflower-road-ryker.jpg" alt="Yellow wildflower road, Korea" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-meg-arms-up-jungle-path.jpg" alt="Arms up on the jungle path" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-ryker-riding-flower-path.jpg" alt="Riding through flowers" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-ryker-tree-tunnel-riding.jpg" alt="Tree tunnel riding" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-valley-reservoir-selfie.jpg" alt="Valley reservoir selfie" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-mountain-valley-vista.jpg" alt="Mountain valley vista" />
-  <img loading="lazy" src="/media/posts/18/gallery/korea-stamp-booth-red.jpg" alt="Red stamp booth" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-day1-wildflower-road-ryker.jpg" alt="Yellow wildflower road, Korea" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-meg-arms-up-jungle-path.jpg" alt="Arms up on the jungle path" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-ryker-riding-flower-path.jpg" alt="Riding through flowers" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-ryker-tree-tunnel-riding.jpg" alt="Tree tunnel riding" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-valley-reservoir-selfie.jpg" alt="Valley reservoir selfie" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-mountain-valley-vista.jpg" alt="Mountain valley vista" />
+  <img loading="lazy" src="/media/posts/19/gallery/korea-stamp-booth-red.jpg" alt="Red stamp booth" />
 </div>
 
 The big challenge everyone warned us about was the mountain on day four. At 2,800 feet of elevation it was daunting, but we knew about it going in and had mentally prepared. The grade was just bikeable. We conquered it and were rewarded with stunning views, a whole valley laid out below us, and another stamp. Plus a five-mile cruise downhill.
@@ -391,7 +244,7 @@ What we were not prepared for was day six, when we had to climb not one, not two
 
 <iframe
   class="jk-frame"
-  src="/media/posts/18/elevation.html"
+  src="/media/posts/19/elevation.html"
   title="Four Rivers Route elevation profile"
   style="height:280px;"
   loading="lazy"
@@ -410,8 +263,8 @@ Ryker jumped into action, biked a couple of extra miles to get me water, electro
 633 kilometers. 393 miles. Seven days.
 
 <div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-completion-certificate-ryker.jpg" alt="The completion certificate" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/korea-meg-biting-gold-medal.jpg" alt="Biting the gold medal" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/korea-completion-certificate-ryker.jpg" alt="The completion certificate" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/korea-meg-biting-gold-medal.jpg" alt="Biting the gold medal" /></figure>
 </div>
 
 <div class="quest-card">
@@ -434,7 +287,7 @@ It only took a five-hour bus ride to retrace our route from Busan back to Seoul,
 Then it was time to let our muscles recover, in style, at the JW Marriott.
 
 <figure class="photo-polaroid">
-  <img loading="lazy" src="/media/posts/18/gallery/busan-gamcheon-village-selfie.jpg" alt="Gamcheon Culture Village, Busan" />
+  <img loading="lazy" src="/media/posts/19/gallery/busan-gamcheon-village-selfie.jpg" alt="Gamcheon Culture Village, Busan" />
   <figcaption>Gamcheon Culture Village, Busan.</figcaption>
 </figure>
 
@@ -443,8 +296,8 @@ Then it was time to let our muscles recover, in style, at the JW Marriott.
 Fun fact: Ryker loves credit card points and bank bonuses, and now that he isn't working he has ample time to pursue his favorite hobby. I, in exchange for giving him access to my social security number and being his wife, get to reap the benefits. In this case he scored us a five-night stay at the JW Marriott Seoul for $95 total, for a room that normally runs $400 a night. Since he booked under his name with his points, I couldn't be the primary on the reservation, which meant we'd lose all my Platinum Marriott status perks. But Ryker sweet-talked the front desk and walked away with a room upgrade, lounge access including nightly cocktails and small bites, free breakfast, spa and sauna passes, and gym access. I am very well cared for. Choose your partner wisely.
 
 <div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/jw-marriott-room-service-pizza.jpg" alt="JW Marriott room service" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/seoul-jw-marriott-dinner-restaurant.jpg" alt="JW Marriott restaurant" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/jw-marriott-room-service-pizza.jpg" alt="JW Marriott room service" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/seoul-jw-marriott-dinner-restaurant.jpg" alt="JW Marriott restaurant" /></figure>
 </div>
 
 **Shopping**
@@ -462,10 +315,10 @@ We went to Jamsil Baseball Stadium. From our time in Japan we already knew Asia 
 Emotions ran high as the home team pulled ahead. A fight broke out between almost all the players. We had a corndog, a hotdog, and some tteokbokki.
 
 <div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/kbo-giant-taegukgi-flag.jpg" alt="Giant Taegukgi flag at the KBO game" />
-  <img loading="lazy" src="/media/posts/18/gallery/kbo-fighter-jets-flyover.jpg" alt="Fighter jets flyover at KBO" />
-  <img loading="lazy" src="/media/posts/18/gallery/kbo-meg-corn-dog-stadium.jpg" alt="KBO corn dog" />
-  <img loading="lazy" src="/media/posts/18/gallery/kbo-corn-dogs-held-up.jpg" alt="Two corn dogs held up at KBO" />
+  <img loading="lazy" src="/media/posts/19/gallery/kbo-giant-taegukgi-flag.jpg" alt="Giant Taegukgi flag at the KBO game" />
+  <img loading="lazy" src="/media/posts/19/gallery/kbo-fighter-jets-flyover.jpg" alt="Fighter jets flyover at KBO" />
+  <img loading="lazy" src="/media/posts/19/gallery/kbo-meg-corn-dog-stadium.jpg" alt="KBO corn dog" />
+  <img loading="lazy" src="/media/posts/19/gallery/kbo-corn-dogs-held-up.jpg" alt="Two corn dogs held up at KBO" />
 </div>
 
 **Walking**
@@ -473,11 +326,11 @@ Emotions ran high as the home team pulled ahead. A fight broke out between almos
 Honestly, most of what we did in Seoul was walk around. It's insanely easy to get around and I preferred the buses to the metro because you actually get to see the city. Seoul is huge but each neighborhood has its own personality.
 
 <div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-wildflowers-skyline-meg.jpg" alt="Seoul wildflowers and skyline" />
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-han-river-bridge-night.jpg" alt="Han River bridge at night" />
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-rainy-day-umbrella.jpg" alt="Rainy Seoul" />
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-angel-wings-mural.jpg" alt="Angel wings mural, Seoul" />
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-korean-war-memorial-ryker.jpg" alt="Korean War Memorial" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-wildflowers-skyline-meg.jpg" alt="Seoul wildflowers and skyline" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-han-river-bridge-night.jpg" alt="Han River bridge at night" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-rainy-day-umbrella.jpg" alt="Rainy Seoul" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-angel-wings-mural.jpg" alt="Angel wings mural, Seoul" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-korean-war-memorial-ryker.jpg" alt="Korean War Memorial" />
 </div>
 
 **Eating**
@@ -491,13 +344,13 @@ The second: a Korean specialty, chicken stuffed with rice then splayed open on a
 The third and best: a restaurant specializing in makgeolli, a slightly sweet Korean rice wine. Think sake, but Korean. This place was known for honeycomb makgeolli, where they drop a massive, dripping piece of honeycomb directly into your glass. We also got kimchi stew. What a pairing.
 
 <div class="photo-duo">
-  <figure><img loading="lazy" src="/media/posts/18/gallery/seoul-honeycomb-makgeolli-bowl.jpg" alt="Honeycomb makgeolli" /></figure>
-  <figure><img loading="lazy" src="/media/posts/18/gallery/seoul-honeycomb-makgeolli-pour.jpg" alt="Honeycomb makgeolli pour" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/seoul-honeycomb-makgeolli-bowl.jpg" alt="Honeycomb makgeolli" /></figure>
+  <figure><img loading="lazy" src="/media/posts/19/gallery/seoul-honeycomb-makgeolli-pour.jpg" alt="Honeycomb makgeolli pour" /></figure>
 </div>
 
 <div class="photo-scroll">
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-budae-jjigae-army-stew.jpg" alt="Budae jjigae army stew" />
-  <img loading="lazy" src="/media/posts/18/gallery/seoul-coffee-shop-flatlay.jpg" alt="Seoul coffee shop" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-budae-jjigae-army-stew.jpg" alt="Budae jjigae army stew" />
+  <img loading="lazy" src="/media/posts/19/gallery/seoul-coffee-shop-flatlay.jpg" alt="Seoul coffee shop" />
 </div>
 
 ## <span class="jk-kanji">さよなら</span>The End of Asia
@@ -505,7 +358,7 @@ The third and best: a restaurant specializing in makgeolli, a slightly sweet Kor
 Ryker and I are starting a new chapter: European Summer. Where will we go? We genuinely don't know yet. What we do know is the Schengen Zone is the enemy, so expect to see us in countries you probably haven't thought about in a while, like Kosovo.
 
 <figure class="photo-polaroid">
-  <img loading="lazy" src="/media/posts/18/gallery/thai-airways-business-class-champagne.jpg" alt="Thai Airways business class, Seoul to Istanbul" />
+  <img loading="lazy" src="/media/posts/19/gallery/thai-airways-business-class-champagne.jpg" alt="Thai Airways business class, Seoul to Istanbul" />
   <figcaption>Seoul → Istanbul. The Asia chapter, closing at 35,000 feet.</figcaption>
 </figure>
 
