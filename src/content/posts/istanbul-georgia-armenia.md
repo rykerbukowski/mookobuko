@@ -15,6 +15,57 @@ tags:
 status: "published"
 ---
 
+<div class="meg-sketch-bg" aria-hidden="true">
+  <img class="meg-sketch s1" src="/media/posts/19/gallery/meg-wine-jugs.png" alt="" />
+  <img class="meg-sketch s2" src="/media/posts/19/gallery/meg-khinkali.png" alt="" />
+  <img class="meg-sketch s3" src="/media/posts/19/gallery/meg-wine-glasses.png" alt="" />
+  <img class="meg-sketch s4" src="/media/posts/19/gallery/meg-church.png" alt="" />
+</div>
+
+<style>
+.meg-sketch-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.meg-sketch-bg .meg-sketch{
+  position: absolute;
+  opacity: 0.35;
+  filter: grayscale(1);
+  will-change: transform;
+}
+/* scattered fixed positions around the viewport */
+.meg-sketch-bg .s1{ top: 12vh;  left: 4vw;   width: 150px; animation: megShakeA 3.4s ease-in-out infinite; }
+.meg-sketch-bg .s2{ top: 60vh;  left: 8vw;   width: 210px; animation: megShakeB 4.1s ease-in-out infinite; }
+.meg-sketch-bg .s3{ top: 20vh;  right: 6vw;  width: 150px; animation: megShakeB 3.7s ease-in-out infinite; }
+.meg-sketch-bg .s4{ bottom: 8vh; right: 5vw; width: 240px; animation: megShakeA 4.6s ease-in-out infinite; }
+
+@keyframes megShakeA{
+  0%,100%{ transform: translateX(0) rotate(-3deg); }
+  25%{ transform: translateX(-14px) rotate(3deg); }
+  50%{ transform: translateX(0) rotate(-2deg); }
+  75%{ transform: translateX(14px) rotate(3deg); }
+}
+@keyframes megShakeB{
+  0%,100%{ transform: translateX(0) rotate(2deg); }
+  25%{ transform: translateX(12px) rotate(-3deg); }
+  50%{ transform: translateX(0) rotate(2deg); }
+  75%{ transform: translateX(-12px) rotate(-3deg); }
+}
+
+/* hide on small screens so the sketches don't crowd mobile reading */
+@media (max-width: 760px){
+  .meg-sketch-bg .meg-sketch{ opacity: 0.22; width: 110px !important; }
+  .meg-sketch-bg .s2, .meg-sketch-bg .s4{ width: 150px !important; }
+}
+/* respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce){
+  .meg-sketch-bg .meg-sketch{ animation: none; }
+}
+</style>
+
 It's official — our Euro Summer has started. After chasing summer throughout Asia, we high-tailed it to Europe, just narrowly escaping before the big bad monsoon season hit. I have never been more thankful to be out of the wet-towel humidity blanket we endured. We started out in Istanbul for 48 hours before heading to Georgia. We had a plan that we needed to make a plan. We were planning to do some planning — but after Istanbul.
 
 Europe, America's Playground, has many, many benefits and three big cons: cost, competition, and air conditioning. The first two can be easily solved for most vacations with time and by choosing one's location carefully. While Ryker and I can be choosy about our locations, time in this sense is not something we have. We have settled into an operating rhythm of booking our accommodations, transport, and activities about 48 hours before we need them. This is not possible in Europe — the closer to the date of arrival, the higher the costs, and the more tourists, and therefore higher prices (that Intro to Econ course coming in handy). It turns out when constantly traveling the world, there are no breaks and no time to plan what to do next. That time needs to be carefully carved out into our daily schedule. We knew we needed to dedicate time in Georgia to planning ahead.
