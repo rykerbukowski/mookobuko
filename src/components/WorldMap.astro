@@ -17,6 +17,7 @@
         <span class="legend-item"><span class="legend-line flight"></span> Flight</span>
         <span class="legend-item"><span class="legend-line bike"></span> Bike</span>
         <span class="legend-item"><span class="legend-line train"></span> Train</span>
+        <span class="legend-item"><span class="legend-line walk"></span> Walk</span>
       </div>
     </div>
   </div>
@@ -59,14 +60,50 @@ document.addEventListener("DOMContentLoaded", function() {
     { name: "Tbilisi II", lat: 41.82, lon: 44.93, dates: "Back to Georgia", status: "done", color: "#F59E0B", slug: null, heroImage: null, travel: "flight", description: "FlyOne back. Then drove west through the Georgian countryside." },
     { name: "Kutaisi", lat: 42.18, lon: 42.48, dates: "Georgian coast", status: "done", color: "#15803D", slug: null, heroImage: null, travel: "drive", description: "Rental car road trip to the coast, flew out to Greece." },
     { name: "Aegina", lat: 37.75, lon: 23.43, dates: "Jun - Jul", status: "done", color: "#0EA5E9", slug: null, heroImage: null, travel: "flight", description: "Island life off the coast of Athens. One week in the sun." },
-    { name: "Bucharest", lat: 44.43, lon: 26.10, dates: "Jul", status: "done", color: "#E11D48", slug: null, heroImage: null, travel: "flight", description: "Eastern Europe begins. Mom joined the trip!" },
-    { name: "Brasov", lat: 45.66, lon: 25.61, dates: "Jul", status: "done", color: "#DC2626", slug: null, heroImage: null, travel: "train", description: "Transylvania, Dracula's castle and Carpathian views." },
-    { name: "Budapest", lat: 47.50, lon: 19.04, dates: "Jul", status: "done", color: "#F97316", slug: null, heroImage: null, travel: "flight", description: "Thermal baths and ruin bars." },
-    { name: "Krakow", lat: 50.06, lon: 19.94, dates: "Jul", status: "done", color: "#7C3AED", slug: null, heroImage: null, travel: "flight", description: "Old town, pierogis and salt mines." },
+    { name: "Bucharest", lat: 44.43, lon: 26.10, dates: "Jul", status: "done", color: "#E11D48", slug: "/posts/eastern-europe", heroImage: "/media/posts/21/gallery/umbrella-street-couple.jpg", travel: "flight", description: "Eastern Europe begins. Mom joined the trip!" },
+    { name: "Brasov", lat: 45.66, lon: 25.61, dates: "Jul", status: "done", color: "#DC2626", slug: "/posts/eastern-europe", heroImage: "/media/posts/21/gallery/bran-castle-trio-selfie.jpg", travel: "train", description: "Transylvania, Dracula's castle and Carpathian views." },
+    { name: "Budapest", lat: 47.50, lon: 19.04, dates: "Jul", status: "done", color: "#F97316", slug: "/posts/eastern-europe", heroImage: "/media/posts/21/gallery/parliament-danube-day.jpg", travel: "flight", description: "Thermal baths and ruin bars." },
+    { name: "Krakow", lat: 50.06, lon: 19.94, dates: "Jul", status: "done", color: "#7C3AED", slug: "/posts/eastern-europe", heroImage: "/media/posts/21/gallery/salt-mine-chapel-hall.jpg", travel: "flight", description: "Old town, pierogis and salt mines." },
     { name: "Tirana", lat: 41.33, lon: 19.82, dates: "Jul", status: "done", color: "#DC2626", slug: null, heroImage: null, travel: "flight", description: "Albania's colorful, chaotic capital." },
-    { name: "Lake Ohrid", lat: 41.11, lon: 20.80, dates: "Now", status: "current", color: "#FFD93D", slug: null, heroImage: null, travel: "drive", description: "One of Europe's oldest and deepest lakes." },
-    { name: "Prizren", lat: 42.21, lon: 20.74, dates: "Up next", status: "upcoming", color: "#1a4d8f", slug: null, heroImage: null, description: "Kosovo's cultural heart." },
-    { name: "Peja", lat: 42.66, lon: 20.29, dates: "Soon", status: "upcoming", color: "#1a4d8f", slug: null, heroImage: null, description: "Mountains, monasteries and the Rugova Gorge." }
+    { name: "Lake Ohrid", lat: 41.11, lon: 20.80, dates: "Jul - Aug", status: "done", color: "#FFD93D", slug: null, heroImage: null, travel: "drive", description: "One of Europe's oldest and deepest lakes." },
+    { name: "Prizren", lat: 42.21, lon: 20.74, dates: "Aug", status: "done", color: "#1a4d8f", slug: null, heroImage: null, travel: "drive", description: "Kosovo's cultural heart." },
+    { name: "Theth", lat: 42.40, lon: 19.77, dates: "Aug", status: "done", color: "#15803D", slug: null, heroImage: null, travel: "drive", description: "Remote valley village in the Albanian Alps." },
+    { name: "Valbona", lat: 42.45, lon: 19.89, dates: "Aug", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "walk", description: "Hiked over the pass from Theth." },
+    { name: "Shkoder", lat: 42.07, lon: 19.51, dates: "Aug", status: "done", color: "#DC2626", slug: null, heroImage: null, travel: "drive", description: "Back down from the mountains to the lake." },
+    { name: "Ulcinj", lat: 41.93, lon: 19.22, dates: "Aug", status: "done", color: "#0891B2", slug: null, heroImage: null, travel: "drive", description: "Montenegro's southern beach town." },
+    { name: "Kotor", lat: 42.42, lon: 18.77, dates: "Aug", status: "done", color: "#0EA5E9", slug: null, heroImage: null, travel: "drive", description: "Walled old town on the Bay of Kotor." },
+    { name: "Mostar", lat: 43.34, lon: 17.81, dates: "Aug", status: "done", color: "#F59E0B", slug: null, heroImage: null, travel: "drive", description: "Bosnia and the famous Old Bridge." },
+    { name: "Dubrovnik", lat: 42.65, lon: 18.09, dates: "Aug", status: "done", color: "#FF6B6B", slug: null, heroImage: null, travel: "drive", description: "Croatia's walled city on the Adriatic." },
+    { name: "Makarska", lat: 43.30, lon: 17.02, dates: "Aug", status: "done", color: "#00C9A7", slug: null, heroImage: null, travel: "drive", description: "Dalmatian coast road trip begins." },
+    { name: "Omis", lat: 43.44, lon: 16.69, dates: "Aug", status: "done", color: "#87CEEB", slug: null, heroImage: null, travel: "drive", description: "Where the river canyon meets the sea." },
+    { name: "Split", lat: 43.51, lon: 16.44, dates: "Aug - Sep", status: "done", color: "#8B5CF6", slug: null, heroImage: null, travel: "drive", description: "Last stop on the Croatian coast." },
+    { name: "London", lat: 51.51, lon: -0.13, dates: "Sep", status: "done", color: "#E11D48", slug: null, heroImage: null, travel: "flight", description: "Flew in from Split." },
+    { name: "St Bees", lat: 54.49, lon: -3.59, dates: "Sep 14", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "train", description: "Start of the Coast to Coast walk." },
+    { name: "Grasmere", lat: 54.46, lon: -3.02, dates: "Sep 17", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "walk", description: "Coast to Coast through the Lake District." },
+    { name: "Kirkby Stephen", lat: 54.47, lon: -2.35, dates: "Sep 21", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "walk", description: "Coast to Coast, past the halfway point." },
+    { name: "Richmond", lat: 54.40, lon: -1.74, dates: "Sep 24", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "walk", description: "Coast to Coast through the Yorkshire Dales." },
+    { name: "Robin Hood's Bay", lat: 54.43, lon: -0.53, dates: "Sep 30", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "walk", description: "Finished the Coast to Coast: 16 days of walking." },
+    { name: "Glasgow", lat: 55.86, lon: -4.25, dates: "Oct", status: "done", color: "#3B82F6", slug: null, heroImage: null, travel: "train", description: "Scotland begins." },
+    { name: "Troon", lat: 55.54, lon: -4.66, dates: "Oct", status: "done", color: "#15803D", slug: null, heroImage: null, travel: "drive", description: "Seaside town on the Ayrshire coast." },
+    { name: "Edinburgh", lat: 55.95, lon: -3.19, dates: "Oct", status: "done", color: "#7B2D8E", slug: null, heroImage: null, travel: "drive", description: "Scotland's castle-topped capital." },
+    { name: "Melrose", lat: 55.60, lon: -2.72, dates: "Oct", status: "done", color: "#F97316", slug: null, heroImage: null, travel: "drive", description: "Abbey town in the Scottish Borders." },
+    { name: "Dublin", lat: 53.35, lon: -6.26, dates: "Oct", status: "done", color: "#10B981", slug: null, heroImage: null, travel: "flight", description: "Ireland road trip begins." },
+    { name: "Cork", lat: 51.90, lon: -8.47, dates: "Oct", status: "done", color: "#22C55E", slug: null, heroImage: null, travel: "drive", description: "Down to Ireland's south coast." },
+    { name: "Killarney", lat: 52.06, lon: -9.50, dates: "Oct", status: "done", color: "#15803D", slug: null, heroImage: null, travel: "drive", description: "Lakes and mountains of County Kerry." },
+    { name: "Doolin", lat: 53.01, lon: -9.38, dates: "Oct", status: "done", color: "#0891B2", slug: null, heroImage: null, travel: "drive", description: "Trad music and the Cliffs of Moher." },
+    { name: "Galway", lat: 53.27, lon: -9.06, dates: "Oct", status: "done", color: "#FF3CAC", slug: null, heroImage: null, travel: "drive", description: "Colorful city on the west coast." },
+    { name: "Sligo", lat: 54.28, lon: -8.48, dates: "Oct", status: "done", color: "#0EA5E9", slug: null, heroImage: null, travel: "drive", description: "Up the Wild Atlantic Way." },
+    { name: "Derry", lat: 55.00, lon: -7.31, dates: "Oct", status: "done", color: "#E11D48", slug: null, heroImage: null, travel: "drive", description: "Walled city in Northern Ireland." },
+    { name: "Paris", lat: 48.86, lon: 2.35, dates: "Oct - Nov", status: "done", color: "#FF6B6B", slug: null, heroImage: null, travel: "flight", description: "The City of Light." },
+    { name: "Amsterdam", lat: 52.37, lon: 4.90, dates: "Nov", status: "done", color: "#F59E0B", slug: null, heroImage: null, travel: "train", description: "Canals and bikes everywhere." },
+    { name: "Tokyo III", lat: 35.63, lon: 139.80, dates: "Nov", status: "done", color: "#FF6B6B", slug: null, heroImage: null, travel: "flight", description: "Back in Japan. Round three!" },
+    { name: "Hiroshima", lat: 34.39, lon: 132.46, dates: "Now", status: "current", color: "#FF3CAC", slug: null, heroImage: null, travel: "train", description: "Took the train down from Tokyo." },
+    { name: "Onomichi II", lat: 34.40, lon: 133.21, dates: "Up next", status: "upcoming", color: "#A855F7", slug: null, heroImage: null, description: "Back to the start of the Shimanami Kaido." },
+    { name: "Maibara", lat: 35.31, lon: 136.29, dates: "Soon", status: "upcoming", color: "#0891B2", slug: null, heroImage: null, description: "East shore of Lake Biwa." },
+    { name: "Imazu", lat: 35.41, lon: 136.03, dates: "Soon", status: "upcoming", color: "#0891B2", slug: null, heroImage: null, description: "North shore of Lake Biwa." },
+    { name: "Otsu", lat: 35.02, lon: 135.86, dates: "Soon", status: "upcoming", color: "#0891B2", slug: null, heroImage: null, description: "South tip of Lake Biwa." },
+    { name: "Kanazawa", lat: 36.56, lon: 136.66, dates: "Soon", status: "upcoming", color: "#F59E0B", slug: null, heroImage: null, description: "Gardens, geisha districts and gold leaf." },
+    { name: "Tokyo IV", lat: 35.70, lon: 139.77, dates: "Soon", status: "upcoming", color: "#FF6B6B", slug: null, heroImage: null, description: "Tokyo, one more time." }
   ];
 
   // Init map centered to span the full route (Japan to Eastern Europe)
@@ -131,6 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
       s.weight = 2; s.opacity = active ? 0.6 : 0.3; s.dashArray = "2, 7"; // dotted
     } else if (travel === "drive") {
       s.weight = 3; s.opacity = active ? 0.7 : 0.3; s.dashArray = "12, 4"; // long dash
+    } else if (travel === "walk") {
+      s.weight = 3; s.opacity = active ? 0.8 : 0.3; s.dashArray = "8, 4, 1, 4"; // dash-dot
     } else {
       s.weight = 2.5; s.opacity = active ? 0.6 : 0.3; s.dashArray = "8, 6"; // flight: dashed
     }
@@ -144,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var toDone = to.status === "done" || to.status === "current";
     var active = fromDone && toDone;
     var travel = to.travel || "flight";
-    var curveFactor = (travel === "bike" || travel === "train") ? 0.04 : 0.15;
+    var curveFactor = (travel === "bike" || travel === "train" || travel === "walk") ? 0.04 : 0.15;
     var curvePoints = getCurvePoints([from.lat, from.lon], [to.lat, to.lon], 50, curveFactor);
     L.polyline(curvePoints, pathStyle(travel, to.color, active)).addTo(map);
   }
@@ -394,6 +433,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .legend-line.flight { border-top-style: dashed; border-top-width: 2px; }
   .legend-line.bike { border-top-style: solid; border-top-width: 3px; border-color: #06B6D4; }
   .legend-line.train { border-top-style: dotted; border-top-width: 2px; }
+  .legend-line.walk { border-top-style: dashed; border-top-width: 3px; border-color: #10B981; }
 
   @media (max-width: 768px) {
     .world-map-section { padding: 4rem 1rem; }
