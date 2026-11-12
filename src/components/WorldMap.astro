@@ -271,7 +271,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<style>
+<!-- is:global because Leaflet builds the markers, labels and popups in JS, so scoped styles never reach them -->
+<style is:global>
   .world-map-section {
     padding: 6rem 2rem;
     background: var(--cream);
