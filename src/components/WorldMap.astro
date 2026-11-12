@@ -120,18 +120,19 @@ document.addEventListener("DOMContentLoaded", function() {
   // Add zoom control to bottom-left
   L.control.zoom({ position: "bottomleft" }).addTo(map);
 
-  // CartoDB Voyager tiles - clean, muted, modern
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png", {
-    subdomains: "abcd",
-    maxZoom: 19
+  // Esri Light Gray Canvas tiles - clean, muted, no API key (CartoDB started requiring one)
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 16
   }).addTo(map);
 
-  // Optional: add subtle labels layer on top
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png", {
-    subdomains: "abcd",
-    maxZoom: 19,
+  // Subtle labels layer on top
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 16,
     opacity: 0.4
   }).addTo(map);
+
+  // Esri's terms require a credit line
+  L.control.attribution({ position: "topright", prefix: false }).addAttribution("Tiles &copy; Esri").addTo(map);
 
   // Draw flight paths as curved lines
   function getCurvePoints(latlng1, latlng2, numPoints, curveFactor) {
