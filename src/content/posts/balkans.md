@@ -18,7 +18,11 @@ status: "published"
 
 What are the Balkans exactly? I pictured rugged mountains and cliffs that drop off into the ocean. War. Civil unrest. Communism. That's what most people, people who lived through the 90s, associate with the term. The region takes its name from the Balkan Mountains, stretched throughout Bulgaria. Generally they include the countries pictured here. Ryker and I decided to make the jump to the Balkans for banal reasons: money and visas.
 
+<img loading="lazy" src="/media/posts/22/gallery/balkans-route-map.jpg" alt="Our red route line looping through the Balkans, from Croatia down through Albania and Greece and back up to Romania" />
+
 On the money front: July and August are some of the worst times to travel, because everyone else is traveling. All of Europe is on holiday and does a massive house-swap, but on a country-wide scale. The British are in Bulgaria, the Irish head to Italy, the Italians to Ireland, the Germans are everywhere. And for some reason you can always count on the Australians (I can't figure out when their "working season" would be) to be traversing the globe. Generally speaking, Europeans move to coastal destinations, usually in cheaper European countries than their own (and I am calling it now that the Nordics are going to be the new Greece for summertime holidays if global warming keeps rearing its ugly head). Anyways, Ryker and I are caught up in the whirlwind of summer travel that is overtaking the continent. The Balkans and most of Eastern Europe are more thrifty than the classic West.
+
+<img loading="lazy" src="/media/posts/22/gallery/schengen-zone-map.jpg" alt="Map of Europe color-coded by EU and Schengen membership" />
 
 The other and much more dominant factor was the infamous Schengen Zone. If you don't know what the Schengen Zone is, it's a pact amongst the entire European Union plus Switzerland and Iceland to exclude Americans, Australians and now the British from the party. Incredibly rude if you ask me (an American). A couple of kids, however, have yet to ever get invited to this party. Not for lack of trying; all of these kids apply and beg year after year for EU membership, but it has yet to be granted. Those places are a goldmine for travelers looking to duck out of the EU and not accidentally get deported or arrested for overstaying a visa. Which is how we ended up in Albania.
 
