@@ -1,7 +1,7 @@
 ---
 title: "Eastern Europe with Janine"
 subtitle: "Vampires, a heat wave Airbnb feud, and a mom who licks salt mines"
-date: 2026-07-06
+date: 2026-07-29
 location: "Romania, Hungary & Poland"
 locationEmoji: "🇷🇴"
 heroImage: "/media/posts/21/gallery/bran-castle-trio-selfie.jpg"
